@@ -1,4 +1,4 @@
 node_modules
-db_credentials.php
+../private/db_credentials.php
 
 
