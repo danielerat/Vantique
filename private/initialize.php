@@ -8,6 +8,7 @@ ob_start(); // turn on output buffering
 define("PRIVATE_PATH", dirname(__FILE__));
 define("PROJECT_PATH", dirname(PRIVATE_PATH));
 define("PUBLIC_PATH", PROJECT_PATH . '/public');
+define("STAFF_PATH", PROJECT_PATH . '/public/staff');
 define("SHARED_PATH", PRIVATE_PATH . '/shared');
 
 // Assign the root URL to a PHP constant
@@ -29,27 +30,23 @@ require_once('validation_functions.php');
 // Load class definitions manually
 // -> Individually
 require_once('classes/databaseobject.class.php');
+require_once('classes/product.class.php');
+/*
 require_once('classes/bicycle.class.php');
 require_once('classes/admin.class.php');
 require_once('classes/session.class.php');
-require_once('classes/pagination.class.php');
+require_once('classes/pagination.class.php');*/
+
 // -> All classes in directory
 // foreach (glob(PRIVATE_PATH . "/classes/*.class.php") as $file) {
 //     require_once($file);
 // }
 
-// Autoload class definitions
-function my_autoload($class)
-{
-    if (preg_match('/\A\w+\Z/', $class)) {
-        include('classes/' . $class . '.class.php');
-    }
-}
-spl_autoload_register('my_autoload');
 
 
-
+/*
 $db = db_connect();
 DatabaseObject::set_database($db);
 
 $session = new Session;
+*/
