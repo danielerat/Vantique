@@ -10,6 +10,7 @@ define("PROJECT_PATH", dirname(PRIVATE_PATH));
 define("PUBLIC_PATH", PROJECT_PATH . '/public');
 define("STAFF_PATH", PROJECT_PATH . '/public/staff');
 define("SHARED_PATH", PRIVATE_PATH . '/shared');
+define("UPLOAD_PRODUCT_PATH", PRIVATE_PATH . '/uploads');
 
 // Assign the root URL to a PHP constant
 // * Do not need to include the domain
@@ -26,11 +27,16 @@ require_once('functions.php');
 require_once('db_credentials.php');
 require_once('db_functions.php');
 require_once('validation_functions.php');
+require_once('status_error_functions.php');
 
 // Load class definitions manually
 // -> Individually
 require_once('classes/databaseobject.class.php');
 require_once('classes/product.class.php');
+require_once('classes/category.class.php');
+require_once('classes/productcategory.class.php');
+require_once('classes/productimage.class.php');
+require_once('classes/session.class.php');
 /*
 require_once('classes/bicycle.class.php');
 require_once('classes/admin.class.php');
@@ -44,9 +50,8 @@ require_once('classes/pagination.class.php');*/
 
 
 
-/*
+
 $db = db_connect();
 DatabaseObject::set_database($db);
 
 $session = new Session;
-*/

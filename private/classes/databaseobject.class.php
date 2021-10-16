@@ -101,22 +101,21 @@ class DatabaseObject
     // Create A Record
     protected function create()
     {
-        $this->validate();
-        if (!empty($this->errors)) {
-            return "False";
-        }
+        // $this->validate();
+        // if (!empty($this->errors)) {
+        //     return "False";
+        // }
         $attributes = $this->sanitize_attributes();
         $sql = "INSERT INTO " . static::$table_name . " (";
         $sql .= join(',', array_keys($attributes));
         $sql .= ") values('";
         $sql .= join("','", array_values($attributes));
         $sql .= "');";
-
         $result = self::$db->query($sql);
         if ($result) {
             $this->id = self::$db->insert_id;
         }
-        return $result;
+        return $sql;
     }
 
 
