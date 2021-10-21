@@ -54,6 +54,7 @@ class DatabaseObject
     {
         $sql = "SELECT * FROM " . static::$table_name;
         $sql .= " where id='" . self::$db->escape_string($id) . "'";
+
         $object_array = static::find_by_sql($sql);
         if (!empty($object_array)) {
             // Since it's only one object then thre is no need to retrun a whole array with data 
@@ -87,7 +88,6 @@ class DatabaseObject
 
 
 
-
     // Functions to Do The crud Operations on our Instance
 
     protected function validate()
@@ -103,7 +103,7 @@ class DatabaseObject
     {
         // $this->validate();
         // if (!empty($this->errors)) {
-        //     return "False";
+        //     return false;
         // }
         $attributes = $this->sanitize_attributes();
         $sql = "INSERT INTO " . static::$table_name . " (";
@@ -111,11 +111,12 @@ class DatabaseObject
         $sql .= ") values('";
         $sql .= join("','", array_values($attributes));
         $sql .= "');";
+
         $result = self::$db->query($sql);
         if ($result) {
             $this->id = self::$db->insert_id;
         }
-        return $sql;
+        return true;
     }
 
 
@@ -184,7 +185,6 @@ class DatabaseObject
         $sql .= "Limit 1";
         $result = self::$db->query($sql);
         return $result;
-
         // After Deleting the instance of the object it will still 
         // Exist , even though the database record does not 
         // this can be useful , as in : 

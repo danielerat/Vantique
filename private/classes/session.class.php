@@ -10,13 +10,23 @@ class Session
     private $admin_id;
     public $username;
     private $last_login;
+    public $uploadStatus;
+
 
     public const MAX_LOGIN_AGE = 60 * 60 * 24; // 1 day
 
     public function __construct()
     {
         session_start();
+        $this->uploadStatus = false;
         $this->check_stored_login();
+    }
+    public function uploadStatus($status)
+    {
+        // prevent session fixation attacks
+        session_regenerate_id();
+        $_SESSION['uploadStatus'] = $status;
+        return $status;
     }
 
     public function login($admin)

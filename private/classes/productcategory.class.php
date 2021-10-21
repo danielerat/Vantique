@@ -3,15 +3,39 @@
 class ProductCategory extends DatabaseObject
 {
     static protected $table_name = 'ProductCategory';
-    static protected $db_columns = ["id", "productId", "CategoryId"];
+    static protected $db_columns = ["id", "productId", "categoryId"];
 
     public $id;
     public $productId;
-    public $CategoryId;
-
+    public $categoryId;
     public function __construct($args = [])
     {
         $this->productId = $args['productId'] ?? '';
-        $this->CategoryId = $args['CategoryId'] ?? '';
+        $this->categoryId = $args['categoryId'] ?? '';
+    }
+    static public function find_by_id($id)
+    {
+        $sql = "SELECT * FROM " . static::$table_name;
+        $sql .= " where productId='" . self::$db->escape_string($id) . "'";
+        return static::find_by_sql($sql);
+    }
+    public function delete_by_product($id)
+    {
+        $sql = "DELETE FROM " . static::$table_name;
+        $sql .= " WHERE productId='" . self::$db->escape_string($id) . "' ";
+        $result = self::$db->query($sql);
+        return $result;
+    }
+
+    static public function count_product_by_cat($categoryId)
+    {
+        $sql = "SELECT count(*) FROM " . static::$table_name;
+        $sql .= " WHERE categoryId ='" . self::$db->escape_string($categoryId) . "';";
+        /* Since we are going to find a single row with a single valur
+         No need to call the fancy find_by_sql function 
+        Instead we are goin to use a fetch array on a resultset*/
+        $result_set = self::$db->query($sql);
+        $row = $result_set->fetch_array();
+        return array_shift($row);
     }
 }

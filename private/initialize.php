@@ -11,6 +11,7 @@ define("PUBLIC_PATH", PROJECT_PATH . '/public');
 define("STAFF_PATH", PROJECT_PATH . '/public/staff');
 define("SHARED_PATH", PRIVATE_PATH . '/shared');
 define("UPLOAD_PRODUCT_PATH", PRIVATE_PATH . '/uploads');
+define("S_PRIVATE",  '/vantique/vantique/private/');
 
 // Assign the root URL to a PHP constant
 // * Do not need to include the domain
@@ -21,7 +22,7 @@ define("UPLOAD_PRODUCT_PATH", PRIVATE_PATH . '/uploads');
 // * Can dynamically find everything in URL up to "/public"
 $public_end = strpos($_SERVER['SCRIPT_NAME'], '/public') + 7;
 $doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
-define("WWW_ROOT", $doc_root);
+define("WWW_ROOT", "/vantique/vantique/private/");
 
 require_once('functions.php');
 require_once('db_credentials.php');

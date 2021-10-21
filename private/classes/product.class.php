@@ -1,22 +1,23 @@
 <?php
 
-class Product extends DatabaseObject
+class product extends DatabaseObject
 {
 
     static protected $table_name = 'product';
-    static protected $db_columns = ["id", "ProductName", "ProductPrice", "ProductDesc", "ProductThumb", "ProductUnlimited", "ProductUploadDate"];
+    static protected $db_columns = ["id", "productName", "productPrice", "productDesc", "productThumb", "productUnlimited", "addedBy", "productUploadDate"];
 
     public $id;
-    public $ProductName;
-    public $ProductPrice;
-    public $ProductCategory = [];
-    public $ProductDesc;
-    public $ProductThumb;
-    public $ProductUnlimited;
-    public $ProductUploadDate;
+    public $productName;
+    public $productPrice;
+    public $productCategory = [];
+    public $productDesc;
+    public $productThumb;
+    public $productUnlimited;
+    public $addedBy;
+    public $productUploadDate;
 
     //Used TO hold All Thumbnails
-    public $ProductThumbnails = [];
+    public $productThumbnails = [];
 
     public const CONDITION_OPTIONS = [
         1 => 'Beat up',
@@ -28,18 +29,21 @@ class Product extends DatabaseObject
 
     public function __construct($args = [])
     {
-        $this->ProductName = $args['ProductName'] ?? '';
-        $this->ProductPrice = $args['ProductPrice'] ?? '';
-        $this->ProductDesc = $args['ProductDesc'] ?? '';
-        $this->ProductThumb = $args['ProductThumb'] ?? '';
-        $this->ProductUnlimited = $args['ProductUnlimited'] ?? '1';
-        $this->ProductUploadDate = $args['ProductUploadDate'] ?? date('Y-m-d H:i:s');
+        $this->productName = $args['productName'] ?? '';
+        $this->productCategory = $args['productCategory'] ?? "";
+        $this->productPrice = $args['productPrice'] ?? '';
+        $this->productDesc = $args['productDesc'] ?? '';
+        $this->productThumb = $args['productThumb'] ?? '';
+        $this->productUnlimited = $args['productUnlimited'] ?? 1;
+        $this->addedBy = $args['addedBy'] ?? 'administrator';
+        $this->productUploadDate = $args['productUploadDate'] ?? date('Y-m-d H:i:s');
         // Caution: allows private/protected properties to be set
         // foreach($args as $k => $v) {
         //   if(property_exists($this, $k)) {
         //     $this->$k = $v;
         //   }
         // }
+
     }
 
     // public function name()
@@ -86,7 +90,7 @@ class Product extends DatabaseObject
             return False;
         }
         $attributes = $this->sanitize_attributes();
-        unset($attributes["ProductUploadDate"]);
+        unset($attributes["productUploadDate"]);
         $sql = "INSERT INTO " . static::$table_name . " (";
         $sql .= join(',', array_keys($attributes));
         $sql .= ") values('";
@@ -96,41 +100,235 @@ class Product extends DatabaseObject
         $result = self::$db->query($sql);
         if ($result) {
             $this->id = self::$db->insert_id;
-            foreach ($this->ProductCategory as $test) {
-                $InsertCategory = new ProductCategory(["productId" => $this->id, "CategoryId" => $test]);
+
+            foreach ($this->productCategory as $test) {
+
+                $InsertCategory = new ProductCategory(["productId" => $this->id, "categoryId" => $test]);
                 $InsertCategory->save();
             }
-            foreach ($this->ProductThumbnails as $thumb) {
-                $InsertCategory = new ProductImage(["productId" => $this->id, "image" => $thumb]);
-                $InsertCategory->save();
+            foreach ($this->productThumbnails as $thumb) {
+                $InsertThumbnail = new ProductImage(["productId" => $this->id, "image" => $thumb]);
+                $InsertThumbnail->save();
             }
         }
         return $result;
     }
 
 
-
-
-
     protected function validate()
     {
         $this->errors = [];
-        if (is_blank($this->ProductName)) {
+        if (is_blank($this->productName)) {
             $this->errors[] = "Name cannot be blank.";
-        } elseif (!has_length($this->ProductName, array('min' => 2, 'max' => 255))) {
-            $this->errors[] = "Product Name Must have A bigger length than 2";
+        } elseif (!has_length($this->productName, array('min' => 2, 'max' => 255))) {
+            $this->errors[] = "product Name Must have A bigger length than 2";
         }
-        if (is_blank($this->ProductPrice)) {
-            $this->errors[] = "Product Must Have A price";
-        } elseif (!is_an_integer($this->ProductPrice)) {
+        if (is_blank($this->productPrice)) {
+            $this->errors[] = "product Must Have A price";
+        } elseif (!is_an_integer($this->productPrice)) {
             $this->errors[] = "Price Must Be Given As A number ";
         }
-        if (is_blank($this->ProductDesc)) {
+        if (is_blank($this->productDesc)) {
             $this->errors[] = "Must Have A description";
-        } elseif (!has_length_greater_than($this->ProductDesc, 10)) {
-            $this->errors[] = "Product Name Must have A bigger Description at least 10 Characted";
+        } elseif (!has_length_greater_than($this->productDesc, 10)) {
+            $this->errors[] = "product Name Must have A bigger Description at least 10 Characted";
         }
 
         return $this->errors;
+    }
+
+
+
+
+
+
+
+
+
+
+    // Validation and image Processin Functions 
+    public const IMAGE_HANDLERS = [
+        IMAGETYPE_JPEG => [
+            'load' => 'imagecreatefromjpeg',
+            'save' => 'imagejpeg',
+            'quality' => 0
+        ],
+        IMAGETYPE_PNG => [
+            'load' => 'imagecreatefrompng',
+            'save' => 'imagepng',
+            'quality' => 9
+        ],
+        IMAGETYPE_GIF => [
+            'load' => 'imagecreatefromgif',
+            'save' => 'imagegif',
+            'quality' => 0
+        ]
+    ];
+
+
+    static function createThumbnail($src, $dest, $targetWidth, $targetHeight = null)
+    {
+        // 1. Load the image from the given $src
+        // - see if the file actually exists
+        // - check if it's of a valid image type
+        // - load the image resource
+
+        // get the type of the image
+        // we need the type to determine the correct loader
+        $type = exif_imagetype($src);
+
+        // if no valid type or no handler found -> exit
+        if (!$type || !self::IMAGE_HANDLERS[$type]) {
+            return null;
+        }
+
+        // load the image with the correct loader
+        $image = call_user_func(self::IMAGE_HANDLERS[$type]['load'], $src);
+
+        // no image found at supplied location -> exit
+        if (!$image) {
+            return null;
+        }
+
+
+        // 2. Create a thumbnail and resize the loaded $image
+        // - get the image dimensions
+        // - define the output size appropriately
+        // - create a thumbnail based on that size
+        // - set alpha transparency for GIFs and PNGs
+        // - draw the final thumbnail
+
+        // get original image width and height
+        $width = imagesx($image);
+        $height = imagesy($image);
+
+        // maintain aspect ratio when no height set
+        if ($targetHeight == null) {
+
+            // get width to height ratio
+            $ratio = $width / $height;
+
+            // if is portrait
+            // use ratio to scale height to fit in square
+            if ($width > $height) {
+                $targetHeight = floor($targetWidth / $ratio);
+            }
+            // if is landscape
+            // use ratio to scale width to fit in square
+            else {
+                $targetHeight = $targetWidth;
+                $targetWidth = floor($targetWidth * $ratio);
+            }
+        }
+
+        // create duplicate image based on calculated target size
+        $thumbnail = imagecreatetruecolor($targetWidth, $targetHeight);
+
+        // set transparency options for GIFs and PNGs
+        if ($type == IMAGETYPE_GIF || $type == IMAGETYPE_PNG) {
+
+            // make image transparent
+            imagecolortransparent(
+                $thumbnail,
+                imagecolorallocate($thumbnail, 0, 0, 0)
+            );
+
+            // additional settings for PNGs
+            if ($type == IMAGETYPE_PNG) {
+                imagealphablending($thumbnail, false);
+                imagesavealpha($thumbnail, true);
+            }
+        }
+
+        // copy entire source image to duplicate image and resize
+        imagecopyresampled(
+            $thumbnail,
+            $image,
+            0,
+            0,
+            0,
+            0,
+            $targetWidth,
+            $targetHeight,
+            $width,
+            $height
+        );
+
+
+        // 3. Save the $thumbnail to disk
+        // - call the correct save method
+        // - set the correct quality level
+
+        // save the duplicate version of the image to disk
+        return call_user_func(
+            self::IMAGE_HANDLERS[$type]['save'],
+            $thumbnail,
+            $dest,
+            self::IMAGE_HANDLERS[$type]['quality']
+        );
+    }
+
+    static public function image_validation_check($target_file = [], $imageNumber)
+    {
+        $error = [];
+        $imageFileType = [];
+        for ($i = 0; $i < $imageNumber; $i++) {
+            $imageFileType = strtolower(pathinfo($_FILES["productThumb"]["name"][$i], PATHINFO_EXTENSION));
+
+            // Check If Image Is In The Allowed Formats
+            if (
+                $imageFileType != "png"  && $imageFileType != "gif"
+            ) {
+                $error[] =  "Sorry, only  PNG & GIF files are allowed.";
+            }
+            // Check Check Is Selected File is An image
+            $check = getimagesize($_FILES["productThumb"]["tmp_name"][$i]);
+            if ($check == false) {
+                $error[] = "Sorry, File " . ($i + 1) . " Is Not An Image File";
+            }
+            // Check If Image Size Is Not Bigger Than 10MB
+            if ($_FILES["productThumb"]["size"][$i] > 10000000) {
+                $error[] =  "Sorry, Image " . $i . " Is Way Too big .";
+            }
+        }
+        return $error;
+    }
+
+
+    static public function upload_image()
+    {
+        $imageNumber = count($_FILES["productThumb"]["name"]);
+        $newName = uniqid() . "-" . time();
+
+        $filename = [];
+        for ($i = 0; $i < $imageNumber; $i++) {
+            $filename[] = PRIVATE_PATH . "/uploads/" . $newName . $i; // Uploads/5dab1961e93a7-1571494241
+        }
+        $imageFileType = [];
+        for ($i = 0; $i < $imageNumber; $i++) {
+            $imageFileType[] = strtolower(pathinfo($_FILES["productThumb"]["name"][$i], PATHINFO_EXTENSION));
+        }
+        $target_file = [];
+        for ($i = 0; $i < $imageNumber; $i++) {
+            $target_file[] = $filename[$i] . "." . $imageFileType[$i]; //Uploads/323-32.jph
+        }
+
+        $erros =  self::image_validation_check($target_file, $imageNumber);
+
+        if (!empty($erros)) {
+            return ["formatError" => $erros];
+        }
+
+        $sucessUpload = [];
+        for ($i = 0; $i < $imageNumber; $i++) {
+            if (move_uploaded_file($_FILES["productThumb"]["tmp_name"][$i], $target_file[$i])) {
+                $thumb_destination = str_replace("uploads", "uploads/thumb", $target_file[$i]);
+                $thumb = self::createThumbnail($target_file[$i], $thumb_destination, 50, 50);
+                $sucessUpload[] = str_replace(PRIVATE_PATH . "/uploads/", "", $target_file[$i]);
+            } else {
+                $sucessUpload[] = ["uploadStatus" => false];
+            }
+        }
+        return $sucessUpload;
     }
 }

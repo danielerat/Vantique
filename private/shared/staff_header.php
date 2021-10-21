@@ -26,7 +26,7 @@
                 <div class="sidebar-brand-icon">
                     <img src="../img/logo/15.png">
                 </div>
-                <div class="sidebar-brand-text mx-3">RuangAdmin</div>
+                <div class="sidebar-brand-text mx-3">Vantique</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
@@ -40,16 +40,33 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable"
-                    aria-expanded="true" aria-controls="collapseTable">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseadministrator"
+                    aria-expanded="true" aria-controls="collapseadministrator">
+                    <i class="fas fa-fw fa-user-shield"></i>
+                    <span>Administrator</span>
+                </a>
+                <div id="collapseadministrator" class="collapse" aria-labelledby="headingTable"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Products</h6>
+                        <a class="collapse-item" href="products.php">Administrators</a>
+                        <a class="collapse-item" href="products.php">Products</a>
+                        <a class="collapse-item" href="category.php">Category</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
+                    aria-expanded="true" aria-controls="collapseProduct">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Products</span>
                 </a>
-                <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                <div id="collapseProduct" class="collapse" aria-labelledby="headingTable"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Products</h6>
-                        <a class="collapse-item" href="simple-tables.php">View Products</a>
-                        <a class="collapse-item" href="product.php">Add New Product</a>
+                        <a class="collapse-item" href="products.php">Products</a>
+                        <a class="collapse-item" href="add_product.php">Add New Product</a>
                     </div>
                 </div>
             </li>

@@ -2,50 +2,61 @@
 require_once('../../../private/initialize.php');
 
 include(SHARED_PATH . '/staff_header.php');
-
 $category = Category::find_all();
-
+echo  "Status: " . $_SESSION['upload_status'] = false;
 if (is_post_request()) {
-
+    // Error While Doing the uploading things
     $errors = [];
     $args = $_POST['product'];
-    //In the Avatar folder we have pictured called 1.svg...7.svg
-    $args['ProductThumb'] = "default.png";
+    $args["productCategory"] = $_POST['productCategory'];
+    $category = Category::find_categories_by_ids($_POST['productCategory']);
+
+    $args['productThumb'] = "default.png";
     //Check if really there was a file uploaded otherwise it will just get a random name and assign it to the user profile
-    if ((has_presence($_FILES['ProductThumb']['name'][0]) && has_presence($_FILES['ProductThumb']['type'][0])) && $_FILES['ProductThumb']['error'][0] != 4) {
-        $result = upload_image();
+    if ((has_presence($_FILES['productThumb']['name'][0]) && has_presence($_FILES['productThumb']['type'][0])) && $_FILES['productThumb']['error'][0] != 4 && ($_SESSION['upload_status'] == false)) {
+        $result = Product::upload_image();
         if (isset($result["formatError"])) {
             $errors = $result["formatError"];
         } else {
-
             if (!empty($result) && has_presence($result[0])) {
-                $args['ProductThumb'] = $result[0];
+                $args['productThumb'] = $result[0];
             } elseif ($result[0]["uploadStatus"] === false) {
                 $errors[] = "Error Uploading The Images..!";
             }
         }
     }
+    // At first , nothing have been added in the product table
 
     if (empty($errors)) {
-        $args['ProductThumb'] = $result[0];
+        echo "----------Image Uploaded But -----------";
+        //Images Are now Uploaded , no need to upload them again 
+        $_SESSION['upload_status'] = true;
+
+        echo "Upload Status:" .  $_SESSION['upload_status'];
+        $args['productThumb'] = $result[0];
         $product = new Product($args);
-        $product->ProductCategory = $_POST['category'];
         //Get All Uploaded Thumbnails and save them to the array
-        $product->ProductThumbnails = $result;
+        $product->productThumbnails = $result;
         //Inset the Data
         $result = $product->save();
         if ($result === true) {
             $new_id = $product->id;
-            $session->message('Product : ' . $new_id . " Was Successfully Inserted");
+            $session->message("Product Was Successfully Added !");
+            //Everything went well , reset back the session variables   
+            $$_SESSION['upload_status'] = false;
+            redirect_to("view.php?id=" . $product->id);
         } else {
+            //Not Inserted 
             echo display_errors($product->errors);
         }
     } else {
+        $product = new Product($args);
         echo display_errors($errors);
     }
 } else {
     $product = new Product;
 }
+
 echo display_session_message();
 ?>
 <!-- Select2 -->
@@ -70,18 +81,23 @@ echo display_session_message();
 
                         <div class="form-group">
                             <label for="exampleInputPassword1">Product Name</label>
-                            <input type="text" class="form-control" value="<?php echo $product->ProductName; ?>"
-                                name="product[ProductName]" placeholder="*Your Product Name" required>
+                            <input type="text" class="form-control" value="<?php echo $product->productName; ?>"
+                                name="product[productName]" placeholder="*Your Product Name (Min:12Chars)" required>
                         </div>
 
 
                         <div class="form-group">
                             <label for="sl2mul">Product Category</label>
-                            <select class="select2-multiple form-control" name="category[]" multiple="multiple"
+                            <select class="select2-multiple form-control" name="productCategory[]" multiple="multiple"
                                 id="sl2mul">
-                                <option value="">Select</option>
+                                <option disabled="disabled">Select A Category</option>
                                 <?php foreach ($category as $cat) {
-                                    echo  $category = "<option value={$cat->id}>" . $cat->CategoryName . "</option>";
+                                    if (!empty($product->productCategory)) {
+                                        $category = "<option value={$cat->id} selected>" . $cat->categoryName . "</option>";
+                                    } else {
+                                        $category = "<option value={$cat->id}>" . $cat->categoryName . "</option>";
+                                    }
+                                    echo $category;
                                 } ?>
                             </select>
                         </div>
@@ -89,15 +105,15 @@ echo display_session_message();
 
                         <div class="form-group">
                             <label for="tarea">Product Description</label>
-                            <textarea class="form-control" id="tarea" name="product[ProductDesc]" rows="2"
-                                required><?php echo $product->ProductDesc; ?></textarea>
+                            <textarea class="form-control" id="tarea" name="product[productDesc]" rows="2"
+                                required><?php echo $product->productDesc; ?></textarea>
                         </div>
 
 
 
                         <div class="form-group">
                             <div class="custom-file">
-                                <input type="file" name="ProductThumb[]" class="custom-file-input" id="unlst" multiple
+                                <input type="file" name="productThumb[]" class="custom-file-input" id="unlst" multiple
                                     required>
                                 <label class="custom-file-label" for="unlst">Choose file</label>
                             </div>
@@ -110,8 +126,8 @@ echo display_session_message();
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Frw</span>
                             </div>
-                            <input type="text" id="ppr" name="product[ProductPrice]"
-                                value="<?php echo $product->ProductPrice; ?>" class="form-control"
+                            <input type="text" id="ppr" name="product[productPrice]"
+                                value="<?php echo $product->productPrice; ?>" class="form-control"
                                 aria-label="Amount (to the nearest Rwandan)" placeholder="*Price in Rwf" required>
                             <div class="input-group-append">
                                 <span class="input-group-text">.00</span>
