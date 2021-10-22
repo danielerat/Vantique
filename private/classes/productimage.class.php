@@ -23,13 +23,7 @@ class ProductImage extends DatabaseObject
 
 
 
-    public function delete_by_product($id)
-    {
-        $sql = "DELETE FROM " . static::$table_name;
-        $sql .= " WHERE productId='" . self::$db->escape_string($id) . "' ";
-        $result = self::$db->query($sql);
-        return $result;
-    }
+
 
     public function delete_product_images($files)
     {

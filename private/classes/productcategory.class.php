@@ -19,13 +19,9 @@ class ProductCategory extends DatabaseObject
         $sql .= " where productId='" . self::$db->escape_string($id) . "'";
         return static::find_by_sql($sql);
     }
-    public function delete_by_product($id)
-    {
-        $sql = "DELETE FROM " . static::$table_name;
-        $sql .= " WHERE productId='" . self::$db->escape_string($id) . "' ";
-        $result = self::$db->query($sql);
-        return $result;
-    }
+
+
+
 
     static public function count_product_by_cat($categoryId)
     {

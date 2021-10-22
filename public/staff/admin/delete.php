@@ -16,7 +16,7 @@ if (is_post_request()) {
         $product_category = new ProductCategory;
         if ($product_category->delete_by_product($id)) { // Delete ALl Categories assigned to it
             $product_image = new ProductImage;
-
+            $stock = new ProductStock;
             $images = []; //Empty Array to hold our images
             foreach (ProductImage::find_by_id($id)  as $file) {
                 $images[] = $file->image; //Add the images to our array
@@ -24,9 +24,12 @@ if (is_post_request()) {
             $product_image->delete_product_images($images); //Delete All file images in the upload dir
 
             if ($product_image->delete_by_product($id)) { // Delete All the images from the table
-                $session->message("The Product Was Successfully Deleted");
-                header("Location: products.php");
-                exit();
+
+                if ($stock->delete_by_product($id)) {
+                    $session->message("The Product Was Successfully Deleted");
+                    header("Location: products.php");
+                    exit();
+                }
             }
         }
     } else {

@@ -3,17 +3,15 @@ require_once('../../../private/initialize.php');
 
 include(SHARED_PATH . '/staff_header.php');
 $category = Category::find_all();
-echo  "Status: " . $_SESSION['upload_status'] = false;
 if (is_post_request()) {
     // Error While Doing the uploading things
     $errors = [];
     $args = $_POST['product'];
     $args["productCategory"] = $_POST['productCategory'];
     $category = Category::find_categories_by_ids($_POST['productCategory']);
-
     $args['productThumb'] = "default.png";
     //Check if really there was a file uploaded otherwise it will just get a random name and assign it to the user profile
-    if ((has_presence($_FILES['productThumb']['name'][0]) && has_presence($_FILES['productThumb']['type'][0])) && $_FILES['productThumb']['error'][0] != 4 && ($_SESSION['upload_status'] == false)) {
+    if ((has_presence($_FILES['productThumb']['name'][0]) && has_presence($_FILES['productThumb']['type'][0])) && $_FILES['productThumb']['error'][0] != 4) {
         $result = Product::upload_image();
         if (isset($result["formatError"])) {
             $errors = $result["formatError"];
@@ -29,10 +27,7 @@ if (is_post_request()) {
 
     if (empty($errors)) {
         echo "----------Image Uploaded But -----------";
-        //Images Are now Uploaded , no need to upload them again 
-        $_SESSION['upload_status'] = true;
 
-        echo "Upload Status:" .  $_SESSION['upload_status'];
         $args['productThumb'] = $result[0];
         $product = new Product($args);
         //Get All Uploaded Thumbnails and save them to the array
@@ -44,7 +39,7 @@ if (is_post_request()) {
             $session->message("Product Was Successfully Added !");
             //Everything went well , reset back the session variables   
             // $$_SESSION['upload_status'] = false;
-            // redirect_to("view.php?id=" . $product->id);
+            redirect_to("view.php?id=" . $product->id);
         } else {
             //Not Inserted 
             echo display_errors($product->errors);
@@ -56,7 +51,6 @@ if (is_post_request()) {
 } else {
     $product = new Product;
 }
-
 echo display_session_message();
 ?>
 <!-- Select2 -->
@@ -70,8 +64,8 @@ echo display_session_message();
 
 
 <section class="container">
-    <div class="row">
-        <div class="col-6">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-lg-6">
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Form Basic</h6>
@@ -80,9 +74,10 @@ echo display_session_message();
                     <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>" enctype="multipart/form-data">
 
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Product Name</label>
-                            <input type="text" class="form-control" value="<?php echo $product->productName; ?>"
-                                name="product[productName]" placeholder="*Your Product Name (Min:12Chars)" required>
+                            <label for="productName">Product Name</label>
+                            <input type="text" class="form-control" id="productName"
+                                value="<?php echo $product->productName; ?>" name="product[productName]"
+                                placeholder="*Your Product Name (Min:12Chars)" required>
                         </div>
 
 
@@ -119,7 +114,7 @@ echo display_session_message();
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
+                        <div class="input-group my-4">
                             <div class="w-50"><label for="ppr">Product Price
                                     (FRW)</label>
                             </div>
@@ -133,16 +128,32 @@ echo display_session_message();
                                 <span class="input-group-text">.00</span>
                             </div>
                         </div>
+                        <table class="py-3  d-flex align-items-baseline">
+                            <tr>
+                                <td class="w-25">
+                                    <label>Product Unlimited</label>
+                                    <div class="custom-control custom-switch align-self-center">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitchUlimited"
+                                            checked onclick="showquantitybox()">
+                                        <label class="custom-control-label" for="customSwitchUlimited"> *Is
+                                            Unlimited</label>
 
-                        <label>Product Unlimited</label>
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
-                            <label class="custom-control-label" for="customSwitch1"> *Is Unlimited</label>
-                        </div>
+                                    </div>
+                                </td>
+                                <td class="w-25 unlimitedinput d-none">
+                                    <div class="form-group ">
+                                        <label for="productQuantity" class="  mr-3">Quantity</label>
+                                        <input type="text" class="form-control" id="productQuantity"
+                                            value="<?php echo $product->productUnlimited; ?>"
+                                            name="product[productUnlimited]" placeholder="*Quantity" required>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
 
 
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary float-right mt-3">Submit</button>
                     </form>
                 </div>
             </div>
@@ -166,6 +177,17 @@ include(SHARED_PATH . '/staff_footer.php');
 <script src="../js/ruang-admin.min.js"></script>
 <!-- Javascript for this page -->
 <script>
+function showquantitybox() {
+    var unlimited = document.querySelector(".unlimitedinput");
+    unlimited.classList.toggle('d-none');
+    if (!unlimited.classList.contains('d-none')) {
+        document.querySelector("#productQuantity").value = 100;
+    } else {
+        document.querySelector("#productQuantity").value = "x";
+    }
+}
+
+
 $(document).ready(function() {
 
 

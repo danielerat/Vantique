@@ -54,7 +54,6 @@ class DatabaseObject
     {
         $sql = "SELECT * FROM " . static::$table_name;
         $sql .= " where id='" . self::$db->escape_string($id) . "'";
-
         $object_array = static::find_by_sql($sql);
         if (!empty($object_array)) {
             // Since it's only one object then thre is no need to retrun a whole array with data 
@@ -193,6 +192,14 @@ class DatabaseObject
         // But we can not call $user->update() after calling delete 
     }
 
+
+    public function delete_by_product($id)
+    {
+        $sql = "DELETE FROM " . static::$table_name;
+        $sql .= " WHERE productId='" . self::$db->escape_string($id) . "' ";
+        $result = self::$db->query($sql);
+        return $result;
+    }
 
 
 

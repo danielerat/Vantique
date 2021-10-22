@@ -34,7 +34,7 @@ class product extends DatabaseObject
         $this->productPrice = $args['productPrice'] ?? '';
         $this->productDesc = $args['productDesc'] ?? '';
         $this->productThumb = $args['productThumb'] ?? '';
-        $this->productUnlimited = $args['productUnlimited'] ?? 1;
+        $this->productUnlimited = $args['productUnlimited'] ?? 'x';
         $this->addedBy = $args['addedBy'] ?? 'administrator';
         $this->productUploadDate = $args['productUploadDate'] ?? date('Y-m-d H:i:s');
         // Caution: allows private/protected properties to be set
@@ -89,8 +89,19 @@ class product extends DatabaseObject
         if (!empty($this->errors)) {
             return False;
         }
+
+
+
+        $quantity = $this->productUnlimited;
+        if ($this->productUnlimited === 'x' || !is_an_integer($this->productUnlimited)) {
+            $this->productUnlimited = 1;
+        } else {
+            $this->productUnlimited = 0;
+        }
+
+
         $attributes = $this->sanitize_attributes();
-        unset($attributes["productUploadDate"]);
+        unset($attributes["productUploadDate"]); //Has A default in the database
         $sql = "INSERT INTO " . static::$table_name . " (";
         $sql .= join(',', array_keys($attributes));
         $sql .= ") values('";
@@ -100,15 +111,18 @@ class product extends DatabaseObject
         $result = self::$db->query($sql);
         if ($result) {
             $this->id = self::$db->insert_id;
+            $stock = new ProductStock(["productId" => $this->id, "quantity" => $quantity]);
 
-            foreach ($this->productCategory as $test) {
 
-                $InsertCategory = new ProductCategory(["productId" => $this->id, "categoryId" => $test]);
-                $InsertCategory->save();
-            }
-            foreach ($this->productThumbnails as $thumb) {
-                $InsertThumbnail = new ProductImage(["productId" => $this->id, "image" => $thumb]);
-                $InsertThumbnail->save();
+            if ($stock->save()) {
+                foreach ($this->productCategory as $test) {
+                    $InsertCategory = new ProductCategory(["productId" => $this->id, "categoryId" => $test]);
+                    $InsertCategory->save();
+                }
+                foreach ($this->productThumbnails as $thumb) {
+                    $InsertThumbnail = new ProductImage(["productId" => $this->id, "image" => $thumb]);
+                    $InsertThumbnail->save();
+                }
             }
         }
         return $result;
@@ -132,6 +146,11 @@ class product extends DatabaseObject
             $this->errors[] = "Must Have A description";
         } elseif (!has_length_greater_than($this->productDesc, 10)) {
             $this->errors[] = "product Name Must have A bigger Description at least 10 Characted";
+        }
+        if (is_blank($this->productUnlimited)) {
+            $this->errors[] = "Must Have A Quantity";
+        } elseif (!$this->productUnlimited === "x" && !is_an_integer($this->productUnlimited)) {
+            $this->errors[] = "Quantity Must Be an Integer";
         }
 
         return $this->errors;
