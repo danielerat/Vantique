@@ -16,7 +16,6 @@ if (empty($product)) {
 }
 $product_category = Category::find_product_category($id);
 $product_image = ProductImage::find_by_id($id);
-
 echo display_session_message();
 ?>
 <!--Section: Block Content-->

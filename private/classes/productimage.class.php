@@ -21,11 +21,34 @@ class ProductImage extends DatabaseObject
         return static::find_by_sql($sql);
     }
 
+
+
     public function delete_by_product($id)
     {
         $sql = "DELETE FROM " . static::$table_name;
         $sql .= " WHERE productId='" . self::$db->escape_string($id) . "' ";
         $result = self::$db->query($sql);
         return $result;
+    }
+
+    public function delete_product_images($files)
+    {
+        $errors = [];
+        foreach ($files as $file) {
+            if (file_exists(PRIVATE_PATH . "/uploads/" . $file)) {
+                if (file_exists(PRIVATE_PATH . "/uploads/thumb/" . $file)) {
+                    if (unlink(PRIVATE_PATH . "/uploads/" . $file) && unlink(PRIVATE_PATH . "/uploads/thumb/" . $file)) {
+                    } else {
+                        $errors[] = "Permission Denied on File " . $file;
+                    }
+                }
+            } else {
+                $errors[] = "File " . $file . ' Was Not Deleted!';
+            }
+        }
+        if (empty($errors)) {
+            return true;
+        }
+        return $errors;
     }
 }

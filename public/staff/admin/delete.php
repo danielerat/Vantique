@@ -12,11 +12,18 @@ if ($id == null) {
 
 if (is_post_request()) {
     $product = Product::find_by_id($id);
-    if ($product->delete()) {
+    if ($product->delete()) { //Delete The Product Record from product Table
         $product_category = new ProductCategory;
-        if ($product_category->delete_by_product($id)) {
+        if ($product_category->delete_by_product($id)) { // Delete ALl Categories assigned to it
             $product_image = new ProductImage;
-            if ($product_image->delete_by_product($id)) {
+
+            $images = []; //Empty Array to hold our images
+            foreach (ProductImage::find_by_id($id)  as $file) {
+                $images[] = $file->image; //Add the images to our array
+            }
+            $product_image->delete_product_images($images); //Delete All file images in the upload dir
+
+            if ($product_image->delete_by_product($id)) { // Delete All the images from the table
                 $session->message("The Product Was Successfully Deleted");
                 header("Location: products.php");
                 exit();
