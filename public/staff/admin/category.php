@@ -23,6 +23,7 @@ if (is_post_request()) {
 }
 $category = Category::find_all();
 
+echo display_session_message();
 ?>
 
 
@@ -35,54 +36,61 @@ $category = Category::find_all();
     <div class="container">
 
         <div class="row m-2 justify-content-center">
-
-            <div>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-uppercase mb-1">Number Of category
+            <div class="col-12 col-sm-6 col-md-5 col-lg-4 mb-2">
+                <div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1">Number Of category
+                                    </div>
+                                    <div class="h6 mb-0 font-weight-bold text-gray-800">
+                                        <?php echo $category_count . " Categories" ?>
+                                    </div>
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <?php echo $category_count . " Categories" ?>
+                                <div class="col-auto">
+                                    <i class="fas fa-box-open fa-2x text-primary"></i>
                                 </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-box-open fa-2x text-primary"></i>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div> <!-- Category Number End-------------->
-
-            <div class="mx-3" onclick="showCategoryForm()">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-uppercase mb-1">Add A New Category
-                                </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    Add Category
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-plus-circle fa-2x text-success"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                </div> <!-- Category Number End-------------->
             </div>
-            <form method="post" id="addCategoryForm" class="d-none" action="<?php echo $_SERVER["PHP_SELF"] ?>">
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Category Name</label>
-                    <input type="text" class="form-control" value="" name="category[categoryName]"
-                        placeholder="*Category Name" required>
-                    <button type="submit" class="btn  btn-primary">Add</button>
-                </div>
+            <div class="col-12 col-sm-6 col-md-5 col-lg-4 mb-2">
 
-            </form>
+                <div class="mx-3 cursor-pointer " onclick="showCategoryForm()">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1">Add A New Category
+                                    </div>
+                                    <div class="h6 mb-0 font-weight-bold text-gray-800">
+                                        Add Category
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-plus-circle fa-2x text-success"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form method="post" id="addCategoryForm" class="d-none bg-light mt-4"
+                    action="<?php echo $_SERVER["PHP_SELF"] ?>" autocomplete="off">
+                    <a href="#" class="btn btn-danger btn-sm close-form-btn" onclick="showCategoryForm()">
+                        <i class="fas fa-times"></i>
+                    </a>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Category Name</label>
+                        <input type="text" class="form-control" value="" name="category[categoryName]"
+                            placeholder="*Category Name (min: 2char)" required>
+                        <button type="submit" class="btn float-right mt-2 btn-primary">Add</button>
+                    </div>
+
+                </form>
+            </div>
         </div>
 
     </div>
@@ -143,7 +151,7 @@ $category = Category::find_all();
 <script>
 function showCategoryForm() {
     var form = document.querySelector('#addCategoryForm');
-    form.classList.add('d-inline-block')
+    form.classList.toggle('d-block');
 }
 </script>
 

@@ -5,3 +5,29 @@
     z-index:9999; 
     border-radius:0px;
 }
+
+// Custon Cursors
+.cursor-pointer{
+    cursor: pointer;
+    }
+.cursor-zoom-in{
+    cursor: zoom-in;
+    }
+
+.cursor-grab{
+    cursor: grab;
+    };
+.cursor-resize{
+    cursor: ew-resize;
+    };
+
+
+
+
+
+// Category Page CSS
+.close-form-btn{
+    position: absolute;
+    right: 10px;
+    border-radius: 50%;
+}

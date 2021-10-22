@@ -4,3 +4,20 @@
   right: 0px;
   z-index: 9999;
   border-radius: 0px; }
+
+.cursor-pointer {
+  cursor: pointer; }
+
+.cursor-zoom-in {
+  cursor: zoom-in; }
+
+.cursor-grab {
+  cursor: grab; }
+
+.cursor-resize {
+  cursor: ew-resize; }
+
+.close-form-btn {
+  position: absolute;
+  right: 10px;
+  border-radius: 50%; }

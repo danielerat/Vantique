@@ -12,6 +12,7 @@ define("STAFF_PATH", PROJECT_PATH . '/public/staff');
 define("SHARED_PATH", PRIVATE_PATH . '/shared');
 define("UPLOAD_PRODUCT_PATH", PRIVATE_PATH . '/uploads');
 define("S_PRIVATE",  '/vantique/vantique/private/');
+define("S_PUBLIC",  '/vantique/vantique/public/');
 
 // Assign the root URL to a PHP constant
 // * Do not need to include the domain

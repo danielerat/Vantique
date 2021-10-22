@@ -4,7 +4,6 @@ require_once('../../../private/initialize.php');
 include(SHARED_PATH . '/staff_header.php');
 
 echo display_session_message();
-echo "Sess:" . $_SESSION["uploadStatus"];
 ?>
 
 
