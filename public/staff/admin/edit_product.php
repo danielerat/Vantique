@@ -3,39 +3,52 @@ require_once('../../../private/initialize.php');
 
 include(SHARED_PATH . '/staff_header.php');
 
-$category = Category::find_all();
+
+$id = $_GET['id'] ?? Null;
+if ($id == null) {
+    header("Location: products.php");
+}
+
 
 if (is_post_request()) {
-
+    // Error While Doing the uploading things
     $errors = [];
     $args = $_POST['product'];
-    //In the Avatar folder we have pictured called 1.svg...7.svg
-    $args['ProductThumb'] = "default.png";
+    $args["productCategory"] = $_POST['productCategory'];
+    $category = Category::find_categories_by_ids($_POST['productCategory']);
+    $args['productThumb'] = "default.png";
     //Check if really there was a file uploaded otherwise it will just get a random name and assign it to the user profile
-    if ((has_presence($_FILES['ProductThumb']['name'][0]) && has_presence($_FILES['ProductThumb']['type'][0])) && $_FILES['ProductThumb']['error'][0] != 4) {
+    if ((has_presence($_FILES['productThumb']['name'][0]) && has_presence($_FILES['productThumb']['type'][0])) && $_FILES['productThumb']['error'][0] != 4) {
         $result = Product::upload_image();
         if (isset($result["formatError"])) {
             $errors = $result["formatError"];
         } else {
             if (!empty($result) && has_presence($result[0])) {
-                $args['ProductThumb'] = $result[0];
+                $args['productThumb'] = $result[0];
             } elseif ($result[0]["uploadStatus"] === false) {
                 $errors[] = "Error Uploading The Images..!";
             }
         }
     }
+    // At first , nothing have been added in the product table
+
     if (empty($errors)) {
-        $args['ProductThumb'] = $result[0];
+        echo "----------Image Uploaded But -----------";
+
+        $args['productThumb'] = $result[0];
         $product = new Product($args);
-        $product->ProductCategory = $_POST['category'];
         //Get All Uploaded Thumbnails and save them to the array
-        $product->ProductThumbnails = $result;
+        $product->productThumbnails = $result;
         //Inset the Data
         $result = $product->save();
         if ($result === true) {
             $new_id = $product->id;
-            $session->message('Product : ' . $new_id . " Was Successfully Inserted");
+            $session->message("Product Was Successfully Added !");
+            //Everything went well , reset back the session variables   
+            // $$_SESSION['upload_status'] = false;
+            redirect_to("view.php?id=" . $product->id);
         } else {
+            //Not Inserted 
             echo display_errors($product->errors);
         }
     } else {
@@ -43,7 +56,8 @@ if (is_post_request()) {
         echo display_errors($errors);
     }
 } else {
-    $product = new Product;
+    $product = Product::find_by_id($id);
+    $category = Category::find_product_category($id);
 }
 echo display_session_message();
 ?>
@@ -58,7 +72,7 @@ echo display_session_message();
 
 
 <section class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-6">
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -68,19 +82,23 @@ echo display_session_message();
                     <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>" enctype="multipart/form-data">
 
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Product Name</label>
-                            <input type="text" class="form-control" value="<?php echo $product->ProductName; ?>"
-                                name="product[ProductName]" placeholder="*Your Product Name (Min:12Chars)" required>
+                            <label for="productName">Product Name</label>
+                            <input type="text" class="form-control" id="productName"
+                                value="<?php echo $product->productName; ?>" name="product[productName]"
+                                placeholder="*Your Product Name (Min:12Chars)" required>
                         </div>
 
 
                         <div class="form-group">
                             <label for="sl2mul">Product Category</label>
-                            <select class="select2-multiple form-control" name="category[]" multiple="multiple"
+                            <select class="select2-multiple form-control" name="productCategory[]" multiple="multiple"
                                 id="sl2mul">
-                                <option value="">Select</option>
+                                <option disabled="disabled">Select A Category</option>
                                 <?php foreach ($category as $cat) {
-                                    echo  $category = "<option value={$cat->id}>" . $cat->categoryName . "</option>";
+                                    if (empty($product->productCategory)) {
+                                        $category = "<option value={$cat->id} selected>" . $cat->categoryName . "</option>";
+                                    }
+                                    echo $category;
                                 } ?>
                             </select>
                         </div>
@@ -88,47 +106,81 @@ echo display_session_message();
 
                         <div class="form-group">
                             <label for="tarea">Product Description</label>
-                            <textarea class="form-control" id="tarea" name="product[ProductDesc]" rows="2"
-                                required><?php echo $product->ProductDesc; ?></textarea>
+                            <textarea class="form-control" id="tarea" name="product[productDesc]" rows="2"
+                                required><?php echo $product->productDesc; ?></textarea>
                         </div>
 
 
 
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input type="file" name="ProductThumb[]" class="custom-file-input" id="unlst" multiple
-                                    required>
-                                <label class="custom-file-label" for="unlst">Choose file</label>
-                            </div>
-                        </div>
 
-                        <div class="input-group mb-3">
+                        <div class="input-group my-4">
                             <div class="w-50"><label for="ppr">Product Price
                                     (FRW)</label>
                             </div>
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Frw</span>
                             </div>
-                            <input type="text" id="ppr" name="product[ProductPrice]"
-                                value="<?php echo $product->ProductPrice; ?>" class="form-control"
+                            <input type="text" id="ppr" name="product[productPrice]"
+                                value="<?php echo $product->productPrice; ?>" class="form-control"
                                 aria-label="Amount (to the nearest Rwandan)" placeholder="*Price in Rwf" required>
                             <div class="input-group-append">
                                 <span class="input-group-text">.00</span>
                             </div>
                         </div>
+                        <table class="py-3  d-flex align-items-baseline">
+                            <tr>
+                                <td class="w-25">
+                                    <label>Product Unlimited</label>
+                                    <div class="custom-control custom-switch align-self-center">
+                                        <input type="checkbox" class="custom-control-input" id="customSwitchUlimited"
+                                            checked onclick="showquantitybox()">
+                                        <label class="custom-control-label" for="customSwitchUlimited"> *Is
+                                            Unlimited</label>
+                                    </div>
+                                </td>
 
-                        <label>Product Unlimited</label>
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
-                            <label class="custom-control-label" for="customSwitch1"> *Is Unlimited</label>
-                        </div>
-
-
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                                <td class="w-25 unlimitedinput d-none">
+                                    <div class="form-group ">
+                                        <label for="productQuantity" class="  mr-3">Quantity</label>
+                                        <input type="text" class="form-control" id="productQuantity"
+                                            value="<?php echo $product->productUnlimited; ?>"
+                                            name="product[productUnlimited]" placeholder="*Quantity" required>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <button type="submit" class="btn btn-primary float-right mt-3">Submit</button>
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="col-6">
+            <?php for ($i = 0; $i <= 4; $i++) { ?>
+
+
+            <div class="card">
+                <div class="card-header">
+                    <a href="#" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <img src="<?php echo S_PRIVATE . "/uploads/default.png"; ?>">
+                </div>
+                <div class="card-footer">
+
+                    <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-flag"></i>
+                        </span>
+                        <span class="text">Set As Feature Image</span>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <?php } ?>
         </div>
     </div>
 
@@ -149,6 +201,17 @@ include(SHARED_PATH . '/staff_footer.php');
 <script src="../js/ruang-admin.min.js"></script>
 <!-- Javascript for this page -->
 <script>
+function showquantitybox() {
+    var unlimited = document.querySelector(".unlimitedinput");
+    unlimited.classList.toggle('d-none');
+    if (!unlimited.classList.contains('d-none')) {
+        document.querySelector("#productQuantity").value = 100;
+    } else {
+        document.querySelector("#productQuantity").value = "x";
+    }
+}
+
+
 $(document).ready(function() {
 
 

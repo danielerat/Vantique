@@ -15,7 +15,8 @@ if (empty($product)) {
     header("Location: products.php");
 }
 $product_category = Category::find_product_category($id);
-$product_image = ProductImage::find_by_id($id);
+$product_image = ProductImage::find_by_product_id($id);
+$stock = ProductStock::find_by_product_id($id);
 echo display_session_message();
 ?>
 <!--Section: Block Content-->
@@ -81,7 +82,7 @@ echo display_session_message();
                     <tbody>
                         <tr>
                             <th class="pl-0 w-25" scope="row"><strong>Quantity Left</strong></th>
-                            <td> <?php echo ($product->productUnlimited == 1) ? "Unlimited" : "54"; ?></td>
+                            <td> <?php echo ($product->productUnlimited == 1) ? "Unlimited" : $stock->quantity; ?></td>
                         </tr>
                         <tr>
                             <th class="pl-0 w-25" scope="row"><strong>Added By</strong></th>

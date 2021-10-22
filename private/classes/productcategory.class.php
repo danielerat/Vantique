@@ -13,12 +13,7 @@ class ProductCategory extends DatabaseObject
         $this->productId = $args['productId'] ?? '';
         $this->categoryId = $args['categoryId'] ?? '';
     }
-    static public function find_by_id($id)
-    {
-        $sql = "SELECT * FROM " . static::$table_name;
-        $sql .= " where productId='" . self::$db->escape_string($id) . "'";
-        return static::find_by_sql($sql);
-    }
+
 
 
 

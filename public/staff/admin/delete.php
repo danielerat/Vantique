@@ -42,7 +42,7 @@ if (is_post_request()) {
         header("Location: products.php");
     }
     $product_category = Category::find_product_category($id);
-    $product_image = ProductImage::find_by_id($id);
+    $product_image = ProductImage::find_by_product_id($id);
 }
 echo display_session_message();
 ?>

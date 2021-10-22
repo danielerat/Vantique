@@ -13,7 +13,7 @@ class ProductStock extends DatabaseObject
         $this->productId = $args['productId'] ?? '';
         $this->quantity = $args['quantity'] ?? '';
     }
-    static public function find_by_id($id)
+    static public function find_by_product_id($id)
     {
         $sql = "SELECT * FROM " . static::$table_name;
         $sql .= " where productId='" . self::$db->escape_string($id) . "'";
