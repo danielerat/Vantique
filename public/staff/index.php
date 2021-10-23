@@ -41,7 +41,8 @@
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small"
                                                 style="line-height: 1.5rem;">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck"
+                                                    checked>
                                                 <label class="custom-control-label" for="customCheck">Remember
                                                     Me</label>
                                             </div>
@@ -50,10 +51,10 @@
                                             <a href="index.html" class="btn btn-primary btn-block">Login</a>
                                         </div>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-block">
+                                        <a href="index.php" class="btn btn-google btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
-                                        <a href="index.html" class="btn btn-facebook btn-block">
+                                        <a href="index.php" class="btn btn-facebook btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a>
                                     </form>

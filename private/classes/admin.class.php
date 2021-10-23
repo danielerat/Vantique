@@ -10,8 +10,8 @@ class Admin extends DatabaseObject
     public $last_name;
     public $username;
     public $email;
-    protected $hashed_password;
     protected $account_type;
+    protected $hashed_password;
     public $password;
     public $confirm_password;
     public $password_required = true;
@@ -21,6 +21,7 @@ class Admin extends DatabaseObject
         $this->last_name = $args['last_name'] ?? '';
         $this->username = $args['username'] ?? '';
         $this->email = $args['email'] ?? '';
+        $this->account_type = $args['account_type'] ?? 4;
         $this->password = $args['password'] ?? '';
         $this->confirm_password = $args['confirm_password'] ?? '';
     }
@@ -48,7 +49,6 @@ class Admin extends DatabaseObject
         $this->set_hashed_password();
         return parent::create();
     }
-
 
     protected function update()
     {
@@ -109,7 +109,6 @@ class Admin extends DatabaseObject
             } elseif (!preg_match('/[^A-Za-z0-9\s]/', $this->password)) {
                 $this->errors[] = "Password must contain at least 1 symbol";
             }
-
             if (is_blank($this->confirm_password)) {
                 $this->errors[] = "Confirm password cannot be blank.";
             } elseif ($this->password !== $this->confirm_password) {

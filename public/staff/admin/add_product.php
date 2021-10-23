@@ -26,7 +26,6 @@ if (is_post_request()) {
     // At first , nothing have been added in the product table
 
     if (empty($errors)) {
-        echo "----------Image Uploaded But -----------";
 
         $args['productThumb'] = $result[0];
         $product = new Product($args);

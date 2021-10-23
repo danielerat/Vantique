@@ -107,10 +107,10 @@ class DatabaseObject
     // Create A Record
     protected function create()
     {
-        // $this->validate();
-        // if (!empty($this->errors)) {
-        //     return false;
-        // }
+        $this->validate();
+        if (!empty($this->errors)) {
+            return false;
+        }
         $attributes = $this->sanitize_attributes();
         $sql = "INSERT INTO " . static::$table_name . " (";
         $sql .= join(',', array_keys($attributes));

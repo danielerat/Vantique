@@ -39,6 +39,7 @@ require_once('classes/category.class.php');
 require_once('classes/productcategory.class.php');
 require_once('classes/productimage.class.php');
 require_once('classes/productStock.class.php');
+require_once('classes/admin.class.php');
 require_once('classes/session.class.php');
 /*
 require_once('classes/bicycle.class.php');
