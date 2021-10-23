@@ -82,6 +82,44 @@ class product extends DatabaseObject
 
 
 
+    // Update A Record
+    protected function update()
+    {
+        //Get the sanitized version of our attributes 
+        // $this->validate();
+        // if (!empty($this->errors)) {
+        //     return "False";
+        // }
+
+        $quantity = $this->productUnlimited;
+        if ($this->productUnlimited === 'x' || !is_an_integer($this->productUnlimited)) {
+            $this->productUnlimited = 1;
+        } else {
+            $this->productUnlimited = 0;
+        }
+
+        $attributes = $this->sanitize_attributes();
+        $attribute_pairs = [];
+
+        //Create a String like of attributes pairs
+        foreach ($attributes as $key => $values) {
+            $attribute_pairs[] = "{$key}='{$values}'";
+        }
+
+        $sql = " UPDATE " . static::$table_name . " SET ";
+        //Joing them with , : brand='',model='',..... 
+        $sql .= join(",", $attribute_pairs);
+        $sql .= " Where id='" . self::$db->escape_string($this->id) . "'";
+        $result = self::$db->query($sql);
+        if ($result) {
+            $stock = ProductStock::find_by_product_id($this->id);
+            $stock->quantity = $quantity;
+            $result = $stock->save();
+            return $result;
+        }
+        return false;
+    }
+
     // Create A Record
     protected function create()
     {

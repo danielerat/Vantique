@@ -98,14 +98,14 @@ function has_valid_email_format($value)
 
 function has_unique_username($username, $current_id = "0")
 {
-    // $admin = Admin::find_by_username($username);
-    // if ($admin === false || $admin->id == $current_id) {
-    //     // Is unique
-    //     return true;
-    // } else {
-    //     // Not unique
-    //     return false;
-    // }
+    //     $admin = Admin::find_by_username($username);
+    //     if ($admin === false || $admin->id == $current_id) {
+    //         // Is unique
+    //         return true;
+    //     } else {
+    //         // Not unique
+    //         return false;
+    //     }
 }
 
 

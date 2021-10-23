@@ -22,7 +22,7 @@ echo display_session_message();
 <!--Section: Block Content-->
 <section class="mb-5">
 
-    <a href="#" class="btn btn-warning btn-icon-split float-right">
+    <a href="" class="btn btn-warning btn-icon-split float-right">
         <span class="icon text-white-50">
             <i class="fas fa-exclamation-triangle"></i>
         </span>

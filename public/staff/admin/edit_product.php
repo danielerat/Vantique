@@ -10,43 +10,31 @@ if ($id == null) {
 }
 
 
-if (is_post_request()) {
+$product = Product::find_by_id($id);
+$category_all = Category::find_all();
+$images = ProductImage::find_by_product_id($id);
+$stock = ProductStock::find_by_product_id($id);
+
+// Get All Selected Categories 
+$chosencat = [];
+foreach (Category::find_product_category($id) as $cat) {
+    $chosencat[] = $cat->id;
+}
+
+if (is_post_request() && isset($_POST['updateform'])) {
     // Error While Doing the uploading things
     $errors = [];
     $args = $_POST['product'];
-    $args["productCategory"] = $_POST['productCategory'];
-    $category = Category::find_categories_by_ids($_POST['productCategory']);
-    $args['productThumb'] = "default.png";
-    //Check if really there was a file uploaded otherwise it will just get a random name and assign it to the user profile
-    if ((has_presence($_FILES['productThumb']['name'][0]) && has_presence($_FILES['productThumb']['type'][0])) && $_FILES['productThumb']['error'][0] != 4) {
-        $result = Product::upload_image();
-        if (isset($result["formatError"])) {
-            $errors = $result["formatError"];
-        } else {
-            if (!empty($result) && has_presence($result[0])) {
-                $args['productThumb'] = $result[0];
-            } elseif ($result[0]["uploadStatus"] === false) {
-                $errors[] = "Error Uploading The Images..!";
-            }
-        }
-    }
-    // At first , nothing have been added in the product table
-
     if (empty($errors)) {
-        echo "----------Image Uploaded But -----------";
-
-        $args['productThumb'] = $result[0];
-        $product = new Product($args);
-        //Get All Uploaded Thumbnails and save them to the array
-        $product->productThumbnails = $result;
-        //Inset the Data
-        $result = $product->save();
+        $product->merge_attributes($args);
+        // At this poing our Bicycle object will have the form values not the db values anymore 
+        $result = $product->save(); // save the values to the database
         if ($result === true) {
             $new_id = $product->id;
-            $session->message("Product Was Successfully Added !");
+            $session->message("Product Was Successfully Updated !");
             //Everything went well , reset back the session variables   
             // $$_SESSION['upload_status'] = false;
-            redirect_to("view.php?id=" . $product->id);
+            // redirect_to("edit_product.php?id=" . $product->id);
         } else {
             //Not Inserted 
             echo display_errors($product->errors);
@@ -55,11 +43,23 @@ if (is_post_request()) {
         $product = new Product($args);
         echo display_errors($errors);
     }
-} else {
-    $product = Product::find_by_id($id);
-    $category = Category::find_product_category($id);
 }
+
+if (is_post_request() && isset($_POST['category'])) {
+    $category = $_POST["productCategory"];
+    $productCategory = new ProductCategory;
+    $productCategory->delete_by_product($id);
+    foreach ($category as $cat) {
+        $InsertCategory = new ProductCategory(["productId" => $product->id, "categoryId" => $cat]);
+        $InsertCategory->save();
+    }
+    foreach (Category::find_product_category($id) as $cat) {
+        $chosencat[] = $cat->id;
+    }
+}
+
 echo display_session_message();
+
 ?>
 <!-- Select2 -->
 <link href="../vendor/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css">
@@ -79,7 +79,8 @@ echo display_session_message();
                     <h6 class="m-0 font-weight-bold text-primary">Form Basic</h6>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>" enctype="multipart/form-data">
+                    <form method="post" action="<?php echo $_SERVER["PHP_SELF"] . "?id=" . $product->id; ?>"
+                        enctype="multipart/form-data">
 
                         <div class="form-group">
                             <label for="productName">Product Name</label>
@@ -89,24 +90,12 @@ echo display_session_message();
                         </div>
 
 
-                        <div class="form-group">
-                            <label for="sl2mul">Product Category</label>
-                            <select class="select2-multiple form-control" name="productCategory[]" multiple="multiple"
-                                id="sl2mul">
-                                <option disabled="disabled">Select A Category</option>
-                                <?php foreach ($category as $cat) {
-                                    if (empty($product->productCategory)) {
-                                        $category = "<option value={$cat->id} selected>" . $cat->categoryName . "</option>";
-                                    }
-                                    echo $category;
-                                } ?>
-                            </select>
-                        </div>
+
 
 
                         <div class="form-group">
                             <label for="tarea">Product Description</label>
-                            <textarea class="form-control" id="tarea" name="product[productDesc]" rows="2"
+                            <textarea class="form-control" id="tarea" name="product[productDesc]" rows="4"
                                 required><?php echo $product->productDesc; ?></textarea>
                         </div>
 
@@ -133,54 +122,135 @@ echo display_session_message();
                                     <label>Product Unlimited</label>
                                     <div class="custom-control custom-switch align-self-center">
                                         <input type="checkbox" class="custom-control-input" id="customSwitchUlimited"
-                                            checked onclick="showquantitybox()">
+                                            onclick="showquantitybox()">
                                         <label class="custom-control-label" for="customSwitchUlimited"> *Is
                                             Unlimited</label>
                                     </div>
                                 </td>
 
-                                <td class="w-25 unlimitedinput d-none">
+                                <td class="w-25 unlimitedinput ">
                                     <div class="form-group ">
                                         <label for="productQuantity" class="  mr-3">Quantity</label>
                                         <input type="text" class="form-control" id="productQuantity"
-                                            value="<?php echo $product->productUnlimited; ?>"
-                                            name="product[productUnlimited]" placeholder="*Quantity" required>
+                                            value="<?php echo $stock->quantity; ?>" name="product[productUnlimited]"
+                                            placeholder="*Quantity" required>
                                     </div>
                                 </td>
                             </tr>
                         </table>
-                        <button type="submit" class="btn btn-primary float-right mt-3">Submit</button>
+                        <button type="submit" name="updateform" class="btn btn-primary float-right mt-3">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col-6">
-            <?php for ($i = 0; $i <= 4; $i++) { ?>
 
+            <div class="w-75 m-3 ">
+                <div class="card">
+                    <div class="col-auto">
+                        <i class="fas fa-plus-circle  text-success">Add New Images</i>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
 
-            <div class="card">
-                <div class="card-header">
-                    <a href="#" class="btn btn-danger btn-sm">
-                        <i class="fas fa-trash"></i>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <img src="<?php echo S_PRIVATE . "/uploads/default.png"; ?>">
-                </div>
-                <div class="card-footer">
+                                <div class="h6  font-weight-bold text-gray-800">
+                                    <form method="post" id="addImage" class=" bg-light"
+                                        action="<?php echo $_SERVER["PHP_SELF"] ?>" autocomplete="off">
+                                        <div class="form-group">
+                                            <input type="file" class="form-control" value=""
+                                                name="category[categoryName]" placeholder="*Select Images " required>
+                                            <button type="submit" class="btn float-right mt-2 btn-primary">Add</button>
+                                        </div>
 
-                    <a href="#" class="btn btn-primary btn-icon-split btn-sm">
-                        <span class="icon text-white-50">
-                            <i class="fas fa-flag"></i>
-                        </span>
-                        <span class="text">Set As Feature Image</span>
-                    </a>
+                                    </form>
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <div class="w-75 m-3  ">
+                <div class="card">
+                    <div class="col-auto">
+                        <i class="fas fa-plus-circle  text-warning">Change Category</i>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
 
-            <?php } ?>
+                                <div class="h6  font-weight-bold text-gray-800">
+                                    <form method="post" id="addCategoryForm" class=" bg-light"
+                                        action="<?php echo $_SERVER["PHP_SELF"] . "?id=" . $product->id; ?>"
+                                        autocomplete="off">
+                                        <div class="form-group">
+                                            <label for="sl2mul">Product Category</label>
+                                            <select class="select2-multiple form-control" name="productCategory[]"
+                                                multiple="multiple" id="sl2mul">
+                                                <option disabled="disabled">Select A Category</option>
+                                                <?php
+                                                foreach ($category_all as $cat) {
+                                                    if (in_array($cat->id, $chosencat)) {
+                                                        $category = "<option value={$cat->id} selected>" . $cat->categoryName . "</option>";
+                                                    } else {
+                                                        $category = "<option value={$cat->id}>" . $cat->categoryName . "</option>";
+                                                    }
+                                                    echo $category;
+                                                } ?>
+                                            </select>
+                                            <button type="submit" name='category'
+                                                class="btn float-right mt-2 btn-warning">Add</button>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row border">
+        <div class="col-12">
+            <h4>Images</h4>
+            <div class="row gx-5 justify-content-around">
+                <?php foreach ($images as $img) {
+                ?>
+                <div class="col card">
+                    <div class="card-body  p-0 overflow-hidden" style="height:230px;  ">
+                        <img src="<?php echo S_PRIVATE . '/uploads/' . $img->image; ?>" class=" img-fluid ">
+                    </div>
+                    <div class="card-footer justify-content-around">
+                        <?php if ($product->productThumb === $img->image) { ?>
+
+                        <button class="btn btn-success  btn-sm" disabled>
+                            <i class="fas fa-flag"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" disabled>
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <?php
+
+                            } else { ?>
+                        <button class="btn btn-primary btn-sm setFeatured">
+                            <i class="fas fa-flag"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <?php } ?>
+                    </div>
+                </div>
+
+                <?php } ?>
+
+            </div>
         </div>
     </div>
 

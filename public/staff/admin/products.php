@@ -29,7 +29,6 @@ echo display_session_message();
                         <th>Description</th>
                         <th>Preview</th>
                         <th>By / On</th>
-
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -63,7 +62,8 @@ echo display_session_message();
                         <td class="w-25">
                             <a href="view.php?id=<?php echo h($product->id); ?>" class="btn btn-info btn-sm"><i
                                     class="fas fa-info-circle"></i></a>
-                            <a href="#" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                            <a href="edit_product.php?id=<?php echo h($product->id); ?>"
+                                class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                             <a href="delete.php?id=<?php echo h($product->id); ?>" class="btn btn-danger btn-sm"><i
                                     class="fas fa-trash"></i></a>
 

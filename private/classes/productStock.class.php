@@ -26,4 +26,13 @@ class ProductStock extends DatabaseObject
             return false;
         }
     }
+    //For the stock Table we will need to update the Quantity Only
+    protected function update()
+    {
+        $sql = " UPDATE " . static::$table_name . " SET ";
+        $sql .= " quantity='" . self::$db->escape_string($this->quantity) . "'";
+        $sql .= " Where id='" . self::$db->escape_string($this->id) . "' limit 1";
+        $result = self::$db->query($sql);
+        return $result;
+    }
 }

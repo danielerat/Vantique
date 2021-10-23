@@ -117,7 +117,6 @@ class DatabaseObject
         $sql .= ") values('";
         $sql .= join("','", array_values($attributes));
         $sql .= "');";
-
         $result = self::$db->query($sql);
         if ($result) {
             $this->id = self::$db->insert_id;
@@ -130,10 +129,10 @@ class DatabaseObject
     protected function update()
     {
         //Get the sanitized version of our attributes 
-        $this->validate();
-        if (!empty($this->errors)) {
-            return "False";
-        }
+        // $this->validate();
+        // if (!empty($this->errors)) {
+        //     return "False";
+        // }
         $attributes = $this->sanitize_attributes();
         $attribute_pairs = [];
 
@@ -146,10 +145,12 @@ class DatabaseObject
         //Joing them with , : brand='',model='',..... 
         $sql .= join(",", $attribute_pairs);
 
-        $sql .= " Where id='" . self::$db->escape_string($this->id) . "'";
-        $result = self::$db->query($sql);
-        return $result;
+        echo $sql .= " Where id='" . self::$db->escape_string($this->id) . "'";
+        // $result = self::$db->query($sql);
+        // return $result;
     }
+
+
     public function merge_attributes($args = [])
     {
         foreach ($args as $key => $value) {
@@ -203,7 +204,7 @@ class DatabaseObject
     public function delete_by_product($id)
     {
         $sql = "DELETE FROM " . static::$table_name;
-        $sql .= " WHERE productId='" . self::$db->escape_string($id) . "' ";
+        $sql .= " WHERE productId=" . self::$db->escape_string($id);
         $result = self::$db->query($sql);
         return $result;
     }
