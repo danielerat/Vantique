@@ -53,6 +53,13 @@ function is_get_request()
 }
 
 
+// Check is a request was made with Ajax
+function is_ajax_request()
+{
+    return isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+        $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
+}
+
 
 
 function ellipse_of($str, $size)

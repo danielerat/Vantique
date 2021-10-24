@@ -5,7 +5,7 @@ if (is_post_request()) {
     $admin = new Admin($args);
     $result = $admin->save();
     if ($result) {
-        $session->message("Accout Was Successfully Created !");
+        $session->message($admin->username . ",Accout Was Successfully Created !");
         redirect_to("login.php");
     } else {
         echo display_errors($admin->errors);

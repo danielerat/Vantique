@@ -10,7 +10,7 @@ class Admin extends DatabaseObject
     public $last_name;
     public $username;
     public $email;
-    protected $account_type;
+    public $account_type;
     protected $hashed_password;
     public $password;
     public $confirm_password;

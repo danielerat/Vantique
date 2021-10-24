@@ -9,8 +9,8 @@ class Session
      *  */
     private $admin_id;
     public $username;
+    public $account_type;
     private $last_login;
-    public $uploadStatus;
 
 
     public const MAX_LOGIN_AGE = 60 * 60 * 24; // 1 day
@@ -18,15 +18,7 @@ class Session
     public function __construct()
     {
         session_start();
-        $this->uploadStatus = false;
         $this->check_stored_login();
-    }
-    public function uploadStatus($status)
-    {
-        // prevent session fixation attacks
-        session_regenerate_id();
-        $_SESSION['uploadStatus'] = $status;
-        return $status;
     }
 
     public function login($admin)
@@ -36,6 +28,7 @@ class Session
             session_regenerate_id();
             $this->admin_id = $_SESSION['admin_id'] = $admin->id;
             $this->username = $_SESSION['username'] = $admin->username;
+            $this->account_type = $_SESSION['account_type'] = $admin->account_type;
             $this->last_login = $_SESSION['last_login'] = time();
         }
         return true;
@@ -51,10 +44,12 @@ class Session
     {
         unset($_SESSION['admin_id']);
         unset($_SESSION['username']);
+        unset($_SESSION['account_type']);
         unset($_SESSION['last_login']);
         unset($this->admin_id);
         unset($this->username);
         unset($this->last_login);
+        unset($this->account_type);
         return true;
     }
 
@@ -64,6 +59,7 @@ class Session
             $this->admin_id = $_SESSION['admin_id'];
             $this->username = $_SESSION['username'];
             $this->last_login = $_SESSION['last_login'];
+            $this->account_type = $_SESSION['account_type'];
         }
     }
 
@@ -79,7 +75,6 @@ class Session
     }
 
     // We want to use this function to set our msg if a param is passed 
-
     public function message($msg = "")
     {
         if (!empty($msg)) {
@@ -91,7 +86,7 @@ class Session
             //this is a get message 
         }
     }
-
+    //used to clear the message from the session once displayed
     public function clear_message()
     {
         unset($_SESSION['message']);

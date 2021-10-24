@@ -1,3 +1,4 @@
+<?php require_login(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="../img/logo/logo.svg" rel="icon">
-    <title>Ruang../Admin - Dashboard</title>
+    <title>Vantique../Admin - Dashboard</title>
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/ruang-admin.min.css" rel="stylesheet">
@@ -48,9 +49,9 @@
                 <div id="collapseadministrator" class="collapse" aria-labelledby="headingTable"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Products</h6>
-                        <a class="collapse-item" href="products.php">Administrators</a>
-                        <a class="collapse-item" href="products.php">Users</a>
+                        <h6 class="collapse-header">Admin Actions</h6>
+                        <a class="collapse-item" href="admins.php">Administrators</a>
+                        <a class="collapse-item" href="products.php">Products</a>
                         <a class="collapse-item" href="category.php">Category</a>
                     </div>
                 </div>
@@ -58,7 +59,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
                     aria-expanded="true" aria-controls="collapseProduct">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-cart-arrow-down"></i>
                     <span>Products</span>
                 </a>
                 <div id="collapseProduct" class="collapse" aria-labelledby="headingTable"
@@ -364,7 +365,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-primary"
                                     data-dismiss="modal">Cancel</button>
-                                <a href="login.html" class="btn btn-primary">Logout</a>
+                                <a href="../logout.php" class="btn btn-primary">Logout</a>
                             </div>
                         </div>
                     </div>

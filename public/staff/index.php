@@ -1,3 +1,12 @@
+<?php
+require_once("../../private/initialize.php");
+if (is_post_request()) {
+    print_r($_POST);
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +22,8 @@
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/ruang-admin.min.css" rel="stylesheet">
+    <script src="vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="vendor/sweetalert2/dist/sweetalert2.min.css">
 
 </head>
 
@@ -29,14 +40,16 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Login</h1>
                                     </div>
-                                    <form class="user">
+                                    <form method="POST" action="<?php echo S_PRIVATE . "/auth_login.php"; ?>"
+                                        id="login_form" class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="exampleInputEmail"
-                                                aria-describedby="emailHelp" placeholder="Enter Email Address">
+                                            <input type="email" class="form-control" name="username"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Enter Username">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="exampleInputPassword"
-                                                placeholder="Password">
+                                            <input type="password" name="password" class="form-control"
+                                                id="exampleInputPassword" placeholder="Password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small"
@@ -48,10 +61,11 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <a href="index.html" class="btn btn-primary btn-block">Login</a>
+                                            <button href="index.html" id="signin"
+                                                class="btn btn-primary bg-gradient-primary signin btn-block">Login</button>
                                         </div>
                                         <hr>
-                                        <a href="index.php" class="btn btn-google btn-block">
+                                        <a href="" class="btn btn-google btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
                                         <a href="index.php" class="btn btn-facebook btn-block">
@@ -75,8 +89,98 @@
     <!-- Login Content -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="js/ruang-admin.min.js"></script>
+
+    <script>
+    var button = document.querySelector("#signin");
+
+
+    function disableSubmitButton() {
+        button.disabled = true;
+        button.classList.add("bg-gradient-danger");
+        button.innerHTML = 'Authenticationg...';
+    }
+
+    function enableSubmitButton() {
+        button.disabled = false;
+        button.innerHTML = 'Login';
+        button.classList.remove("bg-gradient-danger");
+    }
+
+    function displayErrors(errors) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-right',
+            showCloseButton: true,
+            showConfirmButton: false,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        Toast.fire({
+            icon: 'error',
+            title: 'Unknown Username Or Password'
+        })
+    }
+
+    function successlogin() {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
+        }).then(function() {
+            window.location = "admin/index.php";
+        });
+    }
+
+
+
+
+    function login_admin() {
+        disableSubmitButton();
+        var form = document.querySelector("#login_form");
+        var action = form.getAttribute("action");
+        // gather form data
+        var form_data = new FormData(form);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', action, true);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var result = xhr.responseText;
+                console.log('Result: ' + result);
+                var json = JSON.parse(result);
+                if (json.hasOwnProperty('Errors') && json.Errors.length > 0) {
+                    displayErrors(json['Errors']);
+                    enableSubmitButton();
+
+                } else {
+                    enableSubmitButton();
+                    successlogin();
+                }
+            }
+        };
+        xhr.send(form_data);
+    }
+
+    button.addEventListener("click", function(event) {
+        event.preventDefault();
+        login_admin();
+    });
+    </script>
+
+    <script src="vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </body>
 
 </html>

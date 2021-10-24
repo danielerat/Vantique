@@ -4,7 +4,7 @@ function require_login()
 {
     global $session;
     if (!$session->is_logged_in()) {
-        redirect_to(url_for('/staff/login.php'));
+        redirect_to('./../index.php');
     }
 }
 
@@ -18,7 +18,6 @@ function display_errors($errors = array())
     <ul>
     ";
     if (!empty($errors)) {
-
         foreach ($errors as $error) {
             $output .= "<li>" . h($error) . "</li>";
         }
@@ -26,7 +25,6 @@ function display_errors($errors = array())
     $output .= "</ul></div>";
     return $output;
 }
-
 
 
 function display_session_message()
