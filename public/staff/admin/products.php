@@ -54,7 +54,8 @@ echo display_session_message();
                         <td class=""><?php echo h($product->productPrice); ?></td>
                         <td class="w-25"><?php echo ellipse_of(h($product->productDesc), 60); ?>
                         </td>
-                        <td class=""><img src="<?php echo S_PRIVATE . "/uploads/thumb/" . $product->productThumb; ?>">
+                        <td class=""><img src="<?php echo S_PRIVATE . "/uploads/thumb/" . $product->productThumb; ?>"
+                                class="img-thumbnail">
                         </td>
                         <td class="w-25"><?php echo h($product->addedBy) . "<br>" . h($product->productUploadDate); ?>
                         </td>

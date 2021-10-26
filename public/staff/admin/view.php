@@ -1,6 +1,6 @@
 <?php
 require_once('../../../private/initialize.php');
-
+require_login();
 $page_title = "View Product";
 
 include(SHARED_PATH . '/staff_header.php');
@@ -22,7 +22,7 @@ echo display_session_message();
 <!--Section: Block Content-->
 <section class="mb-5">
 
-    <a href="" class="btn btn-warning btn-icon-split float-right">
+    <a href="edit_product.php?id=<?php echo $id; ?>" class="btn btn-warning btn-icon-split float-right">
         <span class="icon text-white-50">
             <i class="fas fa-exclamation-triangle"></i>
         </span>
@@ -52,7 +52,7 @@ echo display_session_message();
                             <div class="col-3 align-self-center">
                                 <div class="view overlay rounded z-depth-1 gallery-item">
                                     <img src="<?php echo S_PRIVATE . '/uploads/thumb/' . $img->image; ?>"
-                                        class="img-fluid">
+                                        class="img-fluid img-thumbnail">
                                     <div class="mask rgba-white-slight"></div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@ echo display_session_message();
         </div>
         <div class="col-md-7">
 
-            <h5>Fantasy T-shirt</h5>
+            <h5><?php echo $product->productName; ?></h5>
             <p class="mb-2 text-muted text-uppercase small">
                 <?php foreach ($product_category as $category) { ?>
                 <span class="badge badge-primary p-2"><?php echo $category->categoryName; ?></span>

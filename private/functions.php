@@ -68,7 +68,33 @@ function ellipse_of($str, $size)
     return $out;
 }
 
-
+function has_account_type($id)
+{
+    $output = "";
+    if ($id === 7) {
+        $output = '<a href="#" class="btn btn-danger bg-gradient-danger btn-icon-split btn-sm">
+                 <span class="icon text-white-50">
+                        <i class="fas fa-flag"></i>
+                 </span>
+                <span class="text">Super User</span>
+              </a>';
+    } elseif ($id === 4) {
+        $output = '<a href="#" class="btn btn-warning bg-gradient-warning  btn-icon-split btn-sm">
+                 <span class="icon text-white-50">
+                        <i class="fas fa-flag"></i>
+                 </span>
+                <span class="text">Regular User</span>
+              </a>';
+    } elseif ($id === 1) {
+        $output = '<a href="#" class="btn btn-secondary bg-gradient-secondary  btn-icon-split btn-sm">
+        <span class="icon text-white-50">
+               <i class="fas fa-flag"></i>
+        </span>
+       <span class="text">Basic User</span>
+     </a>';
+    }
+    return $output;
+}
 
 
 // Image Upload Functions

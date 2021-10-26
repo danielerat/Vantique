@@ -10,6 +10,7 @@ if (is_post_request()) {
     $args["productCategory"] = $_POST['productCategory'];
     $category = Category::find_categories_by_ids($_POST['productCategory']);
     $args['productThumb'] = "default.png";
+    $args['addedBy'] = $_SESSION['username'] ?? "administrator";
     //Check if really there was a file uploaded otherwise it will just get a random name and assign it to the user profile
     if ((has_presence($_FILES['productThumb']['name'][0]) && has_presence($_FILES['productThumb']['type'][0])) && $_FILES['productThumb']['error'][0] != 4) {
         $result = Product::upload_image();
@@ -170,8 +171,7 @@ include(SHARED_PATH . '/staff_footer.php');
 <script src="../vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <!-- Bootstrap Touchspin -->
 <script src="../vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js"></script>
-<!-- ClockPicker -->
-<script src="../vendor/clock-picker/clockpicker.js"></script>
+
 <!-- RuangAdmin Javascript -->
 <script src="../js/ruang-admin.min.js"></script>
 <!-- Javascript for this page -->

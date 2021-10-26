@@ -6,6 +6,7 @@ if (is_post_request()) {
 
 
 
+echo display_session_message();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +23,7 @@ if (is_post_request()) {
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/ruang-admin.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
     <script src="vendor/sweetalert2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="vendor/sweetalert2/dist/sweetalert2.min.css">
 

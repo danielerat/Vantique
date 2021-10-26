@@ -333,5 +333,7 @@ include(SHARED_PATH . '/staff_header.php');
 
 include(SHARED_PATH . '/staff_footer.php');
 ?>
-<script src="../vendor/chart.js/Chart.min.js"></script>
-<script src="../js/demo/chart-area-demo.js"></script>
+
+<!-- Code To generate The Cart -->
+<!-- <script src="../vendor/chart.js/Chart.min.js"></script>
+<script src="../js/demo/chart-area-demo.js"></script> -->
