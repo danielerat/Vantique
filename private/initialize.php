@@ -66,4 +66,3 @@ if (strpos($_SERVER['REQUEST_URI'], '/public/staff') !== false) {
 } else {
     $session = new SessionUser;
 }
-print_r($session);

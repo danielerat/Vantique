@@ -13,7 +13,7 @@ class SessionUser
     private $last_login;
 
 
-    public const MAX_LOGIN_AGE = 60 * 60 * 24; // 1 day
+    public const MAX_LOGIN_AGE = 60 * 60 * 24 * 2; // 2 days
 
     public function __construct()
     {
