@@ -3015,12 +3015,15 @@ body {
 /* Cart-Empty-Styles & Wishlist Page */
 .page-cart .vertical-center h1, .page-wishlist .vertical-center h1 {
   font-size: 116px;
-  color: #333;
-  margin-bottom: 22px; }
+  color: rgb(21, 84, 95);
+  margin-top: 150px;
+}
 
 .page-cart .vertical-center h5, .page-wishlist .vertical-center h5 {
-  font-size: 13px;
-  color: #333; }
+    font-size: 13px;
+    color: #333; 
+   
+}
 
 /* Billing */
 .table-wrapper-2 > table tbody tr td:last-child {
