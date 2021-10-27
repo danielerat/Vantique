@@ -36,8 +36,9 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
 <div class="banner-layer">
     <div class="container">
         <div class="image-banner">
-            <a href="shop-v1-root-category.php" class="mx-auto banner-hover effect-dark-opacity">
-                <img class="img-fluid" src="images/banners/bannerlayer-1.jpg" alt="Winter Season Banner">
+            <a href="shop-v1-root-category.php" class="mx-auto banner-hover effect-dark-opacity ">
+                <img class="img-fluid w-25" src="images/banners/book.png" alt="Winter Season Banner">
+                <h2 class="slide-content slide-animation">Explore Our Book Collection!</h2>
             </a>
         </div>
     </div>
@@ -47,19 +48,19 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
 <section class="section-maker">
     <div class="container">
         <div class="sec-maker-header text-center">
-            <h3 class="sec-maker-h3">MEN'S CLOTHING</h3>
+            <h3 class="sec-maker-h3">Our Best Sell By Category</h3>
             <ul class="nav tab-nav-style-1-a justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#men-latest-products">Latest Products</a>
+                    <a class="nav-link active" data-toggle="tab" href="#men-latest-products">Clothing</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#men-best-selling-products">Best Selling</a>
+                    <a class="nav-link" data-toggle="tab" href="#men-best-selling-products">pharmaceutical</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#men-top-rating-products">Top Rating</a>
+                    <a class="nav-link" data-toggle="tab" href="#men-top-rating-products">Accessories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#men-featured-products">Featured Products</a>
+                    <a class="nav-link" data-toggle="tab" href="#men-featured-products">Books</a>
                 </li>
             </ul>
         </div>
@@ -3708,32 +3709,32 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
         <div class="brand-slider-content owl-carousel" data-item="5">
             <div class="brand-pic">
                 <a href="#">
-                    <img src="images/brand-logos/b1.png" alt="Brand Logo 1">
+                    <img src="images/brand-logos/1.png" alt="Brand Logo 1">
                 </a>
             </div>
             <div class="brand-pic">
                 <a href="#">
-                    <img src="images/brand-logos/b1.png" alt="Brand Logo 2">
+                    <img src="images/brand-logos/2.png" alt="Brand Logo 2">
                 </a>
             </div>
             <div class="brand-pic">
                 <a href="#">
-                    <img src="images/brand-logos/b1.png" alt="Brand Logo 3">
+                    <img src="images/brand-logos/3.png" alt="Brand Logo 3">
                 </a>
             </div>
             <div class="brand-pic">
                 <a href="#">
-                    <img src="images/brand-logos/b1.png" alt="Brand Logo 5">
+                    <img src="images/brand-logos/1.png" alt="Brand Logo 5">
                 </a>
             </div>
             <div class="brand-pic">
                 <a href="#">
-                    <img src="images/brand-logos/b1.png" alt="Brand Logo 6">
+                    <img src="images/brand-logos/2.png" alt="Brand Logo 6">
                 </a>
             </div>
             <div class="brand-pic">
                 <a href="#">
-                    <img src="images/brand-logos/b1.png" alt="Brand Logo 7">
+                    <img src="images/brand-logos/3.png" alt="Brand Logo 7">
                 </a>
             </div>
         </div>
