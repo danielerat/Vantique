@@ -4,9 +4,6 @@ if (is_post_request()) {
     print_r($_POST);
 }
 
-
-
-echo display_session_message();
 ?>
 <!DOCTYPE html>
 <html lang="en">

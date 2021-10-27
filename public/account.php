@@ -16,7 +16,6 @@ if (is_post_request() && isset($_POST["register"])) {
     $user = new User;
 }
 
-echo display_session_message();
 
 ?>
 
@@ -63,7 +62,7 @@ echo display_session_message();
                                         <label for="login-password">Password
                                             <span class="astk">*</span>
                                         </label>
-                                        <input type="text" id="login-password" class="text-field"
+                                        <input type="password" id="login-password" class="text-field"
                                             value="<?php echo $user->password; ?>" name="password"
                                             placeholder="Password" required>
                                     </div>
@@ -220,7 +219,7 @@ function successlogin() {
         icon: 'success',
         title: 'Signed in successfully'
     }).then(function() {
-        window.location = "admin/index.php";
+        window.location = "index.php";
     });
 }
 

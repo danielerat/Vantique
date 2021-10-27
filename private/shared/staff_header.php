@@ -1,4 +1,6 @@
-<?php require_login(); ?>
+<?php require_login();
+print_r($session_admin);
+?>
 <!DOCTYPE html>
 <html lang="en">
 

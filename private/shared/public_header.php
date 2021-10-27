@@ -1,3 +1,6 @@
+<?php
+echo display_user_session_message();
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="en-US">
 
@@ -53,20 +56,55 @@
                                 <a href="tel:+111444989">
                                     <i class="fas fa-phone u-c-brand u-s-m-r-9"></i>
 
-                                    Telephone:+111-444-989</a>
+                                    Telephone:+250783305114</a>
                             </li>
                             <li>
-                                <a href="mailto:contact@domain.com">
+                                <a href="mailto:support@vantique.com">
                                     <i class="fas fa-envelope u-c-brand u-s-m-r-9"></i>
-                                    E-mail: contact@domain.com
+                                    E-mail: vantique@vantique.com
                                 </a>
                             </li>
                         </ul>
                     </nav>
                     <nav>
                         <ul class="secondary-nav g-nav">
+                            <?php if ($session_user->is_logged_in()) {
+                            ?>
+
+                            <li>
+                                <a> <?php echo $session_user->first_name; ?>
+                                    <i class="fas fa-user"></i>
+                                    <i class="fas fa-chevron-down u-s-m-l-9"></i>
+                                </a>
+                                <ul class="g-dropdown" style="width:200px">
+                                    <li>
+                                        <a href="cart.php">
+                                            <i class="fas fa-cog u-s-m-r-9"></i>
+                                            My Cart</a>
+                                    </li>
+                                    <li>
+                                        <a href="wishlist.php">
+                                            <i class="far fa-heart u-s-m-r-9"></i>
+                                            My Wishlist</a>
+                                    </li>
+                                    <li>
+                                        <a href="checkout.php">
+                                            <i class="far fa-check-circle u-s-m-r-9"></i>
+                                            Checkout</a>
+                                    </li>
+                                    <li>
+                                        <a href="logout.php">
+                                            <i class="fas fa-sign-out-alt u-s-m-r-9"></i>
+                                            Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <?php } else { ?>
+
                             <li>
                                 <a>My Account
+                                    <i class="fas fa-user"></i>
                                     <i class="fas fa-chevron-down u-s-m-l-9"></i>
                                 </a>
                                 <ul class="g-dropdown" style="width:200px">
@@ -92,7 +130,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <?php } ?>
+                            <!-- <li>
                                 <a>USD
                                     <i class="fas fa-chevron-down u-s-m-l-9"></i>
                                 </a>
@@ -104,7 +143,7 @@
                                         <a href="#">(£) GBP</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li>
                                 <a>ENG
                                     <i class="fas fa-chevron-down u-s-m-l-9"></i>
@@ -114,7 +153,7 @@
                                         <a href="#" class="u-c-brand">ENG</a>
                                     </li>
                                     <li>
-                                        <a href="#">ARB</a>
+                                        <a href="#">KNY</a>
                                     </li>
                                 </ul>
                         </ul>

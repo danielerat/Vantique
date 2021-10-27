@@ -1,6 +1,5 @@
 <?php
 require_once("initialize.php");
-
 $username = $_POST['username'] ?? '';
 $password = $_POST['password'] ?? '';
 $errors = [];
@@ -19,8 +18,7 @@ if (is_ajax_request()) {
         // test if admin found and password is correct
         if ($user != false && $user->verify_password($password)) {
             // Mark admin as logged in
-            $session->login($user);
-            $session->message("Welcome Back" . $user->username);
+            $session_user->login($user);
             echo "true";
         } else {
             $errors[] = $login_failure_msg;

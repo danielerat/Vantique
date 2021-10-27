@@ -8,7 +8,7 @@ class Session
      * but also getting users ip address , or user agent etc..
      *  */
     private $admin_id;
-    public $username;
+    public $admin_username;
     public $account_type;
     private $last_login;
 
@@ -17,7 +17,9 @@ class Session
 
     public function __construct()
     {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         $this->check_stored_login();
     }
 
@@ -27,7 +29,7 @@ class Session
             // prevent session fixation attacks
             session_regenerate_id();
             $this->admin_id = $_SESSION['admin_id'] = $admin->id;
-            $this->username = $_SESSION['username'] = $admin->username;
+            $this->admin_username = $_SESSION['admin_username'] = $admin->username;
             $this->account_type = $_SESSION['account_type'] = $admin->account_type;
             $this->last_login = $_SESSION['last_login'] = time();
         }
@@ -43,11 +45,11 @@ class Session
     public function logout()
     {
         unset($_SESSION['admin_id']);
-        unset($_SESSION['username']);
+        unset($_SESSION['admin_username']);
         unset($_SESSION['account_type']);
         unset($_SESSION['last_login']);
         unset($this->admin_id);
-        unset($this->username);
+        unset($this->admin_username);
         unset($this->last_login);
         unset($this->account_type);
         return true;
@@ -57,7 +59,7 @@ class Session
     {
         if (isset($_SESSION['admin_id'])) {
             $this->admin_id = $_SESSION['admin_id'];
-            $this->username = $_SESSION['username'];
+            $this->admin_username = $_SESSION['admin_username'];
             $this->last_login = $_SESSION['last_login'];
             $this->account_type = $_SESSION['account_type'];
         }
@@ -68,7 +70,7 @@ class Session
         if (!isset($this->last_login)) {
             return false;
         } elseif (($this->last_login + self::MAX_LOGIN_AGE) < time()) {
-            $this->message($this->username . " Login Expired, Authenticate Again");
+            $this->message($this->admin_username . " Login Expired,Login Again");
             return false;
         } else {
             return true;

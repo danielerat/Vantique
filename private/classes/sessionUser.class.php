@@ -10,7 +10,7 @@ class SessionUser
     private $user_id;
     public $username;
     public $first_name;
-    private $last_login;
+    private $user_last_login;
 
 
     public const MAX_LOGIN_AGE = 60 * 60 * 24 * 2; // 2 days
@@ -29,7 +29,7 @@ class SessionUser
             $this->user_id = $_SESSION['user_id'] = $user->id;
             $this->username = $_SESSION['username'] = $user->username;
             $this->first_name = $_SESSION['first_name'] = $user->first_name;
-            $this->last_login = $_SESSION['last_login'] = time();
+            $this->user_last_login = $_SESSION['user_last_login'] = time();
         }
         return true;
     }
@@ -37,7 +37,7 @@ class SessionUser
     public function is_logged_in()
     {
         // return isset($this->user_id);
-        return isset($this->user_id) && $this->last_login_is_recent();
+        return isset($this->user_id) && $this->user_last_login_is_recent();
     }
 
     public function logout()
@@ -45,10 +45,10 @@ class SessionUser
         unset($_SESSION['user_id']);
         unset($_SESSION['username']);
         unset($_SESSION['first_name']);
-        unset($_SESSION['last_login']);
+        unset($_SESSION['user_last_login']);
         unset($this->user_id);
         unset($this->username);
-        unset($this->last_login);
+        unset($this->user_last_login);
         unset($this->first_name);
         return true;
     }
@@ -58,16 +58,16 @@ class SessionUser
         if (isset($_SESSION['user_id'])) {
             $this->user_id = $_SESSION['user_id'];
             $this->username = $_SESSION['username'];
-            $this->last_login = $_SESSION['last_login'];
+            $this->user_last_login = $_SESSION['user_last_login'];
             $this->first_name = $_SESSION['first_name'];
         }
     }
 
-    private function last_login_is_recent()
+    private function user_last_login_is_recent()
     {
-        if (!isset($this->last_login)) {
+        if (!isset($this->user_last_login)) {
             return false;
-        } elseif (($this->last_login + self::MAX_LOGIN_AGE) < time()) {
+        } elseif (($this->user_last_login + self::MAX_LOGIN_AGE) < time()) {
             return false;
         } else {
             return true;

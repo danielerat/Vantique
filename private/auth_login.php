@@ -19,8 +19,8 @@ if (is_ajax_request()) {
         // test if admin found and password is correct
         if ($admin != false && $admin->verify_password($password)) {
             // Mark admin as logged in
-            $session->login($admin);
-            $session->message("Welcome " . $admin->username);
+            $session_admin->login($admin);
+            $session_admin->message("Welcome " . $admin->username);
             echo "true";
         } else {
             $errors[] = $login_failure_msg;
