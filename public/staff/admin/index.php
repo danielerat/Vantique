@@ -7,6 +7,7 @@ include(SHARED_PATH . '/staff_header.php');
 // echo "<pre>";
 // print_r($session);
 // echo "</pre>";
+echo display_session_message();
 ?>
 
 

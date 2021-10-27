@@ -1,763 +1,3800 @@
 <?php
-require_once('../private/initialize.php');
-require_once(PRIVATE_PATH . "/shared/public_header.php"); ?>
-<main class="ps-main">
-    <div class="ps-banner">
-        <div class="rev_slider fullscreenbanner" id="home-banner">
-            <ul>
-                <li class="ps-banner" data-index="rs-2972" data-transition="random" data-slotamount="default"
-                    data-hideafterloop="0" data-hideslideonmobile="off" data-rotate="0"><img class="rev-slidebg"
-                        src="images/slider/3.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
-                        data-bgrepeat="no-repeat" data-bgparallax="5" data-no-retina>
-                    <div class="tp-caption ps-banner__header" id="layer-1" data-x="left"
-                        data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']"
-                        data-voffset="['-150','-120','-150','-170']" data-width="['none','none','none','400']"
-                        data-type="text" data-responsive_offset="on"
-                        data-frames="[{&quot;delay&quot;:1000,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">
-                        <p>March 2002 <br> Nike SB Dunk Low Pro</p>
-                    </div>
-                    <div class="tp-caption ps-banner__title" id="layer21" data-x="['left','left','left','left']"
-                        data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']"
-                        data-voffset="['-60','-40','-50','-70']" data-type="text" data-responsive_offset="on"
-                        data-textAlign="['center','center','center','center']"
-                        data-frames="[{&quot;delay&quot;:1200,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">
-                        <p class="text-uppercase">SUBA</p>
-                    </div>
-                    <div class="tp-caption ps-banner__description" id="layer211" data-x="['left','left','left','left']"
-                        data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']"
-                        data-voffset="['30','50','50','50']" data-type="text" data-responsive_offset="on"
-                        data-textAlign="['center','center','center','center']"
-                        data-frames="[{&quot;delay&quot;:1200,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">
-                        <p>Supa wanted something that was going to rep his East Coast <br> roots and, more
-                            specifically, his hometown of <br /> New York City in a big way.</p>
-                    </div><a class="tp-caption ps-btn" id="layer31" href="#" data-x="['left','left','left','left']"
-                        data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']"
-                        data-voffset="['120','140','200','200']" data-type="text" data-responsive_offset="on"
-                        data-textAlign="['center','center','center','center']"
-                        data-frames="[{&quot;delay&quot;:1500,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">Purchase
-                        Now<i class="ps-icon-next"></i></a>
+require_once("../private/initialize.php");
+require_once(PRIVATE_PATH . "/shared/public_header.php");
+?>
+<!-- Main-Slider -->
+<script>
+document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-close');
+</script>
+<div class="default-height ph-item">
+    <div class="slider-main owl-carousel">
+        <div class="bg-image one">
+            <div class="slide-content slide-animation">
+                <h1>Casual Clothing</h1>
+                <h2>lifestyle / clothing / hype</h2>
+            </div>
+        </div>
+        <div class="bg-image two">
+            <div class="slide-content-2 slide-animation">
+                <h2 class="slide-2-h2-a">Hiking</h2>
+                <h2 class="slide-2-h2-b">Collection</h2>
+                <h1>2018</h1>
+            </div>
+        </div>
+        <div class="bg-image three">
+            <div class="slide-content slide-animation">
+                <h1>Tech
+                    <span style="color:#333">Deals</span>
+                </h1>
+                <h2 style="color:#333"># shopping</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main-Slider /- -->
+<!-- Banner-Layer -->
+<div class="banner-layer">
+    <div class="container">
+        <div class="image-banner">
+            <a href="shop-v1-root-category.php" class="mx-auto banner-hover effect-dark-opacity">
+                <img class="img-fluid" src="images/banners/bannerlayer-1.jpg" alt="Winter Season Banner">
+            </a>
+        </div>
+    </div>
+</div>
+<!-- Banner-Layer /- -->
+<!-- Men-Clothing -->
+<section class="section-maker">
+    <div class="container">
+        <div class="sec-maker-header text-center">
+            <h3 class="sec-maker-h3">MEN'S CLOTHING</h3>
+            <ul class="nav tab-nav-style-1-a justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#men-latest-products">Latest Products</a>
                 </li>
-                <li class="ps-banner ps-banner--white" data-index="rs-100" data-transition="random"
-                    data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-rotate="0">
-                    <img class="rev-slidebg" src="images/slider/2.jpg" alt="" data-bgposition="center center"
-                        data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" data-no-retina>
-                    <div class="tp-caption ps-banner__header" id="layer20" data-x="left"
-                        data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']"
-                        data-voffset="['-150','-120','-150','-170']" data-width="['none','none','none','400']"
-                        data-type="text" data-responsive_offset="on"
-                        data-frames="[{&quot;delay&quot;:1000,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">
-                        <p>BEST ITEM <br> THIS SUMMER</p>
-                    </div>
-                    <div class="tp-caption ps-banner__title" id="layer339" data-x="['left','left','left','left']"
-                        data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']"
-                        data-voffset="['-60','-40','-50','-70']" data-type="text" data-responsive_offset="on"
-                        data-textAlign="['center','center','center','center']"
-                        data-frames="[{&quot;delay&quot;:1200,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">
-                        <p class="text-uppercase">Recovery</p>
-                    </div>
-                    <div class="tp-caption ps-banner__description" id="layer2-14" data-x="['left','left','left','left']"
-                        data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']"
-                        data-voffset="['30','50','50','50']" data-type="text" data-responsive_offset="on"
-                        data-textAlign="['center','center','center','center']"
-                        data-frames="[{&quot;delay&quot;:1200,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">
-                        <p>Supa wanted something that was going to rep his East Coast <br> roots and, more
-                            specifically, his hometown of <br /> New York City in a big way.</p>
-                    </div><a class="tp-caption ps-btn" id="layer364" href="#" data-x="['left','left','left','left']"
-                        data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']"
-                        data-voffset="['120','140','200','200']" data-type="text" data-responsive_offset="on"
-                        data-textAlign="['center','center','center','center']"
-                        data-frames="[{&quot;delay&quot;:1500,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">Purchase
-                        Now<i class="ps-icon-next"></i></a>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#men-best-selling-products">Best Selling</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#men-top-rating-products">Top Rating</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#men-featured-products">Featured Products</a>
                 </li>
             </ul>
         </div>
-    </div>
-    <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
-        <div class="ps-container">
-            <div class="ps-section__header mb-50">
-                <h3 class="ps-section__title" data-mask="features">- Features Products</h3>
-                <ul class="ps-masonry__filter">
-                    <li class="current"><a href="#" data-filter="*">All <sup>8</sup></a></li>
-                    <li><a href="#" data-filter=".nike">Nike <sup>1</sup></a></li>
-                    <li><a href="#" data-filter=".adidas">Adidas <sup>1</sup></a></li>
-                    <li><a href="#" data-filter=".men">Men <sup>1</sup></a></li>
-                    <li><a href="#" data-filter=".women">Women <sup>1</sup></a></li>
-                    <li><a href="#" data-filter=".kids">Kids <sup>4</sup></a></li>
-                </ul>
-            </div>
-            <div class="ps-section__content pb-50">
-                <div class="masonry-wrapper" data-col-md="4" data-col-sm="2" data-col-xs="1" data-gap="30"
-                    data-radio="100%">
-                    <div class="ps-masonry">
-                        <div class="grid-sizer"></div>
-                        <div class="grid-item kids">
-                            <div class="grid-item__content-wrapper">
-                                <div class="ps-shoe mb-30">
-                                    <div class="ps-shoe__thumbnail">
-                                        <div class="ps-badge"><span>New</span></div>
-                                        <div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-35%</span></div><a
-                                            class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img
-                                            src="images/shoe/1.jpg" alt=""><a class="ps-shoe__overlay"
-                                            href="product-detail.html"></a>
-                                    </div>
-                                    <div class="ps-shoe__content">
-                                        <div class="ps-shoe__variants">
-                                            <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg"
-                                                    alt=""><img src="images/shoe/3.jpg" alt=""><img
-                                                    src="images/shoe/4.jpg" alt=""><img src="images/shoe/5.jpg" alt="">
-                                            </div>
-                                            <select class="ps-rating ps-shoe__rating">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select>
+        <div class="wrapper-content">
+            <div class="outer-area-tab">
+                <div class="tab-content">
+                    <div class="tab-pane active show fade" id="men-latest-products">
+                        <div class="slider-fouc">
+                            <div class="products-slider owl-carousel" data-item="4">
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                         </div>
-                                        <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">Air Jordan 7
-                                                Retro</a>
-                                            <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                                    Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price">
-                                                <del>£220</del> £ 120</span>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Hoodies</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Casual Hoodie Full Cotton</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag new">
+                                        <span>NEW</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">T-Shirts</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Mischka Plain Men T-Shirt</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="grid-item nike">
-                            <div class="grid-item__content-wrapper">
-                                <div class="ps-shoe mb-30">
-                                    <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i
-                                                class="ps-icon-heart"></i></a><img src="images/shoe/2.jpg" alt=""><a
-                                            class="ps-shoe__overlay" href="product-detail.html"></a>
-                                    </div>
-                                    <div class="ps-shoe__content">
-                                        <div class="ps-shoe__variants">
-                                            <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg"
-                                                    alt=""><img src="images/shoe/3.jpg" alt=""><img
-                                                    src="images/shoe/4.jpg" alt=""><img src="images/shoe/5.jpg" alt="">
-                                            </div>
-                                            <select class="ps-rating ps-shoe__rating">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                         </div>
-                                        <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">Air Jordan 7
-                                                Retro</a>
-                                            <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                                    Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £
-                                                120</span>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v4-filter-as-category.php">T-Shirts</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Black Bean Plain Men T-Shirt</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="grid-item adidas">
-                            <div class="grid-item__content-wrapper">
-                                <div class="ps-shoe mb-30">
-                                    <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i
-                                                class="ps-icon-heart"></i></a><img src="images/shoe/3.jpg" alt=""><a
-                                            class="ps-shoe__overlay" href="product-detail.html"></a>
-                                    </div>
-                                    <div class="ps-shoe__content">
-                                        <div class="ps-shoe__variants">
-                                            <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg"
-                                                    alt=""><img src="images/shoe/3.jpg" alt=""><img
-                                                    src="images/shoe/4.jpg" alt=""><img src="images/shoe/5.jpg" alt="">
-                                            </div>
-                                            <select class="ps-rating ps-shoe__rating">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                         </div>
-                                        <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">Air Jordan 7
-                                                Retro</a>
-                                            <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                                    Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £
-                                                120</span>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Bottoms</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Jeans</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Regular Rock Blue Men Jean</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag new">
+                                        <span>NEW</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Suits</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Black Maire Full Men Suit</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag sale">
+                                        <span>SALE</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Outwear</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Jackets</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Woodsmoke Rookie Parka Jacket</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="grid-item kids">
-                            <div class="grid-item__content-wrapper">
-                                <div class="ps-shoe mb-30">
-                                    <div class="ps-shoe__thumbnail">
-                                        <div class="ps-badge ps-badge--sale"><span>-35%</span></div><a
-                                            class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img
-                                            src="images/shoe/4.jpg" alt=""><a class="ps-shoe__overlay"
-                                            href="product-detail.html"></a>
-                                    </div>
-                                    <div class="ps-shoe__content">
-                                        <div class="ps-shoe__variants">
-                                            <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg"
-                                                    alt=""><img src="images/shoe/3.jpg" alt=""><img
-                                                    src="images/shoe/4.jpg" alt=""><img src="images/shoe/5.jpg" alt="">
-                                            </div>
-                                            <select class="ps-rating ps-shoe__rating">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                         </div>
-                                        <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">Air Jordan 7
-                                                Retro</a>
-                                            <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                                    Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price">
-                                                <del>£220</del> £ 120</span>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Accessories</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Ties</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Blue Zodiac Boxes Reg Tie
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="grid-item men">
-                            <div class="grid-item__content-wrapper">
-                                <div class="ps-shoe mb-30">
-                                    <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i
-                                                class="ps-icon-heart"></i></a><img src="images/shoe/5.jpg" alt=""><a
-                                            class="ps-shoe__overlay" href="product-detail.html"></a>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
                                     </div>
-                                    <div class="ps-shoe__content">
-                                        <div class="ps-shoe__variants">
-                                            <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg"
-                                                    alt=""><img src="images/shoe/3.jpg" alt=""><img
-                                                    src="images/shoe/4.jpg" alt=""><img src="images/shoe/5.jpg" alt="">
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Bottoms</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Shoes</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Zambezi Carved Leather Business
+                                                    Casual Shoes
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
                                             </div>
-                                            <select class="ps-rating ps-shoe__rating">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select>
                                         </div>
-                                        <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">Air Jordan 7
-                                                Retro</a>
-                                            <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                                    Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £
-                                                120</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-item women">
-                            <div class="grid-item__content-wrapper">
-                                <div class="ps-shoe mb-30">
-                                    <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i
-                                                class="ps-icon-heart"></i></a><img src="images/shoe/6.jpg" alt=""><a
-                                            class="ps-shoe__overlay" href="product-detail.html"></a>
-                                    </div>
-                                    <div class="ps-shoe__content">
-                                        <div class="ps-shoe__variants">
-                                            <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg"
-                                                    alt=""><img src="images/shoe/3.jpg" alt=""><img
-                                                    src="images/shoe/4.jpg" alt=""><img src="images/shoe/5.jpg" alt="">
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
                                             </div>
-                                            <select class="ps-rating ps-shoe__rating">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select>
-                                        </div>
-                                        <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">Air Jordan 7
-                                                Retro</a>
-                                            <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                                    Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £
-                                                120</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-item kids">
-                            <div class="grid-item__content-wrapper">
-                                <div class="ps-shoe mb-30">
-                                    <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i
-                                                class="ps-icon-heart"></i></a><img src="images/shoe/7.jpg" alt=""><a
-                                            class="ps-shoe__overlay" href="product-detail.html"></a>
-                                    </div>
-                                    <div class="ps-shoe__content">
-                                        <div class="ps-shoe__variants">
-                                            <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg"
-                                                    alt=""><img src="images/shoe/3.jpg" alt=""><img
-                                                    src="images/shoe/4.jpg" alt=""><img src="images/shoe/5.jpg" alt="">
+                                            <div class="item-old-price">
+                                                $60.00
                                             </div>
-                                            <select class="ps-rating ps-shoe__rating">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select>
-                                        </div>
-                                        <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">Air Jordan 7
-                                                Retro</a>
-                                            <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                                    Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £
-                                                120</span>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-item kids">
-                            <div class="grid-item__content-wrapper">
-                                <div class="ps-shoe mb-30">
-                                    <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i
-                                                class="ps-icon-heart"></i></a><img src="images/shoe/8.jpg" alt=""><a
-                                            class="ps-shoe__overlay" href="product-detail.html"></a>
-                                    </div>
-                                    <div class="ps-shoe__content">
-                                        <div class="ps-shoe__variants">
-                                            <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg"
-                                                    alt=""><img src="images/shoe/3.jpg" alt=""><img
-                                                    src="images/shoe/4.jpg" alt=""><img src="images/shoe/5.jpg" alt="">
-                                            </div>
-                                            <select class="ps-rating ps-shoe__rating">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select>
-                                        </div>
-                                        <div class="ps-shoe__detail"><a class="ps-shoe__name" href="#">Air Jordan 7
-                                                Retro</a>
-                                            <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                                    Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £
-                                                120</span>
-                                        </div>
+                                    <div class="tag discount">
+                                        <span>-15%</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane fade" id="men-best-selling-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                    <div class="tab-pane fade" id="men-top-rating-products">
+                        <div class="slider-fouc">
+                            <div class="products-slider owl-carousel" data-item="4">
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Suits</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Black Maire Full Men Suit</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag sale">
+                                        <span>SALE</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Outwear</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Jackets</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Woodsmoke Rookie Parka Jacket</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Accessories</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Ties</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Blue Zodiac Boxes Reg Tie</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Bottoms</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Shoes</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Zambezi Carved Leather Business
+                                                    Casual Shoes
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag discount">
+                                        <span>-15%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="men-featured-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="ps-section--offer">
-        <div class="ps-column"><a class="ps-offer" href="product-listing.html"><img
-                    src="images/banner/home-banner-1.png" alt=""></a></div>
-        <div class="ps-column"><a class="ps-offer" href="product-listing.html"><img
-                    src="images/banner/home-banner-2.png" alt=""></a></div>
-    </div>
-    <div class="ps-section--sale-off ps-section pt-80 pb-40">
-        <div class="ps-container">
-            <div class="ps-section__header mb-50">
-                <h3 class="ps-section__title" data-mask="Sale off">- Hot Deal Today</h3>
+</section>
+<!-- Men-Clothing-Timing-Section -->
+<section class="section-maker">
+    <div class="container">
+        <div class="sec-maker-header text-center">
+            <span class="sec-maker-span-text">Men's Clothing</span>
+            <h3 class="sec-maker-h3 u-s-m-b-22">Hot Deals</h3>
+            <span class="sec-maker-span-text">Ends in</span>
+            <!-- Timing-Box -->
+            <div class="section-timing-wrapper dynamic">
+                <span class="fictitious-seconds" style="display:none;">18000</span>
+                <div class="section-box-wrapper box-days">
+                    <div class="section-box">
+                        <span class="section-key">120</span>
+                        <span class="section-value">Days</span>
+                    </div>
+                </div>
+                <div class="section-box-wrapper box-hrs">
+                    <div class="section-box">
+                        <span class="section-key">54</span>
+                        <span class="section-value">HRS</span>
+                    </div>
+                </div>
+                <div class="section-box-wrapper box-mins">
+                    <div class="section-box">
+                        <span class="section-key">3</span>
+                        <span class="section-value">MINS</span>
+                    </div>
+                </div>
+                <div class="section-box-wrapper box-secs">
+                    <div class="section-box">
+                        <span class="section-key">32</span>
+                        <span class="section-value">SEC</span>
+                    </div>
+                </div>
             </div>
-            <div class="ps-section__content">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
-                        <div class="ps-hot-deal">
-                            <h3>Nike DUNK Max 95 OG</h3>
-                            <p class="ps-hot-deal__price">Only: <span>£155</span></p>
-                            <ul class="ps-countdown" data-time="December 13, 2017 15:37:25">
-                                <li><span class="hours"></span>
-                                    <p>Hours</p>
+            <!-- Timing-Box /- -->
+        </div>
+        <!-- Carousel -->
+        <div class="slider-fouc">
+            <div class="products-slider owl-carousel" data-item="4">
+                <div class="item">
+                    <div class="image-container">
+                        <a class="item-img-wrapper-link" href="single-product.php">
+                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                        </a>
+                        <div class="item-action-behaviors">
+                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <div class="what-product-is">
+                            <ul class="bread-crumb">
+                                <li class="has-separator">
+                                    <a href="shop-v1-root-category.php">Men's</a>
                                 </li>
-                                <li class="divider">:</li>
-                                <li><span class="minutes"></span>
-                                    <p>minutes</p>
+                                <li class="has-separator">
+                                    <a href="shop-v2-sub-category.php">Outwear</a>
                                 </li>
-                                <li class="divider">:</li>
-                                <li><span class="seconds"></span>
-                                    <p>Seconds</p>
+                                <li>
+                                    <a href="shop-v3-sub-sub-category.php">Jackets</a>
                                 </li>
-                            </ul><a class="ps-btn" href="#">Order Today<i class="ps-icon-next"></i></a>
+                            </ul>
+                            <h6 class="item-title">
+                                <a href="single-product.php">Maire Battlefield Jeep Men's Jacket</a>
+                            </h6>
+                            <div class="item-stars">
+                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                    <span style='width:0'></span>
+                                </div>
+                                <span>(0)</span>
+                            </div>
+                        </div>
+                        <div class="price-template">
+                            <div class="item-new-price">
+                                $55.00
+                            </div>
+                            <div class="item-old-price">
+                                $60.00
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
-                        <div class="ps-hotspot"><a class="point first active" href="javascript:;"><i
-                                    class="fa fa-plus"></i>
-                                <div class="ps-hotspot__content">
-                                    <p class="heading">JUMP TO HEADER</p>
-                                    <p>Dynamic Fit Collar en la zona del tobillo que une la parte inferior de la
-                                        pierna y el pie sin reducir la libertad de movimiento.</p>
+                    <div class="tag hot">
+                        <span>HOT</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image-container">
+                        <a class="item-img-wrapper-link" href="single-product.php">
+                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                        </a>
+                        <div class="item-action-behaviors">
+                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <div class="what-product-is">
+                            <ul class="bread-crumb">
+                                <li class="has-separator">
+                                    <a href="shop-v1-root-category.php">Men's</a>
+                                </li>
+                                <li class="has-separator">
+                                    <a href="shop-v2-sub-category.php">Outwear</a>
+                                </li>
+                                <li>
+                                    <a href="shop-v3-sub-sub-category.php">Jackets</a>
+                                </li>
+                            </ul>
+                            <h6 class="item-title">
+                                <a href="single-product.php">Fern Green Men's Jacket</a>
+                            </h6>
+                            <div class="item-stars">
+                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                    <span style='width:0'></span>
                                 </div>
-                            </a><a class="point second" href="javascript:;"><i class="fa fa-plus"></i>
-                                <div class="ps-hotspot__content">
-                                    <p class="heading">JUMP TO HEADER</p>
-                                    <p>Dynamic Fit Collar en la zona del tobillo que une la parte inferior de la
-                                        pierna y el pie sin reducir la libertad de movimiento.</p>
+                                <span>(0)</span>
+                            </div>
+                        </div>
+                        <div class="price-template">
+                            <div class="item-new-price">
+                                $55.00
+                            </div>
+                            <div class="item-old-price">
+                                $60.00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tag hot">
+                        <span>HOT</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image-container">
+                        <a class="item-img-wrapper-link" href="single-product.php">
+                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                        </a>
+                        <div class="item-action-behaviors">
+                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <div class="what-product-is">
+                            <ul class="bread-crumb">
+                                <li class="has-separator">
+                                    <a href="shop-v1-root-category.php">Men's</a>
+                                </li>
+                                <li class="has-separator">
+                                    <a href="shop-v2-sub-category.php">Sunglasses</a>
+                                </li>
+                                <li>
+                                    <a href="shop-v3-sub-sub-category.php">Round</a>
+                                </li>
+                            </ul>
+                            <h6 class="item-title">
+                                <a href="single-product.php">Brown Dark Tan Round Double Bridge Sunglasses</a>
+                            </h6>
+                            <div class="item-stars">
+                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                    <span style='width:0'></span>
                                 </div>
-                            </a><a class="point third" href="javascript:;"><i class="fa fa-plus"></i>
-                                <div class="ps-hotspot__content">
-                                    <p class="heading">JUMP TO HEADER</p>
-                                    <p>Dynamic Fit Collar en la zona del tobillo que une la parte inferior de la
-                                        pierna y el pie sin reducir la libertad de movimiento.</p>
+                                <span>(0)</span>
+                            </div>
+                        </div>
+                        <div class="price-template">
+                            <div class="item-new-price">
+                                $55.00
+                            </div>
+                            <div class="item-old-price">
+                                $60.00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tag hot">
+                        <span>HOT</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image-container">
+                        <a class="item-img-wrapper-link" href="single-product.php">
+                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                        </a>
+                        <div class="item-action-behaviors">
+                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <div class="what-product-is">
+                            <ul class="bread-crumb">
+                                <li class="has-separator">
+                                    <a href="shop-v1-root-category.php">Men's</a>
+                                </li>
+                                <li class="has-separator">
+                                    <a href="shop-v2-sub-category.php">Sunglasses</a>
+                                </li>
+                                <li>
+                                    <a href="shop-v3-sub-sub-category.php">Round</a>
+                                </li>
+                            </ul>
+                            <h6 class="item-title">
+                                <a href="single-product.php">Black Round Double Bridge Sunglasses</a>
+                            </h6>
+                            <div class="item-stars">
+                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                    <span style='width:0'></span>
                                 </div>
-                            </a><img src="images/hot-deal.png" alt=""></div>
+                                <span>(0)</span>
+                            </div>
+                        </div>
+                        <div class="price-template">
+                            <div class="item-new-price">
+                                $55.00
+                            </div>
+                            <div class="item-old-price">
+                                $60.00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tag hot">
+                        <span>HOT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel /- -->
+    </div>
+</section>
+<!-- Men-Clothing-Timing-Section /- -->
+<!-- Banner-Image & View-more -->
+<div class="banner-image-view-more">
+    <div class="container">
+        <div class="image-banner u-s-m-y-40">
+            <a href="shop-v1-root-category.php" class="mx-auto banner-hover effect-dark-opacity">
+                <img class="img-fluid" src="images/banners/ban-men.jpg" alt="Banner Image">
+            </a>
+        </div>
+        <div class="redirect-link-wrapper text-center u-s-p-t-25 u-s-p-b-80">
+            <a class="redirect-link" href="store-directory.php">
+                <span>View more on this category</span>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- Banner-Image & View-more /- -->
+<!-- Men-Clothing /- -->
+<!-- Women-Clothing -->
+<section class="section-maker">
+    <div class="container">
+        <div class="sec-maker-header text-center">
+            <h3 class="sec-maker-h3">WOMEN'S CLOTHING</h3>
+            <ul class="nav tab-nav-style-1-a justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#women-latest-products">Latest
+                        Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#women-best-selling-products">Best Selling</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#women-top-rating-products">Top Rating</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#women-featured-products">Featured Products</a>
+                </li>
+            </ul>
+        </div>
+        <div class="wrapper-content">
+            <div class="outer-area-tab">
+                <div class="tab-content">
+                    <div class="tab-pane active show fade" id="women-latest-products">
+                        <div class="slider-fouc">
+                            <div class="products-slider owl-carousel" data-item="4">
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Dresses</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">White Solitude Dress with mid heel
+                                                    & Bag
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag new">
+                                        <span>NEW</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Dresses</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Black Rock Dress with High Jewelery
+                                                    Necklace
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Dresses</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Haiti Full Dress with Boots &
+                                                    Jacket</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Dresses</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Black & White Wrap Dress with High
+                                                    Jewelery Necklace</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag new">
+                                        <span>NEW</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Dresses</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Grey Nickel Special Occasion
+                                                    Dress</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag sale">
+                                        <span>SALE</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Dresses</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Red Carmine Winter Special Occasion
+                                                    Dress
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Bottoms</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Shoes</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Wax Flower with Corn Silk Heel
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Intimates</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Bras</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Red Wild Bra
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag discount">
+                                        <span>-15%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="women-best-selling-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                    <div class="tab-pane fade" id="women-top-rating-products">
+                        <div class="slider-fouc">
+                            <div class="products-slider owl-carousel" data-item="4">
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Dresses</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Grey Nickel Special Occasion
+                                                    Dress</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag sale">
+                                        <span>SALE</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Dresses</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Red Carmine Winter Special Occasion
+                                                    Dress
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Bottoms</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Shoes</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Wax Flower with Corn Silk Heel</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Women's</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">Intimates</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">Bras</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Red Wild Bra</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag discount">
+                                        <span>-15%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="women-featured-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="redirect-link-wrapper text-center u-s-p-t-25 u-s-p-b-80">
+            <a class="redirect-link" href="store-directory.php">
+                <span>View more on this category</span>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Women-Clothing /- -->
+<!-- Toys-Hobbies-&-Robots -->
+<section class="section-maker">
+    <div class="container">
+        <div class="sec-maker-header text-center">
+            <h3 class="sec-maker-h3">Toys Hobbies & Robots</h3>
+            <ul class="nav tab-nav-style-1-a justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#toys-latest-products">Latest
+                        Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#toys-best-selling-products">Best Selling</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#toys-top-rating-products">Top Rating</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#toys-featured-products">Featured Products</a>
+                </li>
+            </ul>
+        </div>
+        <div class="wrapper-content">
+            <div class="outer-area-tab">
+                <div class="tab-content">
+                    <div class="tab-pane active show fade" id="toys-latest-products">
+                        <div class="slider-fouc">
+                            <div class="products-slider owl-carousel" data-item="4">
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Helicopte</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">RC Helicopter 6-Cell</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag new">
+                                        <span>NEW</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">DJI Phantom with 1080p Camera</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">DJI Inspire with 1080p Camera</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">DJI Phantom with Battery Lights</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag new">
+                                        <span>NEW</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">DJI Mavic Air
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag sale">
+                                        <span>SALE</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">U45 Raven RC Quadcopter
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">DJI Inspire 1 with 1080p Camera
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">DJI Inspire 1 with 360° Camera
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag discount">
+                                        <span>-15%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="toys-best-selling-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                    <div class="tab-pane fade" id="toys-top-rating-products">
+                        <div class="slider-fouc">
+                            <div class="products-slider owl-carousel" data-item="4">
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">DJI Mavic Air
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag sale">
+                                        <span>SALE</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">U45 Raven RC Quadcopter
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">DJI Inspire 1 with 1080p Camera</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li class="has-separator">
+                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                </li>
+                                                <li class="has-separator">
+                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                </li>
+                                                <li>
+                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">DJI Inspire 1 with 360° Camera</a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:67px'></span>
+                                                </div>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag discount">
+                                        <span>-15%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="toys-featured-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="redirect-link-wrapper text-center u-s-p-t-25 u-s-p-b-80">
+            <a class="redirect-link" href="store-directory.php">
+                <span>View more on this category</span>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Toys-Hobbies-&-Robots /- -->
+<!-- Mobiles-&-Tablets -->
+<section class="section-maker">
+    <div class="container">
+        <div class="sec-maker-header text-center">
+            <h3 class="sec-maker-h3">Mobiles & Tablets</h3>
+            <ul class="nav tab-nav-style-1-a justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#mobiles-latest-products">Latest
+                        Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#mobiles-best-selling-products">Best Selling</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#mobiles-top-rating-products">Top Rating</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#mobiles-featured-products">Featured
+                        Products</a>
+                </li>
+            </ul>
+            <span class="sec-maker-span-text u-s-m-b-8 d-block">Select products in specific category</span>
+        </div>
+        <div class="wrapper-content">
+            <div class="outer-area-tab">
+                <div class="tab-content">
+                    <div class="tab-pane active show fade" id="mobiles-latest-products">
+                        <div class="row align-items-center">
+                            <div class="col-lg-1 col-md-12">
+                                <ul class="nav tab-nav-style-2-a">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#smart-phones"
+                                            title="Smart Phones">
+                                            <i class="ion ion-ios-phone-portrait"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tablets" title="Tablets">
+                                            <i class="ion ion-md-phone-landscape"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#smart-watches"
+                                            title="Smart Watches">
+                                            <i class="ion ion-md-watch"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#device-accessories"
+                                            title="Device Accessories">
+                                            <i class="ion ion-md-settings"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#power-banks" title="Power Banks">
+                                            <i class="ion ion-md-battery-charging"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-11 col-md-12">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="smart-phones">
+                                        <div class="slider-fouc">
+                                            <div class="specific-category-slider owl-carousel" data-item="3">
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Mobiles
+                                                                        & Tablets
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Smartphones</a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Xiaomi Note 2 Black
+                                                                    Color
+                                                                </a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag new">
+                                                        <span>NEW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Mobiles
+                                                                        & Tablets
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Smartphones</a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Iphone X Silver
+                                                                    Color</a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Mobiles
+                                                                        & Tablets
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Smartphones</a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Samsung S7 Green
+                                                                    Metallic Color
+                                                                </a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag sale">
+                                                        <span>SALE</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Mobiles
+                                                                        & Tablets
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Smartphones</a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Sony Xperia 3 Black
+                                                                    Color
+                                                                </a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag discount">
+                                                        <span>-15%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="tablets">
+                                        <!-- Product Not Found -->
+                                        <div class="product-not-found">
+                                            <div class="not-found">
+                                                <h2>SORRY!</h2>
+                                                <h6>There is not any product in specific catalogue.</h6>
+                                            </div>
+                                        </div>
+                                        <!-- Product Not Found /- -->
+                                    </div>
+                                    <div class="tab-pane fade" id="smart-watches">
+                                        <div class="slider-fouc">
+                                            <div class="specific-category-slider owl-carousel" data-item="3">
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Mobiles
+                                                                        & Tablets
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Smartwatches
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Outatime Mix
+                                                                    Smartwatch
+                                                                </a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag new">
+                                                        <span>NEW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Mobiles
+                                                                        & Tablets
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Smartwatches
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Mombo Full Wrist
+                                                                    Smartwatch
+                                                                </a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Mobiles
+                                                                        & Tablets
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Smartwatches
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Apollo Sport Think
+                                                                    Smartwatch
+                                                                </a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag sale">
+                                                        <span>SALE</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Mobiles
+                                                                        & Tablets
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Smartwatches
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Rhythm Pulse
+                                                                    Smartwatch
+                                                                </a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag discount">
+                                                        <span>-15%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="device-accessories">
+                                        <!-- Product Not Found -->
+                                        <div class="product-not-found">
+                                            <div class="not-found">
+                                                <h2>SORRY!</h2>
+                                                <h6>There is not any product in specific catalogue.</h6>
+                                            </div>
+                                        </div>
+                                        <!-- Product Not Found /- -->
+                                    </div>
+                                    <div class="tab-pane fade" id="power-banks">
+                                        <!-- Product Not Found -->
+                                        <div class="product-not-found">
+                                            <div class="not-found">
+                                                <h2>SORRY!</h2>
+                                                <h6>There is not any product in specific catalogue.</h6>
+                                            </div>
+                                        </div>
+                                        <!-- Product Not Found /- -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="mobiles-best-selling-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                    <div class="tab-pane fade" id="mobiles-top-rating-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                    <div class="tab-pane fade" id="mobiles-featured-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="redirect-link-wrapper text-center u-s-p-t-25 u-s-p-b-80">
+            <a class="redirect-link" href="store-directory.php">
+                <span>View more on this category</span>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Mobiles-&-Tablets /- -->
+<!-- Consumer-Electronics -->
+<section class="section-maker">
+    <div class="container">
+        <div class="sec-maker-header text-center">
+            <h3 class="sec-maker-h3">Consumer Electronics</h3>
+            <ul class="nav tab-nav-style-1-a justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#consumer-latest-products">Latest
+                        Products
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#consumer-best-selling-products">Best
+                        Selling</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#consumer-top-rating-products">Top Rating</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#consumer-featured-products">Featured
+                        Products</a>
+                </li>
+            </ul>
+            <span class="sec-maker-span-text u-s-m-b-8 d-block">Select products in specific category</span>
+        </div>
+        <div class="wrapper-content">
+            <div class="outer-area-tab">
+                <div class="tab-content">
+                    <div class="tab-pane active show fade" id="consumer-latest-products">
+                        <div class="row align-items-center">
+                            <div class="col-lg-1 col-md-12">
+                                <ul class="nav tab-nav-style-2-a">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#laptops" title="Laptops">
+                                            <i class="ion ion-md-laptop"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#pc-and-accessories"
+                                            title="PC & Accessories">
+                                            <i class="ion ion-ios-settings"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#tv" title="TV's">
+                                            <i class="ion ion-md-tv"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#cam-corder"
+                                            title="Camera & Camcorders">
+                                            <i class="ion ion-md-camera"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#audio-amplifiers"
+                                            title="Audio & Amplifiers">
+                                            <i class="ion ion-md-microphone"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-11 col-md-12">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="laptops">
+                                        <div class="slider-fouc">
+                                            <div class="specific-category-slider owl-carousel" data-item="3">
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Consumer
+                                                                        Electronics
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Laptops</a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">HP Pavilion 15
+                                                                    Notebook
+                                                                </a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag new">
+                                                        <span>NEW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Consumer
+                                                                        Electronics
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Laptops</a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Apple Macbook Pro
+                                                                    2017</a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Consumer
+                                                                        Electronics
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Laptops</a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Dell Inspiron
+                                                                    15</a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag sale">
+                                                        <span>SALE</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Consumer
+                                                                        Electronics
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">Laptops</a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Dell Inspiron
+                                                                    1525</a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag discount">
+                                                        <span>-15%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pc-and-accessories">
+                                        <!-- Product Not Found -->
+                                        <div class="product-not-found">
+                                            <div class="not-found">
+                                                <h2>SORRY!</h2>
+                                                <h6>There is not any product in specific catalogue.</h6>
+                                            </div>
+                                        </div>
+                                        <!-- Product Not Found /- -->
+                                    </div>
+                                    <div class="tab-pane fade" id="tv">
+                                        <div class="slider-fouc">
+                                            <div class="specific-category-slider owl-carousel" data-item="3">
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Consumer
+                                                                        Electronics
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">TV/LCD/LED
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Hisense 4k LED
+                                                                    TV</a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag new">
+                                                        <span>NEW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Consumer
+                                                                        Electronics
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">TV/LCD/LED
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">TCL 4k LED TV</a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Consumer
+                                                                        Electronics
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">TV/LCD/LED
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">Sony 4k LED TV
+                                                                </a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag sale">
+                                                        <span>SALE</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
+                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                                Wishlist
+                                                            </a>
+                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                                Cart
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <li class="has-separator">
+                                                                    <a href="shop-v1-root-category.php">Consumer
+                                                                        Electronics
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="shop-v2-sub-category.php">TV/LCD/LED
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a href="single-product.php">China Petrei 4k LED
+                                                                    TV</a>
+                                                            </h6>
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
+                                                                    <span style='width:0'></span>
+                                                                </div>
+                                                                <span>(0)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                $55.00
+                                                            </div>
+                                                            <div class="item-old-price">
+                                                                $60.00
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag discount">
+                                                        <span>-15%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="cam-corder">
+                                        <!-- Product Not Found -->
+                                        <div class="product-not-found">
+                                            <div class="not-found">
+                                                <h2>SORRY!</h2>
+                                                <h6>There is not any product in specific catalogue.</h6>
+                                            </div>
+                                        </div>
+                                        <!-- Product Not Found /- -->
+                                    </div>
+                                    <div class="tab-pane fade" id="audio-amplifiers">
+                                        <!-- Product Not Found -->
+                                        <div class="product-not-found">
+                                            <div class="not-found">
+                                                <h2>SORRY!</h2>
+                                                <h6>There is not any product in specific catalogue.</h6>
+                                            </div>
+                                        </div>
+                                        <!-- Product Not Found /- -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="consumer-best-selling-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                    <div class="tab-pane fade" id="consumer-top-rating-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                    <div class="tab-pane fade" id="consumer-featured-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="redirect-link-wrapper text-center u-s-p-t-25 u-s-p-b-80">
+            <a class="redirect-link" href="store-directory.php">
+                <span>View more on this category</span>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Consumer-Electronics /- -->
+<!-- Books-&-Audible -->
+<section class="section-maker">
+    <div class="container">
+        <div class="sec-maker-header text-center">
+            <h3 class="sec-maker-h3">Books & Audible</h3>
+            <ul class="nav tab-nav-style-1-a justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#books-latest-products">Latest
+                        Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#books-best-selling-products">Best Selling</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#books-top-rating-products">Top Rating</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#books-featured-products">Featured Products</a>
+                </li>
+            </ul>
+        </div>
+        <div class="wrapper-content">
+            <div class="outer-area-tab">
+                <div class="tab-content">
+                    <div class="tab-pane active show fade" id="books-latest-products">
+                        <div class="slider-fouc">
+                            <div class="products-slider owl-carousel" data-item="4">
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li>
+                                                    <a href="shop-v1-root-category.php">Books</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">JavaScript The Definitive Guide by
+                                                    David Flanagan
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag new">
+                                        <span>NEW</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li>
+                                                    <a href="shop-v1-root-category.php">Books</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Eloquent JavaScript by Marijn
+                                                    Haverbeke
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li>
+                                                    <a href="shop-v1-root-category.php">Books</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">Secret of the JavaScript Ninja by
+                                                    Bear Bibeault & John Resig
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link" href="single-product.php">
+                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
+                                            </a>
+                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <li>
+                                                    <a href="shop-v1-root-category.php">Books</a>
+                                                </li>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a href="single-product.php">JavaScript The Good Parts by
+                                                    Douglas Crockford
+                                                </a>
+                                            </h6>
+                                            <div class="item-stars">
+                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                    <span style='width:0'></span>
+                                                </div>
+                                                <span>(0)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                $55.00
+                                            </div>
+                                            <div class="item-old-price">
+                                                $60.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tag new">
+                                        <span>NEW</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="books-best-selling-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                    <div class="tab-pane fade" id="books-top-rating-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                    <div class="tab-pane fade" id="books-featured-products">
+                        <!-- Product Not Found -->
+                        <div class="product-not-found">
+                            <div class="not-found">
+                                <h2>SORRY!</h2>
+                                <h6>There is not any product in specific catalogue.</h6>
+                            </div>
+                        </div>
+                        <!-- Product Not Found /- -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="redirect-link-wrapper text-center u-s-p-t-25 u-s-p-b-80">
+            <a class="redirect-link" href="store-directory.php">
+                <span>View more on this category</span>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Books-&-Audible /- -->
+<!-- Continue-Link -->
+<div class="continue-link-wrapper u-s-p-b-80">
+    <a class="continue-link" href="store-directory.php" title="View all products on site">
+        <i class="ion ion-ios-more"></i>
+    </a>
+</div>
+<!-- Continue-Link /- -->
+<!-- Brand-Slider -->
+<div class="brand-slider u-s-p-b-80">
+    <div class="container">
+        <div class="brand-slider-content owl-carousel" data-item="5">
+            <div class="brand-pic">
+                <a href="#">
+                    <img src="images/brand-logos/b1.png" alt="Brand Logo 1">
+                </a>
+            </div>
+            <div class="brand-pic">
+                <a href="#">
+                    <img src="images/brand-logos/b1.png" alt="Brand Logo 2">
+                </a>
+            </div>
+            <div class="brand-pic">
+                <a href="#">
+                    <img src="images/brand-logos/b1.png" alt="Brand Logo 3">
+                </a>
+            </div>
+            <div class="brand-pic">
+                <a href="#">
+                    <img src="images/brand-logos/b1.png" alt="Brand Logo 5">
+                </a>
+            </div>
+            <div class="brand-pic">
+                <a href="#">
+                    <img src="images/brand-logos/b1.png" alt="Brand Logo 6">
+                </a>
+            </div>
+            <div class="brand-pic">
+                <a href="#">
+                    <img src="images/brand-logos/b1.png" alt="Brand Logo 7">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Brand-Slider /- -->
+<!-- Site-Priorities -->
+<section class="app-priority">
+    <div class="container">
+        <div class="priority-wrapper u-s-p-b-80">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <div class="single-item-wrapper">
+                        <div class="single-item-icon">
+                            <i class="ion ion-md-star"></i>
+                        </div>
+                        <h2>
+                            Great Value
+                        </h2>
+                        <p>We offer competitive prices on our 100 million plus product range</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <div class="single-item-wrapper">
+                        <div class="single-item-icon">
+                            <i class="ion ion-md-cash"></i>
+                        </div>
+                        <h2>
+                            Shop with Confidence
+                        </h2>
+                        <p>Our Protection covers your purchase from click to delivery</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <div class="single-item-wrapper">
+                        <div class="single-item-icon">
+                            <i class="ion ion-ios-card"></i>
+                        </div>
+                        <h2>
+                            Safe Payment
+                        </h2>
+                        <p>Pay with the world’s most popular and secure payment methods</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <div class="single-item-wrapper">
+                        <div class="single-item-icon">
+                            <i class="ion ion-md-contacts"></i>
+                        </div>
+                        <h2>
+                            24/7 Help Center
+                        </h2>
+                        <p>Round-the-clock assistance for a smooth shopping experience</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="ps-section ps-section--top-sales ps-owl-root pt-80 pb-80">
-        <div class="ps-container">
-            <div class="ps-section__header mb-50">
-                <div class="row">
-                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
-                        <h3 class="ps-section__title" data-mask="BEST SALE">- Top Sales</h3>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
-                        <div class="ps-owl-actions"><a class="ps-prev" href="#"><i
-                                    class="ps-icon-arrow-right"></i>Prev</a><a class="ps-next" href="#">Next<i
-                                    class="ps-icon-arrow-left"></i></a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="ps-section__content">
-                <div class="ps-owl--colection owl-slider" data-owl-auto="true" data-owl-loop="true"
-                    data-owl-speed="5000" data-owl-gap="30" data-owl-nav="false" data-owl-dots="false" data-owl-item="4"
-                    data-owl-item-xs="1" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4"
-                    data-owl-duration="1000" data-owl-mousedrag="on">
-                    <div class="ps-shoes--carousel">
-                        <div class="ps-shoe">
-                            <div class="ps-shoe__thumbnail">
-                                <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="#"><i
-                                        class="ps-icon-heart"></i></a><img src="images/shoe/1.jpg" alt=""><a
-                                    class="ps-shoe__overlay" href="product-detail.html"></a>
-                            </div>
-                            <div class="ps-shoe__content">
-                                <div class="ps-shoe__variants">
-                                    <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""><img
-                                            src="images/shoe/3.jpg" alt=""><img src="images/shoe/4.jpg" alt=""><img
-                                            src="images/shoe/5.jpg" alt=""></div>
-                                    <select class="ps-rating ps-shoe__rating">
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">3</option>
-                                        <option value="1">4</option>
-                                        <option value="2">5</option>
-                                    </select>
-                                </div>
-                                <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air
-                                        Jordan 7 Retro</a>
-                                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                            Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £
-                                        120</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ps-shoes--carousel">
-                        <div class="ps-shoe">
-                            <div class="ps-shoe__thumbnail">
-                                <div class="ps-badge"><span>New</span></div>
-                                <div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-35%</span></div><a
-                                    class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a><img
-                                    src="images/shoe/2.jpg" alt=""><a class="ps-shoe__overlay"
-                                    href="product-detail.html"></a>
-                            </div>
-                            <div class="ps-shoe__content">
-                                <div class="ps-shoe__variants">
-                                    <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""><img
-                                            src="images/shoe/3.jpg" alt=""><img src="images/shoe/4.jpg" alt=""><img
-                                            src="images/shoe/5.jpg" alt=""></div>
-                                    <select class="ps-rating ps-shoe__rating">
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">3</option>
-                                        <option value="1">4</option>
-                                        <option value="2">5</option>
-                                    </select>
-                                </div>
-                                <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air
-                                        Jordan 7 Retro</a>
-                                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                            Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price">
-                                        <del>£220</del> £ 120</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ps-shoes--carousel">
-                        <div class="ps-shoe">
-                            <div class="ps-shoe__thumbnail">
-                                <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="#"><i
-                                        class="ps-icon-heart"></i></a><img src="images/shoe/3.jpg" alt=""><a
-                                    class="ps-shoe__overlay" href="product-detail.html"></a>
-                            </div>
-                            <div class="ps-shoe__content">
-                                <div class="ps-shoe__variants">
-                                    <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""><img
-                                            src="images/shoe/3.jpg" alt=""><img src="images/shoe/4.jpg" alt=""><img
-                                            src="images/shoe/5.jpg" alt=""></div>
-                                    <select class="ps-rating ps-shoe__rating">
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">3</option>
-                                        <option value="1">4</option>
-                                        <option value="2">5</option>
-                                    </select>
-                                </div>
-                                <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air
-                                        Jordan 7 Retro</a>
-                                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                            Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £
-                                        120</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ps-shoes--carousel">
-                        <div class="ps-shoe">
-                            <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i
-                                        class="ps-icon-heart"></i></a><img src="images/shoe/4.jpg" alt=""><a
-                                    class="ps-shoe__overlay" href="product-detail.html"></a>
-                            </div>
-                            <div class="ps-shoe__content">
-                                <div class="ps-shoe__variants">
-                                    <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""><img
-                                            src="images/shoe/3.jpg" alt=""><img src="images/shoe/4.jpg" alt=""><img
-                                            src="images/shoe/5.jpg" alt=""></div>
-                                    <select class="ps-rating ps-shoe__rating">
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">3</option>
-                                        <option value="1">4</option>
-                                        <option value="2">5</option>
-                                    </select>
-                                </div>
-                                <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air
-                                        Jordan 7 Retro</a>
-                                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                            Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £
-                                        120</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ps-shoes--carousel">
-                        <div class="ps-shoe">
-                            <div class="ps-shoe__thumbnail">
-                                <div class="ps-badge"><span>New</span></div><a class="ps-shoe__favorite" href="#"><i
-                                        class="ps-icon-heart"></i></a><img src="images/shoe/5.jpg" alt=""><a
-                                    class="ps-shoe__overlay" href="product-detail.html"></a>
-                            </div>
-                            <div class="ps-shoe__content">
-                                <div class="ps-shoe__variants">
-                                    <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""><img
-                                            src="images/shoe/3.jpg" alt=""><img src="images/shoe/4.jpg" alt=""><img
-                                            src="images/shoe/5.jpg" alt=""></div>
-                                    <select class="ps-rating ps-shoe__rating">
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">3</option>
-                                        <option value="1">4</option>
-                                        <option value="2">5</option>
-                                    </select>
-                                </div>
-                                <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air
-                                        Jordan 7 Retro</a>
-                                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                            Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £
-                                        120</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ps-shoes--carousel">
-                        <div class="ps-shoe">
-                            <div class="ps-shoe__thumbnail"><a class="ps-shoe__favorite" href="#"><i
-                                        class="ps-icon-heart"></i></a><img src="images/shoe/6.jpg" alt=""><a
-                                    class="ps-shoe__overlay" href="product-detail.html"></a>
-                            </div>
-                            <div class="ps-shoe__content">
-                                <div class="ps-shoe__variants">
-                                    <div class="ps-shoe__variant normal"><img src="images/shoe/2.jpg" alt=""><img
-                                            src="images/shoe/3.jpg" alt=""><img src="images/shoe/4.jpg" alt=""><img
-                                            src="images/shoe/5.jpg" alt=""></div>
-                                    <select class="ps-rating ps-shoe__rating">
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">3</option>
-                                        <option value="1">4</option>
-                                        <option value="2">5</option>
-                                    </select>
-                                </div>
-                                <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">Air
-                                        Jordan 7 Retro</a>
-                                    <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#">
-                                            Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price"> £
-                                        120</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial  -->
-    <div class="ps-home-testimonial bg--parallax pb-80" data-background="images/background/parallax.jpg">
-        <div class="container">
-            <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0"
-                data-owl-nav="false" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1"
-                data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on"
-                data-owl-animate-in="fadeIn" data-owl-animate-out="fadeOut">
-                <div class="ps-testimonial">
-                    <div class="ps-testimonial__thumbnail"><img src="images/testimonial/1.jpg" alt=""><i
-                            class="fa fa-quote-left"></i></div>
-                    <header>
-                        <select class="ps-rating">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                            <option value="1">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <p>Logan May - CEO & Founder Invision</p>
-                    </header>
-                    <footer>
-                        <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake
-                            biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum
-                            croissant. “</p>
-                    </footer>
-                </div>
-                <div class="ps-testimonial">
-                    <div class="ps-testimonial__thumbnail"><img src="images/testimonial/2.jpg" alt=""><i
-                            class="fa fa-quote-left"></i></div>
-                    <header>
-                        <select class="ps-rating">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                            <option value="1">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <p>Logan May - CEO & Founder Invision</p>
-                    </header>
-                    <footer>
-                        <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake
-                            biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum
-                            croissant. “</p>
-                    </footer>
-                </div>
-                <div class="ps-testimonial">
-                    <div class="ps-testimonial__thumbnail"><img src="images/testimonial/3.jpg" alt=""><i
-                            class="fa fa-quote-left"></i></div>
-                    <header>
-                        <select class="ps-rating">
-                            <option value="1">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                            <option value="1">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <p>Logan May - CEO & Founder Invision</p>
-                    </header>
-                    <footer>
-                        <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake
-                            biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum
-                            croissant. “</p>
-                    </footer>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="ps-section ps-home-blog pt-80 pb-80">
-        <div class="ps-container">
-            <div class="ps-section__header mb-50">
-                <h2 class="ps-section__title" data-mask="News">- Our Story</h2>
-                <div class="ps-section__action"><a class="ps-morelink text-uppercase" href="#">View all post<i
-                            class="fa fa-long-arrow-right"></i></a></div>
-            </div>
-            <div class="ps-section__content">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
-                        <div class="ps-post">
-                            <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img
-                                    src="images/blog/1.jpg" alt=""></div>
-                            <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.html">An
-                                    Inside Look at the Breaking2 Kit</a>
-                                <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.html">Alena
-                                            Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                                <p>Leverage agile frameworks to provide a robust synopsis for high level overviews.
-                                    Iterative approaches to corporate strategy foster collaborative thinking to
-                                    further…</p><a class="ps-morelink" href="blog-detail.html">Read more<i
-                                        class="fa fa-long-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
-                        <div class="ps-post">
-                            <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img
-                                    src="images/blog/2.jpg" alt=""></div>
-                            <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.html">Unpacking
-                                    the Breaking2 Race Strategy</a>
-                                <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.html">Alena
-                                            Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                                <p>Leverage agile frameworks to provide a robust synopsis for high level overviews.
-                                    Iterative approaches to corporate strategy foster collaborative thinking to
-                                    further…</p><a class="ps-morelink" href="blog-detail.html">Read more<i
-                                        class="fa fa-long-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
-                        <div class="ps-post">
-                            <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img
-                                    src="images/blog/3.jpg" alt=""></div>
-                            <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.html">Nike’s
-                                    Latest Football Cleat Breaks the Mold</a>
-                                <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.html">Alena
-                                            Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                                <p>Leverage agile frameworks to provide a robust synopsis for high level overviews.
-                                    Iterative approaches to corporate strategy foster collaborative thinking to
-                                    further…</p><a class="ps-morelink" href="blog-detail.html">Read more<i
-                                        class="fa fa-long-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- <div class="ps-home-contact">
-            <div id="contact-map" data-address="New York, NY" data-title="BAKERY LOCATION!" data-zoom="17"></div>
-            <div class="ps-home-contact__form">
-                <header>
-                    <h3>Contact Us</h3>
-                    <p>Learn about our company profile, communityimpact, sustainable motivation, and more.</p>
-                </header>
-                <footer>
-                    <form action="product-listing.html" method="post">
-                        <div class="form-group">
-                            <label>Name<span>*</span></label>
-                            <input class="form-control" type="text">
-                        </div>
-                        <div class="form-group">
-                            <label>Email<span>*</span></label>
-                            <input class="form-control" type="email">
-                        </div>
-                        <div class="form-group">
-                            <label>Your message<span>*</span></label>
-                            <textarea class="form-control" rows="4"></textarea>
-                        </div>
-                        <div class="form-group text-center">
-                            <button class="ps-btn">Send Message<i class="fa fa-angle-right"></i></button>
-                        </div>
-                    </form>
-                </footer>
-            </div>
-        </div> -->
+</section>
+<!-- Site-Priorities /- -->
 
-</main>
-
-
-<?php require_once(PRIVATE_PATH . "/shared/public_footer.php"); ?> ?>
+<?php
+require_once(PRIVATE_PATH . "/shared/public_footer.php");
+?>

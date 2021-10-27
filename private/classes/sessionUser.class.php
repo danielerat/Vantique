@@ -1,15 +1,15 @@
 <?php
 
-class Session
+class SessionUser
 {
     /**
      * The Idea of having a separate class to work with is that  ,we might in the future want to add 
      * Some Complexity to it , not only checking if the user was logged out a log time ago
      * but also getting users ip address , or user agent etc..
      *  */
-    private $admin_id;
+    private $user_id;
     public $username;
-    public $account_type;
+    public $first_name;
     private $last_login;
 
 
@@ -21,14 +21,14 @@ class Session
         $this->check_stored_login();
     }
 
-    public function login($admin)
+    public function login($user)
     {
-        if ($admin) {
+        if ($user) {
             // prevent session fixation attacks
             session_regenerate_id();
-            $this->admin_id = $_SESSION['admin_id'] = $admin->id;
-            $this->username = $_SESSION['username'] = $admin->username;
-            $this->account_type = $_SESSION['account_type'] = $admin->account_type;
+            $this->user_id = $_SESSION['user_id'] = $user->id;
+            $this->username = $_SESSION['username'] = $user->username;
+            $this->first_name = $_SESSION['first_name'] = $user->first_name;
             $this->last_login = $_SESSION['last_login'] = time();
         }
         return true;
@@ -36,30 +36,30 @@ class Session
 
     public function is_logged_in()
     {
-        // return isset($this->admin_id);
-        return isset($this->admin_id) && $this->last_login_is_recent();
+        // return isset($this->user_id);
+        return isset($this->user_id) && $this->last_login_is_recent();
     }
 
     public function logout()
     {
-        unset($_SESSION['admin_id']);
+        unset($_SESSION['user_id']);
         unset($_SESSION['username']);
-        unset($_SESSION['account_type']);
+        unset($_SESSION['first_name']);
         unset($_SESSION['last_login']);
-        unset($this->admin_id);
+        unset($this->user_id);
         unset($this->username);
         unset($this->last_login);
-        unset($this->account_type);
+        unset($this->first_name);
         return true;
     }
 
     private function check_stored_login()
     {
-        if (isset($_SESSION['admin_id'])) {
-            $this->admin_id = $_SESSION['admin_id'];
+        if (isset($_SESSION['user_id'])) {
+            $this->user_id = $_SESSION['user_id'];
             $this->username = $_SESSION['username'];
             $this->last_login = $_SESSION['last_login'];
-            $this->account_type = $_SESSION['account_type'];
+            $this->first_name = $_SESSION['first_name'];
         }
     }
 
@@ -68,7 +68,6 @@ class Session
         if (!isset($this->last_login)) {
             return false;
         } elseif (($this->last_login + self::MAX_LOGIN_AGE) < time()) {
-            $this->message($this->username . " Login Expired, Authenticate Again");
             return false;
         } else {
             return true;

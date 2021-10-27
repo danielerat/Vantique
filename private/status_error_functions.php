@@ -37,7 +37,7 @@ function display_session_message()
                     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                       <span aria-hidden='true'>&times;</span>
                     </button>
-                    <h6><i class='fas fa-check'></i><b> Stop!</b></h6>
+                    <h6><i class='fas fa-check'></i><b> Success !</b></h6>
                     " . h($msg) . "
                   </div>";
         return $output;
