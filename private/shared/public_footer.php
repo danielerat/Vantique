@@ -484,6 +484,9 @@ ga('send', 'pageview')
 <script type="text/javascript" src="staff/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
 <!-- Main -->
 <script type="text/javascript" src="js/app.js"></script>
+
+
+
 </body>
 
 </html>

@@ -19,7 +19,6 @@ if (is_post_request() && isset($_POST["register"])) {
 
 ?>
 
-
 <!-- Account-Page -->
 <div class="page-account u-s-p-t-80">
     <div class="container">
@@ -54,17 +53,15 @@ if (is_post_request() && isset($_POST["register"])) {
                                         <label for="user-name-email">Username or Email
                                             <span class="astk">*</span>
                                         </label>
-                                        <input type="text" id="user-name-email" class="text-field"
-                                            value="<?php echo $user->username; ?>" name="username"
-                                            placeholder="Username / Email" required>
+                                        <input type="text" id="user-name-email" class="text-field" value="davidodo"
+                                            name="username" placeholder="Username / Email" required>
                                     </div>
                                     <div class="u-s-m-b-30">
                                         <label for="login-password">Password
                                             <span class="astk">*</span>
                                         </label>
-                                        <input type="password" id="login-password" class="text-field"
-                                            value="<?php echo $user->password; ?>" name="password"
-                                            placeholder="Password" required>
+                                        <input type="password" id="login-password" class="text-field" value="danielerat"
+                                            name="password" placeholder="Password" required>
                                     </div>
                                     <div class="group-inline u-s-m-b-30">
                                         <div class="group-1">

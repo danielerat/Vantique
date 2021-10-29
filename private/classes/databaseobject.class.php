@@ -116,12 +116,12 @@ class DatabaseObject
         $sql .= join(',', array_keys($attributes));
         $sql .= ") values('";
         $sql .= join("','", array_values($attributes));
-        $sql .= "');";
-        $result = self::$db->query($sql);
-        if ($result) {
-            $this->id = self::$db->insert_id;
-        }
-        return true;
+        echo $sql .= "');";
+        // $result = self::$db->query($sql);
+        // if ($result) {
+        //     $this->id = self::$db->insert_id;
+        // }
+        // return true;
     }
 
 
@@ -129,7 +129,7 @@ class DatabaseObject
     protected function update()
     {
         //Get the sanitized version of our attributes 
-        // $this->validate();
+        $this->validate();
         // if (!empty($this->errors)) {
         //     return "False";
         // }

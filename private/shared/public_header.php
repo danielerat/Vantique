@@ -1,5 +1,17 @@
 <?php
 echo display_user_session_message();
+
+if ($session_user->is_logged_in()) {
+    if (!empty($cart->cart_items)) {
+        foreach ($cart->cart_items as $item) {
+            $addToCart = new Cart(["userId" => $session_user->getUserId(), "productId" => $item['productId'], "quantity" => $item['quantity']]);
+
+            $addToCart->save();
+        }
+        $cart->clearCart();
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en-US">
@@ -223,8 +235,9 @@ echo display_user_session_message();
                                     <li>
                                         <a id="mini-cart-trigger">
                                             <i class="ion ion-md-basket"></i>
-                                            <span class="item-counter">4</span>
-                                            <span class="item-price">$220.00</span>
+                                            <span
+                                                class="item-counter"><?php echo (!$session_user->is_logged_in()) ? $cart->cartCount() : "9"; ?></span>
+                                            <!-- <span class="item-price">Cart</span> -->
                                         </a>
                                     </li>
                                 </ul>
@@ -259,30 +272,6 @@ echo display_user_session_message();
                             <a href="single-product.php">
                                 <img src="images/product/product@1x.jpg" alt="Product">
                                 <span class="mini-item-name">Casual Hoodie Full Cotton</span>
-                                <span class="mini-item-price">$55.00</span>
-                                <span class="mini-item-quantity"> x 1 </span>
-                            </a>
-                        </li>
-                        <li class="clearfix">
-                            <a href="single-product.php">
-                                <img src="images/product/product@1x.jpg" alt="Product">
-                                <span class="mini-item-name">Black Rock Dress with High Jewelery Necklace</span>
-                                <span class="mini-item-price">$55.00</span>
-                                <span class="mini-item-quantity"> x 1 </span>
-                            </a>
-                        </li>
-                        <li class="clearfix">
-                            <a href="single-product.php">
-                                <img src="images/product/product@1x.jpg" alt="Product">
-                                <span class="mini-item-name">Xiaomi Note 2 Black Color</span>
-                                <span class="mini-item-price">$55.00</span>
-                                <span class="mini-item-quantity"> x 1 </span>
-                            </a>
-                        </li>
-                        <li class="clearfix">
-                            <a href="single-product.php">
-                                <img src="images/product/product@1x.jpg" alt="Product">
-                                <span class="mini-item-name">Dell Inspiron 15</span>
                                 <span class="mini-item-price">$55.00</span>
                                 <span class="mini-item-quantity"> x 1 </span>
                             </a>

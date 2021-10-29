@@ -44,7 +44,7 @@ class Category extends DatabaseObject
         $sql .= ") values('";
         $sql .= join("','", array_values($attributes));
         $sql .= "');";
-        echo $sql;
+        // echo $sql;
         $result = self::$db->query($sql);
         if ($result) {
             $this->id = self::$db->insert_id;

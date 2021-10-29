@@ -39,7 +39,11 @@ require_once('classes/productcategory.class.php');
 require_once('classes/productimage.class.php');
 require_once('classes/productStock.class.php');
 require_once('classes/admin.class.php');
+require_once('classes/cart.class.php');
+require_once('classes/cartTemp.class.php');
 require_once('classes/user.class.php');
+require_once('classes/session.class.php');
+require_once('classes/sessionUser.class.php');
 /*
 require_once('classes/bicycle.class.php');
 require_once('classes/admin.class.php');
@@ -56,7 +60,8 @@ require_once('classes/pagination.class.php');*/
 
 $db = db_connect();
 DatabaseObject::set_database($db);
-require_once('classes/session.class.php');
-require_once('classes/sessionUser.class.php');
+
+$cart = new CartTemp;
+
 $session_user = new SessionUser;
 $session_admin = new Session;

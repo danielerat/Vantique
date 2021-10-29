@@ -107,6 +107,17 @@ function has_unique_username($username, $current_id = "0")
         return false;
     }
 }
+function is_same_product($userId, $productId)
+{
+    $cart = Cart::find_existance($userId, $productId, $current_id = "0");
+    if ($cart === false || $cart->id == $current_id) {
+        // It is Unique
+        return ['id' => 0, 'status' => false];
+    } else {
+        // Not unique
+        return ['id' => $cart->id, 'status' => true];
+    }
+}
 
 
 function user_has_unique_username($username, $current_id = "0")

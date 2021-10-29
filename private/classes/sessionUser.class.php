@@ -92,4 +92,8 @@ class SessionUser
         unset($_SESSION['message']);
         return true;
     }
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
 }
