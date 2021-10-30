@@ -12,7 +12,7 @@ class CartTemp
 
     public function __construct($args = [])
     {
-        $this->get_cart_from_cookie();
+        $this->cart_items = $this->get_cart_from_cookie();
         $this->userId = $args['userId'] ?? "";
         $this->productId = $args['productId'] ?? "";
         $this->quantity = $args['quantity'] ?? 1;
@@ -23,7 +23,7 @@ class CartTemp
     private function get_cart_from_cookie()
     {
         if (isset($_COOKIE['cart_items'])) {
-            $this->cart_items = json_decode($_COOKIE['cart_items'], true);
+            return json_decode($_COOKIE['cart_items'], true);
         }
     }
 
@@ -57,7 +57,7 @@ class CartTemp
                 $this->cart_items[] = $item;
             }
         }
-        setcookie("cart_items", json_encode($this->cart_items), time() + (86400 * 30 * 5));
+        setcookie("cart_items", json_encode($this->cart_items), time() + (86400 * 30 * 5), '/');
     }
     public function getCart()
     {
@@ -69,7 +69,7 @@ class CartTemp
     public function clearCart()
     {
         if (isset($_COOKIE['cart_items'])) {
-            setcookie("cart_items", "", time() - 3600);
+            setcookie("cart_items", "", time() - 3600, '/');
             return true;
         } else {
             return false;
@@ -79,7 +79,7 @@ class CartTemp
     {
         if (isset($_COOKIE['cart_items'])) {
             unset($this->cart_items[$id]);
-            setcookie("cart_items", json_encode($this->cart_items), time() + (86400 * 30 * 5));
+            setcookie("cart_items", json_encode($this->cart_items), time() + (86400 * 30 * 5), '/');
             return true;
         } else {
             return false;

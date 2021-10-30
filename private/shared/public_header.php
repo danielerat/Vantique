@@ -65,7 +65,7 @@ if ($session_user->is_logged_in()) {
                     <nav>
                         <ul class="primary-nav g-nav">
                             <li>
-                                <a href="tel:+111444989">
+                                <a href="tel:+250783305114">
                                     <i class="fas fa-phone u-c-brand u-s-m-r-9"></i>
 
                                     Telephone:+250783305114</a>
@@ -180,7 +180,7 @@ if ($session_user->is_logged_in()) {
                         <div class="col-lg-3 col-md-9 col-sm-6">
                             <div class="brand-logo text-lg-center">
                                 <a href="home.php">
-                                    <img src="images/main-logo/groover-branding-1.png" alt="Groover Brand Logo"
+                                    <img src="images/main-logo/groover-branding-1.png" alt="Vantique"
                                         class="app-brand-logo">
                                 </a>
                             </div>
@@ -233,10 +233,10 @@ if ($session_user->is_logged_in()) {
                                         </a>
                                     </li>
                                     <li>
-                                        <a id="mini-cart-trigger">
+                                        <a id="mini-cart-trigger" onclick="getCartContent()">
                                             <i class="ion ion-md-basket"></i>
                                             <span
-                                                class="item-counter"><?php echo (!$session_user->is_logged_in()) ? $cart->cartCount() : "9"; ?></span>
+                                                class="item-counter"><?php echo (!$session_user->is_logged_in()) ? $cart->cartCount() : Cart::count_all(); ?></span>
                                             <!-- <span class="item-price">Cart</span> -->
                                         </a>
                                     </li>
@@ -267,23 +267,8 @@ if ($session_user->is_logged_in()) {
                         YOUR CART
                         <button type="button" class="button ion ion-md-close" id="mini-cart-close"></button>
                     </div>
-                    <ul class="mini-cart-list">
-                        <li class="clearfix">
-                            <a href="single-product.php">
-                                <img src="images/product/product@1x.jpg" alt="Product">
-                                <span class="mini-item-name">Casual Hoodie Full Cotton</span>
-                                <span class="mini-item-price">$55.00</span>
-                                <span class="mini-item-quantity"> x 1 </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="mini-shop-total clearfix">
-                        <span class="mini-total-heading float-left">Total:</span>
-                        <span class="mini-total-price float-right">$220.00</span>
-                    </div>
-                    <div class="mini-action-anchors">
-                        <a href="cart.php" class="cart-anchor">View Cart</a>
-                        <a href="checkout.php" class="checkout-anchor">Checkout</a>
+                    <div class="gotCartContent">
+
                     </div>
                 </div>
             </div>

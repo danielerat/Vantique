@@ -3,7 +3,7 @@ require_once("../private/initialize.php");
 // require_once(PRIVATE_PATH . "/shared/public_header.php");
 echo "<pre>";
 
-// $item = ['user' => $_COOKIE["PHPSESSID"], 'productId' => 6, 'quantity' => 2];
+// $item = ['user' => $_COOKIE["PHPSESSID"], 'productId' => 1, 'quantity' => 1];
 // $cart->setCart(['item' => $item]);
 // $cart->clearCart();
 
@@ -30,9 +30,10 @@ echo "<pre>";
 
 
 print_r($cart->cartCount());
+print_r($cart->cart_items);
 
 echo "<br>Total Products:" . $cart->cartCount();
 echo "<hr>";
-print_r($cart);
+print_r($_COOKIE);
 
 // require_once(PRIVATE_PATH . "/shared/public_header.php");

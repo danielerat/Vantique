@@ -77,19 +77,19 @@
                         <ul>
                             <li>
                                 <i class="fas fa-location-arrow u-s-m-r-9"></i>
-                                <span>819 Sugar Camp Road, West Concord, MN 55985</span>
+                                <span>KN 23 St, CST,KN 21 St, CST</span>
                             </li>
                             <li>
                                 <a href="tel:+923086561801">
                                     <i class="fas fa-phone u-s-m-r-9"></i>
-                                    <span>+111-444-989</span>
+                                    <span>+250783305114</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="mailto:contact@domain.com">
                                     <i class="fas fa-envelope u-s-m-r-9"></i>
                                     <span>
-                                        contact@domain.com</span>
+                                        support@vantique.com</span>
                                 </a>
                             </li>
                         </ul>
@@ -486,6 +486,22 @@ ga('send', 'pageview')
 <script type="text/javascript" src="js/app.js"></script>
 
 
+<script type="text/javascript">
+function getCartContent() {
+
+    url = "../private/ajax/getCartContent.php";
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let result = xhr.responseText;
+            let target = document.querySelector(".gotCartContent");
+            target.innerHTML = result;
+        }
+    }
+    xhr.send();
+}
+</script>
 
 </body>
 

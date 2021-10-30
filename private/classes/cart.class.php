@@ -90,25 +90,36 @@ class Cart extends DatabaseObject
     }
 
     // Delete a row in a database
-    public function delete()
+    public function delete_by_product_id($id)
     {
         $sql = "DELETE FROM " . static::$table_name;
-        $sql .= " WHERE id='" . self::$db->escape_string($this->id) . "' ";
-        $sql .= "Limit 1";
+        $sql .= " WHERE productId='" . self::$db->escape_string($id) . "' limit 1;";
         $result = self::$db->query($sql);
         return $result;
-        // After Deleting the instance of the object it will still 
-        // Exist , even though the database record does not 
-        // this can be useful , as in : 
-        // we can still use this $user->first_name. was Deleted.
-        // Despite not having the record 
-        // But we can not call $user->update() after calling delete 
+    }
+
+    public function clear_cart($id)
+    {
+        // Delete By user id in the db table
+        $sql = "DELETE FROM " . static::$table_name;
+        $sql .= " WHERE userId='" . self::$db->escape_string($id) . "';";
+        $result = self::$db->query($sql);
+        return $result;
+    }
+
+    static public function count_all()
+    {
+        $sql = "SELECT count(*) FROM " . static::$table_name;
+        $sql .= " WHERE userId ='" . self::$db->escape_string($_SESSION['user_id']) . "' ";
+        $result_set = self::$db->query($sql);
+        $row = $result_set->fetch_array();
+        return array_shift($row);
     }
 
     static public function find_by_user_id($id)
     {
         $sql = "SELECT * FROM " . static::$table_name;
-        echo $sql .= " where userId='" . self::$db->escape_string($id) . "';";
+        $sql .= " where userId='" . self::$db->escape_string($id) . "';";
         return static::find_by_sql($sql);
     }
 }
