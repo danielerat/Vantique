@@ -7,7 +7,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 
 <?php
 if ($session_user->is_logged_in() || isset($cart->cart_items)) {
-    print_r($_COOKIE);
+
 ?>
 
 <div class="page-cart u-s-p-t-80">
@@ -39,8 +39,11 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
                                 foreach ($cartDb as $cart) {
                                     $product = Product::find_by_id($cart->productId);
                                     $total += (float) ($product->productPrice * $cart->quantity);
+                                    $Stock = ProductStock::find_by_product_id($product->id);
+                                    $remainingStock = ($Stock->quantity === 'x') ? "10000" : "{$Stock->quantity}";
                                 ?>
                             <tr class="animate__animated singleItemRow_<?php echo $product->id; ?> ">
+
                                 <td>
                                     <div class="cart-anchor-image">
                                         <a href="view-product.php?id=<?php echo $product->id; ?>">
@@ -60,7 +63,7 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
                                         <div class="quantity">
                                             <input type="text" class="quantity-text-field"
                                                 value="<?php echo $cart->quantity; ?>">
-                                            <a class="plus-a" data-max="1000">&#43;</a>
+                                            <a class="plus-a" data-max="<?php echo $remainingStock; ?>">&#43;</a>
                                             <a class="minus-a" data-min="1">&#45;</a>
                                         </div>
                                     </div>

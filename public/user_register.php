@@ -6,7 +6,7 @@ if (is_post_request()) {
     $admin = new User($args);
     $result = $admin->save();
     if ($result) {
-        $session->message($admin->username . ", Accout Was Successfully Created !");
+        $session_user->message($admin->username . ", Accout Was Successfully Created !");
         redirect_to("index.php");
     } else {
         echo display_errors($admin->errors);
