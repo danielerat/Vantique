@@ -39,6 +39,10 @@ if ($session_user->is_logged_in()) {
     <link rel="stylesheet" href="css/ionicons.min.css">
     <!-- Animate CSS -->
     <link rel="stylesheet" href="css/animate.min.css">
+
+    <link rel="stylesheet" href="css/ansimate.min.css" />
+
+
     <!-- Owl-Carousel -->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <!-- Jquery-Ui-Range-Slider -->

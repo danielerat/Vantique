@@ -24,7 +24,7 @@ echo "<pre>";
 // echo Cart::$cart_items[0][0][0]['user'];
 
 
-// $cart->deleteItem(5);
+// $cart->deleteItem(4);
 
 // $cart->clearCart();
 

@@ -10,7 +10,6 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
     print_r($_COOKIE);
 ?>
 
-
 <div class="page-cart u-s-p-t-80">
     <div class="container">
         <div class="row">
@@ -41,7 +40,7 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
                                     $product = Product::find_by_id($cart->productId);
                                     $total += (float) ($product->productPrice * $cart->quantity);
                                 ?>
-                            <tr>
+                            <tr class="animate__animated singleItemRow_<?php echo $product->id; ?> ">
                                 <td>
                                     <div class="cart-anchor-image">
                                         <a href="view-product.php?id=<?php echo $product->id; ?>">
@@ -150,7 +149,7 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
 <div class="page-wishlist  my-5">
     <div class="">
         <div class="text-center">
-            <h1>Em<i class="display-1 text-warning fas fa-people-carry"></i>ty!
+            <h1 class=" ">Em<i class="display-1 text-warning fas fa-people-carry"></i>ty!
             </h1>
             <h5>No Products were Found In Your Cart ! <i class="fas fa-sad-tear"></i></h5>
             <div class="redirect-link-wrapper u-s-p-t-25">
@@ -169,11 +168,20 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
 
 <script>
 function delete_cart_item(id) {
+    function wait(ms) {
+        var start = new Date().getTime();
+        var end = start;
+        while (end < start + ms) {
+            end = new Date().getTime();
+        }
+    }
 
     Swal.fire({
-        text: "Really Want to remove it from your card ?",
+        text: "Do you Really Want to remove it from your card ?",
         icon: 'warning',
         timer: 10000,
+        toast: true,
+        timerProgressBar: true,
         position: 'top-end',
         showCancelButton: true,
         confirmButtonColor: 'var(--success)',
@@ -183,7 +191,7 @@ function delete_cart_item(id) {
         if (result.isConfirmed) {
 
             let action = "../private/ajax/delete_cart_product.php";
-            // var parent = document.querySelector(".product" + id);
+            var parent = document.querySelector(".singleItemRow_" + id);
             // console.log("Parent is: " + parent)
             var xhr = new XMLHttpRequest();
             xhr.open('POST', action, true);
@@ -201,15 +209,24 @@ function delete_cart_item(id) {
                             'error'
                         )
                     } else {
-                        // parent.classList.add("d-none");
+                        parent.classList.add("animate__zoomOutLeft");
+
 
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
+                            toast: true,
                             title: 'Record Deleted Successfully',
                             showConfirmButton: false,
                             timer: 1000
-                        });
+                        }).then((result) => {
+                            wait(500);
+
+                            parent.classList.add("d-none");
+
+                        })
+
+
 
                     }
                 }

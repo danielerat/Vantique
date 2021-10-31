@@ -41,7 +41,7 @@ class CartTemp
         //Check if the product is already in the cart 
 
         if (empty($this->cart_items)) {
-            $this->cart_items[] = $item;
+            $this->cart_items[$item['productId']] = $item;
         } else {
             $match = false;
             $position = 0;
@@ -54,7 +54,7 @@ class CartTemp
             if ($match) {
                 $this->cart_items[$position] = $item;
             } else {
-                $this->cart_items[] = $item;
+                $this->cart_items[$item['productId']] = $item;
             }
         }
         setcookie("cart_items", json_encode($this->cart_items), time() + (86400 * 30 * 5), '/');
@@ -78,6 +78,7 @@ class CartTemp
     public function deleteItem($id)
     {
         if (isset($_COOKIE['cart_items'])) {
+
             unset($this->cart_items[$id]);
             setcookie("cart_items", json_encode($this->cart_items), time() + (86400 * 30 * 5), '/');
             return true;

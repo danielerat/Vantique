@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="footer">
+<footer class="footer ">
     <div class="container">
         <!-- Outer-Footer -->
         <div class="outer-footer-wrapper u-s-p-y-80">
