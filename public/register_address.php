@@ -71,4 +71,43 @@ $(document).ready(function() {
     });
 
 });
+
+
+province = document.querySelector("#selectProvince")
+province.onchange = () => {
+    var selected = province.options[province.selectedIndex].value;
+    // As soon as the value of the province is changed , then do something about it 
+    if (selected) {
+        url = "../private/ajax/address_user.php?district=" + selected;
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let result = xhr.responseText;
+                let target = document.querySelector("#SelectDistrict");
+                target.innerHTML = result;
+            }
+        }
+        xhr.send();
+    }
+}
+
+district = document.querySelector("#SelectDistrict")
+district.onchange = () => {
+    var selectedD = district.options[district.selectedIndex].value;
+    // As soon as the value of the province is changed , then do something about it 
+    if (selectedD) {
+        url = "../private/ajax/address_user.php?sector=" + selectedD;
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let result = xhr.responseText;
+                let target = document.querySelector("#selectSector");
+                target.innerHTML = result;
+            }
+        }
+        xhr.send();
+    }
+}
 </script>
