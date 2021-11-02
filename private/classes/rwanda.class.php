@@ -25,4 +25,17 @@ class Rwanda extends DatabaseObject
         $sql .= " and active=1;";
         return static::find_by_sql($sql);
     }
+
+    static public function find_Rw($id, $table)
+    {
+        $sql = "SELECT Name FROM $table";
+        $sql .= " where id='" . self::$db->escape_string($id) . "'";
+        $object_array = static::find_by_sql($sql);
+        if (!empty($object_array)) {
+            // Since it's only one object then thre is no need to retrun a whole array with data 
+            return array_shift($object_array);
+        } else {
+            return false;
+        }
+    }
 }

@@ -96,7 +96,7 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
                     </div>
                     <div class="button-area">
                         <a href="shop-v1-root-category.html" class="continue">Continue Shopping</a>
-                        <a href="checkout.phps" class="checkout">Proceed to Checkout</a>
+                        <a href="checkout.php" class="checkout">Proceed to Checkout</a>
                     </div>
                 </div>
                 <!-- Coupon /- -->

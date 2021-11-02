@@ -5,7 +5,7 @@ echo "<pre>";
 
 
 
-// $item = ['user' => $_COOKIE["PHPSESSID"], 'productId' => 1, 'quantity' => 1];
+// $item = ['user' => $_COOKIE["PHPSESSID"], 'productId' => 3, 'quantity' => 1];
 // $cart->setCart(['item' => $item]);
 // $cart->clearCart();
 

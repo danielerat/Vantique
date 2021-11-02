@@ -8,6 +8,14 @@ function require_login()
     }
 }
 
+function require_user_login()
+{
+    global $session_user;
+    if (!$session_user->is_logged_in()) {
+        redirect_to('index.php');
+    }
+}
+
 function display_errors($errors = array())
 {
     $output = "<div class='alert alert-fixed alert-danger alert-dismissible' role='alert'>

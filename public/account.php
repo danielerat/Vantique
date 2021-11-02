@@ -16,7 +16,6 @@ if (is_post_request() && isset($_POST["register"])) {
     $user = new User;
 }
 
-
 ?>
 
 <!-- Account-Page -->
@@ -36,7 +35,6 @@ if (is_post_request() && isset($_POST["register"])) {
                             aria-controls="register" aria-selected="false">register</a>
                     </li>
                 </ul>
-
 
 
 
@@ -240,7 +238,6 @@ function login_user() {
             if (json.hasOwnProperty('Errors') && json.Errors.length > 0) {
                 displayErrors(json['Errors']);
                 enableSubmitButton();
-
             } else {
                 enableSubmitButton();
                 successlogin();
