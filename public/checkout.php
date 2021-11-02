@@ -1,19 +1,20 @@
 <?php
 require_once("../private/initialize.php");
 require_once(PRIVATE_PATH . "/shared/public_header.php");
-?>
 
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+?>
 
 <!-- Checkout-Page -->
-<?php
-if ($session_user->is_logged_in()) {
-?>
-
+<link href="staff/vendor/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css">
 
 <div class="page-checkout u-s-p-t-80">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
+                <?php if (!$session_user->is_logged_in()) { ?>
                 <!-- First-Accordion -->
                 <div>
                     <div class="message-open u-s-m-b-24">
@@ -28,7 +29,7 @@ if ($session_user->is_logged_in()) {
                         <h6 class="collapse-h6">If you have shopped with us before, please enter your details in the
                             boxes below. If you are a new customer, please proceed to the Billing & Shipping section.
                         </h6>
-                        <form>
+                        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                             <div class="group-inline u-s-m-b-13">
                                 <div class="group-1 u-s-p-r-16">
                                     <label for="user-name-email">Username or Email
@@ -56,6 +57,7 @@ if ($session_user->is_logged_in()) {
                     </div>
                 </div>
                 <!-- First-Accordion /- -->
+                <?php } ?>
                 <!-- Second Accordion -->
                 <div>
                     <div class="message-open u-s-m-b-24">
@@ -77,10 +79,11 @@ if ($session_user->is_logged_in()) {
                     </div>
                 </div>
                 <!-- Second Accordion /- -->
-                <form>
+                <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                     <div class="row">
                         <!-- Billing-&-Shipping-Details -->
-                        <?php if (!$session_user->is_logged_in()) { ?>
+                        <?php if (!$session_user->is_logged_in()) { //The user is not logged in  
+                        ?>
                         <div class="col-lg-6">
                             <h4 class="section-h4">Billing Details</h4>
                             <!-- Form-Fields -->
@@ -251,18 +254,150 @@ if ($session_user->is_logged_in()) {
                             </div>
                         </div>
                         <?php } else { //User Is Logged in  
-
-                                if ($has_address) { //User Is logged in ANd has An Address
-                                ?>
-
-                        <?php } else { ?>
-
-
-
-
-                        <?php   }
-                            }
+                            $has_address = Address::find_address_by_username($_SESSION['username']);
+                            if ($has_address) { //U ser Is logged in ANd has An Address
+                                $user = User::find_by_username($session_user->username);
+                                $add = Address::find_last_address($session_user->username);
                             ?>
+                        <div class="col-lg-6">
+
+                            <div class="p-1 rounded bg-success ">
+                                <div class="card h-100">
+                                    <div style="position: absolute; top:10px;right:10px;">
+                                        <i class="fas fa-home fa-3x text-success"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-12 mr-2">
+                                                <div class="mt-2 mb-0 text-muted text-xs">
+                                                    <span><?php  ?></span>
+                                                </div>
+                                                <div class="text-secondary font-weight-bold  text-uppercase mb-1">
+                                                    Shipping Address
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-dark">
+                                                    <?php echo $user->first_name . ' ' . $user->last_name; ?></div>
+                                                <div class="mt-2 mb-0 text-muted text-xs">
+                                                    <span class="text-success mr-2"><i class="fas fa-envelope-open"></i>
+                                                        Email:</span>
+                                                    <span><?php echo $user->email; ?></span>
+                                                </div>
+                                                <div class="mt-2 mb-0 text-muted text-xs">
+                                                    <span class="text-success mr-2"><i class="fas fa-phone"></i>
+                                                        Phone:</span>
+                                                    <span><?php echo $user->phone; ?></span>
+                                                </div>
+                                                <div class="mt-2 mb-0 text-muted text-xs">
+                                                    <span class="text-success mr-2"><i
+                                                            class="fas fa-map-marker-alt"></i> Address:</span>
+                                                    <?php echo  Rwanda::find_Rw($add->province, 'Rw_province')->Name . '<span class="text-primary font-weight-bold"> / </span>' .
+                                                                Rwanda::find_Rw($add->district, 'Rw_district')->Name . '<span class="text-primary font-weight-bold"> / </span>' .
+                                                                Rwanda::find_Rw($add->sector, 'Rw_sector')->Name; ?>
+                                                </div>
+                                                <div class="mt-2 mb-0 text-muted text-xs">
+                                                    <span class="text-success mr-2"><i class="fa fa-road"></i> Street:
+                                                    </span>
+                                                    <?php echo $add->street; ?>
+                                                </div>
+                                                <div class="mt-2 mb-0 text-muted text-xs">
+                                                    <span class="text-success mr-2"><i
+                                                            class="fa fa-road"></i>Location:</span>
+                                                    <?php echo ellipse_of($add->description, 30); ?>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } else { //User Is logged In but has no Address , allow him to add one  
+                            ?>
+                        <div class="col-lg-6">
+                            <h4 class=" mb-5 lead "><span class="astk">*</span>Select Your Shiping Address</h4>
+                            <div class="group-inline u-s-m-b-13">
+                                <div class="group-1 u-s-p-r-16">
+                                    <div class="form-group  ">
+                                        <label for="selectProvince"><span class="astk">*</span> Please Select Your
+                                            Province
+                                        </label><br>
+                                        <select class="select2-single-placeholder form-control" name="address[province]"
+                                            id="selectProvince" required>
+                                            <option value="">Select</option>
+                                            <?php $province = Rwanda::find_province();
+                                                    foreach ($province as $p) {
+                                                        $output = "<option value='" . $p->id . "'>" . $p->Name . "</option>";
+                                                        echo $output;
+                                                    }
+                                                    ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="group-2 ">
+                                    <div class="form-group  ">
+                                        <label for="SelectDistrict"><span class="astk">*</span> Please Select Your
+                                            District </label><br>
+                                        <select class="select2-single-placeholder form-control" name="address[district]"
+                                            id="SelectDistrict" required>
+                                            <option value="">Select Your Province First</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="group-inline u-s-m-b-13">
+                                <div class="group-1 u-s-p-r-16">
+                                    <div class="form-group  ">
+                                        <label for="selectSector"><span class="astk">*</span> Please Select Your Sector
+                                        </label><br>
+                                        <select class="select2-single-placeholder form-control" name="address[sector]"
+                                            id="selectSector">
+                                            <option value="">Select Your District First</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="group-2 ">
+
+                                    <div class="">
+                                        <label for="exampleFormControlTextarea1"> Descriptive Address</label><br>
+                                        <textarea class="text-area border border-secondary"
+                                            placeholder="Ex: Near CST OR (KN 23 Street), Feel Free be as descriptive as you can"
+                                            id="exampleFormControlTextarea1" rows="2"
+                                            name='address[description]'></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group-inline u-s-m-b-13">
+                                <div class="group1 u-s-m-b-16">
+                                    <label for="select-state-extra">Delivery Method
+                                        <span class="astk"> *</span>
+                                    </label>
+                                    <div class="select-box-wrapper">
+                                        <select class="select-box" name="delivery['method']" id="select-state-extra">
+                                            <option selected="selected">Choose A Delivery Method...</option>
+                                            <option value="1">Emergency, Within 30Minutes (2,000frw)</option>
+                                            <option value="2">Within an hour (1,500frw)</option>
+                                            <option value="3">Next Day(800frw)</option>
+                                            <option value="4">Within 5 Days (Free)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group-inline u-s-m-b-13">
+                                <div class="group-2">
+                                    <label for="exampleFormControlTextarea1">Note:</label><br>
+                                    <textarea class="text-area"
+                                        placeholder="Any Specification? Comment or somethings you would like us to know before the delivery? let us know more for a smooth delivery"
+                                        id="exampleFormControlTextarea1" rows="2" name='delivery[note]'></textarea>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <?php   }
+                        }
+                        ?>
 
                         <!-- Billing-&-Shipping-Details /- -->
                         <!-- Checkout -->
@@ -288,7 +423,8 @@ if ($session_user->is_logged_in()) {
                                         </tr>
                                         <tr>
                                             <td>
-                                                <h6 class="order-h6">Black Rock Dress with High Jewelery Necklace</h6>
+                                                <h6 class="order-h6">Black Rock Dress with High Jewelery Necklace
+                                                </h6>
                                                 <span class="order-span-quantity">x 1</span>
                                             </td>
                                             <td>
@@ -348,15 +484,16 @@ if ($session_user->is_logged_in()) {
                                     </tbody>
                                 </table>
                                 <div class="u-s-m-b-13">
-                                    <input type="radio" class="radio-box" name="payment-method" id="cash-on-delivery">
+                                    <input type="radio" class="radio-box" name="payment['cash']" id="cash-on-delivery">
                                     <label class="label-text" for="cash-on-delivery">Cash on Delivery</label>
                                 </div>
                                 <div class="u-s-m-b-13">
-                                    <input type="radio" class="radio-box" name="payment-method" id="credit-card-stripe">
+                                    <input type="radio" class="radio-box" name="payment['momo']"
+                                        id="credit-card-stripe">
                                     <label class="label-text" for="credit-card-stripe">Momo Or Airtel</label>
                                 </div>
                                 <div class="u-s-m-b-13">
-                                    <input type="radio" class="radio-box" name="payment-method" id="paypal">
+                                    <input type="radio" class="radio-box" name="payment['paypal']" id="paypal">
                                     <label class="label-text" for="paypal">Paypal</label>
                                 </div>
                                 <div class="u-s-m-b-13">
@@ -365,7 +502,7 @@ if ($session_user->is_logged_in()) {
                                         <a href="terms-and-conditions.html" class="u-c-brand">terms & conditions</a>
                                     </label>
                                 </div>
-                                <button type="submit" class="button button-outline-secondary">Place Order</button>
+                                <input type="submit" class="button button-outline-secondary" value="Place Order">
                             </div>
                         </div>
                         <!-- Checkout /- -->
@@ -376,9 +513,61 @@ if ($session_user->is_logged_in()) {
     </div>
 </div>
 
-<?php } ?>
+
 <!-- Checkout-Page /- -->
 
 <?php
 
 require_once(PRIVATE_PATH . "/shared/public_footer.php"); ?>
+
+<script src="staff/vendor/select2/dist/js/select2.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.select2-single').select2();
+    // Select2 Single  with Placeholder
+    $('.select2-single-placeholder').select2({
+
+        allowClear: false
+    });
+
+});
+
+
+province = document.querySelector("#selectProvince")
+province.onchange = () => {
+    var selected = province.options[province.selectedIndex].value;
+    // As soon as the value of the province is changed , then do something about it 
+    if (selected) {
+        url = "../private/ajax/address_user.php?district=" + selected;
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let result = xhr.responseText;
+                let target = document.querySelector("#SelectDistrict");
+                target.innerHTML = result;
+            }
+        }
+        xhr.send();
+    }
+}
+
+district = document.querySelector("#SelectDistrict")
+district.onchange = () => {
+    var selectedD = district.options[district.selectedIndex].value;
+    // As soon as the value of the province is changed , then do something about it 
+    if (selectedD) {
+        url = "../private/ajax/address_user.php?sector=" + selectedD;
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let result = xhr.responseText;
+                let target = document.querySelector("#selectSector");
+                target.innerHTML = result;
+            }
+        }
+        xhr.send();
+    }
+}
+</script>
