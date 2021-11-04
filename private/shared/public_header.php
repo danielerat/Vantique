@@ -184,7 +184,7 @@ if ($session_user->is_logged_in()) {
                         <div class="col-lg-3 col-md-9 col-sm-6">
                             <div class="brand-logo text-lg-center">
                                 <a href="home.php">
-                                    <img src="images/main-logo/groover-branding-1.png" alt="Vantique"
+                                    <img src="images/main-logo/vantique-Brand.png" alt="Vantique-brandLogo"
                                         class="app-brand-logo">
                                 </a>
                             </div>

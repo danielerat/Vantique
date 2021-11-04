@@ -10,7 +10,7 @@ print_r($session_admin);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="../img/logo/logo.svg" rel="icon">
+    <link href="../img/logo/logo2.png" rel="icon">
     <title>Vantique../Admin - Dashboard</title>
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -25,9 +25,9 @@ print_r($session_admin);
     <div id="wrapper">
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand w-100 d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <img src="../img/logo/15.png">
+                    <img src="../img/logo/logo2.png">
                 </div>
                 <div class="sidebar-brand-text mx-3">Vantique</div>
             </a>
@@ -74,6 +74,19 @@ print_r($session_admin);
                 </div>
             </li>
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
+                    aria-expanded="true" aria-controls="collapseProduct">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Users</span>
+                </a>
+                <div id="collapseUser" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Registered Users</h6>
+                        <a class="collapse-item" href="users.php">User Address</a>
+                    </div>
+                </div>
+            </li>
+            <!--<li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
                     aria-expanded="true" aria-controls="collapseBootstrap">
                     <i class="far fa-fw fa-window-maximize"></i>
@@ -151,7 +164,7 @@ print_r($session_admin);
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span>
                 </a>
-            </li>
+            </li>-->
             <hr class="sidebar-divider">
             <div class="version" id="version-ruangadmin"></div>
         </ul>

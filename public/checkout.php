@@ -273,7 +273,7 @@ echo "</pre>";
                                                     <span><?php  ?></span>
                                                 </div>
                                                 <div class="text-secondary font-weight-bold  text-uppercase mb-1">
-                                                    Shipping Address
+                                                    Shipping To This Address
                                                 </div>
                                                 <div class="h5 mb-0 font-weight-bold text-dark">
                                                     <?php echo $user->first_name . ' ' . $user->last_name; ?></div>
@@ -310,7 +310,42 @@ echo "</pre>";
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- Choose Shipping Methods -->
+                            <div class="group-inline u-s-m-b-13 mt-5">
+                                <div class="group1 u-s-m-b-16">
+                                    <label for="select-state-extra">Delivery Method
+                                        <span class="astk"> *</span>
+                                    </label>
+                                    <div class="select-box-wrapper">
+                                        <select class="select-box" name="delivery['method']" id="select-state-extra"
+                                            required>
+                                            <option selected="selected">Choose A Delivery Method...</option>
+                                            <option value="1">Emergency, Within 30Minutes (2,000frw)</option>
+                                            <option value="2">Within an hour (1,500frw)</option>
+                                            <option value="3">Next Day(800frw)</option>
+                                            <option value="4">Within 5 Days (Free)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comment to let us know more about how they want the product to be delivered -->
+                            <div class="group-inline u-s-m-b-13">
+                                <div class="group-2">
+                                    <label for="exampleFormControlTextarea1">Note:</label><br>
+                                    <textarea class="text-area"
+                                        placeholder="Any Specification? Comment or somethings you would like us to know before the delivery? Please , don't bother"
+                                        id="exampleFormControlTextarea1" rows="2" name='delivery[note]'></textarea>
+                                </div>
+                            </div>
+
                         </div>
+
+
+
+
+
                         <?php } else { //User Is logged In but has no Address , allow him to add one  
                             ?>
                         <div class="col-lg-6">
@@ -412,56 +447,48 @@ echo "</pre>";
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                        $cartDb = ($session_user->is_logged_in()) ? Cart::find_by_user_id($session_user->getUserId()) : $cart->cart_items;
+                                        $total = (float) 0;
+                                        // Since What's Kept in the cart cookit is not an object , we have to make the convert
+                                        // The Easiest way is to encode and decode back again in a json format ...lol 
+                                        if (!$session_user->is_logged_in()) {
+                                            $cartDb = json_encode($cartDb);
+                                            $cartDb = json_decode($cartDb);
+                                        }
+                                        foreach ($cartDb as $cart) {
+                                            $product = Product::find_by_id($cart->productId);
+                                            $total += (float) ($product->productPrice * $cart->quantity);
+                                            $Stock = ProductStock::find_by_product_id($product->id);
+                                        ?>
                                         <tr>
                                             <td>
-                                                <h6 class="order-h6">Casual Hoodie Full Cotton</h6>
-                                                <span class="order-span-quantity">x 1</span>
+                                                <h6 class="order-h6"><?php echo $product->productName; ?></h6>
+                                                <span class="order-span-quantity">x
+                                                    <?php echo $cart->quantity; ?></span>
                                             </td>
                                             <td>
-                                                <h6 class="order-h6">$55.00</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="order-h6">Black Rock Dress with High Jewelery Necklace
+                                                <h6 class="order-h6">
+                                                    <?php echo number_format($product->productPrice * $cart->quantity, 0); ?>
                                                 </h6>
-                                                <span class="order-span-quantity">x 1</span>
-                                            </td>
-                                            <td>
-                                                <h6 class="order-h6">$55.00</h6>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="order-h6">Xiaomi Note 2 Black Color</h6>
-                                                <span class="order-span-quantity">x 1</span>
-                                            </td>
-                                            <td>
-                                                <h6 class="order-h6">$55.00</h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6 class="order-h6">Dell Inspiron 15</h6>
-                                                <span class="order-span-quantity">x 1</span>
-                                            </td>
-                                            <td>
-                                                <h6 class="order-h6">$55.00</h6>
-                                            </td>
-                                        </tr>
+                                        <?php } ?>
                                         <tr>
                                             <td>
                                                 <h3 class="order-h3">Subtotal</h3>
                                             </td>
                                             <td>
-                                                <h3 class="order-h3">$220.00</h3>
+                                                <h3 class="order-h3">
+                                                    <?php echo number_format($total, 2); ?>
+                                                </h3>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="">
                                                 <h3 class="order-h3">Shipping</h3>
                                             </td>
-                                            <td>
+                                            <td class="">
                                                 <h3 class="order-h3">$0.00</h3>
                                             </td>
                                         </tr>
@@ -477,24 +504,34 @@ echo "</pre>";
                                             <td>
                                                 <h3 class="order-h3">Total</h3>
                                             </td>
-                                            <td>
-                                                <h3 class="order-h3">$220.00</h3>
+                                            <td>=
+                                                <h3 class="order-h3"><?php echo number_format($total, 2) . 'Frw'; ?>
+                                                </h3>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="u-s-m-b-13">
-                                    <input type="radio" class="radio-box" name="payment['cash']" id="cash-on-delivery">
-                                    <label class="label-text" for="cash-on-delivery">Cash on Delivery</label>
-                                </div>
-                                <div class="u-s-m-b-13">
-                                    <input type="radio" class="radio-box" name="payment['momo']"
-                                        id="credit-card-stripe">
-                                    <label class="label-text" for="credit-card-stripe">Momo Or Airtel</label>
-                                </div>
-                                <div class="u-s-m-b-13">
-                                    <input type="radio" class="radio-box" name="payment['paypal']" id="paypal">
-                                    <label class="label-text" for="paypal">Paypal</label>
+                                <div>
+                                    <div class="u-s-m-b-13 =">
+                                        <input type="radio" class="radio-box" name="payment['method']"
+                                            id="cash-on-delivery" required>
+                                        <label class="label-text" for="cash-on-delivery"><i
+                                                class="fas fa-money-bill-wave-alt text-success"></i> Cash on
+                                            Delivery</label>
+                                    </div>
+                                    <div class="u-s-m-b-13">
+                                        <input type="radio" class="radio-box" name="payment['method']"
+                                            id="credit-card-stripe">
+                                        <label class="label-text" for="credit-card-stripe"><i
+                                                class="fas fa-money-bill-wave-alt"
+                                                style="color: linear-gradient(red, orange, yellow);"></i> Momo Or
+                                            Airtel</label>
+                                    </div>
+                                    <div class="u-s-m-b-13">
+                                        <input type="radio" class="radio-box" name="payment['method']" id="paypal">
+                                        <label class="label-text" for="paypal"><i class="fab fa-paypal  text-primary">
+                                            </i> Paypal</label>
+                                    </div>
                                 </div>
                                 <div class="u-s-m-b-13">
                                     <input type="checkbox" class="check-box" id="accept" checked disabled="">

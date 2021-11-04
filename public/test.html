@@ -1,38 +1,48 @@
-('8','Gasange'),
-('8','Gatsibo'),
-('8','Gitoki'),
-('8','Kabarore'),
-('8','Kageyo'),
-('8','Kiramuruzi'),
-('8','Kiziguro'),
-('8','Muhura'),
-('8','Murambi'),
-('8','Ngarama'),
-('8','Nyagihanga'),
-('8','Remera'),
-('8','Rugarama'),
-('8','Rwimbogo'),
-('10','Gahini'),
-('10','Kabare'),
-('10','Kabarondo'),
-('10','Mukarange'),
-('10','Murama'),
-('10','Murundi'),
-('10','Mwiri'),
-('10','Ndego'),
-('10','Nyamirama'),
-('10','Rukara'),
-('10','Ruramira'),
-('10','Rwinkwavu'),
-('9','Gahara'),
-('9','Gatore'),
-('9','Kigarama'),
-('9','Kigina'),
-('9','Kirehe'),
-('9','Mahama'),
-('9','Mpanga'),
-('9','Musaza'),
-('9','Mushikiri'),
-('9','Nasho'),
-('9','Nyamugari'),
-('9','Nyarubuye');
+<script type="text/javascript">
+    function manipulateStudentRecord(obj, operation, prop, newValue) {
+        if (operation === 'delete') {
+            if (obj && obj.hasOwnProperty(prop)) {
+                delete obj[prop]
+            }
+            return obj
+
+        } else if (operation === 'edit') {
+            if (obj && obj.hasOwnProperty(prop)) {
+                obj[prop] = newValue
+                return obj;
+            } else {
+                return obj
+            }
+        }
+    }
+
+    const obj = {
+        name: 'John',
+        lastName: 'Bliss',
+        city: 'Florida'
+    }
+
+    console.log(manipulateStudentRecord(obj, "edit", "city", "Seattle"))
+    console.log(manipulateStudentRecord(obj, "edit", "abc", "Seattle"))
+    console.log(manipulateStudentRecord(obj, "delete", "city", "Seattle"))
+
+
+
+
+
+
+    function makeInputVerifier(minimum, maximum) {
+
+        var mini = minimum;
+        var maxi = maximum;
+
+        return function verify(val) {
+            if (val < mini) return "Input is less than minimum value";
+            if (val >= mini && val <= maxi) return "Input is in range";
+            return "Input is more than maximum value";
+        }
+    }
+</script>
+</body>
+
+</html>

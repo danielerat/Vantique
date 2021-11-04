@@ -1,7 +1,7 @@
 <?php
 require_once("../private/initialize.php");
 require_once(PRIVATE_PATH . "/shared/public_header.php");
-print_r($_SESSION);
+
 ?>
 <!-- Main-Slider -->
 <script>

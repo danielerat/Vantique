@@ -20,10 +20,10 @@ echo display_session_message();
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">Earnings (Monthly)
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">frw 0,000</div>
                         <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
-                                3.48%</span>
+                                0.00%</span>
                             <span>Since last month</span>
                         </div>
                     </div>
@@ -41,11 +41,11 @@ echo display_session_message();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">Sales</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">650</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                         <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fas fa-arrow-up"></i>
-                                12%</span>
-                            <span>Since last years</span>
+                                0%</span>
+                            <span>Since this year</span>
                         </div>
                     </div>
                     <div class="col-auto">
@@ -62,10 +62,10 @@ echo display_session_message();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">New User</div>
-                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">366</div>
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">8</div>
                         <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fas fa-arrow-up"></i>
-                                20.4%</span>
+                                90.4%</span>
                             <span>Since last month</span>
                         </div>
                     </div>

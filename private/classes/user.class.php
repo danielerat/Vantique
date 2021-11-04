@@ -12,7 +12,7 @@ class User extends DatabaseObject
     public $email;
     public $phone;
     protected $hashed_password;
-    protected $created_on;
+    public $created_on;
     public $password;
     public $confirm_password;
     public $password_required = true;
