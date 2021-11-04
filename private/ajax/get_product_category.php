@@ -15,7 +15,7 @@ if (isset($_GET['subCategory'])) {
 if (isset($category)) {
 
     $output = "<option value='' disabled='disabled'>Select category</option>";
-    $subCategory = ProductSubCategory::find_by_parent($category);
+    $subCategory = SubCategory::find_by_parent($category);
     foreach ($subCategory as $s) {
         $output .= "<option value='" . $s->id . "'>" . $s->name . "</option>";
     }
@@ -26,7 +26,7 @@ if (isset($category)) {
 // Fetch city list by category
 if (isset($subCategory)) {
     $output = "<option value='' disabled='disabled'>Select subCategory</option>";
-    $SubCategory = ProductSubSubCategory::find_by_parent($subCategory);
+    $SubCategory = SubSubCategory::find_by_parent($subCategory);
     foreach ($SubCategory as $s) {
         $output .= "<option value='" . $s->id . "'>" . $s->name . "</option>";
     }

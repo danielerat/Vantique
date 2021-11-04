@@ -1,6 +1,6 @@
 <?php
 
-class ProductSubCategory extends DatabaseObject
+class SubCategory extends DatabaseObject
 {
     static protected $table_name = 'subCategory';
     static protected $db_columns = ["id", "parentId", "name", 'addedOn'];

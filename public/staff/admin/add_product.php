@@ -3,6 +3,7 @@ require_once('../../../private/initialize.php');
 
 include(SHARED_PATH . '/staff_header.php');
 $category = Category::find_all();
+$colors = Color::find_all();
 if (is_post_request()) {
     // Error While Doing the uploading things
     $errors = [];
@@ -108,7 +109,7 @@ echo display_session_message();
                         </div>
 
                         <div class="group-inline u-s-m-b-10  mt-4">
-                            <div class="group-1 u-s-p-r-16 form-group">
+                            <div class="group-1 w-75 u-s-p-r-16 form-group">
                                 <label for="sl2mul3">Sub Sub Category</label>
                                 <select class="select2-multiple form-control" name="productCategory[]"
                                     multiple="multiple" id="sl2mul3">
@@ -117,9 +118,14 @@ echo display_session_message();
                             </div>
                             <div class="group-2 u-s-p-r-16 form-group">
                                 <label for="sl2mul4">Product Color</label>
-                                <select class="select2-multiple form-control" name="productCategory[]"
-                                    multiple="multiple" id="sl2mul4">
+                                <select class="form-control" name="productCategory[]" multiple="multiple" id="sl2mul4">
                                     <option disabled="disabled">Select A Color</option>
+                                    <?php foreach ($colors as $c) {
+                                        if (!empty($c->id)) {
+                                            $category = "<option value={$c->id} style='background-color:$c->hex_value;'>" . $c->name . "</option>";
+                                        }
+                                        echo $category;
+                                    } ?>
                                 </select>
                             </div>
                         </div>
@@ -180,7 +186,6 @@ echo display_session_message();
                         </table>
 
 
-
                         <button type="submit" class="btn btn-primary float-right mt-3">Submit</button>
                     </div>
                 </div>
@@ -218,13 +223,21 @@ function showquantitybox() {
 
 $(document).ready(function() {
 
-
+    $("select02").select2({
+        placeholder: '<i class="fa fa-sitemap"></i>Branch name',
+        escapeMarkup: function(markup) {
+            return markup;
+        }
+    });
     $('.select2-single').select2();
 
     // Select2 Single  with Placeholder
     $('.select2-single-placeholder').select2({
         placeholder: "Select a Province",
-        allowClear: true
+        allowClear: true,
+        escapeMarkup: function(markup) {
+            return markup;
+        }
     });
 
     // Select2 Multiple

@@ -18,6 +18,7 @@ class product extends DatabaseObject
 
     //Used TO hold All Thumbnails
     public $productThumbnails = [];
+    public $productColor = [];
 
     public const CONDITION_OPTIONS = [
         1 => 'Beat up',
@@ -151,7 +152,6 @@ class product extends DatabaseObject
             $this->id = self::$db->insert_id;
             $stock = new ProductStock(["productId" => $this->id, "quantity" => $quantity]);
 
-
             if ($stock->save()) {
                 foreach ($this->productCategory as $test) {
                     $InsertCategory = new ProductCategory(["productId" => $this->id, "categoryId" => $test]);
@@ -160,6 +160,10 @@ class product extends DatabaseObject
                 foreach ($this->productThumbnails as $thumb) {
                     $InsertThumbnail = new ProductImage(["productId" => $this->id, "image" => $thumb]);
                     $InsertThumbnail->save();
+                }
+                foreach ($this->productColor as $c) {
+                    $productColor = new ProductColor(["productId" => $this->id, "colorId" => $c]);
+                    $productColor->save();
                 }
             }
         }

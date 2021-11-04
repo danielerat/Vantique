@@ -26,7 +26,6 @@ class Category extends DatabaseObject
         $id_array = join(",", $ids);
         $sql = "SELECT * FROM " . static::$table_name;
         $sql .= " WHERE id IN (" . self::$db->escape_string($id_array) . ");";
-
         return static::find_by_sql($sql);
     }
 
