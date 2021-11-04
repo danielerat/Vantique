@@ -25,9 +25,24 @@ class SubCategory extends DatabaseObject
         return static::find_by_sql($sql);
     }
 
+    static public function find_product_category($id)
+    {
+
+        $sql = "SELECT subCategory.id,subCategory.name from subCategory INNER JOIN productSubCategory ON productSubCategory.id=subCategory.id ";
+        $sql .= " where productSubCategory.productId ='" . self::$db->escape_string($id) . "';";
+        return static::find_by_sql($sql);
+    }
 
 
-
+    // Count The Number Of Sup Category
+    static public function count_by_parent($id)
+    {
+        $sql = "SELECT count(*) FROM " . static::$table_name;
+        $sql .= " WHERE parentId ='" . self::$db->escape_string($id) . "';";
+        $result_set = self::$db->query($sql);
+        $row = $result_set->fetch_array();
+        return array_shift($row);
+    }
     static public function count_product_by_cat($categoryId)
     {
         $sql = "SELECT count(*) FROM " . static::$table_name;

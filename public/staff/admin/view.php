@@ -14,7 +14,9 @@ $product = Product::find_by_id($id);
 if (empty($product)) {
     header("Location: products.php");
 }
-$product_category = Category::find_product_category($id);
+$category = Category::find_product_category($id);
+$scategory = SubCategory::find_product_category($id);
+$sscategory = SubSubCategory::find_product_category($id);
 $product_image = ProductImage::find_by_product_id($id);
 $stock = ProductStock::find_by_product_id($id);
 echo display_session_message();
@@ -68,8 +70,14 @@ echo display_session_message();
 
             <h5><?php echo $product->productName; ?></h5>
             <p class="mb-2 text-muted text-uppercase small">
-                <?php foreach ($product_category as $category) { ?>
+                <?php foreach ($category as $category) { ?>
                 <span class="badge badge-primary p-2"><?php echo $category->categoryName; ?></span>
+                <?php } ?>/
+                <?php foreach ($scategory as $category) { ?>
+                <span class="badge badge-warning p-2"><?php echo $category->name; ?></span>
+                <?php } ?>/
+                <?php foreach ($sscategory as $category) { ?>
+                <span class="badge badge-danger p-2"><?php echo $category->name; ?></span>
                 <?php } ?>
             </p>
 

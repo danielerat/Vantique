@@ -19,6 +19,8 @@ class product extends DatabaseObject
     //Used TO hold All Thumbnails
     public $productThumbnails = [];
     public $productColor = [];
+    public $productSubCategory = [];
+    public $productSubSubCategory = [];
 
     public const CONDITION_OPTIONS = [
         1 => 'Beat up',
@@ -32,6 +34,9 @@ class product extends DatabaseObject
     {
         $this->productName = $args['productName'] ?? '';
         $this->productCategory = $args['productCategory'] ?? "";
+        $this->productSubCategory = $args['productSubCategory'] ?? "";
+        $this->productSubSubCategory = $args['productSubSubCategory'] ?? "";
+        $this->productColor = $args['productColor'] ?? "";
         $this->productPrice = $args['productPrice'] ?? '';
         $this->productDesc = $args['productDesc'] ?? '';
         $this->productThumb = $args['productThumb'] ?? '';
@@ -164,6 +169,14 @@ class product extends DatabaseObject
                 foreach ($this->productColor as $c) {
                     $productColor = new ProductColor(["productId" => $this->id, "colorId" => $c]);
                     $productColor->save();
+                }
+                foreach ($this->productSubCategory as $s) {
+                    $productSub = new ProductSubCategory(["productId" => $this->id, "subCategoryId" => $s]);
+                    $productSub->save();
+                }
+                foreach ($this->productSubSubCategory as $ss) {
+                    $productSubSubCategory = new ProductSubSubCategory(["productId" => $this->id, "subSubCategoryId" => $ss]);
+                    $productSubSubCategory->save();
                 }
             }
         }

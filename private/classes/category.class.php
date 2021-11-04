@@ -15,10 +15,11 @@ class Category extends DatabaseObject
         $this->addedOn = $args['addedOn'] ?? date('Y-m-d H:i:s');
     }
 
+    // Query To Join The Two Tables tables, category and corresponding product
     static public function find_product_category($id)
     {
-        $sql = "SELECT category.id,category.categoryName from category inner join ProductCategory on ProductCategory.categoryId=category.id ";
-        $sql .= " where ProductCategory.productId ='" . self::$db->escape_string($id) . "';";
+        $sql = "SELECT category.id,category.categoryName from category inner join productCategory on productCategory.categoryId=category.id ";
+        $sql .= " where productCategory.productId ='" . self::$db->escape_string($id) . "';";
         return static::find_by_sql($sql);
     }
     static public function find_categories_by_ids($ids)

@@ -1,12 +1,17 @@
 <?php
 require_once('../../../private/initialize.php');
+$id = $_GET['id'] ?? Null;
+$parent = SubCategory::find_by_id($id);
+if (empty($parent)) {
+    header("Location: 404.php");
+}
 
-$page_title = "Main Categories";
+$page_title = "Sub - Sub - Category: " . $parent->name;
 
 include(SHARED_PATH . '/staff_header.php');
 
 
-$category_count = Category::count_all();
+$category_count = SubSubCategory::count_by_parent($parent->id);
 
 if (is_post_request()) {
     // Error While Doing the uploading things
@@ -23,7 +28,7 @@ if (is_post_request()) {
         echo display_errors($category->errors);
     }
 }
-$category = Category::find_all();
+$category = SubSubCategory::find_by_parent($id);
 
 echo display_session_message();
 ?>
@@ -111,7 +116,6 @@ echo display_session_message();
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <th>Sub Category</th>
                                     <th>Added On</th>
                                     <th>Products</th>
                                     <th>Action</th>
@@ -121,7 +125,6 @@ echo display_session_message();
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
-                                    <th>Sub Category</th>
                                     <th>Added On</th>
                                     <th>Products</th>
                                     <th>Action</th>
@@ -131,15 +134,11 @@ echo display_session_message();
                                 <?php foreach ($category as $cat) { ?>
                                 <tr>
                                     <td class=""><?php echo $cat->id; ?></td>
-                                    <td class="w-25 font-weight-bold"><a
-                                            href="category_sub.php?id=<?php echo $cat->id; ?>"><?php echo strtoupper($cat->categoryName); ?></a>
-                                    </td>
-                                    <td class="w-25">
-                                        <?php echo SubCategory::count_by_parent($cat->id) . " Sub Categories"; ?>
-                                    </td>
+                                    <td class="w-25 font-weight-bold"><?php echo strtoupper($cat->name); ?></td>
+
                                     <td class="w-25"><?php echo $cat->addedOn; ?></td>
                                     <td class="w-25 font-weight-bold align-middle">
-                                        <?php echo ProductCategory::count_product_by_cat($cat->id) . " Products"; ?>
+                                        <?php echo ProductSubCategory::count_product_by_cat($cat->id) . " Products"; ?>
                                     </td>
 
                                     <td class="w-50">

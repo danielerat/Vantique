@@ -9,6 +9,9 @@ if (is_post_request()) {
     $errors = [];
     $args = $_POST['product'];
     $args["productCategory"] = $_POST['productCategory'];
+    $args["productSubCategory"] = $_POST['productSubCategory'];
+    $args["productSubSubCategory"] = $_POST['productSubSubCategory'];
+    $args["productColor"] = $_POST['productColor'];
     $category = Category::find_categories_by_ids($_POST['productCategory']);
     $args['productThumb'] = "default.png";
     $args['addedBy'] = $_SESSION['username'] ?? "administrator";
@@ -37,7 +40,7 @@ if (is_post_request()) {
         $result = $product->save();
         if ($result === true) {
             $new_id = $product->id;
-            $session->message("Product Was Successfully Added !");
+            $session_admin->message("Product Was Successfully Added !");
             //Everything went well , reset back the session variables   
             // $$_SESSION['upload_status'] = false;
             redirect_to("view.php?id=" . $product->id);
@@ -100,7 +103,7 @@ echo display_session_message();
                             </div>
                             <div class="group-2 u-s-p-r-16 form-group ">
                                 <label for="sl2mul2">Sub Category</label>
-                                <select class="select2-multiple form-control" name="productCategory[]"
+                                <select class="select2-multiple form-control" name="productSubCategory[]"
                                     multiple="multiple" id="sl2mul2">
                                     <option disabled="disabled">Select A Category First</option>
                                 </select>
@@ -111,14 +114,14 @@ echo display_session_message();
                         <div class="group-inline u-s-m-b-10  mt-4">
                             <div class="group-1 w-75 u-s-p-r-16 form-group">
                                 <label for="sl2mul3">Sub Sub Category</label>
-                                <select class="select2-multiple form-control" name="productCategory[]"
+                                <select class="select2-multiple form-control" name="productSubSubCategory[]"
                                     multiple="multiple" id="sl2mul3">
                                     <option disabled="disabled">Select A Category First</option>
                                 </select>
                             </div>
                             <div class="group-2 u-s-p-r-16 form-group">
                                 <label for="sl2mul4">Product Color</label>
-                                <select class="form-control" name="productCategory[]" multiple="multiple" id="sl2mul4">
+                                <select class="form-control" name="productColor[]" multiple="multiple" id="sl2mul4">
                                     <option disabled="disabled">Select A Color</option>
                                     <?php foreach ($colors as $c) {
                                         if (!empty($c->id)) {

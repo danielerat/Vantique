@@ -63,6 +63,8 @@ class DatabaseObject
         }
     }
 
+
+
     static public function find_by_product_id($id)
     {
         $sql = "SELECT * FROM " . static::$table_name;
