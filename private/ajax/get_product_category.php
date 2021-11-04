@@ -22,3 +22,14 @@ if (isset($category)) {
     echo $output;
     exit;
 }
+
+// Fetch city list by category
+if (isset($subCategory)) {
+    $output = "<option value='' disabled='disabled'>Select subCategory</option>";
+    $SubCategory = ProductSubSubCategory::find_by_parent($subCategory);
+    foreach ($SubCategory as $s) {
+        $output .= "<option value='" . $s->id . "'>" . $s->name . "</option>";
+    }
+    echo $output;
+    exit;
+}

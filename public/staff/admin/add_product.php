@@ -318,6 +318,7 @@ $(document).ready(function() {
 <script type="text/javascript">
 subCategory = document.querySelector("#sl2mul")
 subCategory.onchange = () => {
+
     var selected = subCategory.options[subCategory.selectedIndex].value;
     // As soon as the value of the category is changed , then do something about it 
     if (selected) {
@@ -328,6 +329,24 @@ subCategory.onchange = () => {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 let result = xhr.responseText;
                 let target = document.querySelector("#sl2mul2");
+                target.innerHTML = result;
+            }
+        }
+        xhr.send();
+    }
+}
+subSubCategory = document.querySelector("#sl2mul2")
+subSubCategory.onchange = () => {
+    var selected = subSubCategory.options[subSubCategory.selectedIndex].value;
+    // As soon as the value of the category is changed , then do something about it 
+    if (selected != null) {
+        url = "../../../private/ajax/get_product_category.php?subCategory=" + selected;
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let result = xhr.responseText;
+                let target = document.querySelector("#sl2mul3");
                 target.innerHTML = result;
             }
         }
