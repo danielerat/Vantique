@@ -55,7 +55,8 @@ echo display_session_message();
 ?>
 <!-- Select2 -->
 <link href="../vendor/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css">
-
+<link href="../../css/bundle.skyblue.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../css/utility.css">
 
 <!-- <div class="text-center">
     <img src="img/think.svg" style="max-height: 90px">
@@ -64,38 +65,65 @@ echo display_session_message();
 
 
 <section class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-sm-10 col-lg-6">
-            <div class="card mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Form Basic</h6>
-                </div>
-                <div class="card-body">
-                    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>" enctype="multipart/form-data">
+    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>" enctype="multipart/form-data">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Add New Product</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="group-inline u-s-m-b-10">
+                            <div class="group-1 u-s-p-r-16 form-group">
+                                <label for="productName">Product Name</label>
+                                <input type="text" class="form-control" id="productName"
+                                    value="<?php echo $product->productName; ?>" name="product[productName]"
+                                    placeholder="*Your Product Name (Min:12Chars)" required>
+                            </div>
+                        </div>
+                        <div class="group-inline u-s-m-b-10 mt-4">
+                            <div class="group-2 u-s-p-r-16 form-group">
+                                <label for="sl2mul">Product Category</label>
+                                <select class="select2-multiple form-control" name="productCategory[]"
+                                    multiple="multiple" id="sl2mul">
+                                    <option disabled="disabled">Select A Category</option>
+                                    <?php foreach ($category as $cat) {
+                                        if (!empty($product->productCategory)) {
+                                            $category = "<option value={$cat->id} selected>" . $cat->categoryName . "</option>";
+                                        } else {
+                                            $category = "<option value={$cat->id}>" . $cat->categoryName . "</option>";
+                                        }
+                                        echo $category;
+                                    } ?>
+                                </select>
+                            </div>
+                            <div class="group-2 u-s-p-r-16 form-group ">
+                                <label for="sl2mul2">Sub Category</label>
+                                <select class="select2-multiple form-control" name="productCategory[]"
+                                    multiple="multiple" id="sl2mul2">
+                                    <option disabled="disabled">Select A Category First</option>
+                                </select>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="productName">Product Name</label>
-                            <input type="text" class="form-control" id="productName"
-                                value="<?php echo $product->productName; ?>" name="product[productName]"
-                                placeholder="*Your Product Name (Min:12Chars)" required>
                         </div>
 
-
-                        <div class="form-group">
-                            <label for="sl2mul">Product Category</label>
-                            <select class="select2-multiple form-control" name="productCategory[]" multiple="multiple"
-                                id="sl2mul">
-                                <option disabled="disabled">Select A Category</option>
-                                <?php foreach ($category as $cat) {
-                                    if (!empty($product->productCategory)) {
-                                        $category = "<option value={$cat->id} selected>" . $cat->categoryName . "</option>";
-                                    } else {
-                                        $category = "<option value={$cat->id}>" . $cat->categoryName . "</option>";
-                                    }
-                                    echo $category;
-                                } ?>
-                            </select>
+                        <div class="group-inline u-s-m-b-10  mt-4">
+                            <div class="group-1 u-s-p-r-16 form-group">
+                                <label for="sl2mul3">Sub Sub Category</label>
+                                <select class="select2-multiple form-control" name="productCategory[]"
+                                    multiple="multiple" id="sl2mul3">
+                                    <option disabled="disabled">Select A Category First</option>
+                                </select>
+                            </div>
+                            <div class="group-2 u-s-p-r-16 form-group">
+                                <label for="sl2mul4">Product Color</label>
+                                <select class="select2-multiple form-control" name="productCategory[]"
+                                    multiple="multiple" id="sl2mul4">
+                                    <option disabled="disabled">Select A Color</option>
+                                </select>
+                            </div>
                         </div>
+
 
 
                         <div class="form-group">
@@ -154,11 +182,12 @@ echo display_session_message();
 
 
                         <button type="submit" class="btn btn-primary float-right mt-3">Submit</button>
-                    </form>
+                    </div>
                 </div>
             </div>
+
         </div>
-    </div>
+    </form>
 
 </section>
 
@@ -173,7 +202,7 @@ include(SHARED_PATH . '/staff_footer.php');
 <script src="../vendor/bootstrap-touchspin/js/jquery.bootstrap-touchspin.js"></script>
 
 <!-- RuangAdmin Javascript -->
-<script src="../js/ruang-admin.min.js"></script>
+<script src="../vendor/js/ruang-admin.min.js"></script>
 <!-- Javascript for this page -->
 <script>
 function showquantitybox() {
@@ -201,86 +230,86 @@ $(document).ready(function() {
     // Select2 Multiple
     $('.select2-multiple').select2();
 
-    // Bootstrap Date Picker
-    $('#simple-date1 .input-group.date').datepicker({
-        format: 'dd/mm/yyyy',
-        todayBtn: 'linked',
-        todayHighlight: true,
-        autoclose: true,
-    });
+    //     // Bootstrap Date Picker
+    //     $('#simple-date1 .input-group.date').datepicker({
+    //         format: 'dd/mm/yyyy',
+    //         todayBtn: 'linked',
+    //         todayHighlight: true,
+    //         autoclose: true,
+    //     });
 
-    $('#simple-date2 .input-group.date').datepicker({
-        startView: 1,
-        format: 'dd/mm/yyyy',
-        autoclose: true,
-        todayHighlight: true,
-        todayBtn: 'linked',
-    });
+    //     $('#simple-date2 .input-group.date').datepicker({
+    //         startView: 1,
+    //         format: 'dd/mm/yyyy',
+    //         autoclose: true,
+    //         todayHighlight: true,
+    //         todayBtn: 'linked',
+    //     });
 
-    $('#simple-date3 .input-group.date').datepicker({
-        startView: 2,
-        format: 'dd/mm/yyyy',
-        autoclose: true,
-        todayHighlight: true,
-        todayBtn: 'linked',
-    });
+    //     $('#simple-date3 .input-group.date').datepicker({
+    //         startView: 2,
+    //         format: 'dd/mm/yyyy',
+    //         autoclose: true,
+    //         todayHighlight: true,
+    //         todayBtn: 'linked',
+    //     });
 
-    $('#simple-date4 .input-daterange').datepicker({
-        format: 'dd/mm/yyyy',
-        autoclose: true,
-        todayHighlight: true,
-        todayBtn: 'linked',
-    });
+    //     $('#simple-date4 .input-daterange').datepicker({
+    //         format: 'dd/mm/yyyy',
+    //         autoclose: true,
+    //         todayHighlight: true,
+    //         todayBtn: 'linked',
+    //     });
 
-    // TouchSpin
+    //     // TouchSpin
 
-    $('#touchSpin1').TouchSpin({
-        min: 0,
-        max: 100,
-        boostat: 5,
-        maxboostedstep: 10,
-        initval: 0
-    });
+    //     $('#touchSpin1').TouchSpin({
+    //         min: 0,
+    //         max: 100,
+    //         boostat: 5,
+    //         maxboostedstep: 10,
+    //         initval: 0
+    //     });
 
-    $('#touchSpin2').TouchSpin({
-        min: 0,
-        max: 100,
-        decimals: 2,
-        step: 0.1,
-        postfix: '%',
-        initval: 0,
-        boostat: 5,
-        maxboostedstep: 10
-    });
+    //     $('#touchSpin2').TouchSpin({
+    //         min: 0,
+    //         max: 100,
+    //         decimals: 2,
+    //         step: 0.1,
+    //         postfix: '%',
+    //         initval: 0,
+    //         boostat: 5,
+    //         maxboostedstep: 10
+    //     });
 
-    $('#touchSpin3').TouchSpin({
-        min: 0,
-        max: 100,
-        initval: 0,
-        boostat: 5,
-        maxboostedstep: 10,
-        verticalbuttons: true,
-    });
+    //     $('#touchSpin3').TouchSpin({
+    //         min: 0,
+    //         max: 100,
+    //         initval: 0,
+    //         boostat: 5,
+    //         maxboostedstep: 10,
+    //         verticalbuttons: true,
+    //     });
 
-    $('#clockPicker1').clockpicker({
-        donetext: 'Done'
-    });
+    //     $('#clockPicker1').clockpicker({
+    //         donetext: 'Done'
+    //     });
 
-    $('#clockPicker2').clockpicker({
-        autoclose: true
-    });
+    //     $('#clockPicker2').clockpicker({
+    //         autoclose: true
+    //     });
 
-    let input = $('#clockPicker3').clockpicker({
-        autoclose: true,
-        'default': 'now',
-        placement: 'top',
-        align: 'left',
-    });
+    //     let input = $('#clockPicker3').clockpicker({
+    //         autoclose: true,
+    //         'default': 'now',
+    //         placement: 'top',
+    //         align: 'left',
+    //     });
 
-    $('#check-minutes').click(function(e) {
-        e.stopPropagation();
-        input.clockpicker('show').clockpicker('toggleView', 'minutes');
-    });
+    //     $('#check-minutes').click(function(e) {  
+    //         e.stopPropagation();
+    //         input.clockpicker('show').clockpicker('toggleView', 'minutes');
+    //     });
 
 });
 </script>

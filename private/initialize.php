@@ -36,6 +36,8 @@ require_once('classes/databaseobject.class.php');
 require_once('classes/product.class.php');
 require_once('classes/category.class.php');
 require_once('classes/productcategory.class.php');
+require_once('classes/productsubcategory.class.php');
+require_once('classes/productsubsubcategory.class.php');
 require_once('classes/productimage.class.php');
 require_once('classes/productStock.class.php');
 require_once('classes/admin.class.php');
