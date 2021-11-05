@@ -40,6 +40,7 @@ require_once('classes/subcategory.class.php');
 require_once('classes/productSubCategory.class.php');
 require_once('classes/subsubcategory.class.php');
 require_once('classes/productSubSubCategory.class.php');
+require_once('classes/productDiscount.class.php');
 require_once('classes/color.class.php');
 require_once('classes/productColor.class.php');
 require_once('classes/productimage.class.php');
