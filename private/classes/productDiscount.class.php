@@ -17,7 +17,7 @@ class ProductDiscount extends DatabaseObject
         $this->discount_value = $args['discount_value'] ?? '';
         $this->valid_from = $args['valid_from'] ?? '';
         $this->valid_to = $args['valid_to'] ?? '';
-        $this->addedOn = $args['addedOn'] ?? '';
+        $this->addedOn = $args['addedOn'] ?? date('Y-m-d H:i:s');
         $this->active = $args['active'] ?? '';
     }
 }

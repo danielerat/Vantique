@@ -175,8 +175,8 @@ class product extends DatabaseObject
                     $productSub->save();
                 }
                 foreach ($this->productSubSubCategory as $ss) {
-                    $productSubSubCategory = new ProductSubSubCategory(["productId" => $this->id, "subSubCategoryId" => $ss]);
-                    $productSubSubCategory->save();
+                    $productSubSub = new ProductSubSubCategory(["productId" => $this->id, "subSubCategoryId" => $ss]);
+                    $productSubSub->save();
                 }
             }
         }
