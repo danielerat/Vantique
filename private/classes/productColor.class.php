@@ -15,19 +15,8 @@ class ProductColor extends DatabaseObject
         $this->colorId = $args['colorId'] ?? '';
         $this->addedOn = $args['addedOn'] ?? date('Y-m-d H:i:s');
     }
-    static public function find_by_product_id($id)
-    {
-        $sql = "SELECT * FROM " . static::$table_name;
-        $sql .= " where productId='" . self::$db->escape_string($id) . "'";
 
-        $object_array = static::find_by_sql($sql);
-        if (!empty($object_array)) {
-            // Since it's only one object then thre is no need to retrun a whole array with data 
-            return array_shift($object_array);
-        } else {
-            return false;
-        }
-    }
+
     //For the stock Table we will need to update the Quantity Only
     // protected function update()
     // {

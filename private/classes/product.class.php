@@ -19,6 +19,7 @@ class product extends DatabaseObject
     //Used TO hold All Thumbnails
     public $productThumbnails = [];
     public $productColor = [];
+    public $productBrand = [];
     public $productSubCategory = [];
     public $productSubSubCategory = [];
 
@@ -37,6 +38,7 @@ class product extends DatabaseObject
         $this->productSubCategory = $args['productSubCategory'] ?? "";
         $this->productSubSubCategory = $args['productSubSubCategory'] ?? "";
         $this->productColor = $args['productColor'] ?? "";
+        $this->productBrand = $args['productBrand'] ?? "";
         $this->productPrice = $args['productPrice'] ?? '';
         $this->productDesc = $args['productDesc'] ?? '';
         $this->productThumb = $args['productThumb'] ?? '';
@@ -169,6 +171,11 @@ class product extends DatabaseObject
                 foreach ($this->productColor as $c) {
                     $productColor = new ProductColor(["productId" => $this->id, "colorId" => $c]);
                     $productColor->save();
+                }
+
+                foreach ($this->productBrand as $brand) {
+                    $pb = new ProductBrand(["productId" => $this->id, "brandId" => $brand]);
+                    $pb->save();
                 }
                 foreach ($this->productSubCategory as $s) {
                     $productSub = new ProductSubCategory(["productId" => $this->id, "subCategoryId" => $s]);

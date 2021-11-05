@@ -68,8 +68,8 @@ echo display_session_message();
                                 class="m-1 btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                             <a href="block.php?id=<?php echo h($user->id); ?>" class="m-1 btn btn-secondary btn-sm"><i
                                     class="fas fa-ban"></i></a>
-                            <a href="delete.php?id=<?php echo h($user->id); ?>" class="m-1 btn btn-danger btn-sm"><i
-                                    class="fas fa-trash"></i></a>
+                            <a href="delete_user.php?id=<?php echo h($user->id); ?>"
+                                class="m-1 btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                     <?php

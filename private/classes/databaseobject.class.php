@@ -75,7 +75,6 @@ class DatabaseObject
 
 
 
-
     //Function to create new instance from a select statement
     static protected function instantiate($record)
     {
@@ -118,7 +117,7 @@ class DatabaseObject
         $sql .= join(',', array_keys($attributes));
         $sql .= ") values('";
         $sql .= join("','", array_values($attributes));
-        $sql .= "');";
+        echo $sql .= "');";
         $result = self::$db->query($sql);
         if ($result) {
             $this->id = self::$db->insert_id;

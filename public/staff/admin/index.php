@@ -11,6 +11,7 @@ echo display_session_message();
 ?>
 
 
+
 <div class="row mb-3">
     <!-- Earnings (Monthly) Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
@@ -325,6 +326,7 @@ echo display_session_message();
 
 </div>
 <!--Row-->
+
 
 
 

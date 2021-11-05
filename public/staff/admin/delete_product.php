@@ -13,8 +13,18 @@ if ($id == null) {
 if (is_post_request()) {
     $product = Product::find_by_id($id);
     if ($product->delete()) { //Delete The Product Record from product Table
-        $product_category = new ProductCategory;
-        if ($product_category->delete_by_product($id)) { // Delete ALl Categories assigned to it
+        $category = new ProductCategory;
+        // Delete All Sub Categories Colors And Brands
+        $scategory = new ProductSubCategory;
+        $scategory->delete_by_product($id);
+        $sscategory = new ProductSubSubCategory;
+        $sscategory->delete_by_product($id);
+        $colors = new ProductColor;
+        $colors->delete_by_product($id);
+        $Brand = new ProductBrand;
+        $Brand->delete_by_product($id);
+
+        if ($category->delete_by_product($id)) { // Delete ALl Categories assigned to it
             $product_image = new ProductImage;
             $stock = new ProductStock;
             $images = []; //Empty Array to hold our images
@@ -26,7 +36,7 @@ if (is_post_request()) {
             if ($product_image->delete_by_product($id)) { // Delete All the images from the table
 
                 if ($stock->delete_by_product($id)) {
-                    $session->message("The Product Was Successfully Deleted");
+                    $session_admin->message("The Product Was Successfully Deleted");
                     header("Location: products.php");
                     exit();
                 }
@@ -41,7 +51,11 @@ if (is_post_request()) {
     if (empty($product)) {
         header("Location: products.php");
     }
-    $product_category = Category::find_product_category($id);
+    $category = Category::find_product_category($id);
+    $scategory = SubCategory::find_product_category($id);
+    $sscategory = SubSubCategory::find_product_category($id);
+    $colors = Color::find_product_category($id);
+    $brands = Brand::find_product_category($id);
     $product_image = ProductImage::find_by_product_id($id);
 }
 echo display_session_message();
@@ -97,8 +111,14 @@ echo display_session_message();
 
             <h5>Fantasy T-shirt</h5>
             <p class="mb-2 text-muted text-uppercase small">
-                <?php foreach ($product_category as $category) { ?>
+                <?php foreach ($category as $category) { ?>
                 <span class="badge badge-primary p-2"><?php echo $category->categoryName; ?></span>
+                <?php } ?>/
+                <?php foreach ($scategory as $category) { ?>
+                <span class="badge badge-warning p-2"><?php echo $category->name; ?></span>
+                <?php } ?>/
+                <?php foreach ($sscategory as $category) { ?>
+                <span class="badge badge-danger p-2"><?php echo $category->name; ?></span>
                 <?php } ?>
             </p>
 
@@ -119,7 +139,22 @@ echo display_session_message();
                         </tr>
                         <tr>
                             <th class="pl-0 w-25" scope="row"><strong>Color</strong></th>
-                            <td>Black</td>
+                            <td>
+                                <?php foreach ($colors as $c) {
+
+                                    echo "<span class='badge p-2 border border-dark ' style='background-color:{$c->hex_value};'>{$c->name}</span>";
+                                } ?>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th class="pl-0 w-25" scope="row"><strong>Brands</strong></th>
+                            <td>
+                                <?php foreach ($brands as $b) {
+                                    echo "<span class='btn btn-info btn-info p-2 border border-dark '>{$b->name}</span>";
+                                } ?>
+                            </td>
+
                         </tr>
                         <tr>
                             <th class="pl-0 w-25" scope="row"><strong>Added</strong></th>

@@ -4,6 +4,7 @@ require_once('../../../private/initialize.php');
 include(SHARED_PATH . '/staff_header.php');
 $category = Category::find_all();
 $colors = Color::find_all();
+$brand = Brand::find_all();
 if (is_post_request()) {
     // Error While Doing the uploading things
     $errors = [];
@@ -12,6 +13,9 @@ if (is_post_request()) {
     $args["productSubCategory"] = $_POST['productSubCategory'];
     $args["productSubSubCategory"] = $_POST['productSubSubCategory'];
     $args["productColor"] = $_POST['productColor'];
+    $args["productBrand"] = $_POST['productBrand'];
+    $args["addedBy"] = $session_admin->admin_username;
+
     $category = Category::find_categories_by_ids($_POST['productCategory']);
     $args['productThumb'] = "default.png";
     $args['addedBy'] = $_SESSION['username'] ?? "administrator";
@@ -85,8 +89,9 @@ echo display_session_message();
                                     placeholder="*Your Product Name (Min:12Chars)" required>
                             </div>
                         </div>
+
                         <div class="group-inline u-s-m-b-10 mt-4">
-                            <div class="group-2 u-s-p-r-16 form-group">
+                            <div class="group-1 u-s-p-r-16 form-group">
                                 <label for="sl2mul">Product Category</label>
                                 <select class="select2-multiple form-control" name="productCategory[]"
                                     multiple="multiple" id="sl2mul">
@@ -100,26 +105,18 @@ echo display_session_message();
                                         echo $category;
                                     } ?>
                                 </select>
-                            </div>
-                            <div class="group-2 u-s-p-r-16 form-group ">
                                 <label for="sl2mul2">Sub Category</label>
                                 <select class="select2-multiple form-control" name="productSubCategory[]"
                                     multiple="multiple" id="sl2mul2">
                                     <option disabled="disabled">Select A Category First</option>
                                 </select>
-                            </div>
-
-                        </div>
-
-                        <div class="group-inline u-s-m-b-10  mt-4">
-                            <div class="group-1 w-75 u-s-p-r-16 form-group">
                                 <label for="sl2mul3">Sub Sub Category</label>
                                 <select class="select2-multiple form-control" name="productSubSubCategory[]"
                                     multiple="multiple" id="sl2mul3">
                                     <option disabled="disabled">Select A Category First</option>
                                 </select>
                             </div>
-                            <div class="group-2 u-s-p-r-16 form-group">
+                            <div class="group-2 u-s-p-r-16 form-group ">
                                 <label for="sl2mul4">Product Color</label>
                                 <select class="form-control" name="productColor[]" multiple="multiple" id="sl2mul4">
                                     <option disabled="disabled">Select A Color</option>
@@ -130,8 +127,21 @@ echo display_session_message();
                                         echo $category;
                                     } ?>
                                 </select>
+                                <label for="sl2mul5">Product Brand</label>
+                                <select class="select2-multiple form-control" name="productBrand[]" multiple="multiple"
+                                    id="sl2mul5">
+                                    <option disabled="disabled">Select A Brand</option>
+                                    <?php foreach ($brand as $c) {
+                                        if (!empty($c->id)) {
+                                            $category = "<option value={$c->id}>" . $c->name . "</option>";
+                                        }
+                                        echo $category;
+                                    } ?>
+                                </select>
                             </div>
+
                         </div>
+
 
 
 

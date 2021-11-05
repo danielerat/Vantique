@@ -1,9 +1,9 @@
 <?php
 
-class productBrand extends DatabaseObject
+class ProductBrand extends DatabaseObject
 {
-    static protected $table_name = 'productBrand';
-    static protected $db_columns = ["id", "productId", "brandId", "addedOn"];
+static protected $table_name = 'productBrand';
+static protected $db_columns = ["id", "productId", "brandId", "addedOn"];
 
     public $id;
     public $productId;

@@ -64,7 +64,7 @@ echo display_session_message();
                                     class="fas fa-info-circle"></i></a>
                             <a href="edit_product.php?id=<?php echo h($admin->id); ?>" class="btn btn-warning btn-sm"><i
                                     class="fas fa-edit"></i></a>
-                            <a href="delete.php?id=<?php echo h($admin->id); ?>" class="btn btn-danger btn-sm"><i
+                            <a href="delete_admin.php?id=<?php echo h($admin->id); ?>" class="btn btn-danger btn-sm"><i
                                     class="fas fa-trash"></i></a>
 
                         </td>

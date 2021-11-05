@@ -1,8 +1,8 @@
 <?php
 require_once("../private/initialize.php");
 require_once(PRIVATE_PATH . "/shared/public_header.php");
-
 ?>
+<script type="text/javascript" src="staff/vendor/jquery/jquery.min.js"></script>
 <!-- Header /- -->
 <!-- Page Introduction Wrapper -->
 <div class="page-style-a">
@@ -69,6 +69,11 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
         <!-- Page-Bar /- -->
         <!-- Row-of-Product-Container -->
         <div class="row product-container grid-style">
+
+
+
+
+
             <div class="product-item col-lg-3 col-md-6 col-sm-6">
                 <div class="item">
                     <div class="image-container">
@@ -76,7 +81,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                             <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
                         </a>
                         <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                            <a class="item-quick-look quick-view-product" data-id='19'>Quick Look</a>
                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                             <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                             <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
@@ -117,9 +122,6 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                             <div class="item-new-price">
                                 $55.00
                             </div>
-                            <div class="item-old-price">
-                                $60.00
-                            </div>
                         </div>
                     </div>
                     <div class="tag new">
@@ -127,396 +129,13 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                     </div>
                 </div>
             </div>
-            <div class="product-item col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                        </a>
-                        <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="what-product-is">
-                            <ul class="bread-crumb">
-                                <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Tops</a>
-                                </li>
-                                <li>
-                                    <a href="shop-v3-sub-sub-category.php">T-Shirts</a>
-                                </li>
-                            </ul>
-                            <h6 class="item-title">
-                                <a href="single-product.php">Mischka Plain Men T-Shirt</a>
-                            </h6>
-                            <div class="item-description">
-                                <p>T-shirts with bold slogans were popular in the UK in the 1980s. T-shirts were
-                                    originally worn as undershirts, but are now worn frequently as the only piece of
-                                    clothing on the top half of the body, other than possibly a brassiere or, rarely, a
-                                    waistcoat (vest). T-shirts have also become a medium for self-expression and
-                                    advertising, with any imaginable combination of words, art and photographs on
-                                    display.</p>
-                            </div>
-                            <div class="item-stars">
-                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                    <span style='width:67px'></span>
-                                </div>
-                                <span>(23)</span>
-                            </div>
-                        </div>
-                        <div class="price-template">
-                            <div class="item-new-price">
-                                $55.00
-                            </div>
-                            <div class="item-old-price">
-                                $60.00
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                        </a>
-                        <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="what-product-is">
-                            <ul class="bread-crumb">
-                                <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Tops</a>
-                                </li>
-                                <li>
-                                    <a href="shop-v4-filter-as-category.php">T-Shirts</a>
-                                </li>
-                            </ul>
-                            <h6 class="item-title">
-                                <a href="single-product.php">Black Bean Plain Men T-Shirt</a>
-                            </h6>
-                            <div class="item-description">
-                                <p>T-shirts with bold slogans were popular in the UK in the 1980s. T-shirts were
-                                    originally worn as undershirts, but are now worn frequently as the only piece of
-                                    clothing on the top half of the body, other than possibly a brassiere or, rarely, a
-                                    waistcoat (vest). T-shirts have also become a medium for self-expression and
-                                    advertising, with any imaginable combination of words, art and photographs on
-                                    display.</p>
-                            </div>
-                            <div class="item-stars">
-                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                    <span style='width:67px'></span>
-                                </div>
-                                <span>(23)</span>
-                            </div>
-                        </div>
-                        <div class="price-template">
-                            <div class="item-new-price">
-                                $55.00
-                            </div>
-                            <div class="item-old-price">
-                                $60.00
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                        </a>
-                        <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="what-product-is">
-                            <ul class="bread-crumb">
-                                <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Bottoms</a>
-                                </li>
-                                <li>
-                                    <a href="shop-v3-sub-sub-category.php">Jeans</a>
-                                </li>
-                            </ul>
-                            <h6 class="item-title">
-                                <a href="single-product.php">Regular Rock Blue Men Jean</a>
-                            </h6>
-                            <div class="item-description">
-                                <p>Traditionally, jeans were dyed to a blue color using natural indigo dye. Most denim
-                                    is now dyed using synthetic indigo. Approximately 20 thousand tons of indigo are
-                                    produced annually for this purpose, though only a few grams of the dye are required
-                                    for each pair. For other colors of denim other dyes must be used. Currently, jeans
-                                    are produced in any color that can be achieved with cotton.
-                                </p>
-                            </div>
-                            <div class="item-stars">
-                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                    <span style='width:67px'></span>
-                                </div>
-                                <span>(23)</span>
-                            </div>
-                        </div>
-                        <div class="price-template">
-                            <div class="item-new-price">
-                                $55.00
-                            </div>
-                            <div class="item-old-price">
-                                $60.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tag new">
-                        <span>NEW</span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                        </a>
-                        <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="what-product-is">
-                            <ul class="bread-crumb">
-                                <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Tops</a>
-                                </li>
-                                <li>
-                                    <a href="shop-v3-sub-sub-category.php">Suits</a>
-                                </li>
-                            </ul>
-                            <h6 class="item-title">
-                                <a href="single-product.php">Black Maire Full Men Suit</a>
-                            </h6>
-                            <div class="item-description">
-                                <p>British dandy Beau Brummell redefined and adapted this style, then popularised it,
-                                    leading European men to wearing well-cut, tailored clothes, adorned with carefully
-                                    knotted neckties. The simplicity of the new clothes and their sombre colours
-                                    contrasted strongly with the extravagant, foppish styles just before. Brummell's
-                                    influence introduced the modern era of men's clothing which now includes the modern
-                                    suit and necktie.</p>
-                            </div>
-                            <div class="item-stars">
-                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                    <span style='width:67px'></span>
-                                </div>
-                                <span>(23)</span>
-                            </div>
-                        </div>
-                        <div class="price-template">
-                            <div class="item-new-price">
-                                $55.00
-                            </div>
-                            <div class="item-old-price">
-                                $60.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tag sale">
-                        <span>SALE</span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                        </a>
-                        <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="what-product-is">
-                            <ul class="bread-crumb">
-                                <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Outwear</a>
-                                </li>
-                                <li>
-                                    <a href="shop-v3-sub-sub-category.php">Jackets</a>
-                                </li>
-                            </ul>
-                            <h6 class="item-title">
-                                <a href="single-product.php">Woodsmoke Rookie Parka Jacket</a>
-                            </h6>
-                            <div class="item-description">
-                                <p>A parka or anorak is a type of coat with a hood, often lined with fur or faux fur.
-                                    The Caribou Inuit invented this kind of garment, originally made from caribou or
-                                    seal skin, for hunting and kayaking in the frigid Arctic. Some Inuit anoraks require
-                                    regular coating with fish oil to retain their water resistance.</p>
-                            </div>
-                            <div class="item-stars">
-                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                    <span style='width:67px'></span>
-                                </div>
-                                <span>(23)</span>
-                            </div>
-                        </div>
-                        <div class="price-template">
-                            <div class="item-new-price">
-                                $55.00
-                            </div>
-                            <div class="item-old-price">
-                                $60.00
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                        </a>
-                        <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="what-product-is">
-                            <ul class="bread-crumb">
-                                <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Accessories</a>
-                                </li>
-                                <li>
-                                    <a href="shop-v3-sub-sub-category.php">Ties</a>
-                                </li>
-                            </ul>
-                            <h6 class="item-title">
-                                <a href="single-product.php">Blue Zodiac Boxes Reg Tie
-                                </a>
-                            </h6>
-                            <div class="item-description">
-                                <p>A necktie, or simply a tie, is a long piece of cloth, worn usually by men, for
-                                    decorative purposes around the neck, resting under the shirt collar and knotted at
-                                    the throat.</p>
-                            </div>
-                            <div class="item-stars">
-                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                    <span style='width:67px'></span>
-                                </div>
-                                <span>(23)</span>
-                            </div>
-                        </div>
-                        <div class="price-template">
-                            <div class="item-new-price">
-                                $55.00
-                            </div>
-                            <div class="item-old-price">
-                                $60.00
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-item col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                        </a>
-                        <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="what-product-is">
-                            <ul class="bread-crumb">
-                                <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Bottoms</a>
-                                </li>
-                                <li>
-                                    <a href="shop-v3-sub-sub-category.php">Shoes</a>
-                                </li>
-                            </ul>
-                            <h6 class="item-title">
-                                <a href="single-product.php">Zambezi Carved Leather Business Casual Shoes
-                                </a>
-                            </h6>
-                            <div class="item-description">
-                                <p>Dress shoes are characterized by smooth and supple leather uppers, leather soles, and
-                                    narrow sleek figure. Casual shoes are characterized by sturdy leather uppers,
-                                    non-leather outsoles, and wide profile. Some designs of dress shoes can be worn by
-                                    either gender. The majority of dress shoes have an upper covering, commonly made of
-                                    leather, enclosing most of the lower foot, but not covering the ankles.</p>
-                            </div>
-                            <div class="item-stars">
-                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                    <span style='width:67px'></span>
-                                </div>
-                                <span>(23)</span>
-                            </div>
-                        </div>
-                        <div class="price-template">
-                            <div class="item-new-price">
-                                $55.00
-                            </div>
-                            <div class="item-old-price">
-                                $60.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tag discount">
-                        <span>-15%</span>
-                    </div>
-                </div>
-            </div>
+
+
+
+
+
+
+
         </div>
         <!-- Row-of-Product-Container /- -->
         <!-- Shop-Pagination -->
@@ -555,6 +174,36 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
     </div>
 </div>
 <!-- Custom-Deal-Page -->
+
+<div id="quick-view-product" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+            <div class="modal-body productModalBody">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type='text/javascript'>
+$('.quick-view-product').click(function() {
+    var productId = $(this).data('id');
+    $.ajax({
+        url: '../private/ajax/quickViewProduct.php',
+        type: 'post',
+        data: {
+            productId: productId
+        },
+        success: function(response) {
+            $('.productModalBody').html(response);
+            $('#quick-view-product').modal('show');
+        }
+    });
+});
+</script>
+
 <?php
 require_once(PRIVATE_PATH . "/shared/public_footer.php");
 
