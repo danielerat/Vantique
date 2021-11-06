@@ -87,6 +87,8 @@ function find_right_icon($icon)
     <link rel="stylesheet" href="css/ansimate.min.css" />
 
 
+    <!-- Jquey min -->
+    <script type="text/javascript" src="staff/vendor/jquery/jquery.min.js"></script>
     <!-- Owl-Carousel -->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <!-- Jquery-Ui-Range-Slider -->

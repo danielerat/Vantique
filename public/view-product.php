@@ -264,7 +264,7 @@ $size = Size::find_product_category($id);
                             </div>
                         </div>
                         <!-- Specifications-Tab /- -->
-                        <!-- Reviews-Tab -->
+                        <!-- Reviews-Tab ------------------------------>
                         <div class="tab-pane fade" id="review">
                             <div class="review-whole-container">
                                 <div class="row r-1 u-s-m-b-26 u-s-p-b-22">
@@ -328,31 +328,34 @@ $size = Size::find_product_category($id);
                                                 </div>
                                                 <label for="your-rating-value"></label>
                                                 <input id="your-rating-value" type="text" class="text-field"
-                                                    placeholder="0.0">
+                                                    name="Review[star]" placeholder="0.0">
                                                 <span id="star-comment"></span>
                                             </div>
-                                            <form>
+                                            <form method="post" id="submitReview"
+                                                action="<?php echo $_SERVER['PHP_SELF'] ?>">
                                                 <label for="your-name">Name
                                                     <span class="astk"> *</span>
                                                 </label>
-                                                <input id="your-name" type="text" class="text-field"
-                                                    placeholder="Your Name">
+                                                <input id="your-name" type="email" class="text-field"
+                                                    name="Review[names]" placeholder="Your Name">
                                                 <label for="your-email">Email
                                                     <span class="astk"> *</span>
                                                 </label>
                                                 <input id="your-email" type="text" class="text-field"
-                                                    placeholder="Your Email">
+                                                    name="Review[email]" placeholder="Your Email">
                                                 <label for="review-title">Review Title
                                                     <span class="astk"> *</span>
                                                 </label>
                                                 <input id="review-title" type="text" class="text-field"
-                                                    placeholder="Review Title">
+                                                    name="Review[title]" placeholder="Review Title">
                                                 <label for="review-text-area">Review
                                                     <span class="astk"> *</span>
                                                 </label>
                                                 <textarea class="text-area u-s-m-b-8" id="review-text-area"
-                                                    placeholder="Review"></textarea>
-                                                <button class="button button-outline-secondary">Submit Review</button>
+                                                    name="Review[review]" placeholder="Review"></textarea>
+                                                <input type='submit' class="button button-outline-secondary"
+                                                    value="Submit Review">
+                                                </input>
                                             </form>
                                         </div>
                                     </div>
@@ -783,6 +786,21 @@ $size = Size::find_product_category($id);
     </div>
 </div>
 <!-- Single-Product-Full-Width-Page /- -->
+
+<script type='text/javascript'>
+$('#addReview').click(function() {
+    var form = $(this);
+    var productId = $(this).data('id');
+    $.ajax({
+        url: '../private/ajax/addReview.php',
+        type: 'post',
+        data: form.serialize(),
+        success: function(response) {
+            alert(response);
+        }
+    });
+});
+</script>
 
 <?php
 require_once(PRIVATE_PATH . "/shared/public_footer.php"); ?>

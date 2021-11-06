@@ -3,10 +3,11 @@
 class ProductReview extends DatabaseObject
 {
     static protected $table_name = 'productReview';
-    static protected $db_columns = ["id", "productId", "names", "email", "title", "review", "addedOn"];
+    static protected $db_columns = ["id", "star", "productId", "names", "email", "title", "review", "addedOn"];
 
 
     public $id;
+    public $star;
     public $productId;
     public $names;
     public $email;
@@ -16,6 +17,7 @@ class ProductReview extends DatabaseObject
     public function __construct($args = [])
     {
         $this->id = $args['id'] ?? '';
+        $this->star = $args['star'] ?? '4';
         $this->productId = $args['productId'] ?? '';
         $this->names = $args['names'] ?? '';
         $this->email = $args['email'] ?? '';

@@ -3,7 +3,6 @@ require_once("../private/initialize.php");
 require_once(PRIVATE_PATH . "/shared/public_header.php");
 ?>
 
-<script type="text/javascript" src="staff/vendor/jquery/jquery.min.js"></script>
 <!-- Header /- -->
 <!-- Page Introduction Wrapper -->
 <div class="page-style-a">
