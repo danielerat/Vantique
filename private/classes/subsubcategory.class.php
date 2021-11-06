@@ -19,7 +19,7 @@ class SubSubCategory extends SubCategory
 
     static public function find_product_category($id)
     {
-        $sql = "SELECT subSubCategory.id,subSubCategory.name from subSubCategory INNER JOIN productSubSubCategory ON productSubSubCategory.id=subSubCategory.id ";
+        $sql = "SELECT subSubCategory.id,subSubCategory.name from subSubCategory INNER JOIN productSubSubCategory ON productSubSubCategory.subSubCategoryId=subSubCategory.id ";
         $sql .= " where productSubSubCategory.productId ='" . self::$db->escape_string($id) . "';";
         return static::find_by_sql($sql);
     }

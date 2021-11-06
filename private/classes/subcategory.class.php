@@ -28,8 +28,8 @@ class SubCategory extends DatabaseObject
     static public function find_product_category($id)
     {
 
-        $sql = "SELECT subCategory.id,subCategory.name from subCategory INNER JOIN productSubCategory ON productSubCategory.id=subCategory.id ";
-        $sql .= " where productSubCategory.productId ='" . self::$db->escape_string($id) . "';";
+        $sql = "SELECT subCategory.id,subCategory.name from subCategory INNER JOIN productSubCategory ON productSubCategory.subCategoryId=subCategory.id ";
+        $sql .= " where productId ='" . self::$db->escape_string($id) . "';";
         return static::find_by_sql($sql);
     }
 

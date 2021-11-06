@@ -23,6 +23,8 @@ if (is_post_request()) {
         $colors->delete_by_product($id);
         $Brand = new ProductBrand;
         $Brand->delete_by_product($id);
+        $size = new ProductSize;
+        $size->delete_by_product($id);
 
         if ($category->delete_by_product($id)) { // Delete ALl Categories assigned to it
             $product_image = new ProductImage;

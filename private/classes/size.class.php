@@ -21,4 +21,11 @@ class Size extends DatabaseObject
         $sql .= " where type ='" . self::$db->escape_string($id) . "';";
         return static::find_by_sql($sql);
     }
+
+    static public function find_product_category($id)
+    {
+        $sql = "SELECT sizes.id,sizes.name from sizes inner join productSize on productSize.sizeId=sizes.id ";
+        $sql .= " where productSize.productId ='" . self::$db->escape_string($id) . "';";
+        return static::find_by_sql($sql);
+    }
 }

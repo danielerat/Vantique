@@ -16,10 +16,11 @@ class product extends DatabaseObject
     public $addedBy;
     public $productUploadDate;
 
-    //Used TO hold All Thumbnails
+    //Array Used to hold values from other Tables
     public $productThumbnails = [];
     public $productColor = [];
     public $productBrand = [];
+    public $productSize = [];
     public $productSubCategory = [];
     public $productSubSubCategory = [];
 
@@ -39,6 +40,7 @@ class product extends DatabaseObject
         $this->productSubSubCategory = $args['productSubSubCategory'] ?? "";
         $this->productColor = $args['productColor'] ?? "";
         $this->productBrand = $args['productBrand'] ?? "";
+        $this->productSize = $args['productSize'] ?? "";
         $this->productPrice = $args['productPrice'] ?? '';
         $this->productDesc = $args['productDesc'] ?? '';
         $this->productThumb = $args['productThumb'] ?? '';
@@ -176,6 +178,10 @@ class product extends DatabaseObject
                 foreach ($this->productBrand as $brand) {
                     $pb = new ProductBrand(["productId" => $this->id, "brandId" => $brand]);
                     $pb->save();
+                }
+                foreach ($this->productSize as $size) {
+                    $ps = new ProductSize(["productId" => $this->id, "sizeId" => $size]);
+                    $ps->save();
                 }
                 foreach ($this->productSubCategory as $s) {
                     $productSub = new ProductSubCategory(["productId" => $this->id, "subCategoryId" => $s]);

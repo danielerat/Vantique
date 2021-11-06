@@ -48,6 +48,7 @@ require_once('classes/productimage.class.php');
 require_once('classes/productStock.class.php');
 require_once('classes/brand.class.php');
 require_once('classes/productBrand.class.php');
+require_once('classes/productSize.class.php');
 require_once('classes/admin.class.php');
 require_once('classes/cart.class.php');
 require_once('classes/cartTemp.class.php');

@@ -10,6 +10,7 @@ if (empty($product)) {
     $scategory = SubCategory::find_product_category($id);
     $sscategory = SubSubCategory::find_product_category($id);
     $colors = Color::find_product_category($id);
+    $size = Size::find_product_category($id);
 
     $product_image = ProductImage::find_by_product_id($id);
     $stock = ProductStock::find_by_product_id($id);
@@ -103,11 +104,23 @@ if (empty($product)) {
                 <h6 class='information-heading u-s-m-b-8'>Sku Information:</h6>
                 <div class='availability'>
                     <span>Availability:</span>
-                    <span>In Stock</span>
+                    <span><?php
+                                if ($product->productUnlimited !== 1 && $stock->quantity < 1) {
+                                    echo "Out Of Stock";
+                                } else {
+                                    echo "In Stock";
+                                }
+                                ?>
+                    </span>
                 </div>
                 <div class='left'>
+                    <?php if ($stock->quantity === 'x') { ?>
+                    <span class="text-success">Unlimited</span>
+                    <?php } else { ?>
                     <span>Only:</span>
-                    <span>50 left</span>
+                    <span class="font-weight-bold text-primary"><?php echo $stock->quantity; ?> left</span>
+
+                    <?php } ?>
                 </div>
             </div>
             <div class='section-5-product-variants u-s-p-y-14'>
@@ -118,37 +131,44 @@ if (empty($product)) {
                     <div class='color-variant select-box-wrapper'>
                         <select class='select-box product-color'>
                             <?php foreach ($colors as $c) {
-                                        echo  "<option value='$c->name'>$c->name</option>";
+                                        echo  "<option value='$c->id'>$c->name</option>";
                                     }   ?>
                         </select>
                     </div>
+                    <div><?php foreach ($colors as $c) {
+                                        echo "<span style='color:$c->hex_value;'> <i class='bg-dark border fa fa-dot-circle fa-3x'></i></span>";
+                                    }
+                                    ?></div>
                 </div>
                 <?php } ?>
-                <!--<div class='sizes u-s-m-b-11'>
+                <div class='sizes u-s-m-b-11'>
                     <span>Available Size:</span>
                     <div class='size-variant select-box-wrapper'>
                         <select class='select-box product-size'>
-                            <option value=''>Male 2XL</option>
-                            <option value=''>Male 3XL</option>
-                            <option value=''>Kids 4</option>
-                            <option value=''>Kids 6</option>
-                            <option value=''>Kids 8</option>
-                            <option value=''>Kids 10</option>
-                            <option value=''>Kids 12</option>
-                            <option value=''>Female Small</option>
-                            <option value=''>Male Small</option>
-                            <option value=''>Female Medium</option>
-                            <option value=''>Male Medium</option>
-                            <option value=''>Female Large</option>
-                            <option value=''>Male Large</option>
-                            <option value=''>Female XL</option>
-                            <option value=''>Male XL</option>
+                            <?php foreach ($size as $s) {
+                                    echo  "<option value='$s->id'>$s->name</option>";
+                                }   ?>
                         </select>
                     </div>
-                </div> -->
+                </div>
             </div>
             <div class='section-6-social-media-quantity-actions u-s-p-y-14'>
                 <form action='#' class='post-form'>
+
+                    <div class='quantity-wrapper u-s-m-b-22'>
+                        <span>Quantity:</span>
+                        <div class='quantity'>
+                            <input type='text' class='quantity-text-field' value='1'>
+                            <a class='plus-a' data-max='1000'>&#43;</a>
+                            <a class='minus-a' data-min='1'>&#45;</a>
+                        </div>
+                    </div>
+                    <div>
+                        <button class='button button-outline-secondary' type='submit'>Add to
+                            cart</button>
+                        <button class='button button-outline-secondary far fa-heart u-s-m-l-6'></button>
+                        <button class='button button-outline-secondary far fa-envelope u-s-m-l-6'></button>
+                    </div>
                     <div class='quick-social-media-wrapper u-s-m-b-22'>
                         <span>Share:</span>
                         <ul class='social-media-list'>
@@ -178,20 +198,6 @@ if (empty($product)) {
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                    <div class='quantity-wrapper u-s-m-b-22'>
-                        <span>Quantity:</span>
-                        <div class='quantity'>
-                            <input type='text' class='quantity-text-field' value='1'>
-                            <a class='plus-a' data-max='1000'>&#43;</a>
-                            <a class='minus-a' data-min='1'>&#45;</a>
-                        </div>
-                    </div>
-                    <div>
-                        <button class='button button-outline-secondary' type='submit'>Add to
-                            cart</button>
-                        <button class='button button-outline-secondary far fa-heart u-s-m-l-6'></button>
-                        <button class='button button-outline-secondary far fa-envelope u-s-m-l-6'></button>
                     </div>
                 </form>
             </div>

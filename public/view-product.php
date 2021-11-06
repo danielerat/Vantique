@@ -10,6 +10,8 @@ $product_category = Category::find_product_category($id);
 
 $product_image = ProductImage::find_by_product_id($id);
 $stock = ProductStock::find_by_product_id($id);
+$colors = Color::find_product_category($id);
+$size = Size::find_product_category($id);
 
 ?>
 <!-- Main-Slider -->
@@ -87,7 +89,14 @@ $stock = ProductStock::find_by_product_id($id);
                         <h6 class="information-heading u-s-m-b-8">Sku Information:</h6>
                         <div class="availability">
                             <span>Availability:</span>
-                            <span><?php echo ($product->productUnlimited == 1 || $stock->quantity >= 1) ? "In Stock" : "Out Of Stock" ?></span>
+                            <span>
+                                <?php
+                                if ($product->productUnlimited !== 1 && $stock->quantity < 1) {
+                                    echo "Out Of Stock";
+                                } else {
+                                    echo "In Stock";
+                                }
+                                ?> </span>
                         </div>
                         <div class="left">
                             <?php if ($stock->quantity === 'x') { ?>
@@ -106,66 +115,32 @@ $stock = ProductStock::find_by_product_id($id);
                             <div class="color-variant select-box-wrapper">
                                 <select class="select-box product-color">
                                     <option value="1">Heather Grey</option>
-                                    <option value="3">Black</option>
-                                    <option value="5">White</option>
+                                    <?php foreach ($colors as $c) {
+                                        echo  "<option value='$c->id'>$c->name</option>";
+                                    }   ?>
                                 </select>
                             </div>
+                            <div><?php foreach ($colors as $c) {
+                                        echo "<span style='color:$c->hex_value;'> <i class='bg-dark border fa fa-dot-circle fa-3x'></i></span>";
+                                    }
+                                    ?></div>
                         </div>
+                        <?php if ($size) { ?>
                         <div class="sizes u-s-m-b-11">
                             <span>Available Size:</span>
                             <div class="size-variant select-box-wrapper">
                                 <select class="select-box product-size">
-                                    <option value="">Male 2XL</option>
-                                    <option value="">Male 3XL</option>
-                                    <option value="">Kids 4</option>
-                                    <option value="">Kids 6</option>
-                                    <option value="">Kids 8</option>
-                                    <option value="">Kids 10</option>
-                                    <option value="">Kids 12</option>
-                                    <option value="">Female Small</option>
-                                    <option value="">Male Small</option>
-                                    <option value="">Female Medium</option>
-                                    <option value="">Male Medium</option>
-                                    <option value="">Female Large</option>
-                                    <option value="">Male Large</option>
-                                    <option value="">Female XL</option>
-                                    <option value="">Male XL</option>
+                                    <?php foreach ($size as $s) {
+                                            echo  "<option value='$s->id'>$s->name</option>";
+                                        }   ?>
                                 </select>
                             </div>
                         </div>
+                        <?php } ?>
                     </div>
                     <div class="section-6-social-media-quantity-actions u-s-p-y-14">
                         <form action="#" class="post-form">
-                            <div class="quick-social-media-wrapper u-s-m-b-22">
-                                <span>Share:</span>
-                                <ul class="social-media-list">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-facebook-f"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-google-plus-g"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-rss"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fab fa-pinterest"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+
                             <div class="quantity-wrapper u-s-m-b-22">
                                 <span>Quantity:</span>
                                 <div class="quantity">
@@ -179,6 +154,7 @@ $stock = ProductStock::find_by_product_id($id);
                                 <button class="button button-outline-secondary far fa-heart u-s-m-l-6"></button>
                                 <button class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button>
                             </div>
+
                         </form>
                     </div>
                 </div>

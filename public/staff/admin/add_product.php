@@ -6,14 +6,17 @@ $category = Category::find_all();
 $colors = Color::find_all();
 $brand = Brand::find_all();
 if (is_post_request()) {
+    print_r($_POST['productSize']);
+    print_r($_POST['productColor']);
     // Error While Doing the uploading things
     $errors = [];
     $args = $_POST['product'];
-    $args["productCategory"] = $_POST['productCategory'];
-    $args["productSubCategory"] = $_POST['productSubCategory'];
-    $args["productSubSubCategory"] = $_POST['productSubSubCategory'];
-    $args["productColor"] = $_POST['productColor'];
-    $args["productBrand"] = $_POST['productBrand'];
+    $args["productCategory"] = $_POST['productCategory'] ?? null;
+    $args["productSubCategory"] = $_POST['productSubCategory'] ?? null;
+    $args["productSubSubCategory"] = $_POST['productSubSubCategory'] ?? null;
+    $args["productColor"] = $_POST['productColor'] ?? null;
+    $args["productBrand"] = $_POST['productBrand'] ?? null;
+    $args["productSize"] = $_POST['productSize'] ?? null;
     $args["addedBy"] = $session_admin->admin_username;
 
     $category = Category::find_categories_by_ids($_POST['productCategory']);

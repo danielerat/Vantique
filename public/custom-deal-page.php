@@ -2,6 +2,7 @@
 require_once("../private/initialize.php");
 require_once(PRIVATE_PATH . "/shared/public_header.php");
 ?>
+
 <script type="text/javascript" src="staff/vendor/jquery/jquery.min.js"></script>
 <!-- Header /- -->
 <!-- Page Introduction Wrapper -->
@@ -70,19 +71,30 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
         <!-- Row-of-Product-Container -->
         <div class="row product-container grid-style">
 
+            <?php
+            $product = Product::find_all();
+            foreach ($product as $p) {
+                $id = $p->id;
+                $category = Category::find_product_category($id);
+                $scategory = SubCategory::find_product_category($id);
+                $sscategory = SubSubCategory::find_product_category($id);
+                $colors = Color::find_product_category($id);
+                $size = Size::find_product_category($id);
 
+            ?>
 
 
 
             <div class="product-item col-lg-3 col-md-6 col-sm-6">
                 <div class="item">
                     <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                        <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>">
+                            <img class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                alt="Product">
                         </a>
                         <div class="item-action-behaviors">
-                            <a class="item-quick-look quick-view-product" data-id='19'>Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
+                            <a class="item-quick-look quick-view-product" data-id='22'>Quick Look</a>
+                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
                             <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                             <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                         </div>
@@ -90,37 +102,41 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                     <div class="item-content">
                         <div class="what-product-is">
                             <ul class="bread-crumb">
+                                <?php foreach ($category as $c) { ?>
                                 <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
+                                    <a
+                                        href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 20); ?></a>
                                 </li>
+                                <?php } ?>
+                                <?php foreach ($scategory as $s) { ?>
                                 <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                    <a href="search.php"><?php echo ellipse_of(strtoupper($s->name), 20); ?></a>
                                 </li>
-                                <li>
-                                    <a href="shop-v3-sub-sub-category.php">Hoodies</a>
+                                <?php } ?>
+
+                                <?php foreach ($sscategory as $ss) { ?>
+                                <li class="">
+                                    <a href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 20); ?></a>
                                 </li>
+                                <?php } ?>
                             </ul>
                             <h6 class="item-title">
-                                <a href="single-product.php">Casual Hoodie Full Cotton</a>
+                                <a href="view-product.php?id="><?php echo $p->productName; ?></a>
                             </h6>
                             <div class="item-description">
-                                <p>This hoodie is full cotton. It includes a muff sewn onto the lower front, and
-                                    (usually) a drawstring to adjust the hood opening. Throughout the U.S., it is common
-                                    for middle-school, high-school, and college students to wear this sweatshirts—with
-                                    or without hoods—that display their respective school names or mascots across the
-                                    chest, either as part of a uniform or personal preference.
+                                <p><?php echo  $p->productDesc; ?>
                                 </p>
                             </div>
                             <div class="item-stars">
                                 <div class='star' title="4.5 out of 5 - based on 23 Reviews">
                                     <span style='width:67px'></span>
                                 </div>
-                                <span>(23)</span>
+                                <span>(122)</span>
                             </div>
                         </div>
                         <div class="price-template">
                             <div class="item-new-price">
-                                $55.00
+                                Frw <?php echo number_format($p->productPrice, 2); ?>
                             </div>
                         </div>
                     </div>
@@ -131,7 +147,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
             </div>
 
 
-
+            <?php } ?>
 
 
 
