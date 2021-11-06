@@ -61,7 +61,7 @@ $size = Size::find_product_category($id);
                             <div class='star' title="4.5 out of 5 - based on 23 Reviews">
                                 <span style='width:67px'></span>
                             </div>
-                            <span>(23)</span>
+                            <span>(<?php echo (productReview::count_by_product($id)); ?>)</span>
                         </div>
                     </div>
                     <div class="section-2-short-description u-s-p-y-14">
@@ -175,7 +175,8 @@ $size = Size::find_product_category($id);
                                 <a class="nav-link" data-toggle="tab" href="#specification">Specifications</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#review">Reviews (15)</a>
+                                <a class="nav-link" data-toggle="tab" href="#review">Reviews
+                                    (<?php echo (productReview::count_by_product($id)); ?>)</a>
                             </li>
                         </ul>
                     </div>
@@ -274,7 +275,8 @@ $size = Size::find_product_category($id);
                                             <div class="circle-wrapper">
                                                 <h1>4.5</h1>
                                             </div>
-                                            <h6 class="review-h6">Based on 23 Reviews</h6>
+                                            <h6 class="review-h6">Based on
+                                                <?php echo (productReview::count_by_product($id)); ?> Reviews</h6>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
@@ -282,14 +284,14 @@ $size = Size::find_product_category($id);
                                             <div class="star-wrapper">
                                                 <span>5 Stars</span>
                                                 <div class="star">
-                                                    <span style='width:0'></span>
+                                                    <span style='width:75px'></span>
                                                 </div>
                                                 <span>(0)</span>
                                             </div>
                                             <div class="star-wrapper">
                                                 <span>4 Stars</span>
                                                 <div class="star">
-                                                    <span style='width:67px'></span>
+                                                    <span style='width:25px'></span>
                                                 </div>
                                                 <span>(23)</span>
                                             </div>
@@ -322,26 +324,29 @@ $size = Size::find_product_category($id);
                                         <div class="your-rating-wrapper">
                                             <h6 class="review-h6">Your Review is matter.</h6>
                                             <h6 class="review-h6">Have you used this product before?</h6>
-                                            <div class="star-wrapper u-s-m-b-8">
-                                                <div class="star">
-                                                    <span id="your-stars" style='width:0'></span>
+
+                                            <form id="submitReview">
+                                                <div class="star-wrapper w-50 u-s-m-b-8">
+                                                    <div class="star">
+                                                        <span id="your-stars" style='width:0'></span>
+                                                    </div>
+                                                    <label for="your-rating-value"></label>
+                                                    <input id="your-rating-value" type="text"
+                                                        class="text-field border-warning w-25" name="Review[star]"
+                                                        placeholder="0.0">
+                                                    <input id="your-rating-value" type="text" name="Review[productId]"
+                                                        value="<?php echo $id; ?>" hidden>
+                                                    <span id="star-comment"></span>
                                                 </div>
-                                                <label for="your-rating-value"></label>
-                                                <input id="your-rating-value" type="text" class="text-field"
-                                                    name="Review[star]" placeholder="0.0">
-                                                <span id="star-comment"></span>
-                                            </div>
-                                            <form method="post" id="submitReview"
-                                                action="<?php echo $_SERVER['PHP_SELF'] ?>">
                                                 <label for="your-name">Name
                                                     <span class="astk"> *</span>
                                                 </label>
-                                                <input id="your-name" type="email" class="text-field"
+                                                <input id="your-name" type="text" class="text-field"
                                                     name="Review[names]" placeholder="Your Name">
                                                 <label for="your-email">Email
                                                     <span class="astk"> *</span>
                                                 </label>
-                                                <input id="your-email" type="text" class="text-field"
+                                                <input id="your-email" type="email" class="text-field"
                                                     name="Review[email]" placeholder="Your Email">
                                                 <label for="review-title">Review Title
                                                     <span class="astk"> *</span>
@@ -353,9 +358,9 @@ $size = Size::find_product_category($id);
                                                 </label>
                                                 <textarea class="text-area u-s-m-b-8" id="review-text-area"
                                                     name="Review[review]" placeholder="Review"></textarea>
-                                                <input type='submit' class="button button-outline-secondary"
-                                                    value="Submit Review">
-                                                </input>
+                                                <button type='submit' class="button button-outline-secondary">
+                                                    Submit --eview
+                                                </button>
                                             </form>
                                         </div>
                                     </div>
@@ -366,7 +371,7 @@ $size = Size::find_product_category($id);
                                     <div class="review-options u-s-m-b-16">
                                         <div class="review-option-heading">
                                             <h6>Reviews
-                                                <span> (15) </span>
+                                                <span> (<?php echo (productReview::count_by_product($id)); ?>) </span>
                                             </h6>
                                         </div>
                                         <div class="review-option-box">
@@ -384,7 +389,8 @@ $size = Size::find_product_category($id);
                                     <div class="reviewers">
                                         <div class="review-data">
                                             <div class="reviewer-name-and-date">
-                                                <h6 class="reviewer-name">John</h6>
+                                                <h6 class="reviewer-name">
+                                                    <?php echo (productReview::count_by_product($id)); ?></h6>
                                                 <h6 class="review-posted-date">10 May 2018</h6>
                                             </div>
                                             <div class="reviewer-stars-title-body">
@@ -399,74 +405,8 @@ $size = Size::find_product_category($id);
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="review-data">
-                                            <div class="reviewer-name-and-date">
-                                                <h6 class="reviewer-name">Doe</h6>
-                                                <h6 class="review-posted-date">10 June 2018</h6>
-                                            </div>
-                                            <div class="reviewer-stars-title-body">
-                                                <div class="reviewer-stars">
-                                                    <div class="star">
-                                                        <span style='width:67px'></span>
-                                                    </div>
-                                                    <span class="review-title">Well done!</span>
-                                                </div>
-                                                <p class="review-body">
-                                                    Cotton is good.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="review-data">
-                                            <div class="reviewer-name-and-date">
-                                                <h6 class="reviewer-name">Tim</h6>
-                                                <h6 class="review-posted-date">10 July 2018</h6>
-                                            </div>
-                                            <div class="reviewer-stars-title-body">
-                                                <div class="reviewer-stars">
-                                                    <div class="star">
-                                                        <span style='width:67px'></span>
-                                                    </div>
-                                                    <span class="review-title">Well done!</span>
-                                                </div>
-                                                <p class="review-body">
-                                                    Excellent condition
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="review-data">
-                                            <div class="reviewer-name-and-date">
-                                                <h6 class="reviewer-name">Johnny</h6>
-                                                <h6 class="review-posted-date">10 March 2018</h6>
-                                            </div>
-                                            <div class="reviewer-stars-title-body">
-                                                <div class="reviewer-stars">
-                                                    <div class="star">
-                                                        <span style='width:67px'></span>
-                                                    </div>
-                                                    <span class="review-title">Bright!</span>
-                                                </div>
-                                                <p class="review-body">
-                                                    Cotton
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="review-data">
-                                            <div class="reviewer-name-and-date">
-                                                <h6 class="reviewer-name">Alexia C. Marshall</h6>
-                                                <h6 class="review-posted-date">12 May 2018</h6>
-                                            </div>
-                                            <div class="reviewer-stars-title-body">
-                                                <div class="reviewer-stars">
-                                                    <div class="star">
-                                                        <span style='width:67px'></span>
-                                                    </div>
-                                                    <span class="review-title">Well done!</span>
-                                                </div>
-                                                <p class="review-body">
-                                                    Good polyester Cotton
-                                                </p>
-                                            </div>
-                                        </div>
+
+
                                     </div>
                                     <!-- All-Reviews /- -->
                                     <!-- Pagination-Review -->
@@ -788,17 +728,24 @@ $size = Size::find_product_category($id);
 <!-- Single-Product-Full-Width-Page /- -->
 
 <script type='text/javascript'>
-$('#addReview').click(function() {
+$('#submitReview').submit(function() {
     var form = $(this);
     var productId = $(this).data('id');
     $.ajax({
-        url: '../private/ajax/addReview.php',
+        url: '../private/ajax/add_review.php',
         type: 'post',
         data: form.serialize(),
         success: function(response) {
+            if (response == true) {
+                // Custom function to display toasts
+                swaltoast("success", "This is really working");
+            } else {
+                swaltoast("error", "Something Went Wrong, Try again later");
+            }
             alert(response);
         }
     });
+    event.preventDefault();
 });
 </script>
 

@@ -213,9 +213,7 @@ function successlogin() {
     Toast.fire({
         icon: 'success',
         title: 'Signed in successfully'
-    }).then(function() {
-        window.location = "index.php";
-    });
+    })
 }
 
 
