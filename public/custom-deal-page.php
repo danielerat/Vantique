@@ -4,30 +4,13 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 ?>
 
 <!-- Header /- -->
-<!-- Page Introduction Wrapper -->
-<div class="page-style-a">
-    <div class="container">
-        <div class="page-intro">
-            <h2>New Arrivals</h2>
-            <ul class="bread-crumb">
-                <li class="has-separator">
-                    <i class="ion ion-md-home"></i>
-                    <a href="index.php">Home</a>
-                </li>
-                <li class="is-marked">
-                    <a href="custom-deal-page.php">New Arrivals</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- Page Introduction Wrapper /- -->
+
 <!-- Custom-Deal-Page -->
 <div class="page-deal u-s-p-t-80">
     <div class="container">
         <div class="deal-page-wrapper">
-            <h1 class="deal-heading">New Arrivals</h1>
-            <h6 class="deal-has-total-items">27 Items</h6>
+            <h1 class="deal-heading">Best Current Deals </h1>
+            <h6 class="deal-has-total-items">Make An order and Enojy Free Delivery on any of these products!!!</h6>
         </div>
         <!-- Page-Bar -->
         <div class="page-bar clearfix">
@@ -87,12 +70,13 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
             <div class="product-item col-lg-3 col-md-6 col-sm-6">
                 <div class="item">
                     <div class="image-container">
-                        <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>">
+                        <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>"
+                            style="overflow:hidden; height:280px;">
                             <img class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
                                 alt="Product">
                         </a>
                         <div class="item-action-behaviors">
-                            <a class="item-quick-look quick-view-product" data-id='22'>Quick Look</a>
+                            <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick Look</a>
                             <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
                             <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                             <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
@@ -120,7 +104,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                 <?php } ?>
                             </ul>
                             <h6 class="item-title">
-                                <a href="view-product.php?id="><?php echo $p->productName; ?></a>
+                                <a href="view-product.php?id=<?php echo $p->id; ?>"><?php echo $p->productName; ?></a>
                             </h6>
                             <div class="item-description">
                                 <p><?php echo  $p->productDesc; ?>
@@ -130,7 +114,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                 <div class='star' title="4.5 out of 5 - based on 23 Reviews">
                                     <span style='width:67px'></span>
                                 </div>
-                                <span>(122)</span>
+                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                             </div>
                         </div>
                         <div class="price-template">
@@ -139,9 +123,13 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                             </div>
                         </div>
                     </div>
-                    <div class="tag new">
-                        <span>NEW</span>
-                    </div>
+                    <?php
+                        // If there is a review on a product , then display that it's New
+                        if (productReview::count_by_product($p->id) >= 1) {
+                            echo "<div class='tag new'><span>New</span></div>";
+                        } elseif ($p->productPrice <= 10000) {
+                            echo "<div class='tag hot'><span>HOT</span></div>";
+                        } ?>
                 </div>
             </div>
 

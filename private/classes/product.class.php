@@ -180,7 +180,7 @@ class product extends DatabaseObject
                     $pb->save();
                 }
                 foreach ($this->productSize as $size) {
-                    $ps = new ProductSize(["productId" => $this->id, "sizeId" => $size]);
+                    $ps = new ProductSize(["productId" => $this->id, "sizeId" => $brand]);
                     $ps->save();
                 }
                 foreach ($this->productSubCategory as $s) {

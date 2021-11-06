@@ -113,6 +113,7 @@ class Cart extends DatabaseObject
         $sql .= " WHERE userId ='" . self::$db->escape_string($_SESSION['user_id']) . "' ";
         $result_set = self::$db->query($sql);
         $row = $result_set->fetch_array();
+        $result_set->free();
         return array_shift($row);
     }
 

@@ -239,7 +239,8 @@ echo display_session_message();
 
                             } else { ?>
                         <button class="btn btn-primary btn-sm setFeatured">
-                            <i class="fas fa-flag"></i>
+                            <i class="fas fa-flag changeFeatureImage" data-product="<?php echo $id; ?>"
+                                data-id="<?php echo $img->image ?>"></i>
                         </button>
                         <button class="btn btn-danger btn-sm">
                             <i class="fas fa-trash"></i>
@@ -268,7 +269,7 @@ include(SHARED_PATH . '/staff_footer.php');
 <!-- ClockPicker -->
 <script src="../vendor/clock-picker/clockpicker.js"></script>
 <!-- RuangAdmin Javascript -->
-<script src="../js/ruang-admin.min.js"></script>
+<script src="../vendor/js/ruang-admin.min.js"></script>
 <!-- Javascript for this page -->
 <script>
 function showquantitybox() {
@@ -282,8 +283,28 @@ function showquantitybox() {
 }
 
 
-$(document).ready(function() {
+// Script To change The feature image of a product
+$('.changeFeatureImage').click(function() {
+    var productId = $(this).data('product');
+    var value = $(this).data('id');
+    $.ajax({
+        url: '../../../private/ajax/update_feature_image.php',
+        type: 'post',
+        data: {
+            productId: productId,
+            value: value
+        },
+        success: function(response) {
+            alert(response);
+        }
+    });
+});
 
+
+
+
+
+$(document).ready(function() {
 
     $('.select2-single').select2();
 

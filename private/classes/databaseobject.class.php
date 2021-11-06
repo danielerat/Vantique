@@ -46,6 +46,7 @@ class DatabaseObject
         Instead we are goin to use a fetch array on a resultset*/
         $result_set = self::$db->query($sql);
         $row = $result_set->fetch_array();
+        $result_set->free();
         return array_shift($row);
     }
 
