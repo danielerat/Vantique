@@ -15,9 +15,6 @@ class ProductCategory extends DatabaseObject
     }
 
 
-
-
-
     static public function count_product_by_cat($categoryId)
     {
         $sql = "SELECT count(*) FROM " . static::$table_name;

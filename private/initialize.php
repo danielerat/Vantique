@@ -43,6 +43,7 @@ require_once('classes/productSubSubCategory.class.php');
 require_once('classes/productDiscount.class.php');
 require_once('classes/color.class.php');
 require_once('classes/productColor.class.php');
+require_once('classes/size.class.php');
 require_once('classes/productimage.class.php');
 require_once('classes/productStock.class.php');
 require_once('classes/brand.class.php');

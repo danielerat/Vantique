@@ -117,16 +117,31 @@ echo display_session_message();
                                 </select>
                             </div>
                             <div class="group-2 u-s-p-r-16 form-group ">
-                                <label for="sl2mul4">Product Color</label>
-                                <select class="form-control" name="productColor[]" multiple="multiple" id="sl2mul4">
-                                    <option disabled="disabled">Select A Color</option>
-                                    <?php foreach ($colors as $c) {
-                                        if (!empty($c->id)) {
-                                            $category = "<option value={$c->id} style='background-color:$c->hex_value;'>" . $c->name . "</option>";
-                                        }
-                                        echo $category;
-                                    } ?>
-                                </select>
+                                <div class="group-inline u-s-m-b-10 mt-4">
+                                    <div class="group-2 u-s-p-r-16 form-group">
+                                        <label for="sl2mul4">Product Size</label>
+                                        <select class="select2-multiple form-control" name="productSize[]"
+                                            multiple="multiple" id="sl2mul6">
+                                            <option disabled="disabled">Select A Product</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="group-2 u-s-p-r-16 form-group">
+                                        <label for="sl2mul4">Product Color</label>
+                                        <select class="form-control" name="productColor[]" multiple="multiple"
+                                            id="sl2mul4">
+                                            <option disabled="disabled">Select A Color</option>
+                                            <?php foreach ($colors as $c) {
+                                                if (!empty($c->id)) {
+                                                    $category = "<option value={$c->id} style='background-color:$c->hex_value;'>" . $c->name . "</option>";
+                                                }
+                                                echo $category;
+                                            } ?>
+                                        </select>
+                                    </div>
+
+                                </div>
                                 <label for="sl2mul5">Product Brand</label>
                                 <select class="select2-multiple form-control" name="productBrand[]" multiple="multiple"
                                     id="sl2mul5">
@@ -373,6 +388,26 @@ subSubCategory.onchange = () => {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 let result = xhr.responseText;
                 let target = document.querySelector("#sl2mul3");
+                target.innerHTML = result;
+            }
+        }
+        xhr.send();
+    }
+}
+
+size = document.querySelector("#sl2mul3")
+size.onchange = () => {
+    var selected = size.options[size.selectedIndex].value;
+    console.log(selected);
+    // As soon as the value of the category is changed , then do something about it 
+    if (selected != null) {
+        url = "../../../private/ajax/get_product_category.php?size=" + selected;
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let result = xhr.responseText;
+                let target = document.querySelector("#sl2mul6");
                 target.innerHTML = result;
             }
         }
