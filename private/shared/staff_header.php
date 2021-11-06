@@ -16,6 +16,8 @@ print_r($session_admin);
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/ruang-admin.min.css" rel="stylesheet">
 
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="../vendor/sweetalert2/dist/sweetalert2.min.css">
     <!-- My main Css , Compiled with SASS -->
     <link href="<?php echo S_PUBLIC . "/css/styles.css"; ?>" rel="stylesheet">
 

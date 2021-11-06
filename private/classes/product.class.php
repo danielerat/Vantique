@@ -418,4 +418,14 @@ class product extends DatabaseObject
         }
         return $sucessUpload;
     }
+
+
+    static public function ChangeFeatureImage($thumb, $id)
+    {
+        $sql = " UPDATE " . static::$table_name . " SET ";
+        $sql .= "productThumb='" . self::$db->escape_string($thumb) . "'";
+        $sql .= " Where id='" . self::$db->escape_string($id) . "' limit 1;";
+        $result = self::$db->query($sql);
+        return $result;
+    }
 }

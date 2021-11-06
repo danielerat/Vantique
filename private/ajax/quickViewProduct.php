@@ -105,7 +105,9 @@ if (empty($product)) {
                 <div class='availability'>
                     <span>Availability:</span>
                     <span><?php
-                                if ($product->productUnlimited !== 1 && $stock->quantity < 1) {
+                                if ($product->productUnlimited == 1) {
+                                    echo "In Stock";
+                                } elseif ($stock->quantity < 1) {
                                     echo "Out Of Stock";
                                 } else {
                                     echo "In Stock";

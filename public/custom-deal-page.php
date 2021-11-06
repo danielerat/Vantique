@@ -104,7 +104,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                 <?php } ?>
                             </ul>
                             <h6 class="item-title">
-                                <a href="view-product.php?id=<?php echo $p->id; ?>"><?php echo $p->productName; ?></a>
+                                <a
+                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 90); ?></a>
                             </h6>
                             <div class="item-description">
                                 <p><?php echo  $p->productDesc; ?>

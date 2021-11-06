@@ -26,7 +26,28 @@
 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="../vendor/js/ruang-admin.min.js"></script>
+<!-- Sweet Alert 2 -->
+<script type="text/javascript" src="../vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
+<script>
+function swaltoast(type, message) {
+    let Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    Toast.fire({
+        icon: type,
+        title: message
+    })
+}
+</script>
 </body>
 
 </html>

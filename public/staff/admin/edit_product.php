@@ -238,9 +238,9 @@ echo display_session_message();
                         <?php
 
                             } else { ?>
-                        <button class="btn btn-primary btn-sm setFeatured">
-                            <i class="fas fa-flag changeFeatureImage" data-product="<?php echo $id; ?>"
-                                data-id="<?php echo $img->image ?>"></i>
+                        <button class="btn btn-primary btn-sm setFeatured changeFeatureImage"
+                            data-product="<?php echo $id; ?>" data-id="<?php echo $img->image ?>">
+                            <i class="fas fa-flag"></i>
                         </button>
                         <button class="btn btn-danger btn-sm">
                             <i class="fas fa-trash"></i>
@@ -295,7 +295,14 @@ $('.changeFeatureImage').click(function() {
             value: value
         },
         success: function(response) {
-            alert(response);
+            if (response == true) {
+                // Custom function to display toasts
+                $('.changeFeatureImage').attr("disabled", "disabled");
+                swaltoast("success", "Feature Image Was Changed Successfully");
+
+            } else {
+                swaltoast("error", "Error Changing Feature Image");
+            }
         }
     });
 });
