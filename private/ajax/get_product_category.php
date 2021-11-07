@@ -38,7 +38,7 @@ if (isset($subCategory)) {
     exit;
 }
 if (isset($size)) {
-    if ($size == 14) {
+    if ($size == 14 || $size == 249) {
         $size = Size::find_by_type(1);
     } else {
         $size = Size::find_by_type(2);

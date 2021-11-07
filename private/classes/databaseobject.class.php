@@ -118,7 +118,7 @@ class DatabaseObject
         $sql .= join(',', array_keys($attributes));
         $sql .= ") values('";
         $sql .= join("','", array_values($attributes));
-        echo $sql .= "');";
+        $sql .= "');";
         $result = self::$db->query($sql);
         if ($result) {
             $this->id = self::$db->insert_id;
