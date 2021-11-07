@@ -179,34 +179,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 </div>
 <!-- Custom-Deal-Page -->
 
-<div id="quick-view-product" class="modal fade">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
-            <div class="modal-body productModalBody">
-
-            </div>
-        </div>
-    </div>
-</div>
 
 
-<script type='text/javascript'>
-$('.quick-view-product').click(function() {
-    var productId = $(this).data('id');
-    $.ajax({
-        url: '../private/ajax/quickViewProduct.php',
-        type: 'post',
-        data: {
-            productId: productId
-        },
-        success: function(response) {
-            $('.productModalBody').html(response);
-            $('#quick-view-product').modal('show');
-        }
-    });
-});
-</script>
+
+
 
 <?php
 require_once(PRIVATE_PATH . "/shared/public_footer.php");

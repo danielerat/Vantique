@@ -428,4 +428,11 @@ class product extends DatabaseObject
         $result = self::$db->query($sql);
         return $result;
     }
+
+    static public function find_same_category($id)
+    {
+        $sql = "SELECT product.id, product.productName, product.productPrice, product.productDesc, product.productThumb, product.productUnlimited, product.addedBy, product.productUploadDate from product inner join productSubSubCategory on productSubSubCategory.productId=product.id ";
+        $sql .= " where productSubSubCategory.subSubCategoryId ='" . self::$db->escape_string($id) . "';";
+        return static::find_by_sql($sql);
+    }
 }

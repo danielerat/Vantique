@@ -6,7 +6,9 @@ $product = Product::find_by_id($id);
 if (empty($product)) {
     header("Location: 404.php");
 }
-$product_category = Category::find_product_category($id);
+$category = Category::find_product_category($id);
+$scategory = SubCategory::find_product_category($id);
+$sscategory = SubSubCategory::find_product_category($id);
 
 $product_image = ProductImage::find_by_product_id($id);
 $stock = ProductStock::find_by_product_id($id);
@@ -50,10 +52,20 @@ $size = Size::find_product_category($id);
                             </h1>
                         </div>
                         <ul class="bread-crumb">
-                            <?php foreach ($product_category as $category) { ?>
-
+                            <?php foreach ($category as $c) { ?>
                             <li class="has-separator">
-                                <a href="search.php"><?php echo strtoupper($category->categoryName); ?></a>
+                                <a href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 20); ?></a>
+                            </li>
+                            <?php } ?>
+                            <?php foreach ($scategory as $s) { ?>
+                            <li class="has-separator">
+                                <a href="search.php"><?php echo ellipse_of(strtoupper($s->name), 20); ?></a>
+                            </li>
+                            <?php } ?>
+
+                            <?php foreach ($sscategory as $ss) { ?>
+                            <li class="">
+                                <a href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 20); ?></a>
                             </li>
                             <?php } ?>
                         </ul>
@@ -358,7 +370,7 @@ $size = Size::find_product_category($id);
                                                 <textarea class="text-area u-s-m-b-8" id="review-text-area"
                                                     name="Review[review]" placeholder="Review"></textarea>
                                                 <button type='submit' class="button button-outline-secondary">
-                                                    Submit --eview
+                                                    Submit Review
                                                 </button>
                                             </form>
                                         </div>
@@ -464,7 +476,10 @@ $size = Size::find_product_category($id);
                     <div class="slider-fouc">
                         <div class="products-slider owl-carousel bg-dark" data-item="3">
 
+                            <?php
+                            $similar = Product::find_same_category($sscategory[0]->id);
 
+                            foreach ($similar as $p) { ?>
 
                             <div class="item">
                                 <div class="image-container">
@@ -510,7 +525,7 @@ $size = Size::find_product_category($id);
                                                 href="view-product.php?id=<?php echo $p->id; ?>"><?php echo $p->productName; ?></a>
                                         </h6>
                                         <div class="item-description">
-                                            <p><?php echo  $p->productDesc; ?>
+                                            <p><?php echo  ellipse_of($product->productDesc, 80); ?>
                                             </p>
                                         </div>
                                         <div class="item-stars">
@@ -527,15 +542,15 @@ $size = Size::find_product_category($id);
                                     </div>
                                 </div>
                                 <?php
-                                // If there is a review on a product , then display that it's New
-                                if (productReview::count_by_product($p->id) >= 1) {
-                                    echo "<div class='tag new'><span>New</span></div>";
-                                } elseif ($p->productPrice <= 10000) {
-                                    echo "<div class='tag hot'><span>HOT</span></div>";
-                                } ?>
+                                    // If there is a review on a product , then display that it's New
+                                    if (productReview::count_by_product($p->id) >= 1) {
+                                        echo "<div class='tag new'><span>New</span></div>";
+                                    } elseif ($p->productPrice <= 10000) {
+                                        echo "<div class='tag hot'><span>HOT</span></div>";
+                                    } ?>
                             </div>
 
-
+                            <?php } ?>
 
 
 

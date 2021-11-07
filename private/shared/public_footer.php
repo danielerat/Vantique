@@ -212,6 +212,24 @@
 
 </div>
 <!-- app /- -->
+
+<!-- Producut Modal to show a quick preview  -->
+<div id="quick-view-product" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
+            <div class="modal-body productModalBody">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Producut Modal to show a quick preview  -->
+
+
+
+
 <!--[if lte IE 9]>
 <div class="app-issue">
     <div class="vertical-center">
@@ -320,6 +338,21 @@ function swaltoast(type, message) {
         title: message
     })
 }
+
+$('.quick-view-product').click(function() {
+    var productId = $(this).data('id');
+    $.ajax({
+        url: '../private/ajax/quickViewProduct.php',
+        type: 'post',
+        data: {
+            productId: productId
+        },
+        success: function(response) {
+            $('.productModalBody').html(response);
+            $('#quick-view-product').modal('show');
+        }
+    });
+});
 </script>
 
 </body>
