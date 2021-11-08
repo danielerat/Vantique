@@ -13,7 +13,7 @@ class Wishlist extends DatabaseObject
     {
         $this->username = $args['username'] ?? "";
         $this->productId = $args['productId'] ?? "";
-        $this->addedOn = $args['addedOn'] ?? 1;
+        $this->addedOn = $args['addedOn'] ?? date('Y-m-d H:i:s');;
     }
 
 
@@ -46,10 +46,10 @@ class Wishlist extends DatabaseObject
         return array_shift($row);
     }
 
-    static public function find_by_user_id($id)
+    static public function find_by_user_id($username)
     {
         $sql = "SELECT * FROM " . static::$table_name;
-        $sql .= " where username='" . self::$db->escape_string($id) . "';";
+        $sql .= " where username='" . self::$db->escape_string($username) . "';";
         return static::find_by_sql($sql);
     }
 }

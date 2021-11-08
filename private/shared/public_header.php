@@ -229,7 +229,7 @@ function find_right_icon($icon)
                     <div class="row clearfix align-items-center">
                         <div class="col-lg-3 col-md-9 col-sm-6">
                             <div class="brand-logo text-lg-center">
-                                <a href="home.php">
+                                <a href="index.php">
                                     <img src="images/main-logo/vantique-Brand.png" alt="Vantique-brandLogo"
                                         class="app-brand-logo">
                                 </a>
@@ -261,7 +261,7 @@ function find_right_icon($icon)
                             <nav>
                                 <ul class="mid-nav g-nav">
                                     <li class="u-d-none-lg">
-                                        <a href="home.php">
+                                        <a href="index.php">
                                             <i class="ion ion-md-home u-c-brand"></i>
                                         </a>
                                     </li>
@@ -425,7 +425,7 @@ function find_right_icon($icon)
                                         <ul>
                                             <li class="menu-title">Home & Static Pages</li>
                                             <li>
-                                                <a href="home.php" class="u-c-brand">Home</a>
+                                                <a href="index.php" class="u-c-brand">Home</a>
                                             </li>
                                             <li>
                                                 <a href="about.php">About</a>

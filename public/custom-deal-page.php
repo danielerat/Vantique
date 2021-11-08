@@ -78,7 +78,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                         <div class="item-action-behaviors">
                             <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick Look</a>
                             <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
-                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                            <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to Wishlist</a>
                             <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                         </div>
                     </div>
