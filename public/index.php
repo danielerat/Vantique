@@ -21,7 +21,7 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
             <div class="slide-content-2 slide-animation">
                 <h2 class="slide-2-h2-a">The Baso</h2>
                 <h2 class="slide-2-h2-b">Collection</h2>
-                <h1>2018</h1>
+                <h1>2021</h1>
             </div>
         </div>
         <div class="bg-image three">
@@ -54,13 +54,13 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
             <h3 class="sec-maker-h3">Our Best Sell By Category</h3>
             <ul class="nav tab-nav-style-1-a justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#men-latest-products">Clothing</a>
+                    <a class="nav-link active" data-toggle="tab" href="#Clothing-feature-products">Clothing</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#men-best-selling-products">pharmaceutical</a>
+                    <a class="nav-link" data-toggle="tab" href="#Pharmaceutical-feature-products">pharmaceutical</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#men-top-rating-products">Accessories</a>
+                    <a class="nav-link" data-toggle="tab" href="#Accessory-feature-products">Accessories</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#Books-featured-products">Books</a>
@@ -70,612 +70,198 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
         <div class="wrapper-content">
             <div class="outer-area-tab">
                 <div class="tab-content">
-                    <div class="tab-pane active show fade" id="men-latest-products">
+                    <div class="tab-pane active show fade" id="Clothing-feature-products">
                         <div class="slider-fouc">
                             <div class="products-slider owl-carousel" data-item="4">
+
+
+
+                                <!-- Get all the Clothing from the database  -->
+                                <?php
+                                $clothing = Product::find_all_by_Category([1, 2]);
+
+                                foreach ($clothing as $p) {
+                                    $category = Category::find_product_category($p->id);
+                                    $scategory = SubCategory::find_product_category($p->id);
+                                    $sscategory = SubSubCategory::find_product_category($p->id);
+
+                                    $stock = ProductStock::find_by_product_id($p->id);
+                                    $colors = Color::find_product_category($p->id);
+                                    $size = Size::find_product_category($p->id);
+                                ?>
+
                                 <div class="item">
                                     <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        <a class="item-img-wrapper-link"
+                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                            style="overflow:hidden; height:280px;">
+                                            <img class="img-fluid"
+                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                                alt="Product">
                                         </a>
                                         <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
+                                            <a class="item-quick-look quick-view-product"
+                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                Look</a>
+                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                             <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
                                         <div class="what-product-is">
                                             <ul class="bread-crumb">
+                                                <?php foreach ($category as $c) { ?>
                                                 <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                    <a
+                                                        href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
                                                 </li>
+                                                <?php } ?>
+                                                <?php foreach ($scategory as $s) { ?>
                                                 <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                    <a
+                                                        href="search.php"><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
                                                 </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">Hoodies</a>
+                                                <?php } ?>
+
+                                                <?php foreach ($sscategory as $ss) { ?>
+                                                <li class="">
+                                                    <a
+                                                        href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
                                                 </li>
+                                                <?php } ?>
                                             </ul>
                                             <h6 class="item-title">
-                                                <a href="single-product.php">Casual Hoodie Full Cotton</a>
+                                                <a
+                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
                                             </h6>
+
                                             <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width: 65px;'></span>
                                                 </div>
-                                                <span>(0)</span>
+                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                             </div>
                                         </div>
                                         <div class="price-template">
                                             <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
+                                                Frw <?php echo number_format($p->productPrice, 2); ?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tag new">
-                                        <span>NEW</span>
-                                    </div>
+                                    <?php
+                                        // If there is a review on a product , then display that it's New
+                                        if (productReview::count_by_product($p->id) >= 1) {
+                                            echo "<div class='tag new'><span>New</span></div>";
+                                        } elseif ($p->productPrice <= 10000) {
+                                            echo "<div class='tag hot'><span>HOT</span></div>";
+                                        } ?>
                                 </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Tops</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">T-Shirts</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">Mischka Plain Men T-Shirt</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Tops</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v4-filter-as-category.php">T-Shirts</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">Black Bean Plain Men T-Shirt</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Bottoms</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">Jeans</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">Regular Rock Blue Men Jean</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tag new">
-                                        <span>NEW</span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Tops</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">Suits</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">Black Maire Full Men Suit</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tag sale">
-                                        <span>SALE</span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Outwear</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">Jackets</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">Woodsmoke Rookie Parka Jacket</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Accessories</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">Ties</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">Blue Zodiac Boxes Reg Tie
-                                                </a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Bottoms</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">Shoes</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">Zambezi Carved Leather Business
-                                                    Casual Shoes
-                                                </a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tag discount">
-                                        <span>-15%</span>
-                                    </div>
-                                </div>
+
+                                <?php } ?>
+
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="men-best-selling-products">
+                    <div class="tab-pane fade" id="Pharmaceutical-feature-products">
                         <!-- Product Not Found -->
                         <div class="product-not-found">
                             <div class="not-found">
                                 <h2>SORRY!</h2>
-                                <h6>There is not any product in specific catalogue.</h6>
+                                <h6>No Pharmaceutical products in our store for now lol </h6>
                             </div>
                         </div>
                         <!-- Product Not Found /- -->
                     </div>
-                    <div class="tab-pane fade" id="men-top-rating-products">
+                    <div class="tab-pane fade" id="Accessory-feature-products">
                         <div class="slider-fouc">
                             <div class="products-slider owl-carousel" data-item="4">
+                                <!-- Get all the Clothing from the database  -->
+                                <?php
+                                $accessory = Product::find_all_by_Category([4]);
+
+                                foreach ($accessory as $p) {
+                                    $category = Category::find_product_category($p->id);
+                                    $scategory = SubCategory::find_product_category($p->id);
+                                    $sscategory = SubSubCategory::find_product_category($p->id);
+
+                                    $stock = ProductStock::find_by_product_id($p->id);
+                                    $colors = Color::find_product_category($p->id);
+                                    $size = Size::find_product_category($p->id);
+                                ?>
+
                                 <div class="item">
                                     <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        <a class="item-img-wrapper-link"
+                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                            style="overflow:hidden; height:280px;">
+                                            <img class="img-fluid"
+                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                                alt="Product">
                                         </a>
                                         <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
+                                            <a class="item-quick-look quick-view-product"
+                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                Look</a>
+                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                             <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
                                         <div class="what-product-is">
                                             <ul class="bread-crumb">
+                                                <?php foreach ($category as $c) { ?>
                                                 <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
+                                                    <a
+                                                        href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
                                                 </li>
+                                                <?php } ?>
+                                                <?php foreach ($scategory as $s) { ?>
                                                 <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Tops</a>
+                                                    <a
+                                                        href="search.php"><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
                                                 </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">Suits</a>
+                                                <?php } ?>
+
+                                                <?php foreach ($sscategory as $ss) { ?>
+                                                <li class="">
+                                                    <a
+                                                        href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
                                                 </li>
+                                                <?php } ?>
                                             </ul>
                                             <h6 class="item-title">
-                                                <a href="single-product.php">Black Maire Full Men Suit</a>
+                                                <a
+                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
                                             </h6>
+
                                             <div class="item-stars">
                                                 <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                    <span style='width:67px'></span>
+                                                    <span style='width: 65px;'></span>
                                                 </div>
-                                                <span>(23)</span>
+                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                             </div>
                                         </div>
                                         <div class="price-template">
                                             <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
+                                                Frw <?php echo number_format($p->productPrice, 2); ?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tag sale">
-                                        <span>SALE</span>
-                                    </div>
+                                    <?php
+                                        // If there is a review on a product , then display that it's New
+                                        if (productReview::count_by_product($p->id) >= 1) {
+                                            echo "<div class='tag new'><span>New</span></div>";
+                                        } elseif ($p->productPrice <= 10000) {
+                                            echo "<div class='tag hot'><span>HOT</span></div>";
+                                        } ?>
                                 </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Outwear</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">Jackets</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">Woodsmoke Rookie Parka Jacket</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                    <span style='width:67px'></span>
-                                                </div>
-                                                <span>(23)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Accessories</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">Ties</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">Blue Zodiac Boxes Reg Tie</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                    <span style='width:67px'></span>
-                                                </div>
-                                                <span>(23)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Men's</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">Bottoms</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">Shoes</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">Zambezi Carved Leather Business
-                                                    Casual Shoes
-                                                </a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                    <span style='width:67px'></span>
-                                                </div>
-                                                <span>(23)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tag discount">
-                                        <span>-15%</span>
-                                    </div>
-                                </div>
+
+                                <?php } ?>
+
+
+
                             </div>
                         </div>
                     </div>
@@ -683,9 +269,9 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                         <div class="slider-fouc">
                             <div class="products-slider owl-carousel" data-item="4">
 
-
+                                <!-- Get all the books from the database  -->
                                 <?php
-                                $books = Product::find_all_by_Category(6);
+                                $books = Product::find_all_by_Category([6]);
 
                                 foreach ($books as $p) {
                                     $category = Category::find_product_category($p->id);
@@ -745,7 +331,7 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
 
                                             <div class="item-stars">
                                                 <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                    <span style='width:<?php echo ($r->star * 15); ?>px'></span>
+                                                    <span style='width: 65px;'></span>
                                                 </div>
                                                 <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                             </div>
