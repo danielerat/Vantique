@@ -365,9 +365,40 @@ $('.item-addwishlist').click(function() {
             productId: productId
         },
         success: function(response) {
+
             if (response == true) {
                 // Custom function to display toasts
                 swaltoast("success", "Item Added To Your Wish List");
+            } else if (response === 'Auth') {
+                swaltoast("info", "Please Login First ");
+            } else if (response === 'Exist') {
+                swaltoast("info", "Item is Alread In Your Wish List :)");
+            } else {
+                swaltoast("error", "Error Adding Your Product, try again later ");
+            }
+        }
+    });
+});
+// Add Item to The Cart
+$('.item-addCart').click(function() {
+    var productId = $(this).data('id');
+    // getting the new value of the current cart so that we can increment it
+
+    $.ajax({
+        url: '../private/ajax/add_to_cart.php',
+        type: 'post',
+        data: {
+            productId: productId,
+            quantity: 1
+        },
+        success: function(response) {
+
+            if (response == true) {
+                // Custom function to display toasts
+                swaltoast("success", "Item Added To Your Wish List");
+                var currentCount = parseInt($('.cartItemCounterUpdate').text());
+                var newCount = parseInt(currentCount + 1);
+                $('.cartItemCounterUpdate').html(newCount);
             } else if (response === 'Auth') {
                 swaltoast("info", "Please Login First ");
             } else if (response === 'Exist') {

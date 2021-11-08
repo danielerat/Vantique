@@ -443,4 +443,10 @@ class product extends DatabaseObject
         $sql .= ");";
         return static::find_by_sql($sql);
     }
+
+    static public function find_all_randomly()
+    {
+        $sql = "SELECT * FROM " . static::$table_name . " ORDER BY RAND()";
+        return static::find_by_sql($sql);
+    }
 }

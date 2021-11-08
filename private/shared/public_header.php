@@ -4,13 +4,16 @@ echo display_user_session_message();
 if ($session_user->is_logged_in()) {
     if (!empty($cart->cart_items)) {
         foreach ($cart->cart_items as $item) {
-            $addToCart = new Cart(["userId" => $session_user->getUserId(), "productId" => $item['productId'], "quantity" => $item['quantity']]);
+            $addToCart = new Cart(["username" => $session_user->username, "productId" => $item['productId'], "quantity" => $item['quantity']]);
 
             $addToCart->save();
         }
         $cart->clearCart();
     }
 }
+
+
+// cons of the select menu
 function find_right_icon($icon)
 {
     switch ($icon) {
@@ -274,7 +277,7 @@ function find_right_icon($icon)
                                         <a id="mini-cart-trigger" onclick="getCartContent()">
                                             <i class="ion ion-md-basket"></i>
                                             <span
-                                                class="item-counter"><?php echo (!$session_user->is_logged_in()) ? $cart->cartCount() : Cart::count_all(); ?></span>
+                                                class="item-counter cartItemCounterUpdate"><?php echo (!$session_user->is_logged_in()) ? $cart->cartCount() : Cart::count_all(); ?></span>
                                             <!-- <span class="item-price">Cart</span> -->
                                         </a>
                                     </li>
@@ -293,7 +296,7 @@ function find_right_icon($icon)
                 <div class="fixed-responsive-wrapper">
                     <a href="wishlist.php">
                         <i class="far fa-heart"></i>
-                        <span class="fixed-item-counter">4</span>
+                        <span class="fixed-item-counter"><?php echo Wishlist::count_all() ?></span>
                     </a>
                 </div>
             </div>
@@ -404,7 +407,7 @@ function find_right_icon($icon)
                         <div class="col-lg-9">
                             <ul class="bottom-nav g-nav u-d-none-lg">
                                 <li>
-                                    <a href="custom-deal-page.php">New Arrivals
+                                    <a href="new-arival.php">New Arrivals
                                         <span class="superscript-label-new">NEW</span>
                                     </a>
                                 </li>

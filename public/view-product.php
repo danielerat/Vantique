@@ -166,8 +166,8 @@ $size = Size::find_product_category($id);
                             </div>
                             <div>
                                 <button class="button button-outline-secondary" type="submit">Add to cart</button>
-                                <button class="button button-outline-secondary far fa-heart u-s-m-l-6"></button>
                                 <button class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button>
+                                <button class=" far fa-heart u-s-m-l-6"></button>
                             </div>
 
                         </form>
@@ -493,7 +493,9 @@ $size = Size::find_product_category($id);
                                         <a class="item-quick-look quick-view-product"
                                             data-id='<?php echo $p->id; ?>'>Quick Look</a>
                                         <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
-                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'
+                                            data-id='<?php echo $p->id; ?>'>Add to
+                                            Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
                                 </div>
@@ -570,7 +572,7 @@ $size = Size::find_product_category($id);
                                     <div class="item-action-behaviors">
                                         <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                         <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addwishlist" data-id='' href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
                                 </div>
@@ -631,7 +633,7 @@ $size = Size::find_product_category($id);
                                     <div class="item-action-behaviors">
                                         <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                         <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                        <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                        <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
                                 </div>

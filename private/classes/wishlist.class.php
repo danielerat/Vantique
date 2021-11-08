@@ -13,7 +13,7 @@ class Wishlist extends DatabaseObject
     {
         $this->username = $args['username'] ?? "";
         $this->productId = $args['productId'] ?? "";
-        $this->addedOn = $args['addedOn'] ?? 1;
+        $this->addedOn = $args['addedOn'] ?? date('Y-m-d H:i:s');
     }
 
 

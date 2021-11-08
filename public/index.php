@@ -106,7 +106,9 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
                                             <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                data-id='<?php echo $p->id; ?>' href="javascript:void(0)">Add to
+                                                Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -207,7 +209,9 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
                                             <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                data-id='<?php echo $p->id; ?>' href="javascript:void(0)">Add to
+                                                Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -300,7 +304,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                 Look</a>
                                             <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -415,7 +420,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                             <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                            <a class="item-addCart" data-id='<?php echo $p->id; ?>' href="javascript:void(0)">Add to
+                                Cart</a>
                         </div>
                     </div>
                     <div class="item-content">
@@ -463,7 +469,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                             <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                            <a class="item-addCart" data-id='<?php echo $p->id; ?>' href="javascript:void(0)">Add to
+                                Cart</a>
                         </div>
                     </div>
                     <div class="item-content">
@@ -511,7 +518,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                             <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                            <a class="item-addCart" data-id='<?php echo $p->id; ?>' href="javascript:void(0)">Add to
+                                Cart</a>
                         </div>
                     </div>
                     <div class="item-content">
@@ -559,7 +567,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                             <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                            <a class="item-addCart" data-id='<?php echo $p->id; ?>' href="javascript:void(0)">Add to
+                                Cart</a>
                         </div>
                     </div>
                     <div class="item-content">
@@ -659,7 +668,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -711,7 +721,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -760,7 +771,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -808,7 +820,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -859,7 +872,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -910,7 +924,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -959,7 +974,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1007,7 +1023,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1074,7 +1091,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1125,7 +1143,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1174,7 +1193,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1221,7 +1241,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1322,7 +1343,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1372,7 +1394,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1419,7 +1442,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1466,7 +1490,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1516,7 +1541,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1567,7 +1593,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1615,7 +1642,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1663,7 +1691,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1730,7 +1759,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1781,7 +1811,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1829,7 +1860,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1876,7 +1908,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -2017,7 +2050,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2073,7 +2107,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2125,7 +2160,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2181,7 +2217,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2253,7 +2290,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2310,7 +2348,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2364,7 +2403,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2421,7 +2461,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2613,7 +2654,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2669,7 +2711,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2721,7 +2764,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2776,7 +2820,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2847,7 +2892,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2903,7 +2949,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -2955,7 +3002,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -3011,7 +3059,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart" href="javascript:void(0)">Add to
+                                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                                href="javascript:void(0)">Add to
                                                                 Cart
                                                             </a>
                                                         </div>
@@ -3160,7 +3209,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -3206,7 +3256,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -3249,7 +3300,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -3292,7 +3344,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
                                             <a class="item-addwishlist" href="javascript:void(0)">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'
+                                                href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">

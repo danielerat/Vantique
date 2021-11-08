@@ -2,7 +2,7 @@
 require_once('../initialize.php');
 if ($session_user->is_logged_in()) {
 
-    $cartDb = Cart::find_by_user_id($session_user->getUserId());
+    $cartDb = Cart::find_by_user_id($session_user->username);
     $output = "<ul class='mini-cart-list'>";
     $total = (float) 0;
     foreach ($cartDb as $cart) {

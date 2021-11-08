@@ -33,7 +33,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                             <tr class="animate__animated singleItemRow_<?php echo $p->id; ?>">
                                 <td>
                                     <div class="cart-anchor-image">
-                                        <a href="single-product.php">
+                                        <a href="view-product.php?id=<?php echo $p->id; ?>">
                                             <img src="<?php echo S_PRIVATE . '/uploads/thumb/' . $p->productThumb; ?>"
                                                 alt="Product">
                                             <h6><?php echo ellipse_of($p->productName, 100); ?></h6>

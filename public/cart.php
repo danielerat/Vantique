@@ -28,7 +28,7 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
                         </thead>
                         <tbody>
                             <?php
-                                $cartDb = ($session_user->is_logged_in()) ? Cart::find_by_user_id($session_user->getUserId()) : $cart->cart_items;
+                                $cartDb = ($session_user->is_logged_in()) ? Cart::find_by_user_id($session_user->username) : $cart->cart_items;
                                 $total = (float) 0;
                                 // Since What's Kept in the cart cookit is not an object , we have to make the convertion 
                                 // The Easiest way is to encode and decode back again in a json format ...lol 
@@ -229,6 +229,9 @@ function delete_cart_item(id) {
 
                         })
 
+                        var currentCount = parseInt($('.cartItemCounterUpdate').text());
+                        var newCount = parseInt(currentCount - 1);
+                        $('.cartItemCounterUpdate').html(newCount);
 
 
                     }

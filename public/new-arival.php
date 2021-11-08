@@ -9,7 +9,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 <div class="page-deal u-s-p-t-80">
     <div class="container">
         <div class="deal-page-wrapper">
-            <h1 class="deal-heading">Best Current Deals </h1>
+            <h1 class="deal-heading">Our Current New Stock Just For you </h1>
             <h6 class="deal-has-total-items">Make An order and Enojy Free Delivery on any of these products!!!</h6>
         </div>
         <!-- Page-Bar -->
@@ -54,7 +54,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
         <div class="row product-container grid-style">
 
             <?php
-            $product = Product::find_all();
+            $product = Product::find_all_randomly();
             foreach ($product as $p) {
                 $id = $p->id;
                 $category = Category::find_product_category($id);
