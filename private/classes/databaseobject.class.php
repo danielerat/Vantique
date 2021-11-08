@@ -69,7 +69,7 @@ class DatabaseObject
     static public function find_by_product_id($id)
     {
         $sql = "SELECT * FROM " . static::$table_name;
-        $sql .= " where productId='" . self::$db->escape_string($id) . "'";
+        echo  $sql .= " where productId='" . self::$db->escape_string($id) . "'";
         return static::find_by_sql($sql);
     }
 

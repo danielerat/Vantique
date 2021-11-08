@@ -51,6 +51,7 @@ require_once('classes/productBrand.class.php');
 require_once('classes/productSize.class.php');
 require_once('classes/productReview.class.php');
 require_once('classes/admin.class.php');
+require_once('classes/wishlist.class.php');
 require_once('classes/cart.class.php');
 require_once('classes/cartTemp.class.php');
 require_once('classes/user.class.php');

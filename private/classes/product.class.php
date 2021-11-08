@@ -435,4 +435,10 @@ class product extends DatabaseObject
         $sql .= " where productSubSubCategory.subSubCategoryId ='" . self::$db->escape_string($id) . "';";
         return static::find_by_sql($sql);
     }
+    static public function find_all_by_Category($id)
+    {
+        $sql = "SELECT product.id, product.productName, product.productPrice, product.productDesc, product.productThumb, product.productUnlimited, product.addedBy, product.productUploadDate from product inner join productCategory on productCategory.productId=product.id ";
+        $sql .= " where productCategory.categoryId ='" . self::$db->escape_string($id) . "';";
+        return static::find_by_sql($sql);
+    }
 }

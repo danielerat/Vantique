@@ -2,6 +2,7 @@
 require_once("../private/initialize.php");
 require_once(PRIVATE_PATH . "/shared/public_header.php");
 
+
 ?>
 <!-- Main-Slider -->
 <script>
@@ -18,7 +19,7 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
         </div>
         <div class="bg-image two">
             <div class="slide-content-2 slide-animation">
-                <h2 class="slide-2-h2-a">Hiking</h2>
+                <h2 class="slide-2-h2-a">The Baso</h2>
                 <h2 class="slide-2-h2-b">Collection</h2>
                 <h1>2018</h1>
             </div>
@@ -38,7 +39,7 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
 <div class="banner-layer">
     <div class="container">
         <div class="image-banner">
-            <a href="shop-v1-root-category.php" class="mx-auto banner-hover effect-dark-opacity ">
+            <a href="#" class="mx-auto banner-hover effect-dark-opacity ">
                 <img class="img-fluid w-25" src="images/banners/book.png" alt="Winter Season Banner">
                 <h2 class="slide-content slide-animation">Explore Our Book Collection!</h2>
             </a>
@@ -62,7 +63,7 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                     <a class="nav-link" data-toggle="tab" href="#men-top-rating-products">Accessories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#men-featured-products">Books</a>
+                    <a class="nav-link" data-toggle="tab" href="#Books-featured-products">Books</a>
                 </li>
             </ul>
         </div>
@@ -678,15 +679,99 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="men-featured-products">
-                        <!-- Product Not Found -->
-                        <div class="product-not-found">
-                            <div class="not-found">
-                                <h2>SORRY!</h2>
-                                <h6>There is not any product in specific catalogue.</h6>
+                    <div class="tab-pane fade" id="Books-featured-products">
+                        <div class="slider-fouc">
+                            <div class="products-slider owl-carousel" data-item="4">
+
+
+                                <?php
+                                $books = Product::find_all_by_Category(6);
+
+                                foreach ($books as $p) {
+                                    $category = Category::find_product_category($p->id);
+                                    $scategory = SubCategory::find_product_category($p->id);
+                                    $sscategory = SubSubCategory::find_product_category($p->id);
+
+                                    $stock = ProductStock::find_by_product_id($p->id);
+                                    $colors = Color::find_product_category($p->id);
+                                    $size = Size::find_product_category($p->id);
+                                ?>
+
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link"
+                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                            style="overflow:hidden; height:280px;">
+                                            <img class="img-fluid"
+                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                                alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look quick-view-product"
+                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                Look</a>
+                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <?php foreach ($category as $c) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                                <?php foreach ($scategory as $s) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href="search.php"><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
+                                                </li>
+                                                <?php } ?>
+
+                                                <?php foreach ($sscategory as $ss) { ?>
+                                                <li class="">
+                                                    <a
+                                                        href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a
+                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
+                                            </h6>
+
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width:<?php echo ($r->star * 15); ?>px'></span>
+                                                </div>
+                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                Frw <?php echo number_format($p->productPrice, 2); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        // If there is a review on a product , then display that it's New
+                                        if (productReview::count_by_product($p->id) >= 1) {
+                                            echo "<div class='tag new'><span>New</span></div>";
+                                        } elseif ($p->productPrice <= 10000) {
+                                            echo "<div class='tag hot'><span>HOT</span></div>";
+                                        } ?>
+                                </div>
+
+                                <?php } ?>
+
+
+
+
                             </div>
                         </div>
-                        <!-- Product Not Found /- -->
                     </div>
                 </div>
             </div>
