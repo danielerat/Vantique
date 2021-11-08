@@ -1,6 +1,6 @@
 <?php
 require_once('../../../private/initialize.php');
-
+$page_title = "Product List";
 include(SHARED_PATH . '/staff_header.php');
 
 echo display_session_message();
@@ -65,8 +65,8 @@ echo display_session_message();
                                     class="fas fa-info-circle"></i></a>
                             <a href="edit_product.php?id=<?php echo h($product->id); ?>"
                                 class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                            <a href="delete_product.php?id=<?php echo h($product->id); ?>" class="btn btn-danger btn-sm"><i
-                                    class="fas fa-trash"></i></a>
+                            <a href="delete_product.php?id=<?php echo h($product->id); ?>"
+                                class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
 
                         </td>
                     </tr>

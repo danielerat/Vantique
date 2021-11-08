@@ -13,7 +13,7 @@ class Wishlist extends DatabaseObject
     {
         $this->username = $args['username'] ?? "";
         $this->productId = $args['productId'] ?? "";
-        $this->addedOn = $args['addedOn'] ?? date('Y-m-d H:i:s');;
+        $this->addedOn = $args['addedOn'] ?? 1;
     }
 
 
@@ -45,11 +45,22 @@ class Wishlist extends DatabaseObject
         $result_set->free();
         return array_shift($row);
     }
-
-    static public function find_by_user_id($username)
+    // Find All wish list product belonging to the loggein user
+    static public function find_by_username($username)
     {
         $sql = "SELECT * FROM " . static::$table_name;
         $sql .= " where username='" . self::$db->escape_string($username) . "';";
         return static::find_by_sql($sql);
+    }
+
+
+    // Delete A sigle product in a wishlist from a user 
+    public function delete_by_username($username, $productId)
+    {
+        $sql = "DELETE FROM " . static::$table_name;
+        $sql .= " where username='" . self::$db->escape_string($username) . "' and ";
+        $sql .= " productId='" . self::$db->escape_string($productId) . "' limit 1;";
+        $result = self::$db->query($sql);
+        return $result;
     }
 }

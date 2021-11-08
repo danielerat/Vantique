@@ -104,7 +104,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                 data-id='<?php echo $p->id; ?>'>Quick
                                                 Look</a>
                                             <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                            <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to
+                                                Wishlist</a>
                                             <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>
@@ -137,7 +138,7 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                             </h6>
 
                                             <div class="item-stars">
-                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                <div class=' star' title="4.5 out of 5 - based on 23 Reviews">
                                                     <span style='width: 65px;'></span>
                                                 </div>
                                                 <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
@@ -204,7 +205,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                 data-id='<?php echo $p->id; ?>'>Quick
                                                 Look</a>
                                             <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
+                                            <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to
+                                                Wishlist</a>
                                             <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                         </div>
                                     </div>

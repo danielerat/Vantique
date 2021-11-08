@@ -6,7 +6,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 ?>
 
 <?php
-if ($session_user->is_logged_in() && isset($cart->cart_items)) {
+if ($session_user->is_logged_in() || isset($cart->cart_items)) {
 
 ?>
 
