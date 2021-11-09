@@ -83,8 +83,23 @@ print_r($session_admin);
                 </a>
                 <div id="collapseUser" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Registered Users</h6>
-                        <a class="collapse-item" href="users.php">User Address</a>
+                        <h6 class="collapse-header">Users / Customers</h6>
+                        <a class="collapse-item" href="users.php">User</a>
+                        <a class="collapse-item" href="user-address.php">Address</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCart"
+                    aria-expanded="true" aria-controls="collapseProduct">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Cart</span>
+                </a>
+                <div id="collapseCart" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">User Cart</h6>
+                        <a class="collapse-item" href="user-cart.php">Cart</a>
+                        <a class="collapse-item" href="user-wishlist.php">Wishlist</a>
                     </div>
                 </div>
             </li>

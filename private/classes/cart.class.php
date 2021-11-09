@@ -3,17 +3,19 @@
 class Cart extends DatabaseObject
 {
     static protected $table_name = 'userCart';
-    static protected $db_columns = ["id", "username", "productId", "quantity"];
+    static protected $db_columns = ["id", "username", "productId", "quantity", "addedOn"];
     public $id;
     public $username;
     public $productId;
     public $quantity;
+    public $addedOn;
     public $errors = [];
     public function __construct($args = [])
     {
         $this->username = $args['username'] ?? "";
         $this->productId = $args['productId'] ?? "";
         $this->quantity = $args['quantity'] ?? 1;
+        $this->addedOn = $args['addedOn'] ?? date('Y-m-d H:i:s');
     }
 
 
@@ -82,6 +84,12 @@ class Cart extends DatabaseObject
     {
         $sql = "SELECT * FROM " . static::$table_name;
         $sql .= " where username='" . self::$db->escape_string($username) . "';";
+        return static::find_by_sql($sql);
+    }
+    static public function find_distinct_order()
+    {
+        $sql = "SELECT DISTINCT(username) FROM " . static::$table_name;
+        $sql .= " where 1;";
         return static::find_by_sql($sql);
     }
 }

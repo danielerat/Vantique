@@ -1,17 +1,26 @@
 <?php
 require_once('../../../private/initialize.php');
-
+$page_title = "User Page";
 include(SHARED_PATH . '/staff_header.php');
 
 echo display_session_message();
 ?>
 
 
-<!-- <div class="text-center">
-    <img src="img/think.svg" style="max-height: 90px">
-    <h4 class="pt-3">save your <b>imagination</b> here!</h4>
-</div> -->
 
+<div class="w-50 m-auto" aria-labelledby="searchDropdown">
+    <form class="navbar-search">
+        <div class="input-group">
+            <input type="text" class="form-control bg-light border-1 small" placeholder="Type Your Search?"
+                aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
 
 
 <!-- DataTable with Hover -->
@@ -62,8 +71,8 @@ echo display_session_message();
 
 
                         <td class="users_action">
-                            <a href="view.php?id=<?php echo h($user->id); ?>" class="m-1 btn btn-info btn-sm"><i
-                                    class="fas fa-info-circle"></i></a>
+                            <a href="view-user-cart.php?user=<?php echo h($user->username); ?>"
+                                class="m-1 btn btn-info btn-sm"><i class="fas fa-info-circle"></i></a>
                             <a href="edit_product.php?id=<?php echo h($user->id); ?>"
                                 class="m-1 btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                             <a href="block.php?id=<?php echo h($user->id); ?>" class="m-1 btn btn-secondary btn-sm"><i

@@ -7,11 +7,19 @@ echo display_session_message();
 ?>
 
 
-<!-- <div class="text-center">
-    <img src="img/think.svg" style="max-height: 90px">
-    <h4 class="pt-3">save your <b>imagination</b> here!</h4>
-</div> -->
-
+<div class="w-50 m-auto" aria-labelledby="searchDropdown">
+    <form class="navbar-search">
+        <div class="input-group">
+            <input type="text" class="form-control bg-light border-1 small" placeholder="Type Your Search?"
+                aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
 
 
 <!-- DataTable with Hover -->

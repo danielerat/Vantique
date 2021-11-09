@@ -63,4 +63,13 @@ class Wishlist extends DatabaseObject
         $result = self::$db->query($sql);
         return $result;
     }
+
+    static public function find_all_cart_items()
+    {
+        echo $sql = "SELECT  users.id,users.first_name,users.last_name,users.username,users.email,
+            users.phone,userCart.productId,userCart.quantity,userCart.createdOn 
+            FROM users INNER JOIN userCart on users.username=userCart.username 
+            ORDER BY userCart.username;";
+        return static::find_by_sql($sql);
+    }
 }
