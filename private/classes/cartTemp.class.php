@@ -46,16 +46,18 @@ class CartTemp
             return true;
         } else {
             $match = false;
-
             foreach ($this->cart_items as $key => $value) {
                 if ($value['productId'] === $item['productId']) {
                     $match = true;
                 }
             }
             if ($match) {
+
                 // If product Exist then simply Add 
                 return "Exist";
             } else if (!$match) {
+
+                print_r($this->cart_items);
                 // The item is not in the cookie then add it now  
                 $this->cart_items[$item['productId']] = $item;
                 setcookie("cart_items", json_encode($this->cart_items), time() + (86400 * 30 * 5), '/');

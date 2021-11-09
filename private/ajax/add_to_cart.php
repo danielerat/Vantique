@@ -29,17 +29,15 @@ if (is_post_request()) {
         $quantity = $_POST['quantity'];
 
         $item = ['user' => $username, 'productId' => $product, 'quantity' => $quantity];
-        print_r($item);
-        echo "status" . $cart->setCart(['item' => $item]);
 
-        // if ($cart->setCart(['item' => $item])) {
-        //     echo true;
-        //     exit;
-        // } else if ($cart->setCart(['item' => $item]) == "Exist") {
-        //     echo "Exist";
-        // } else {
-        //     echo false;
-        //     exit;
-        // }
+        $result = $cart->setCart(['item' => $item]);
+
+        if ($result === true) {
+            echo true;
+            exit;
+        } else if ($result == "Exist") {
+            echo "Exist";
+            exit;
+        }
     }
 }

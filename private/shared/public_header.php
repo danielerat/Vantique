@@ -1,7 +1,6 @@
 <?php
 echo display_user_session_message();
 
-print_r($_COOKIE);
 if ($session_user->is_logged_in()) {
     if (!empty($cart->cart_items)) {
         foreach ($cart->cart_items as $item) {

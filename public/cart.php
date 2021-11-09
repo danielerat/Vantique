@@ -49,7 +49,7 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
                                         <a href="view-product.php?id=<?php echo $product->id; ?>">
                                             <img src="<?php echo S_PRIVATE . '/uploads/thumb/' . $product->productThumb; ?>"
                                                 alt="Product">
-                                            <h6><?php echo $product->productName; ?></h6>
+                                            <h6><?php echo ellipse_of($product->productName, 80); ?></h6>
                                         </a>
                                     </div>
                                 </td>

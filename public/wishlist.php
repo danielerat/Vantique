@@ -7,12 +7,16 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 
 
 
-<?php if (true) { ?>
+<?php if ($session_user->is_logged_in()) { ?>
 <!-- Wishlist-Page -->
 <div class="page-wishlist u-s-p-t-80">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
+                <?php
+                    $wish = Wishlist::find_by_username($session_user->username);
+
+                    if (!empty($wish)) { ?>
                 <!-- Products-List-Wrapper -->
                 <div class="table-wrapper u-s-m-b-60">
                     <table>
@@ -26,10 +30,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                         </thead>
                         <tbody>
 
-                            <?php $wish = Wishlist::find_by_username($session_user->username);
-                                foreach ($wish as $p) {
-                                    $p = Product::find_by_id($p->productId);
-                                ?>
+                            <?php
+                                    foreach ($wish as $p) {
+                                        $p = Product::find_by_id($p->productId);
+                                    ?>
                             <tr class="animate__animated singleItemRow_<?php echo $p->id; ?>">
                                 <td>
                                     <div class="cart-anchor-image">
@@ -48,15 +52,15 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                 <td>
                                     <div class="cart-stock">
                                         <?php
-                                                $stock = ProductStock::find_by_product_id($p->id);
-                                                if ($p->productUnlimited == 1) {
-                                                    echo "In Stock";
-                                                } elseif ($stock->quantity < 1) {
-                                                    echo "Out Of Stock";
-                                                } else {
-                                                    echo "In Stock";
-                                                }
-                                                ?>
+                                                    $stock = ProductStock::find_by_product_id($p->id);
+                                                    if ($p->productUnlimited == 1) {
+                                                        echo "In Stock";
+                                                    } elseif ($stock->quantity < 1) {
+                                                        echo "Out Of Stock";
+                                                    } else {
+                                                        echo "In Stock";
+                                                    }
+                                                    ?>
 
                                     </div>
                                 </td>
@@ -74,6 +78,24 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                     </table>
                 </div>
                 <!-- Products-List-Wrapper /- -->
+                <?php  } else { ?>
+
+                <div class="page-wishlist" style="margin-bottom:300px;">
+                    <div class="vertical-center">
+                        <div class="text-center">
+                            <h1>Em
+                                <i class="fas fa-child"></i>ty!
+                            </h1>
+                            <h5>Your Wish List is currently Emply , please add some products to your wishlist :(</h5>
+                            <div class="redirect-link-wrapper u-s-p-t-25">
+                                <a class="redirect-link" href="custom-del-page.php">
+                                    <span>Return to Shop</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -82,14 +104,14 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 <?php } else { ?>
 
 
-<!-- Wishlist-Page -->
+<!-- User is not logged in , tell him to do so to add things in the wishlist  -->
 <div class="page-wishlist" style="margin-bottom:300px;">
     <div class="vertical-center">
         <div class="text-center">
             <h1>Em
                 <i class="fas fa-child"></i>ty!
             </h1>
-            <h5>No Products were added to the wishlist.</h5>
+            <h5>You Need To Login To be Able to Add Items to your wishlist :(</h5>
             <div class="redirect-link-wrapper u-s-p-t-25">
                 <a class="redirect-link" href="custom-del-page.php">
                     <span>Return to Shop</span>
