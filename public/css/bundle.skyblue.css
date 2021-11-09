@@ -426,21 +426,16 @@ body {
   top: 0;
   bottom: 0;
   width: 30px;
-  height: 50px;
+  height: 80px;
   line-height: 80px;
   font-size: 14px;
-  background-color: #141414;
+  background-color: #272727;
   cursor: pointer;
   margin: auto 0;
   transition: opacity .6s ease-in;
-
   opacity: 0; }
   .product-slider-previous i, .product-slider-next i {
-    color: var(--primary); 
-   padding-top: 50%;
-  
-    
-}
+    color: #d1d1d1; }
 
 .product-slider-previous {
   left: 0; }
