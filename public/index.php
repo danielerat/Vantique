@@ -117,20 +117,20 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                                 <?php foreach ($category as $c) { ?>
                                                 <li class="has-separator">
                                                     <a
-                                                        href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
+                                                        href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
                                                 </li>
                                                 <?php } ?>
                                                 <?php foreach ($scategory as $s) { ?>
                                                 <li class="has-separator">
                                                     <a
-                                                        href="search.php"><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
                                                 </li>
                                                 <?php } ?>
 
                                                 <?php foreach ($sscategory as $ss) { ?>
                                                 <li class="">
                                                     <a
-                                                        href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
                                                 </li>
                                                 <?php } ?>
                                             </ul>

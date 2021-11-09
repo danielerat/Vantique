@@ -443,10 +443,36 @@ class product extends DatabaseObject
         $sql .= ");";
         return static::find_by_sql($sql);
     }
+    // find product by a sub category
+    static public function find_all_by_SubCategory($id = [])
+    {
+        $sql = "SELECT product.id, product.productName, product.productPrice, product.productDesc, product.productThumb, product.productUnlimited, product.addedBy, product.productUploadDate from product inner join productSubCategory on productSubCategory.productId=product.id ";
+        $sql .= " where productSubCategory.subCategoryId in (";
+        $sql .= join(",", $id);
+        $sql .= ");";
+        return static::find_by_sql($sql);
+    }
+
+    // find product by a given sub sub category 
+    static public function find_all_by_subSubCategory($id = [])
+    {
+        $sql = "SELECT product.id, product.productName, product.productPrice, product.productDesc, product.productThumb, product.productUnlimited, product.addedBy, product.productUploadDate from product inner join productSubSubCategory on productSubSubCategory.productId=product.id ";
+        $sql .= " where productSubSubCategory.subSubCategoryId in (";
+        $sql .= join(",", $id);
+        $sql .= ");";
+        return static::find_by_sql($sql);
+    }
 
     static public function find_all_randomly()
     {
         $sql = "SELECT * FROM " . static::$table_name . " ORDER BY RAND()";
+        return static::find_by_sql($sql);
+    }
+    static public function search($keyword)
+    {
+        $sql = "SELECT * FROM product
+        WHERE MATCH (productName,productDesc)
+        AGAINST ('" . self::$db->escape_string($keyword) . "' IN NATURAL LANGUAGE MODE);";
         return static::find_by_sql($sql);
     }
 }

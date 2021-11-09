@@ -48,8 +48,7 @@ if (is_post_request()) {
         if ($result === true) {
             $new_id = $product->id;
             $session_admin->message("Product Was Successfully Added !");
-            //Everything went well , reset back the session variables   
-            // $$_SESSION['upload_status'] = false;
+
             redirect_to("view.php?id=" . $product->id);
         } else {
             //Not Inserted 

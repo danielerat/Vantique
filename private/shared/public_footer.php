@@ -395,7 +395,7 @@ $('.item-addCart').click(function() {
 
             if (response == true) {
                 // Custom function to display toasts
-                swaltoast("success", "Item Added To Your Wish List");
+                swaltoast("success", "Item Added To Your Cart List");
                 var currentCount = parseInt($('.cartItemCounterUpdate').text());
                 var newCount = parseInt(currentCount + 1);
                 $('.cartItemCounterUpdate').html(newCount);

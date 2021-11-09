@@ -4,6 +4,7 @@ include("../initialize.php");
 if (is_post_request()) {
 
     if ($session_user->is_logged_in()) {
+        // User Is logged in , add it to the database
         $username = $session_user->username;
         $product = $_POST['productId'];
         $quantity = $_POST['quantity'];
@@ -21,5 +22,6 @@ if (is_post_request()) {
             }
         }
     } else {
+        // User is not logged in then add it to the cookie istead 
     }
 }
