@@ -253,7 +253,8 @@ echo "</pre>";
                                     placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                             </div>
                         </div>
-                        <?php } else { //User Is Logged in  
+                        <?php } else {
+                            //User Is Logged in  
                             $has_address = Address::find_address_by_username($_SESSION['username']);
                             if ($has_address) { //U ser Is logged in ANd has An Address
                                 $user = User::find_by_username($session_user->username);
@@ -448,18 +449,21 @@ echo "</pre>";
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $cartDb = ($session_user->is_logged_in()) ? Cart::find_by_user_id($session_user->getUserId()) : $cart->cart_items;
+                                        $cartDb = ($session_user->is_logged_in()) ? Cart::find_by_user_id($session_user->username) : $cart->cart_items;
                                         $total = (float) 0;
+
                                         // Since What's Kept in the cart cookit is not an object , we have to make the convert
                                         // The Easiest way is to encode and decode back again in a json format ...lol 
                                         if (!$session_user->is_logged_in()) {
                                             $cartDb = json_encode($cartDb);
                                             $cartDb = json_decode($cartDb);
                                         }
-                                        foreach ($cartDb as $cart) {
-                                            $product = Product::find_by_id($cart->productId);
-                                            $total += (float) ($product->productPrice * $cart->quantity);
-                                            $Stock = ProductStock::find_by_product_id($product->id);
+
+                                        if ($cartDb) {
+                                            foreach ($cartDb as $cart) {
+                                                $product = Product::find_by_id($cart->productId);
+                                                $total += (float) ($product->productPrice * $cart->quantity);
+                                                $Stock = ProductStock::find_by_product_id($product->id);
                                         ?>
                                         <tr>
                                             <td>
@@ -509,6 +513,7 @@ echo "</pre>";
                                                 </h3>
                                             </td>
                                         </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                                 <div>

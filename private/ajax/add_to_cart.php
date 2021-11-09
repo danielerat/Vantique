@@ -23,5 +23,23 @@ if (is_post_request()) {
         }
     } else {
         // User is not logged in then add it to the cookie istead 
+
+        $username = $_COOKIE["PHPSESSID"];
+        $product = $_POST['productId'];
+        $quantity = $_POST['quantity'];
+
+        $item = ['user' => $username, 'productId' => $product, 'quantity' => $quantity];
+        print_r($item);
+        echo "status" . $cart->setCart(['item' => $item]);
+
+        // if ($cart->setCart(['item' => $item])) {
+        //     echo true;
+        //     exit;
+        // } else if ($cart->setCart(['item' => $item]) == "Exist") {
+        //     echo "Exist";
+        // } else {
+        //     echo false;
+        //     exit;
+        // }
     }
 }

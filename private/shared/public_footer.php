@@ -392,8 +392,9 @@ $('.item-addCart').click(function() {
             quantity: 1
         },
         success: function(response) {
-
+            alert(response);
             if (response == true) {
+
                 // Custom function to display toasts
                 swaltoast("success", "Item Added To Your Cart List");
                 var currentCount = parseInt($('.cartItemCounterUpdate').text());
@@ -402,7 +403,7 @@ $('.item-addCart').click(function() {
             } else if (response === 'Auth') {
                 swaltoast("info", "Please Login First ");
             } else if (response === 'Exist') {
-                swaltoast("info", "Item is Alread In Your Wish List :)");
+                swaltoast("info", "Item is Alread In Your Cart List :)");
             } else {
                 swaltoast("error", "Error Adding Your Product, try again later ");
             }

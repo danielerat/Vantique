@@ -42,22 +42,28 @@ class CartTemp
 
         if (empty($this->cart_items)) {
             $this->cart_items[$item['productId']] = $item;
+            setcookie("cart_items", json_encode($this->cart_items), time() + (86400 * 30 * 5), '/');
+            return true;
         } else {
             $match = false;
-            $position = 0;
+
             foreach ($this->cart_items as $key => $value) {
                 if ($value['productId'] === $item['productId']) {
-                    $position = $key;
                     $match = true;
                 }
             }
             if ($match) {
-                $this->cart_items[$position] = $item;
-            } else {
+                // If product Exist then simply Add 
+                return "Exist";
+            } else if (!$match) {
+                // The item is not in the cookie then add it now  
                 $this->cart_items[$item['productId']] = $item;
+                setcookie("cart_items", json_encode($this->cart_items), time() + (86400 * 30 * 5), '/');
+                return true;
             }
+            // The item was not added , therefore return false
+            return false;
         }
-        setcookie("cart_items", json_encode($this->cart_items), time() + (86400 * 30 * 5), '/');
     }
     public function getCart()
     {
