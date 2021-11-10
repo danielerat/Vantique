@@ -42,7 +42,7 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
                                     $Stock = ProductStock::find_by_product_id($product->id);
                                     $remainingStock = ($Stock->quantity === 'x') ? "10000" : "{$Stock->quantity}";
                                 ?>
-                            <tr class="animate__animated singleItemRow_<?php echo $product->id; ?> ">
+                            <tr class="animate__animated singleItemRow_<?php echo $cart->id; ?> ">
 
                                 <td>
                                     <div class="cart-anchor-image">
@@ -72,7 +72,7 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
                                     <div class="action-wrapper">
                                         <!-- <button class="button button-outline-secondary fas fa-sync"></button> -->
                                         <button class="button  button-outline-secondary fas fa-trash"
-                                            onclick="delete_cart_item(<?php echo $product->id; ?>)"></button>
+                                            onclick="delete_cart_item(<?php echo $cart->id; ?>)"></button>
                                     </div>
                                 </td>
                             </tr>
@@ -95,7 +95,7 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
 
                     </div>
                     <div class="button-area">
-                        <a href="shop-v1-root-category.html" class="continue">Continue Shopping</a>
+                        <a href="search.php" class="continue">Continue Shopping</a>
                         <a href="checkout.php" class="checkout">Proceed to Checkout</a>
                     </div>
                 </div>

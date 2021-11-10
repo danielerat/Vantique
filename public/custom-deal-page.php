@@ -67,72 +67,68 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 
 
 
-            <div class="product-item col-lg-3 col-md-6 col-sm-6">
-                <div class="item">
-                    <div class="image-container">
-                        <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>"
-                            style="overflow:hidden; height:280px;">
-                            <img class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
-                                alt="Product">
-                        </a>
-                        <div class="item-action-behaviors">
-                            <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick Look</a>
-                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
-                            <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to Wishlist</a>
-                            <a class="item-addCart" data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                <div class="product-item col-lg-3 col-md-6 col-sm-6">
+                    <div class="item">
+                        <div class="image-container">
+                            <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>" style="overflow:hidden; height:280px;">
+                                <img class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>" alt="Product">
+                            </a>
+                            <div class="item-action-behaviors">
+                                <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick Look</a>
+                                <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to Wishlist</a>
+                                <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="what-product-is">
-                            <ul class="bread-crumb">
-                                <?php foreach ($category as $c) { ?>
-                                <li class="has-separator">
-                                    <a
-                                        href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 20); ?></a>
-                                </li>
-                                <?php } ?>
-                                <?php foreach ($scategory as $s) { ?>
-                                <li class="has-separator">
-                                    <a href="search.php"><?php echo ellipse_of(strtoupper($s->name), 20); ?></a>
-                                </li>
-                                <?php } ?>
+                        <div class="item-content">
+                            <div class="what-product-is">
+                                <ul class="bread-crumb">
+                                    <?php foreach ($category as $c) { ?>
+                                        <li class="has-separator">
+                                            <a href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 20); ?></a>
+                                        </li>
+                                    <?php } ?>
+                                    <?php foreach ($scategory as $s) { ?>
+                                        <li class="has-separator">
+                                            <a href="search.php"><?php echo ellipse_of(strtoupper($s->name), 20); ?></a>
+                                        </li>
+                                    <?php } ?>
 
-                                <?php foreach ($sscategory as $ss) { ?>
-                                <li class="">
-                                    <a href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 20); ?></a>
-                                </li>
-                                <?php } ?>
-                            </ul>
-                            <h6 class="item-title">
-                                <a
-                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 90); ?></a>
-                            </h6>
-                            <div class="item-description">
-                                <p><?php echo  $p->productDesc; ?>
-                                </p>
-                            </div>
-                            <div class="item-stars">
-                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                    <span style='width:67px'></span>
+                                    <?php foreach ($sscategory as $ss) { ?>
+                                        <li class="">
+                                            <a href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 20); ?></a>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                                <h6 class="item-title">
+                                    <a href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 90); ?></a>
+                                </h6>
+                                <div class="item-description">
+                                    <p><?php echo  $p->productDesc; ?>
+                                    </p>
                                 </div>
-                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
+                                <div class="item-stars">
+                                    <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                        <span style='width:67px'></span>
+                                    </div>
+                                    <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
+                                </div>
+                            </div>
+                            <div class="price-template">
+                                <div class="item-new-price">
+                                    Frw <?php echo number_format($p->productPrice, 2); ?>
+                                </div>
                             </div>
                         </div>
-                        <div class="price-template">
-                            <div class="item-new-price">
-                                Frw <?php echo number_format($p->productPrice, 2); ?>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
+                        <?php
                         // If there is a review on a product , then display that it's New
                         if (productReview::count_by_product($p->id) >= 1) {
                             echo "<div class='tag new'><span>New</span></div>";
                         } elseif ($p->productPrice <= 10000) {
                             echo "<div class='tag hot'><span>HOT</span></div>";
                         } ?>
+                    </div>
                 </div>
-            </div>
 
 
             <?php } ?>

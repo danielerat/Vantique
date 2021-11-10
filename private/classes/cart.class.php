@@ -53,10 +53,10 @@ class Cart extends DatabaseObject
 
 
     // Delete a row in a database
-    public function delete_by_product_id($id)
+    public function delete_by_cart_id($id)
     {
         $sql = "DELETE FROM " . static::$table_name;
-        $sql .= " WHERE productId='" . self::$db->escape_string($id) . "' limit 1;";
+        $sql .= " WHERE id='" . self::$db->escape_string($id) . "' limit 1;";
         $result = self::$db->query($sql);
         return $result;
     }

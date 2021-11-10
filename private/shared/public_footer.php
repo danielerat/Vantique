@@ -380,7 +380,7 @@ $('.item-addwishlist').click(function() {
     });
 });
 // Add Item to The Cart
-$('.item-addCart').click(function() {
+$('.item-addCartBTN').click(function() {
     var productId = $(this).data('id');
     // getting the new value of the current cart so that we can increment it
 
@@ -392,9 +392,8 @@ $('.item-addCart').click(function() {
             quantity: 1
         },
         success: function(response) {
-            alert(response);
-            if (response == true) {
 
+            if (response == true) {
                 // Custom function to display toasts
                 swaltoast("success", "Item Added To Your Cart List");
                 var currentCount = parseInt($('.cartItemCounterUpdate').text());

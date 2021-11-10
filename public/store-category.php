@@ -259,7 +259,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                     <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                     <a class="item-mail" href="javascript:void(0)">Mail</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                    <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    <a class="item-addCart item-addCartBTN " href="javascript:void(0)">Add to Cart</a>
                                 </div>
                             </div>
                             <div class="item-content">
@@ -318,7 +318,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                     <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                     <a class="item-mail" href="javascript:void(0)">Mail</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                    <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    <a class="item-addCart item-addCartBTN " href="javascript:void(0)">Add to Cart</a>
                                 </div>
                             </div>
                             <div class="item-content">
@@ -373,7 +373,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                     <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                     <a class="item-mail" href="javascript:void(0)">Mail</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                    <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    <a class="item-addCart item-addCartBTN " href="javascript:void(0)">Add to Cart</a>
                                 </div>
                             </div>
                             <div class="item-content">
@@ -428,7 +428,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                     <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                     <a class="item-mail" href="javascript:void(0)">Mail</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                    <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    <a class="item-addCart item-addCartBTN " href="javascript:void(0)">Add to Cart</a>
                                 </div>
                             </div>
                             <div class="item-content">
@@ -487,7 +487,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                     <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                     <a class="item-mail" href="javascript:void(0)">Mail</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                    <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    <a class="item-addCart item-addCartBTN " href="javascript:void(0)">Add to Cart</a>
                                 </div>
                             </div>
                             <div class="item-content">
@@ -545,7 +545,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                     <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                     <a class="item-mail" href="javascript:void(0)">Mail</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                    <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    <a class="item-addCart item-addCartBTN " href="javascript:void(0)">Add to Cart</a>
                                 </div>
                             </div>
                             <div class="item-content">
@@ -599,7 +599,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                     <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                     <a class="item-mail" href="javascript:void(0)">Mail</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                    <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    <a class="item-addCart item-addCartBTN " href="javascript:void(0)">Add to Cart</a>
                                 </div>
                             </div>
                             <div class="item-content">
@@ -652,7 +652,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                     <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                     <a class="item-mail" href="javascript:void(0)">Mail</a>
                                     <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                    <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                    <a class="item-addCart item-addCartBTN " href="javascript:void(0)">Add to Cart</a>
                                 </div>
                             </div>
                             <div class="item-content">

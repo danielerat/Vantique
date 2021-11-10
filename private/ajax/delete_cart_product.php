@@ -24,7 +24,7 @@ if (is_ajax_request() && empty($errors)) {
         // User Is logged in , then remove it from db table
         $cart = new Cart;
 
-        if ($cart->delete_by_product_id($id)) {
+        if ($cart->delete_by_cart_id($id)) {
             echo json_encode(array('deleted' => "Success"));
             exit();
         } else {

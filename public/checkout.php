@@ -2,9 +2,26 @@
 require_once("../private/initialize.php");
 require_once(PRIVATE_PATH . "/shared/public_header.php");
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
+if (is_post_request()) {
+    $cartDb = ($session_user->is_logged_in()) ? Cart::find_by_user_id($session_user->username) : $cart->cart_items;
+    print_r($_POST);
+    $args = [];
+    $orderId = 'VT' . uniqid(rand(1, 10));
+    $_args['orderId'] = $orderId;
+    $_args['username'] = $session_user->username ?? $_COOKIE["PHPSESSID"];
+    $_args['deliveryMethod'] = $_POST['deliveryMethod'];
+    $_args['deliveryNote'] = $_POST['deliveryNote'];
+    $_args['payment'] = $_POST['payment'];
+    $order = new UserOrder($_args);
+    $result = $order->save();
+    if ($result) {
+        foreach ($cartDb as $p) {
+            $orderItem = new OrderItem(["orderId" => $orderId, "productId" => $p->id, "quantity" => $p->quantity]);
+            $orderItem->save();
+            $p->delete_by_cart_id($p->id);
+        }
+    }
+}
 ?>
 
 <!-- Checkout-Page -->
@@ -319,7 +336,7 @@ echo "</pre>";
                                         <span class="astk"> *</span>
                                     </label>
                                     <div class="select-box-wrapper">
-                                        <select class="select-box" name="delivery['method']" id="changeDeliveryMethod"
+                                        <select class="select-box" name="deliveryMethod" id="changeDeliveryMethod"
                                             required>
                                             <option disabled="disabled">Choose A Delivery Method...</option>
                                             <option value="0">Within 5 Days (Free)</option>
@@ -337,7 +354,7 @@ echo "</pre>";
                                     <label for="exampleFormControlTextarea1">Note:</label><br>
                                     <textarea class="text-area"
                                         placeholder="Any Specification? Comment or somethings you would like us to know before the delivery? Please , don't bother"
-                                        id="exampleFormControlTextarea1" rows="2" name='delivery[note]'></textarea>
+                                        id="exampleFormControlTextarea1" rows="2" name='deliveryNote'></textarea>
                                 </div>
                             </div>
 
@@ -522,14 +539,14 @@ echo "</pre>";
                                 </table>
                                 <div>
                                     <div class="u-s-m-b-13 =">
-                                        <input type="radio" class="radio-box" name="payment['cash']"
-                                            id="cash-on-delivery" checked>
+                                        <input type="radio" class="radio-box" name="payment" id="cash-on-delivery"
+                                            value="1" checked>
                                         <label class="label-text" for="cash-on-delivery"><i
                                                 class="fas fa-money-bill-wave-alt text-success"></i> Cash on
                                             Delivery</label>
                                     </div>
                                     <div class="u-s-m-b-13">
-                                        <input type="radio" class="radio-box" name="payment['momo']"
+                                        <input type="radio" class="radio-box" name="payment" value="2"
                                             id="credit-card-stripe" disabled="">
                                         <label class="label-text" for="credit-card-stripe"><i
                                                 class="fas fa-money-bill-wave-alt"
@@ -539,7 +556,7 @@ echo "</pre>";
                                             Airtel</label>
                                     </div>
                                     <div class="u-s-m-b-13">
-                                        <input type="radio" class="radio-box" name="payment['paypal']" id="paypal"
+                                        <input type="radio" class="radio-box" name="payment" value="3" id="paypal"
                                             disabled>
                                         <label class="label-text" for="paypal">
                                             <i class="fab fa-paypal  text-primary"> </i> Paypal</label>

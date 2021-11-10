@@ -1,6 +1,6 @@
 <?php
 require_once('../../../private/initialize.php');
-$page_title = "User Page";
+$page_title = "User Cart ({$_GET['user']})";
 include(SHARED_PATH . '/staff_header.php');
 
 $user = $_GET['user'] ?? NULL;

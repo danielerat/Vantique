@@ -54,6 +54,8 @@ require_once('classes/admin.class.php');
 require_once('classes/wishlist.class.php');
 require_once('classes/cart.class.php');
 require_once('classes/cartTemp.class.php');
+require_once('classes/userOrder.class.php');
+require_once('classes/orderItem.class.php');
 require_once('classes/user.class.php');
 require_once('classes/session.class.php');
 require_once('classes/sessionUser.class.php');
