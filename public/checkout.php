@@ -315,17 +315,17 @@ echo "</pre>";
                             <!-- Choose Shipping Methods -->
                             <div class="group-inline u-s-m-b-13 mt-5">
                                 <div class="group1 u-s-m-b-16">
-                                    <label for="select-state-extra">Delivery Method
+                                    <label for="changeDeliveryMethod">Delivery Method
                                         <span class="astk"> *</span>
                                     </label>
                                     <div class="select-box-wrapper">
-                                        <select class="select-box" name="delivery['method']" id="select-state-extra"
+                                        <select class="select-box" name="delivery['method']" id="changeDeliveryMethod"
                                             required>
-                                            <option selected="selected">Choose A Delivery Method...</option>
+                                            <option disabled="disabled">Choose A Delivery Method...</option>
+                                            <option value="0">Within 5 Days (Free)</option>
                                             <option value="1">Emergency, Within 30Minutes (2,000frw)</option>
                                             <option value="2">Within an hour (1,500frw)</option>
                                             <option value="3">Next Day(800frw)</option>
-                                            <option value="4">Within 5 Days (Free)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -409,8 +409,9 @@ echo "</pre>";
                                         <span class="astk"> *</span>
                                     </label>
                                     <div class="select-box-wrapper">
-                                        <select class="select-box" name="delivery['method']" id="select-state-extra">
-                                            <option selected="selected">Choose A Delivery Method...</option>
+                                        <select class="select-box" name="delivery['method']" id="select-state-extra"
+                                            required>
+                                            <option disabled="disabled">Choose A Delivery Method...</option>
                                             <option value="1">Emergency, Within 30Minutes (2,000frw)</option>
                                             <option value="2">Within an hour (1,500frw)</option>
                                             <option value="3">Next Day(800frw)</option>
@@ -451,7 +452,6 @@ echo "</pre>";
                                         <?php
                                         $cartDb = ($session_user->is_logged_in()) ? Cart::find_by_user_id($session_user->username) : $cart->cart_items;
                                         $total = (float) 0;
-
                                         // Since What's Kept in the cart cookit is not an object , we have to make the convert
                                         // The Easiest way is to encode and decode back again in a json format ...lol 
                                         if (!$session_user->is_logged_in()) {
@@ -473,7 +473,7 @@ echo "</pre>";
                                             </td>
                                             <td>
                                                 <h6 class="order-h6">
-                                                    <?php echo number_format($product->productPrice * $cart->quantity, 0); ?>
+                                                    <?php echo number_format($product->productPrice * $cart->quantity, 0) . " Frw"; ?>
                                                 </h6>
                                             </td>
                                         </tr>
@@ -483,8 +483,8 @@ echo "</pre>";
                                                 <h3 class="order-h3">Subtotal</h3>
                                             </td>
                                             <td>
-                                                <h3 class="order-h3">
-                                                    <?php echo number_format($total, 2); ?>
+                                                <h3 class="order-h3 text-truncate">
+                                                    <?php echo number_format($total, 2) . " Frw"; ?>
                                                 </h3>
                                             </td>
                                         </tr>
@@ -493,7 +493,7 @@ echo "</pre>";
                                                 <h3 class="order-h3">Shipping</h3>
                                             </td>
                                             <td class="">
-                                                <h3 class="order-h3">$0.00</h3>
+                                                <h3 class="order-h3 ThippingFee">Frw 0.00</h3>
                                             </td>
                                         </tr>
                                         <tr>
@@ -509,7 +509,11 @@ echo "</pre>";
                                                 <h3 class="order-h3">Total</h3>
                                             </td>
                                             <td>=
-                                                <h3 class="order-h3"><?php echo number_format($total, 2) . 'Frw'; ?>
+                                                <style>
+
+                                                </style>
+                                                <h3 class="order-h3 text-truncate TotalFee">
+                                                    <?php echo number_format($total, 1) . ' Frw'; ?>
                                                 </h3>
                                             </td>
                                         </tr>
@@ -518,24 +522,27 @@ echo "</pre>";
                                 </table>
                                 <div>
                                     <div class="u-s-m-b-13 =">
-                                        <input type="radio" class="radio-box" name="payment['method']"
-                                            id="cash-on-delivery" required>
+                                        <input type="radio" class="radio-box" name="payment['cash']"
+                                            id="cash-on-delivery" checked>
                                         <label class="label-text" for="cash-on-delivery"><i
                                                 class="fas fa-money-bill-wave-alt text-success"></i> Cash on
                                             Delivery</label>
                                     </div>
                                     <div class="u-s-m-b-13">
-                                        <input type="radio" class="radio-box" name="payment['method']"
-                                            id="credit-card-stripe">
+                                        <input type="radio" class="radio-box" name="payment['momo']"
+                                            id="credit-card-stripe" disabled="">
                                         <label class="label-text" for="credit-card-stripe"><i
                                                 class="fas fa-money-bill-wave-alt"
-                                                style="color: linear-gradient(red, orange, yellow);"></i> Momo Or
+                                                style="color: linear-gradient(red, orange, yellow);"></i>
+                                            Momo
+                                            Or
                                             Airtel</label>
                                     </div>
                                     <div class="u-s-m-b-13">
-                                        <input type="radio" class="radio-box" name="payment['method']" id="paypal">
-                                        <label class="label-text" for="paypal"><i class="fab fa-paypal  text-primary">
-                                            </i> Paypal</label>
+                                        <input type="radio" class="radio-box" name="payment['paypal']" id="paypal"
+                                            disabled>
+                                        <label class="label-text" for="paypal">
+                                            <i class="fab fa-paypal  text-primary"> </i> Paypal</label>
                                     </div>
                                 </div>
                                 <div class="u-s-m-b-13">
@@ -544,7 +551,7 @@ echo "</pre>";
                                         <a href="terms-and-conditions.html" class="u-c-brand">terms & conditions</a>
                                     </label>
                                 </div>
-                                <input type="submit" class="button button-outline-secondary" value="Place Order">
+                                <input type="submit" class="button button-outline-secondary" value="Confirm Order">
                             </div>
                         </div>
                         <!-- Checkout /- -->
@@ -575,6 +582,7 @@ $(document).ready(function() {
 });
 
 
+<?php if (!$has_address) { ?>
 province = document.querySelector("#selectProvince")
 province.onchange = () => {
     var selected = province.options[province.selectedIndex].value;
@@ -593,7 +601,6 @@ province.onchange = () => {
         xhr.send();
     }
 }
-
 district = document.querySelector("#SelectDistrict")
 district.onchange = () => {
     var selectedD = district.options[district.selectedIndex].value;
@@ -612,4 +619,30 @@ district.onchange = () => {
         xhr.send();
     }
 }
+
+<?php } ?>
+
+$('#changeDeliveryMethod').change(function() {
+
+    select = document.querySelector("#changeDeliveryMethod")
+
+    var selected = select.options[select.selectedIndex].value;
+    // getting the new value of the current cart so that we can increment it
+
+    $.ajax({
+        url: '../private/ajax/shipping_fee.php',
+        type: 'post',
+        data: {
+            type: selected
+        },
+        success: function(response) {
+
+            var result = JSON.parse(response);
+            if (result['total'] && result['fee']) {
+                document.querySelector(".TotalFee").innerHTML = result['total'];
+                document.querySelector(".ThippingFee").innerHTML = result['fee'];
+            }
+        }
+    });
+});
 </script>
