@@ -103,6 +103,32 @@ print_r($session_admin);
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrder"
+                    aria-expanded="true" aria-controls="collapseProduct">
+                    <i class="fas fa-receipt"></i>
+                    <span>Orders</span>
+                </a>
+                <div id="collapseOrder" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">User Cart</h6>
+                        <a class="collapse-item" href="user-cart.php">All Orders</a>
+                        <a class="collapse-item" href="user-wishlist.php">Pending</a>
+                        <a class="collapse-item" href="user-wishlist.php">Processing</a>
+                        <a class="collapse-item" href="user-wishlist.php">Shipping</a>
+                        <a class="collapse-item" href="user-wishlist.php">Delivery</a>
+                    </div>
+                </div>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="invoice.php">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>Tracking</span>
+                </a>
+            </li>
+
             <!--<li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
                     aria-expanded="true" aria-controls="collapseBootstrap">

@@ -73,7 +73,7 @@ function find_right_icon($icon)
     <meta name="author" content="">
     <title>Vantique - Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more</title>
     <!-- Standard Favicon -->
-    <!-- <link href="favicon.ico" rel="shortcut icon"> -->
+    <link href="staff/img/logo/logo2.png" rel="icon">
     <!-- Base Google Font for Web-app -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <!-- Google Fonts for Banners only -->
