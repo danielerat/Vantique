@@ -1,6 +1,6 @@
 <?php
 require_once('../../../private/initialize.php');
-$page_title = "All Orders";
+$page_title = "Orders Being Processed";
 include(SHARED_PATH . '/staff_header.php');
 
 echo display_session_message();
@@ -25,6 +25,7 @@ echo display_session_message();
 
 
 
+
 <!-- Invoice Example -->
 <div class="container ">
     <div class="row justify-content-center">
@@ -44,13 +45,13 @@ echo display_session_message();
 
                                 <th>Payment</th>
                                 <th>Made On</th>
-                                <th>Status</th>
+
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <?php $order = UserOrder::find_all();
+                            <?php $order = UserOrder::find_order_by_status(4);
 
                             foreach ($order as $o) {
 
@@ -63,14 +64,11 @@ echo display_session_message();
                                 <td><?php echo $o->username; ?></td>
                                 <td><?php echo $o->deliverySpeed($o->deliveryMethod); ?></td>
                                 <td><?php echo "<span class='btn btn-warning p-0 px-2'>Cash</span>" ?></td>
-                                <td><?php echo $o->addedOn; ?></td>
-                                <td>
-                                    <?php echo $o->getOrderStatus($o->status); ?>
-                                </td>
+                                <td class="text-truncate"><?php echo $o->addedOn; ?></td>
+
                                 <td class=" text-truncate">
-                                    <a href="#" class="m-1 btn btn-success btn-sm"><i class="fas fa-check"></i></a>
-                                    <a href="#" class="m-1 btn btn-info btn-sm"><i class="fas fa-info-circle"></i></a>
-                                    <a href="#" class="m-1 btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                    <a href="#" class="m-1 btn btn-success btn-sm"><i class="fas fa-check"></i>
+                                        Successful Delivery</a>
                                 </td>
                             </tr>
                             <?php } ?>

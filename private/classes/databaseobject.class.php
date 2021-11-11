@@ -147,7 +147,7 @@ class DatabaseObject
         //Joing them with , : brand='',model='',..... 
         $sql .= join(",", $attribute_pairs);
 
-        echo $sql .= " Where id='" . self::$db->escape_string($this->id) . "'";
+        $sql .= " Where id='" . self::$db->escape_string($this->id) . "'";
         // $result = self::$db->query($sql);
         // return $result;
     }

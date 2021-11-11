@@ -24,4 +24,52 @@ class UserOrder extends DatabaseObject
         $this->status = $args['status'] ?? "1";
         $this->addedOn = $args['addedOn'] ?? date('Y-m-d H:i:s');
     }
+
+    public function getOrderStatus($id)
+    {
+        switch ($id) {
+            case 1:
+                return "<span class='badge badge-danger'>Pending</span>";
+                break;
+            case 2:
+                return "<span class='badge badge-primary'>Processing</span>";
+                break;
+            case 3:
+                return "<span class='badge badge-warning'>Shipping</span>";
+                break;
+            case 4:
+                return "<span class='badge badge-success'>Delivered</span>";
+                break;
+            default:
+                return "<span class='badge badge-danger'>ERROR</span>";
+        }
+    }
+    public function deliverySpeed($id)
+    {
+        switch ($id) {
+            case 0:
+                return "<span class='badge badge-secondary'> Free </span>";
+                break;
+            case 1:
+                return "<span class='badge badge-secondary'>Emergency 30mn</span>";
+                break;
+            case 2:
+                return "<span class='badge badge-secondary'>Within An Hour</span>";
+                break;
+            case 3:
+                return "<span class='badge badge-secondary'>Next Day</span>";
+                break;
+            default:
+                return "<span class='badge badge-secondary'>ERROR</span>";
+        }
+    }
+
+
+    // find product by a given sub sub category 
+    static public function find_order_by_status($id)
+    {
+        $sql = "SELECT * from " . static::$table_name;
+        $sql .= " WHERE status='" . self::$db->escape_string($id) . "'";
+        return static::find_by_sql($sql);
+    }
 }

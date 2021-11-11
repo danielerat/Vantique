@@ -19,7 +19,7 @@ if (is_post_request()) {
             $orderItem = new OrderItem(["orderId" => $orderId, "productId" => $p->id, "quantity" => $p->quantity]);
             $orderItem->save();
             if ($p->delete_by_cart_id($p->id)) {
-                redirect_to("");
+                redirect_to("orderConfirmation.php");
             }
         }
     }

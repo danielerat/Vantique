@@ -51,14 +51,14 @@ if (is_post_request() && isset($_POST["register"])) {
                                         <label for="user-name-email">Username or Email
                                             <span class="astk">*</span>
                                         </label>
-                                        <input type="text" id="user-name-email" class="text-field" value="davidodo"
+                                        <input type="text" id="user-name-email" class="text-field" value=""
                                             name="username" placeholder="Username / Email" required>
                                     </div>
                                     <div class="u-s-m-b-30">
                                         <label for="login-password">Password
                                             <span class="astk">*</span>
                                         </label>
-                                        <input type="password" id="login-password" class="text-field" value="danielerat"
+                                        <input type="password" id="login-password" class="text-field" value=""
                                             name="password" placeholder="Password" required>
                                     </div>
                                     <div class="group-inline u-s-m-b-30">
@@ -203,7 +203,7 @@ function successlogin() {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 1000,
+        timer: 500,
         timerProgressBar: true,
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -213,7 +213,9 @@ function successlogin() {
     Toast.fire({
         icon: 'success',
         title: 'Signed in successfully'
-    })
+    }).then(function() {
+        window.location = "index.php";
+    });
 }
 
 

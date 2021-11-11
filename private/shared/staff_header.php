@@ -112,10 +112,10 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Cart</h6>
                         <a class="collapse-item" href="orders.php">All Orders</a>
-                        <a class="collapse-item" href="user-wishlist.php">Pending</a>
-                        <a class="collapse-item" href="user-wishlist.php">Processing</a>
-                        <a class="collapse-item" href="user-wishlist.php">Shipping</a>
-                        <a class="collapse-item" href="user-wishlist.php">Delivery</a>
+                        <a class="collapse-item" href="pending-order.php">Pending</a>
+                        <a class="collapse-item" href="processing-order.php">Processing</a>
+                        <a class="collapse-item" href="shipping-order.php">Shipping</a>
+                        <a class="collapse-item" href="delivered-order.php">Delivery</a>
                     </div>
                 </div>
 
