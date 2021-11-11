@@ -356,7 +356,7 @@ $('.quick-view-product').click(function() {
 });
 
 // Add Item to The wishlist
-$('.item-addwishlist').click(function() {
+$('.item-addwishlistBTN').click(function() {
     var productId = $(this).data('id');
     $.ajax({
         url: '../private/ajax/add_to_wishlist.php',

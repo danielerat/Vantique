@@ -1,5 +1,4 @@
 <?php require_login();
-print_r($session_admin);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -112,7 +111,7 @@ print_r($session_admin);
                 <div id="collapseOrder" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Cart</h6>
-                        <a class="collapse-item" href="user-cart.php">All Orders</a>
+                        <a class="collapse-item" href="orders.php">All Orders</a>
                         <a class="collapse-item" href="user-wishlist.php">Pending</a>
                         <a class="collapse-item" href="user-wishlist.php">Processing</a>
                         <a class="collapse-item" href="user-wishlist.php">Shipping</a>

@@ -335,7 +335,7 @@ function find_right_icon($icon)
                                                 $show_banner = false;
                                             ?>
                                             <li class="js-backdrop">
-                                                <a href="shop-v1-root-category.php">
+                                                <a href="search.php?category=<?php echo $c->id; ?>">
                                                     <?php echo find_right_icon("{$c->categoryName}") ?>
                                                     <?php echo $c->categoryName; ?>
                                                     <i class="ion ion-ios-arrow-forward"></i>
@@ -358,14 +358,14 @@ function find_right_icon($icon)
                                                             <ul class="v-level-2">
                                                                 <li>
                                                                     <a
-                                                                        href="shop-v2-sub-category.php"><?php echo $subC->name; ?></a>
+                                                                        href=search.php?<?php echo "category=" . $c->id . "&sub-category=" . $subC->id ?>><?php echo $subC->name; ?></a>
                                                                     <ul>
 
                                                                         <!-- Find All Sub Categories Accordingly to the Category -->
                                                                         <?php foreach (SubSubCategory::find_by_parent($subC->id) as $subSubC) { ?>
                                                                         <li>
                                                                             <a
-                                                                                href="shop-v3-sub-sub-category.php"><?php echo $subSubC->name; ?></a>
+                                                                                href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $subC->id . "&sub-sub-category=" . $subSubC->id; ?>'><?php echo $subSubC->name; ?></a>
                                                                         </li>
                                                                         <?php } ?>
                                                                     </ul>

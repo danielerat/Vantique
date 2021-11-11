@@ -6,7 +6,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 ?>
 <!-- Main-Slider -->
 <script>
-    document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-close');
+document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-close');
 </script>
 
 <div class="default-height ph-item">
@@ -90,66 +90,77 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                     $size = Size::find_product_category($p->id);
                                 ?>
 
-                                    <div class="item">
-                                        <div class="image-container">
-                                            <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>" style="overflow:hidden; height:280px;">
-                                                <img class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>" alt="Product">
-                                            </a>
-                                            <div class="item-action-behaviors">
-                                                <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick
-                                                    Look</a>
-                                                <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
-                                                <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to
-                                                    Wishlist</a>
-                                                <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>' data-id='<?php echo $p->id; ?>'>Add to
-                                                    Cart</a>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link"
+                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                            style="overflow:hidden; height:280px;">
+                                            <img class="img-fluid"
+                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                                alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look quick-view-product"
+                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                Look</a>
+                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                            <a class="item-addwishlist item-addwishlistBTN"
+                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'
+                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <?php foreach ($category as $c) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                                <?php foreach ($scategory as $s) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
+                                                </li>
+                                                <?php } ?>
+
+                                                <?php foreach ($sscategory as $ss) { ?>
+                                                <li class="">
+                                                    <a
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a
+                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
+                                            </h6>
+
+                                            <div class="item-stars">
+                                                <div class=' star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width: 65px;'></span>
+                                                </div>
+                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                             </div>
                                         </div>
-                                        <div class="item-content">
-                                            <div class="what-product-is">
-                                                <ul class="bread-crumb">
-                                                    <?php foreach ($category as $c) { ?>
-                                                        <li class="has-separator">
-                                                            <a href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
-                                                        </li>
-                                                    <?php } ?>
-                                                    <?php foreach ($scategory as $s) { ?>
-                                                        <li class="has-separator">
-                                                            <a href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
-                                                        </li>
-                                                    <?php } ?>
-
-                                                    <?php foreach ($sscategory as $ss) { ?>
-                                                        <li class="">
-                                                            <a href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
-                                                        </li>
-                                                    <?php } ?>
-                                                </ul>
-                                                <h6 class="item-title">
-                                                    <a href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
-                                                </h6>
-
-                                                <div class="item-stars">
-                                                    <div class=' star' title="4.5 out of 5 - based on 23 Reviews">
-                                                        <span style='width: 65px;'></span>
-                                                    </div>
-                                                    <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
-                                                </div>
-                                            </div>
-                                            <div class="price-template">
-                                                <div class="item-new-price">
-                                                    Frw <?php echo number_format($p->productPrice, 2); ?>
-                                                </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                Frw <?php echo number_format($p->productPrice, 2); ?>
                                             </div>
                                         </div>
-                                        <?php
+                                    </div>
+                                    <?php
                                         // If there is a review on a product , then display that it's New
                                         if (productReview::count_by_product($p->id) >= 1) {
                                             echo "<div class='tag new'><span>New</span></div>";
                                         } elseif ($p->productPrice <= 10000) {
                                             echo "<div class='tag hot'><span>HOT</span></div>";
                                         } ?>
-                                    </div>
+                                </div>
 
                                 <?php } ?>
 
@@ -183,66 +194,77 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                     $size = Size::find_product_category($p->id);
                                 ?>
 
-                                    <div class="item">
-                                        <div class="image-container">
-                                            <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>" style="overflow:hidden; height:280px;">
-                                                <img class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>" alt="Product">
-                                            </a>
-                                            <div class="item-action-behaviors">
-                                                <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick
-                                                    Look</a>
-                                                <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
-                                                <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to
-                                                    Wishlist</a>
-                                                <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>' data-id='<?php echo $p->id; ?>'>Add to
-                                                    Cart</a>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link"
+                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                            style="overflow:hidden; height:280px;">
+                                            <img class="img-fluid"
+                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                                alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look quick-view-product"
+                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                Look</a>
+                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                            <a class="item-addwishlist item-addwishlistBTN"
+                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'
+                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <?php foreach ($category as $c) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                                <?php foreach ($scategory as $s) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href="search.php"><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
+                                                </li>
+                                                <?php } ?>
+
+                                                <?php foreach ($sscategory as $ss) { ?>
+                                                <li class="">
+                                                    <a
+                                                        href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a
+                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
+                                            </h6>
+
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width: 65px;'></span>
+                                                </div>
+                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                             </div>
                                         </div>
-                                        <div class="item-content">
-                                            <div class="what-product-is">
-                                                <ul class="bread-crumb">
-                                                    <?php foreach ($category as $c) { ?>
-                                                        <li class="has-separator">
-                                                            <a href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
-                                                        </li>
-                                                    <?php } ?>
-                                                    <?php foreach ($scategory as $s) { ?>
-                                                        <li class="has-separator">
-                                                            <a href="search.php"><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
-                                                        </li>
-                                                    <?php } ?>
-
-                                                    <?php foreach ($sscategory as $ss) { ?>
-                                                        <li class="">
-                                                            <a href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
-                                                        </li>
-                                                    <?php } ?>
-                                                </ul>
-                                                <h6 class="item-title">
-                                                    <a href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
-                                                </h6>
-
-                                                <div class="item-stars">
-                                                    <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                        <span style='width: 65px;'></span>
-                                                    </div>
-                                                    <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
-                                                </div>
-                                            </div>
-                                            <div class="price-template">
-                                                <div class="item-new-price">
-                                                    Frw <?php echo number_format($p->productPrice, 2); ?>
-                                                </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                Frw <?php echo number_format($p->productPrice, 2); ?>
                                             </div>
                                         </div>
-                                        <?php
+                                    </div>
+                                    <?php
                                         // If there is a review on a product , then display that it's New
                                         if (productReview::count_by_product($p->id) >= 1) {
                                             echo "<div class='tag new'><span>New</span></div>";
                                         } elseif ($p->productPrice <= 10000) {
                                             echo "<div class='tag hot'><span>HOT</span></div>";
                                         } ?>
-                                    </div>
+                                </div>
 
                                 <?php } ?>
 
@@ -269,64 +291,74 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                     $size = Size::find_product_category($p->id);
                                 ?>
 
-                                    <div class="item">
-                                        <div class="image-container">
-                                            <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>" style="overflow:hidden; height:280px;">
-                                                <img class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>" alt="Product">
-                                            </a>
-                                            <div class="item-action-behaviors">
-                                                <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick
-                                                    Look</a>
-                                                <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
-                                                <a class="item-addwishlist">Add to Wishlist</a>
-                                                <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link"
+                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                            style="overflow:hidden; height:280px;">
+                                            <img class="img-fluid"
+                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                                alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look quick-view-product"
+                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                Look</a>
+                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to Wishlist</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <?php foreach ($category as $c) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                                <?php foreach ($scategory as $s) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href="search.php"><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
+                                                </li>
+                                                <?php } ?>
+
+                                                <?php foreach ($sscategory as $ss) { ?>
+                                                <li class="">
+                                                    <a
+                                                        href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a
+                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
+                                            </h6>
+
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width: 65px;'></span>
+                                                </div>
+                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                             </div>
                                         </div>
-                                        <div class="item-content">
-                                            <div class="what-product-is">
-                                                <ul class="bread-crumb">
-                                                    <?php foreach ($category as $c) { ?>
-                                                        <li class="has-separator">
-                                                            <a href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
-                                                        </li>
-                                                    <?php } ?>
-                                                    <?php foreach ($scategory as $s) { ?>
-                                                        <li class="has-separator">
-                                                            <a href="search.php"><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
-                                                        </li>
-                                                    <?php } ?>
-
-                                                    <?php foreach ($sscategory as $ss) { ?>
-                                                        <li class="">
-                                                            <a href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
-                                                        </li>
-                                                    <?php } ?>
-                                                </ul>
-                                                <h6 class="item-title">
-                                                    <a href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
-                                                </h6>
-
-                                                <div class="item-stars">
-                                                    <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                        <span style='width: 65px;'></span>
-                                                    </div>
-                                                    <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
-                                                </div>
-                                            </div>
-                                            <div class="price-template">
-                                                <div class="item-new-price">
-                                                    Frw <?php echo number_format($p->productPrice, 2); ?>
-                                                </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                Frw <?php echo number_format($p->productPrice, 2); ?>
                                             </div>
                                         </div>
-                                        <?php
+                                    </div>
+                                    <?php
                                         // If there is a review on a product , then display that it's New
                                         if (productReview::count_by_product($p->id) >= 1) {
                                             echo "<div class='tag new'><span>New</span></div>";
                                         } elseif ($p->productPrice <= 10000) {
                                             echo "<div class='tag hot'><span>HOT</span></div>";
                                         } ?>
-                                    </div>
+                                </div>
 
                                 <?php } ?>
 
@@ -345,7 +377,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 <section class="section-maker">
     <div class="container">
         <div class="sec-maker-header text-center">
-            <span class="sec-maker-span-text">Men's Clothing</span>
+            <span class="sec-maker-span-text">Some Of Our Electronic Devices</span>
             <h3 class="sec-maker-h3 u-s-m-b-22">Hot Deals</h3>
             <span class="sec-maker-span-text">Ends in</span>
             <!-- Timing-Box -->
@@ -381,202 +413,92 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
         <!-- Carousel -->
         <div class="slider-fouc">
             <div class="products-slider owl-carousel" data-item="4">
+
+                <!-- Get all the Electronic Devicess from the database  -->
+                <?php
+                $clothing = Product::find_all_by_Category([3, 4, 5]);
+
+                foreach ($clothing as $p) {
+                    $category = Category::find_product_category($p->id);
+                    $scategory = SubCategory::find_product_category($p->id);
+                    $sscategory = SubSubCategory::find_product_category($p->id);
+
+                    $stock = ProductStock::find_by_product_id($p->id);
+                    $colors = Color::find_product_category($p->id);
+                    $size = Size::find_product_category($p->id);
+                ?>
+
                 <div class="item">
                     <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                        <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>"
+                            style="overflow:hidden; height:280px;">
+                            <img class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                alt="Product">
                         </a>
                         <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                            <a class="item-addwishlist">Add to Wishlist</a>
-                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to
+                            <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick
+                                Look</a>
+                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                            <a class="item-addwishlist item-addwishlistBTN" data-id='<?php echo $p->id; ?>'>Add to
+                                Wishlist</a>
+                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'
+                                data-id='<?php echo $p->id; ?>'>Add
+                                to
                                 Cart</a>
                         </div>
                     </div>
                     <div class="item-content">
                         <div class="what-product-is">
                             <ul class="bread-crumb">
+                                <?php foreach ($category as $c) { ?>
                                 <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
+                                    <a
+                                        href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
                                 </li>
+                                <?php } ?>
+                                <?php foreach ($scategory as $s) { ?>
                                 <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Outwear</a>
+                                    <a
+                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
                                 </li>
-                                <li>
-                                    <a href="shop-v3-sub-sub-category.php">Jackets</a>
+                                <?php } ?>
+
+                                <?php foreach ($sscategory as $ss) { ?>
+                                <li class="">
+                                    <a
+                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
                                 </li>
+                                <?php } ?>
                             </ul>
                             <h6 class="item-title">
-                                <a href="single-product.php">Maire Battlefield Jeep Men's Jacket</a>
+                                <a
+                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 25); ?></a>
                             </h6>
+
                             <div class="item-stars">
-                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                    <span style='width:0'></span>
+                                <div class=' star' title="4.5 out of 5 - based on 23 Reviews">
+                                    <span style='width: 65px;'></span>
                                 </div>
-                                <span>(0)</span>
+                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                             </div>
                         </div>
                         <div class="price-template">
                             <div class="item-new-price">
-                                $55.00
-                            </div>
-                            <div class="item-old-price">
-                                $60.00
+                                Frw <?php echo number_format($p->productPrice, 2); ?>
                             </div>
                         </div>
                     </div>
-                    <div class="tag hot">
-                        <span>HOT</span>
-                    </div>
+                    <?php
+                        // If there is a review on a product , then display that it's New
+                        if (productReview::count_by_product($p->id) >= 1) {
+                            echo "<div class='tag new'><span>New</span></div>";
+                        } elseif ($p->productPrice <= 10000) {
+                            echo "<div class='tag hot'><span>HOT</span></div>";
+                        } ?>
                 </div>
-                <div class="item">
-                    <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                        </a>
-                        <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                            <a class="item-addwishlist">Add to Wishlist</a>
-                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to
-                                Cart</a>
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="what-product-is">
-                            <ul class="bread-crumb">
-                                <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Outwear</a>
-                                </li>
-                                <li>
-                                    <a href="shop-v3-sub-sub-category.php">Jackets</a>
-                                </li>
-                            </ul>
-                            <h6 class="item-title">
-                                <a href="single-product.php">Fern Green Men's Jacket</a>
-                            </h6>
-                            <div class="item-stars">
-                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                    <span style='width:0'></span>
-                                </div>
-                                <span>(0)</span>
-                            </div>
-                        </div>
-                        <div class="price-template">
-                            <div class="item-new-price">
-                                $55.00
-                            </div>
-                            <div class="item-old-price">
-                                $60.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tag hot">
-                        <span>HOT</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                        </a>
-                        <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                            <a class="item-addwishlist">Add to Wishlist</a>
-                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to
-                                Cart</a>
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="what-product-is">
-                            <ul class="bread-crumb">
-                                <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Sunglasses</a>
-                                </li>
-                                <li>
-                                    <a href="shop-v3-sub-sub-category.php">Round</a>
-                                </li>
-                            </ul>
-                            <h6 class="item-title">
-                                <a href="single-product.php">Brown Dark Tan Round Double Bridge Sunglasses</a>
-                            </h6>
-                            <div class="item-stars">
-                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                    <span style='width:0'></span>
-                                </div>
-                                <span>(0)</span>
-                            </div>
-                        </div>
-                        <div class="price-template">
-                            <div class="item-new-price">
-                                $55.00
-                            </div>
-                            <div class="item-old-price">
-                                $60.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tag hot">
-                        <span>HOT</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="image-container">
-                        <a class="item-img-wrapper-link" href="single-product.php">
-                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                        </a>
-                        <div class="item-action-behaviors">
-                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                            <a class="item-addwishlist">Add to Wishlist</a>
-                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to
-                                Cart</a>
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <div class="what-product-is">
-                            <ul class="bread-crumb">
-                                <li class="has-separator">
-                                    <a href="shop-v1-root-category.php">Men's</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v2-sub-category.php">Sunglasses</a>
-                                </li>
-                                <li>
-                                    <a href="shop-v3-sub-sub-category.php">Round</a>
-                                </li>
-                            </ul>
-                            <h6 class="item-title">
-                                <a href="single-product.php">Black Round Double Bridge Sunglasses</a>
-                            </h6>
-                            <div class="item-stars">
-                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                    <span style='width:0'></span>
-                                </div>
-                                <span>(0)</span>
-                            </div>
-                        </div>
-                        <div class="price-template">
-                            <div class="item-new-price">
-                                $55.00
-                            </div>
-                            <div class="item-old-price">
-                                $60.00
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tag hot">
-                        <span>HOT</span>
-                    </div>
-                </div>
+
+                <?php } ?>
+
             </div>
         </div>
         <!-- Carousel /- -->
@@ -587,8 +509,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 <div class="banner-image-view-more">
     <div class="container">
         <div class="image-banner u-s-m-y-40">
-            <a href="shop-v1-root-category.php" class="mx-auto banner-hover effect-dark-opacity">
-                <img class="img-fluid" src="images/banners/ban-men.jpg" alt="Banner Image">
+            <a href="search.php" class="mx-auto banner-hover effect-dark-opacity">
+                <img class="img-fluid" src="images/banners/banner-home.jpg" alt="Banner Image">
             </a>
         </div>
         <div class="redirect-link-wrapper text-center u-s-p-t-25 u-s-p-b-80">
@@ -636,9 +558,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -688,9 +611,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -737,9 +661,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -785,9 +710,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -836,9 +762,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -887,9 +814,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -936,9 +864,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -984,9 +913,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1051,9 +981,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1102,9 +1033,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1151,9 +1083,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1198,9 +1131,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1299,9 +1233,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1349,9 +1284,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1396,9 +1332,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1443,9 +1380,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1493,9 +1431,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1544,9 +1483,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1592,9 +1532,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1640,9 +1581,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1707,9 +1649,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1758,9 +1701,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1806,9 +1750,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1853,9 +1798,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -1949,7 +1895,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                             <div class="col-lg-1 col-md-12">
                                 <ul class="nav tab-nav-style-2-a">
                                     <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="tab" href="#smart-phones" title="Smart Phones">
+                                        <a class="nav-link active" data-toggle="tab" href="#smart-phones"
+                                            title="Smart Phones">
                                             <i class="ion ion-ios-phone-portrait"></i>
                                         </a>
                                     </li>
@@ -1959,12 +1906,14 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#smart-watches" title="Smart Watches">
+                                        <a class="nav-link" data-toggle="tab" href="#smart-watches"
+                                            title="Smart Watches">
                                             <i class="ion ion-md-watch"></i>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#device-accessories" title="Device Accessories">
+                                        <a class="nav-link" data-toggle="tab" href="#device-accessories"
+                                            title="Device Accessories">
                                             <i class="ion ion-md-settings"></i>
                                         </a>
                                     </li>
@@ -1983,15 +1932,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2015,7 +1967,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                 </a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2037,15 +1990,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2068,7 +2024,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                     Color</a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2087,15 +2044,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2119,7 +2079,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                 </a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2141,15 +2102,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2173,7 +2137,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                 </a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2211,15 +2176,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2244,7 +2212,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                 </a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2266,15 +2235,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2299,7 +2271,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                 </a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2318,15 +2291,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2351,7 +2327,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                 </a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2373,15 +2350,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2406,7 +2386,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                 </a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2531,7 +2512,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#pc-and-accessories" title="PC & Accessories">
+                                        <a class="nav-link" data-toggle="tab" href="#pc-and-accessories"
+                                            title="PC & Accessories">
                                             <i class="ion ion-ios-settings"></i>
                                         </a>
                                     </li>
@@ -2541,12 +2523,14 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#cam-corder" title="Camera & Camcorders">
+                                        <a class="nav-link" data-toggle="tab" href="#cam-corder"
+                                            title="Camera & Camcorders">
                                             <i class="ion ion-md-camera"></i>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#audio-amplifiers" title="Audio & Amplifiers">
+                                        <a class="nav-link" data-toggle="tab" href="#audio-amplifiers"
+                                            title="Audio & Amplifiers">
                                             <i class="ion ion-md-microphone"></i>
                                         </a>
                                     </li>
@@ -2560,15 +2544,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2592,7 +2579,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                 </a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2614,15 +2602,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2645,7 +2636,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                     2017</a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2664,15 +2656,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2695,7 +2690,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                     15</a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2717,15 +2713,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2748,7 +2747,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                     1525</a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2786,15 +2786,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2818,7 +2821,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                     TV</a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2840,15 +2844,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2871,7 +2878,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                 <a href="single-product.php">TCL 4k LED TV</a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2890,15 +2898,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2922,7 +2933,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                 </a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -2944,15 +2956,18 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                 <div class="item">
                                                     <div class="image-container">
                                                         <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                                alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                                                            <a class="item-quick-look" data-toggle="modal"
+                                                                href="#quick-view">Quick Look</a>
                                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist">Add to
+                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                                 Wishlist
                                                             </a>
-                                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'>Add
                                                                 to
                                                                 Cart
                                                             </a>
@@ -2976,7 +2991,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                                                     TV</a>
                                                             </h6>
                                                             <div class="item-stars">
-                                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                                <div class='star'
+                                                                    title="0 out of 5 - based on 0 Reviews">
                                                                     <span style='width:0'></span>
                                                                 </div>
                                                                 <span>(0)</span>
@@ -3099,9 +3115,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -3145,9 +3162,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -3188,9 +3206,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -3231,9 +3250,10 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                             <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
                                             </a>
                                             <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist">Add to
+                                            <a class="item-addwishlist item-addwishlistBTN">Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
+                                                to Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -3421,24 +3441,31 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <!-- Product-zoom-area -->
                         <div class="zoom-area">
-                            <img id="zoom-pro-quick-view" class="img-fluid" src="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg" alt="Zoom Image">
+                            <img id="zoom-pro-quick-view" class="img-fluid" src="images/product/product@4x.jpg"
+                                data-zoom-image="images/product/product@4x.jpg" alt="Zoom Image">
                             <div id="gallery-quick-view" class="u-s-m-t-10">
-                                <a class="active" data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
+                                <a class="active" data-image="images/product/product@4x.jpg"
+                                    data-zoom-image="images/product/product@4x.jpg">
                                     <img src="images/product/product@2x.jpg" alt="Product">
                                 </a>
-                                <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
+                                <a data-image="images/product/product@4x.jpg"
+                                    data-zoom-image="images/product/product@4x.jpg">
                                     <img src="images/product/product@2x.jpg" alt="Product">
                                 </a>
-                                <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
+                                <a data-image="images/product/product@4x.jpg"
+                                    data-zoom-image="images/product/product@4x.jpg">
                                     <img src="images/product/product@2x.jpg" alt="Product">
                                 </a>
-                                <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
+                                <a data-image="images/product/product@4x.jpg"
+                                    data-zoom-image="images/product/product@4x.jpg">
                                     <img src="images/product/product@2x.jpg" alt="Product">
                                 </a>
-                                <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
+                                <a data-image="images/product/product@4x.jpg"
+                                    data-zoom-image="images/product/product@4x.jpg">
                                     <img src="images/product/product@2x.jpg" alt="Product">
                                 </a>
-                                <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
+                                <a data-image="images/product/product@4x.jpg"
+                                    data-zoom-image="images/product/product@4x.jpg">
                                     <img src="images/product/product@2x.jpg" alt="Product">
                                 </a>
                             </div>
@@ -3592,7 +3619,8 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                         <button class="button button-outline-secondary" type="submit">Add to
                                             cart</button>
                                         <button class="button button-outline-secondary far fa-heart u-s-m-l-6"></button>
-                                        <button class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button>
+                                        <button
+                                            class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button>
                                     </div>
                                 </form>
                             </div>

@@ -53,29 +53,31 @@ if (!isset($keyword)) {
                         $category = Category::find_all();
 
                         foreach ($category as $c) { ?>
-                            <li>
-                                <a href="search.php?category=<?php echo $c->id; ?>"><?php echo $c->categoryName; ?></a>
-                                <button class="button-icon ion ion-md-add js-open"></button>
-                                <ul class="<?php echo ($cat == $c->id) ? 'd-block' : ''; ?>">
-                                    <?php
+                        <li>
+                            <a href="search.php?category=<?php echo $c->id; ?>"><?php echo $c->categoryName; ?></a>
+                            <button class="button-icon ion ion-md-add js-open"></button>
+                            <ul class="<?php echo ($cat == $c->id) ? 'd-block' : ''; ?>">
+                                <?php
 
                                     foreach (SubCategory::find_by_parent($c->id) as $s) {
                                     ?>
+                                <li>
+                                    <a
+                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo $s->name; ?></a>
+                                    <button class="button-icon ion ion-md-add js-open"></button>
+                                    <ul class="<?php echo ($scat == $s->id) ? 'd-block' : ''; ?>">
+                                        <?php foreach (SubSubCategory::find_by_parent($s->id) as $ss) { ?>
                                         <li>
-                                            <a href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo $s->name; ?></a>
-                                            <button class="button-icon ion ion-md-add js-open"></button>
-                                            <ul class="<?php echo ($scat == $s->id) ? 'd-block' : ''; ?>">
-                                                <?php foreach (SubSubCategory::find_by_parent($s->id) as $ss) { ?>
-                                                    <li>
-                                                        <a class="<?php echo ($sscat == $ss->id) ? 'text-primary font-weight-bold' : ''; ?>" href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id; ?>'><?php echo $ss->name; ?></a>
-                                                    </li>
-                                                <?php } ?>
-
-                                            </ul>
+                                            <a class="<?php echo ($sscat == $ss->id) ? 'text-primary font-weight-bold' : ''; ?>"
+                                                href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id; ?>'><?php echo $ss->name; ?></a>
                                         </li>
-                                    <?php } ?>
-                                </ul>
-                            </li>
+                                        <?php } ?>
+
+                                    </ul>
+                                </li>
+                                <?php } ?>
+                            </ul>
+                        </li>
                         <?php } ?>
                     </ul>
                     </ul>
@@ -96,7 +98,8 @@ if (!isset($keyword)) {
                         <div class="price-filter"></div>
                         <!-- Range-Slider /- -->
                         <!-- Range-Manipulator -->
-                        <div class="price-slider-range" data-min="0" data-max="5000" data-default-low="0" data-default-high="3000" data-currency="$"></div>
+                        <div class="price-slider-range" data-min="0" data-max="5000" data-default-low="0"
+                            data-default-high="3000" data-currency="$"></div>
                         <!-- Range-Manipulator /- -->
                         <button type="submit" class="button button-primary">Filter</button>
                     </form>
@@ -163,69 +166,76 @@ if (!isset($keyword)) {
                         $size = Size::find_product_category($id); ?>
 
 
-                        <div class="product-item col-lg-4 col-md-6 col-sm-6">
-                            <div class="item">
-                                <div class="image-container">
-                                    <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>" style="overflow:hidden; height:280px;">
-                                        <img class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>" alt="Product">
-                                    </a>
-                                    <div class="item-action-behaviors">
-                                        <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick
-                                            Look</a>
-                                        <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
-                                        <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to Wishlist</a>
-                                        <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add to Cart</a>
-                                    </div>
+                    <div class="product-item col-lg-4 col-md-6 col-sm-6">
+                        <div class="item">
+                            <div class="image-container">
+                                <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>"
+                                    style="overflow:hidden; height:280px;">
+                                    <img class="img-fluid"
+                                        src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>" alt="Product">
+                                </a>
+                                <div class="item-action-behaviors">
+                                    <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick
+                                        Look</a>
+                                    <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                    <a class="item-addwishlist item-addwishlistBTN" data-id='<?php echo $p->id; ?>'>Add
+                                        to Wishlist</a>
+                                    <a class="item-addCart item-addCartBTN" data-id='<?php echo $p->id; ?>'>Add to
+                                        Cart</a>
                                 </div>
-                                <div class="item-content">
-                                    <div class="what-product-is">
-                                        <ul class="bread-crumb">
-                                            <?php foreach ($category as $c) { ?>
-                                                <li class="has-separator">
-                                                    <a href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 20); ?></a>
-                                                </li>
-                                            <?php } ?>
-                                            <?php foreach ($scategory as $s) { ?>
-                                                <li class="has-separator">
-                                                    <a href="search.php"><?php echo ellipse_of(strtoupper($s->name), 20); ?></a>
-                                                </li>
-                                            <?php } ?>
+                            </div>
+                            <div class="item-content">
+                                <div class="what-product-is">
+                                    <ul class="bread-crumb">
+                                        <?php foreach ($category as $c) { ?>
+                                        <li class="has-separator">
+                                            <a
+                                                href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 20); ?></a>
+                                        </li>
+                                        <?php } ?>
+                                        <?php foreach ($scategory as $s) { ?>
+                                        <li class="has-separator">
+                                            <a href="search.php"><?php echo ellipse_of(strtoupper($s->name), 20); ?></a>
+                                        </li>
+                                        <?php } ?>
 
-                                            <?php foreach ($sscategory as $ss) { ?>
-                                                <li class="">
-                                                    <a href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 20); ?></a>
-                                                </li>
-                                            <?php } ?>
-                                        </ul>
-                                        <h6 class="item-title">
-                                            <a href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 90); ?></a>
-                                        </h6>
-                                        <div class="item-description">
-                                            <p><?php echo  ellipse_of($p->productDesc, 200); ?>
-                                            </p>
-                                        </div>
-                                        <div class="item-stars">
-                                            <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                <span style='width:0'></span>
-                                            </div>
-                                            <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
-                                        </div>
+                                        <?php foreach ($sscategory as $ss) { ?>
+                                        <li class="">
+                                            <a
+                                                href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 20); ?></a>
+                                        </li>
+                                        <?php } ?>
+                                    </ul>
+                                    <h6 class="item-title">
+                                        <a
+                                            href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 90); ?></a>
+                                    </h6>
+                                    <div class="item-description">
+                                        <p><?php echo  ellipse_of($p->productDesc, 200); ?>
+                                        </p>
                                     </div>
-                                    <div class="price-template">
-                                        <div class="item-new-price">
-                                            Frw <?php echo number_format($p->productPrice, 2); ?>
+                                    <div class="item-stars">
+                                        <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                            <span style='width:0'></span>
                                         </div>
+                                        <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                     </div>
                                 </div>
-                                <?php
+                                <div class="price-template">
+                                    <div class="item-new-price">
+                                        Frw <?php echo number_format($p->productPrice, 2); ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
                                 // If there is a review on a product , then display that it's New
                                 if (productReview::count_by_product($p->id) >= 1) {
                                     echo "<div class='tag new'><span>New</span></div>";
                                 } elseif ($p->productPrice <= 10000) {
                                     echo "<div class='tag hot'><span>HOT</span></div>";
                                 } ?>
-                            </div>
                         </div>
+                    </div>
                     <?php } ?>
                 </div>
                 <!-- Row-of-Product-Container /- -->

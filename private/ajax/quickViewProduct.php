@@ -166,9 +166,11 @@ if (empty($product)) {
                         </div>
                     </div>
                     <div>
-                        <button class='button button-outline-secondary' type='submit'>Add to
+                        <button class='button button-outline-secondary item-addCartBTN'
+                            data-id='<?php echo $product->id; ?>'>Add to
                             cart</button>
-                        <button class='button button-outline-secondary far fa-heart u-s-m-l-6'></button>
+                        <button class='button button-outline-secondary far fa-heart u-s-m-l-6 item-addWishlistBTN'
+                            data-id='<?php echo $product->id; ?>'></button>
                         <button class='button button-outline-secondary far fa-envelope u-s-m-l-6'></button>
                     </div>
                     <div class='quick-social-media-wrapper u-s-m-b-22'>
@@ -210,3 +212,60 @@ if (empty($product)) {
 
 
 <?php } ?>
+<script>
+$('.item-addCartBTN').click(function() {
+    var productId = $(this).data('id');
+    // getting the new value of the current cart so that we can increment it
+
+    $.ajax({
+        url: '../private/ajax/add_to_cart.php',
+        type: 'post',
+        data: {
+            productId: productId,
+            quantity: 1
+        },
+        success: function(response) {
+            $('#quick-view-product').modal('hide');
+            if (response == true) {
+                // Custom function to display toasts
+                swaltoast("success", "Item Added To Your Cart List");
+                var currentCount = parseInt($('.cartItemCounterUpdate').text());
+                var newCount = parseInt(currentCount + 1);
+                $('.cartItemCounterUpdate').html(newCount);
+            } else if (response === 'Auth') {
+                swaltoast("info", "Please Login First ");
+            } else if (response === 'Exist') {
+                swaltoast("info", "Item is Alread In Your Cart List :)");
+            } else {
+                swaltoast("error", "Error Adding Your Product, try again later ");
+            }
+        }
+    });
+});
+
+// Add Item to The wishlist
+$('.item-addwishlistBTN').click(function() {
+    var productId = $(this).data('id');
+    $.ajax({
+        url: '../private/ajax/add_to_wishlist.php',
+        type: 'post',
+        data: {
+            productId: productId
+        },
+        success: function(response) {
+
+            if (response == true) {
+                // Custom function to display toasts
+                swaltoast("success", "Item Added To Your Wish List");
+            } else if (response === 'Auth') {
+                swaltoast("info", "Please Login First ");
+            } else if (response === 'Exist') {
+                swaltoast("info", "Item is Alread In Your Wish List :)");
+            } else {
+                swaltoast("error", "Error Adding Your Product, try again later ");
+            }
+        }
+    });
+});
+// Add Item
+</script>

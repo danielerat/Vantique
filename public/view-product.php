@@ -26,12 +26,16 @@ $size = Size::find_product_category($id);
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <!-- Product-zoom-area -->
                 <div class="zoom-area">
-                    <img id="zoom-pro" class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $product->productThumb; ?>" data-zoom-image="<?php echo  S_PRIVATE . '/uploads/' . $product->productThumb; ?>" alt="Zoom Image">
+                    <img id="zoom-pro" class="img-fluid"
+                        src="<?php echo  S_PRIVATE . '/uploads/' . $product->productThumb; ?>"
+                        data-zoom-image="<?php echo  S_PRIVATE . '/uploads/' . $product->productThumb; ?>"
+                        alt="Zoom Image">
                     <div id="gallery" class="u-s-m-t-10">
                         <?php foreach ($product_image as $img) { ?>
-                            <a class="" data-image="<?php echo S_PRIVATE . '/uploads/' . $img->image; ?>" data-zoom-image="<?php echo S_PRIVATE . '/uploads/' . $img->image; ?>">
-                                <img src="<?php echo S_PRIVATE . '/uploads/thumb/' . $img->image; ?>" alt="Product">
-                            </a>
+                        <a class="" data-image="<?php echo S_PRIVATE . '/uploads/' . $img->image; ?>"
+                            data-zoom-image="<?php echo S_PRIVATE . '/uploads/' . $img->image; ?>">
+                            <img src="<?php echo S_PRIVATE . '/uploads/thumb/' . $img->image; ?>" alt="Product">
+                        </a>
                         <?php } ?>
 
                     </div>
@@ -49,20 +53,20 @@ $size = Size::find_product_category($id);
                         </div>
                         <ul class="bread-crumb">
                             <?php foreach ($category as $c) { ?>
-                                <li class="has-separator">
-                                    <a href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 20); ?></a>
-                                </li>
+                            <li class="has-separator">
+                                <a href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 20); ?></a>
+                            </li>
                             <?php } ?>
                             <?php foreach ($scategory as $s) { ?>
-                                <li class="has-separator">
-                                    <a href="search.php"><?php echo ellipse_of(strtoupper($s->name), 20); ?></a>
-                                </li>
+                            <li class="has-separator">
+                                <a href="search.php"><?php echo ellipse_of(strtoupper($s->name), 20); ?></a>
+                            </li>
                             <?php } ?>
 
                             <?php foreach ($sscategory as $ss) { ?>
-                                <li class="">
-                                    <a href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 20); ?></a>
-                                </li>
+                            <li class="">
+                                <a href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 20); ?></a>
+                            </li>
                             <?php } ?>
                         </ul>
                         <div class="product-rating">
@@ -110,10 +114,10 @@ $size = Size::find_product_category($id);
                         </div>
                         <div class="left">
                             <?php if ($stock->quantity === 'x') { ?>
-                                <span class="text-success">Unlimited Stock</span>
+                            <span class="text-success">Unlimited Stock</span>
                             <?php } else { ?>
-                                <span>Only:</span>
-                                <span class="font-weight-bold text-primary"><?php echo $stock->quantity; ?> left</span>
+                            <span>Only:</span>
+                            <span class="font-weight-bold text-primary"><?php echo $stock->quantity; ?> left</span>
 
                             <?php } ?>
                         </div>
@@ -121,32 +125,32 @@ $size = Size::find_product_category($id);
                     <div class="section-5-product-variants u-s-p-y-14">
                         <h6 class="information-heading u-s-m-b-8">Product Variants:</h6>
                         <?php if ($colors) { ?>
-                            <div class="color u-s-m-b-11">
-                                <span>Available Color:</span>
-                                <div class="color-variant select-box-wrapper">
-                                    <select class="select-box product-color">
-                                        <?php foreach ($colors as $c) {
+                        <div class="color u-s-m-b-11">
+                            <span>Available Color:</span>
+                            <div class="color-variant select-box-wrapper">
+                                <select class="select-box product-color">
+                                    <?php foreach ($colors as $c) {
                                             echo  "<option value='$c->id'>$c->name</option>";
                                         }   ?>
-                                    </select>
-                                </div>
-                                <div><?php foreach ($colors as $c) {
+                                </select>
+                            </div>
+                            <div><?php foreach ($colors as $c) {
                                             echo "<span style='color:$c->hex_value;'> <i class='bg-dark border fa fa-dot-circle fa-3x'></i></span>";
                                         }
                                         ?></div>
-                            </div>
+                        </div>
                         <?php } ?>
                         <?php if ($size) { ?>
-                            <div class="sizes u-s-m-b-11">
-                                <span>Available Size:</span>
-                                <div class="size-variant select-box-wrapper">
-                                    <select class="select-box product-size">
-                                        <?php foreach ($size as $s) {
+                        <div class="sizes u-s-m-b-11">
+                            <span>Available Size:</span>
+                            <div class="size-variant select-box-wrapper">
+                                <select class="select-box product-size">
+                                    <?php foreach ($size as $s) {
                                             echo  "<option value='$s->id'>$s->name</option>";
                                         }   ?>
-                                    </select>
-                                </div>
+                                </select>
                             </div>
+                        </div>
                         <?php } ?>
                     </div>
                     <div class="section-6-social-media-quantity-actions u-s-p-y-14">
@@ -161,11 +165,11 @@ $size = Size::find_product_category($id);
                                 </div>
                             </div>
                             <div>
-                                <button class="button button-outline-secondary" type="submit">Add to cart</button>
-                                <button class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button>
-                                <button class=" far fa-heart u-s-m-l-6"></button>
+                                <button class=" item-addCartBTN" data-id='<?php echo $product->id; ?>'>Add to
+                                    cart</button>
+                                <i class="btn btn-primary far fa-heart u-s-m-l-6 item-addwishlistBTN"></i>
                             </div>
-
+                            <button></button>
                         </form>
                     </div>
                 </div>
@@ -197,8 +201,10 @@ $size = Size::find_product_category($id);
                             <div class="description-whole-container">
                                 <p class="desc-p u-s-m-b-26">
                                     <?php echo $product->productDesc; ?> </p>
-                                <img class="desc-img img-fluid u-s-m-b-26" src="<?php echo S_PRIVATE . '/uploads/' . $img->image; ?>" alt="Product">
-                                <iframe class="desc-iframe u-s-m-b-45" width="710" height="400" src="images/product/iframe-youtube.jpg" allowfullscreen></iframe>
+                                <img class="desc-img img-fluid u-s-m-b-26"
+                                    src="<?php echo S_PRIVATE . '/uploads/' . $img->image; ?>" alt="Product">
+                                <iframe class="desc-iframe u-s-m-b-45" width="710" height="400"
+                                    src="images/product/iframe-youtube.jpg" allowfullscreen></iframe>
                             </div>
                         </div>
                         <!-- Description-Tab /- -->
@@ -336,26 +342,33 @@ $size = Size::find_product_category($id);
                                                         <span id="your-stars" style='width:0'></span>
                                                     </div>
                                                     <label for="your-rating-value"></label>
-                                                    <input id="your-rating-value" type="text" class="text-field border-warning w-25" name="Review[star]" placeholder="0.0">
-                                                    <input id="your-rating-value" type="text" name="Review[productId]" value="<?php echo $id; ?>" hidden>
+                                                    <input id="your-rating-value" type="text"
+                                                        class="text-field border-warning w-25" name="Review[star]"
+                                                        placeholder="0.0">
+                                                    <input id="your-rating-value" type="text" name="Review[productId]"
+                                                        value="<?php echo $id; ?>" hidden>
                                                     <span id="star-comment"></span>
                                                 </div>
                                                 <label for="your-name">Name
                                                     <span class="astk"> *</span>
                                                 </label>
-                                                <input id="your-name" type="text" class="text-field" name="Review[names]" placeholder="Your Name">
+                                                <input id="your-name" type="text" class="text-field"
+                                                    name="Review[names]" placeholder="Your Name">
                                                 <label for="your-email">Email
                                                     <span class="astk"> *</span>
                                                 </label>
-                                                <input id="your-email" type="email" class="text-field" name="Review[email]" placeholder="Your Email">
+                                                <input id="your-email" type="email" class="text-field"
+                                                    name="Review[email]" placeholder="Your Email">
                                                 <label for="review-title">Review Title
                                                     <span class="astk"> *</span>
                                                 </label>
-                                                <input id="review-title" type="text" class="text-field" name="Review[title]" placeholder="Review Title">
+                                                <input id="review-title" type="text" class="text-field"
+                                                    name="Review[title]" placeholder="Review Title">
                                                 <label for="review-text-area">Review
                                                     <span class="astk"> *</span>
                                                 </label>
-                                                <textarea class="text-area u-s-m-b-8" id="review-text-area" name="Review[review]" placeholder="Review"></textarea>
+                                                <textarea class="text-area u-s-m-b-8" id="review-text-area"
+                                                    name="Review[review]" placeholder="Review"></textarea>
                                                 <button type='submit' class="button button-outline-secondary">
                                                     Submit Review
                                                 </button>
@@ -385,28 +398,28 @@ $size = Size::find_product_category($id);
                                     <!-- Review-Options /- -->
                                     <!-- All-Reviews -->
                                     <?php foreach (productReview::find_by_product_id($id) as $r) { ?>
-                                        <div class="reviewers">
-                                            <div class="review-data">
-                                                <div class="reviewer-name-and-date">
-                                                    <h6 class="reviewer-name">
-                                                        <?php echo $r->names; ?>
-                                                        <h6 class="review-posted-date"><?php echo $r->addedOn; ?></h6>
-                                                </div>
-                                                <div class="reviewer-stars-title-body">
-                                                    <div class="reviewer-stars">
-                                                        <div class="star">
-                                                            <span style='width:<?php echo ($r->star * 15); ?>px'></span>
-                                                        </div>
-                                                        <span class="review-title"><?php echo $r->title; ?>!</span>
-                                                    </div>
-                                                    <p class="review-body">
-                                                        <?php echo $r->review; ?>
-                                                    </p>
-                                                </div>
+                                    <div class="reviewers">
+                                        <div class="review-data">
+                                            <div class="reviewer-name-and-date">
+                                                <h6 class="reviewer-name">
+                                                    <?php echo $r->names; ?>
+                                                    <h6 class="review-posted-date"><?php echo $r->addedOn; ?></h6>
                                             </div>
-
-
+                                            <div class="reviewer-stars-title-body">
+                                                <div class="reviewer-stars">
+                                                    <div class="star">
+                                                        <span style='width:<?php echo ($r->star * 15); ?>px'></span>
+                                                    </div>
+                                                    <span class="review-title"><?php echo $r->title; ?>!</span>
+                                                </div>
+                                                <p class="review-body">
+                                                    <?php echo $r->review; ?>
+                                                </p>
+                                            </div>
                                         </div>
+
+
+                                    </div>
                                     <?php } ?>
                                     <!-- All-Reviews /- -->
                                     <!-- Pagination-Review -->
@@ -468,67 +481,76 @@ $size = Size::find_product_category($id);
 
                             foreach ($similar as $p) { ?>
 
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>" style="overflow:hidden; height:280px;">
-                                            <img class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick Look</a>
-                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
-                                            <a class="item-addwishlist" data-id='<?php echo $p->id; ?>' data-id='<?php echo $p->id; ?>'>Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " href="javascript:void(0)">Add to Cart</a>
-                                        </div>
+                            <div class="item">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>"
+                                        style="overflow:hidden; height:280px;">
+                                        <img class="img-fluid"
+                                            src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                            alt="Product">
+                                    </a>
+                                    <div class="item-action-behaviors">
+                                        <a class="item-quick-look quick-view-product"
+                                            data-id='<?php echo $p->id; ?>'>Quick Look</a>
+                                        <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                        <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'
+                                            data-id='<?php echo $p->id; ?>'>Add to
+                                            Wishlist</a>
+                                        <a class="item-addCart " href="javascript:void(0)">Add to Cart</a>
                                     </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <?php foreach ($category as $c) { ?>
-                                                    <li class="has-separator">
-                                                        <a href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 20); ?></a>
-                                                    </li>
-                                                <?php } ?>
-                                                <?php foreach ($scategory as $s) { ?>
-                                                    <li class="has-separator">
-                                                        <a href="search.php"><?php echo ellipse_of(strtoupper($s->name), 20); ?></a>
-                                                    </li>
-                                                <?php } ?>
+                                </div>
+                                <div class="item-content">
+                                    <div class="what-product-is">
+                                        <ul class="bread-crumb">
+                                            <?php foreach ($category as $c) { ?>
+                                            <li class="has-separator">
+                                                <a
+                                                    href="search.php"><?php echo  ellipse_of(strtoupper($c->categoryName), 20); ?></a>
+                                            </li>
+                                            <?php } ?>
+                                            <?php foreach ($scategory as $s) { ?>
+                                            <li class="has-separator">
+                                                <a
+                                                    href="search.php"><?php echo ellipse_of(strtoupper($s->name), 20); ?></a>
+                                            </li>
+                                            <?php } ?>
 
-                                                <?php foreach ($sscategory as $ss) { ?>
-                                                    <li class="">
-                                                        <a href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 20); ?></a>
-                                                    </li>
-                                                <?php } ?>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="view-product.php?id=<?php echo $p->id; ?>"><?php echo $p->productName; ?></a>
-                                            </h6>
-                                            <div class="item-description">
-                                                <p><?php echo  ellipse_of($product->productDesc, 80); ?>
-                                                </p>
-                                            </div>
-                                            <div class="item-stars">
-                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                    <span style='width:67px'></span>
-                                                </div>
-                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
-                                            </div>
+                                            <?php foreach ($sscategory as $ss) { ?>
+                                            <li class="">
+                                                <a
+                                                    href="search.php"><?php echo ellipse_of(strtoupper($ss->name), 20); ?></a>
+                                            </li>
+                                            <?php } ?>
+                                        </ul>
+                                        <h6 class="item-title">
+                                            <a
+                                                href="view-product.php?id=<?php echo $p->id; ?>"><?php echo $p->productName; ?></a>
+                                        </h6>
+                                        <div class="item-description">
+                                            <p><?php echo  ellipse_of($product->productDesc, 80); ?>
+                                            </p>
                                         </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                Frw <?php echo number_format($p->productPrice, 2); ?>
+                                        <div class="item-stars">
+                                            <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                <span style='width:67px'></span>
                                             </div>
+                                            <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                         </div>
                                     </div>
-                                    <?php
+                                    <div class="price-template">
+                                        <div class="item-new-price">
+                                            Frw <?php echo number_format($p->productPrice, 2); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
                                     // If there is a review on a product , then display that it's New
                                     if (productReview::count_by_product($p->id) >= 1) {
                                         echo "<div class='tag new'><span>New</span></div>";
                                     } elseif ($p->productPrice <= 10000) {
                                         echo "<div class='tag hot'><span>HOT</span></div>";
                                     } ?>
-                                </div>
+                            </div>
 
                             <?php } ?>
 
@@ -551,7 +573,7 @@ $size = Size::find_product_category($id);
                                         <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                         <a class="item-mail" href="javascript:void(0)">Mail</a>
                                         <a class="item-addwishlist" data-id='' href="javascript:void(0)">Add to Wishlist</a>
-                                        <a class="item-addCart item-addCartBTN " href="javascript:void(0)">Add to Cart</a>
+                                        <a class="item-addCart " href="javascript:void(0)">Add to Cart</a>
                                     </div>
                                 </div>
                                 <div class="item-content">
@@ -612,7 +634,7 @@ $size = Size::find_product_category($id);
                                         <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
                                         <a class="item-mail" href="javascript:void(0)">Mail</a>
                                         <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to Wishlist</a>
-                                        <a class="item-addCart item-addCartBTN " href="javascript:void(0)">Add to Cart</a>
+                                        <a class="item-addCart " href="javascript:void(0)">Add to Cart</a>
                                     </div>
                                 </div>
                                 <div class="item-content">
@@ -663,24 +685,24 @@ $size = Size::find_product_category($id);
 <!-- Single-Product-Full-Width-Page /- -->
 
 <script type='text/javascript'>
-    $('#submitReview').submit(function() {
-        var form = $(this);
-        var productId = $(this).data('id');
-        $.ajax({
-            url: '../private/ajax/add_review.php',
-            type: 'post',
-            data: form.serialize(),
-            success: function(response) {
-                if (response == true) {
-                    // Custom function to display toasts
-                    swaltoast("success", "This is really working");
-                } else {
-                    swaltoast("error", "Something Went Wrong, Try again later");
-                }
+$('#submitReview').submit(function() {
+    var form = $(this);
+    var productId = $(this).data('id');
+    $.ajax({
+        url: '../private/ajax/add_review.php',
+        type: 'post',
+        data: form.serialize(),
+        success: function(response) {
+            if (response == true) {
+                // Custom function to display toasts
+                swaltoast("success", "This is really working");
+            } else {
+                swaltoast("error", "Something Went Wrong, Try again later");
             }
-        });
-        event.preventDefault();
+        }
     });
+    event.preventDefault();
+});
 </script>
 
 <?php

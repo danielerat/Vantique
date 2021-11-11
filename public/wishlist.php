@@ -66,7 +66,9 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
                                 </td>
                                 <td>
                                     <div class="action-wrapper">
-                                        <button class="button button-outline-secondary">Add to Cart</button>
+                                        <button class="button button-outline-secondary item-addCartBTN"
+                                            data-id='<?php echo $p->id; ?>'>Add to
+                                            Cart</button>
                                         <button class="button button-outline-secondary fas fa-trash"
                                             onclick="delete_cart_item(<?php echo $p->id; ?>)"></button>
                                     </div>
