@@ -18,7 +18,9 @@ if (is_post_request()) {
         foreach ($cartDb as $p) {
             $orderItem = new OrderItem(["orderId" => $orderId, "productId" => $p->id, "quantity" => $p->quantity]);
             $orderItem->save();
-            $p->delete_by_cart_id($p->id);
+            if ($p->delete_by_cart_id($p->id)) {
+                redirect_to("");
+            }
         }
     }
 }

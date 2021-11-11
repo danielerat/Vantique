@@ -160,9 +160,10 @@
     <div class="responsive-search-container">
         <div class="container">
             <p>Start typing and press Enter to search</p>
-            <form class="responsive-search-form">
+            <form method="GET" action="search.php" class="responsive-search-form">
                 <label class="sr-only" for="search-text">Search</label>
-                <input id="search-text" type="text" class="responsive-search-field" placeholder="PLEASE SEARCH">
+                <input name='search' id="search-text" type="text" class="responsive-search-field"
+                    placeholder="PLEASE SEARCH">
                 <i class="fas fa-search"></i>
             </form>
         </div>

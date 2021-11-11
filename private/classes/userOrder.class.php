@@ -4,7 +4,7 @@ class UserOrder extends DatabaseObject
 {
 
     static protected $table_name = 'userOrder';
-    static protected $db_columns = ["id", "orderId", "username", "deliveryMethod", "deliveryNote", "payment", "addedOn"];
+    static protected $db_columns = ["id", "orderId", "username", "deliveryMethod", "deliveryNote", "payment", "status", "addedOn"];
 
     public $id;
     public $orderId;
@@ -12,6 +12,7 @@ class UserOrder extends DatabaseObject
     public $deliveryMethod;
     public $deliveryNote;
     public $payment;
+    public $status;
     public $addedOn;
     public function __construct($args = [])
     {
@@ -20,6 +21,7 @@ class UserOrder extends DatabaseObject
         $this->deliveryMethod = $args['deliveryMethod'] ?? "";
         $this->deliveryNote = $args['deliveryNote'] ?? "";
         $this->payment = $args['payment'] ?? "1";
+        $this->status = $args['status'] ?? "1";
         $this->addedOn = $args['addedOn'] ?? date('Y-m-d H:i:s');
     }
 }
