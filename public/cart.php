@@ -42,7 +42,7 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
                                     $Stock = ProductStock::find_by_product_id($product->id);
                                     $remainingStock = ($Stock->quantity === 'x') ? "10000" : "{$Stock->quantity}";
                                 ?>
-                            <tr class="animate__animated singleItemRow_<?php echo $cart->id; ?> ">
+                            <tr class="animate__animated singleItemRow_<?php echo ($cart->id) ?? $cart->productId; ?> ">
 
                                 <td>
                                     <div class="cart-anchor-image">
@@ -71,8 +71,14 @@ if ($session_user->is_logged_in() || isset($cart->cart_items)) {
                                 <td>
                                     <div class="action-wrapper">
                                         <!-- <button class="button button-outline-secondary fas fa-sync"></button> -->
+
+                                        <?php if ($session_user->is_logged_in()) { ?>
                                         <button class="button  button-outline-secondary fas fa-trash"
                                             onclick="delete_cart_item(<?php echo $cart->id; ?>)"></button>
+                                        <?php } else { ?>
+                                        <button class="button  button-outline-secondary fas fa-trash"
+                                            onclick="delete_cart_item(<?php echo $cart->productId; ?>)"></button>
+                                        <?php } ?>
                                     </div>
                                 </td>
                             </tr>
@@ -203,6 +209,7 @@ function delete_cart_item(id) {
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     let result = xhr.responseText;
+
                     console.log('Result: ' + result);
                     let json = JSON.parse(result);
                     if (json.hasOwnProperty('errors') && json.errors.length > 0) {
@@ -242,6 +249,14 @@ function delete_cart_item(id) {
     })
 }
 </script>
+
+
+
+
+
+
+
+
 
 <?php
 require_once(PRIVATE_PATH . "/shared/public_footer.php");

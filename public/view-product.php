@@ -165,11 +165,12 @@ $size = Size::find_product_category($id);
                                 </div>
                             </div>
                             <div>
-                                <button class=" item-addCartBTN" data-id='<?php echo $product->id; ?>'>Add to
-                                    cart</button>
-                                <i class="btn btn-primary far fa-heart u-s-m-l-6 item-addwishlistBTN"></i>
+                                <a class="btn btn-info text-white item-addCartBTN"
+                                    data-id='<?php echo $product->id; ?>'>Add
+                                    to cart</a>
+                                <i class="btn btn-primary far fa-heart u-s-m-l-6 item-addwishlistBTN"
+                                    data-id='<?php echo $product->id; ?>'></i>
                             </div>
-                            <button></button>
                         </form>
                     </div>
                 </div>
@@ -474,7 +475,7 @@ $size = Size::find_product_category($id);
                         <h3 class="sec-maker-h3">Similar Products</h3>
                     </div>
                     <div class="slider-fouc">
-                        <div class="products-slider owl-carousel bg-dark" data-item="3">
+                        <div class="products-slider owl-carousel bg-light" data-item="3">
 
                             <?php
                             $similar = Product::find_same_category($sscategory[0]->id);
@@ -496,7 +497,7 @@ $size = Size::find_product_category($id);
                                         <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'
                                             data-id='<?php echo $p->id; ?>'>Add to
                                             Wishlist</a>
-                                        <a class="item-addCart " href="javascript:void(0)">Add to Cart</a>
+                                        <a class="item-addCart item-addCartBTN">Add to Cart</a>
                                     </div>
                                 </div>
                                 <div class="item-content">
@@ -524,7 +525,7 @@ $size = Size::find_product_category($id);
                                         </ul>
                                         <h6 class="item-title">
                                             <a
-                                                href="view-product.php?id=<?php echo $p->id; ?>"><?php echo $p->productName; ?></a>
+                                                href="view-product.php?id=<?php echo $p->id; ?>"><?php echo  ellipse_of($p->productName, 80); ?></a>
                                         </h6>
                                         <div class="item-description">
                                             <p><?php echo  ellipse_of($product->productDesc, 80); ?>
@@ -617,67 +618,102 @@ $size = Size::find_product_category($id);
                 </div>
             </section>
             <!-- Similar-Products /- -->
+
+
             <!-- Recently-View-Products  -->
-            <section class="section-maker">
-                <div class="container">
-                    <div class="sec-maker-header text-center">
-                        <h3 class="sec-maker-h3">Recently View</h3>
-                    </div>
-                    <div class="slider-fouc">
-                        <div class="products-slider owl-carousel" data-item="4">
-                            <div class="item">
-                                <div class="image-container">
-                                    <a class="item-img-wrapper-link" href="single-product.html">
-                                        <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                    </a>
-                                    <div class="item-action-behaviors">
-                                        <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                        <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                        <a class="item-addwishlist" data-id='<?php echo $p->id; ?>'>Add to Wishlist</a>
-                                        <a class="item-addCart " href="javascript:void(0)">Add to Cart</a>
+            <div class="slider-fouc">
+                <div class="products-slider owl-carousel" data-item="4">
+
+                    <!-- Get all the Electronic Devicess from the database  -->
+                    <?php
+                    $clothing = Product::find_all_randomly();
+
+                    foreach ($clothing as $p) {
+                        $category = Category::find_product_category($p->id);
+                        $scategory = SubCategory::find_product_category($p->id);
+                        $sscategory = SubSubCategory::find_product_category($p->id);
+
+                        $stock = ProductStock::find_by_product_id($p->id);
+                        $colors = Color::find_product_category($p->id);
+                        $size = Size::find_product_category($p->id);
+                    ?>
+
+                    <div class="item">
+                        <div class="image-container">
+                            <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>"
+                                style="overflow:hidden; height:280px;">
+                                <img class="img-fluid" src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                    alt="Product">
+                            </a>
+                            <div class="item-action-behaviors">
+                                <a class="item-quick-look quick-view-product" data-id='<?php echo $p->id; ?>'>Quick
+                                    Look</a>
+                                <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                <a class="item-addwishlist item-addwishlistBTN" data-id='<?php echo $p->id; ?>'>Add to
+                                    Wishlist</a>
+                                <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'
+                                    data-id='<?php echo $p->id; ?>'>Add
+                                    to
+                                    Cart</a>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <div class="what-product-is">
+                                <ul class="bread-crumb">
+                                    <?php foreach ($category as $c) { ?>
+                                    <li class="has-separator">
+                                        <a
+                                            href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
+                                    </li>
+                                    <?php } ?>
+                                    <?php foreach ($scategory as $s) { ?>
+                                    <li class="has-separator">
+                                        <a
+                                            href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
+                                    </li>
+                                    <?php } ?>
+
+                                    <?php foreach ($sscategory as $ss) { ?>
+                                    <li class="">
+                                        <a
+                                            href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                    </li>
+                                    <?php } ?>
+                                </ul>
+                                <h6 class="item-title">
+                                    <a
+                                        href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 25); ?></a>
+                                </h6>
+
+                                <div class="item-stars">
+                                    <div class=' star' title="4.5 out of 5 - based on 23 Reviews">
+                                        <span style='width: 65px;'></span>
                                     </div>
+                                    <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                 </div>
-                                <div class="item-content">
-                                    <div class="what-product-is">
-                                        <ul class="bread-crumb">
-                                            <li class="has-separator">
-                                                <a href="shop-v1-root-category.html">Men's</a>
-                                            </li>
-                                            <li class="has-separator">
-                                                <a href="shop-v2-sub-category.html">Outwear</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-v3-sub-sub-category.html">Jackets</a>
-                                            </li>
-                                        </ul>
-                                        <h6 class="item-title">
-                                            <a href="single-product.html">Maire Battlefield Jeep Men's Jacket</a>
-                                        </h6>
-                                        <div class="item-stars">
-                                            <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                <span style='width:0'></span>
-                                            </div>
-                                            <span>(0)</span>
-                                        </div>
-                                    </div>
-                                    <div class="price-template">
-                                        <div class="item-new-price">
-                                            $55.00
-                                        </div>
-                                        <div class="item-old-price">
-                                            $60.00
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tag hot">
-                                    <span>HOT</span>
+                            </div>
+                            <div class="price-template">
+                                <div class="item-new-price">
+                                    Frw <?php echo number_format($p->productPrice, 2); ?>
                                 </div>
                             </div>
                         </div>
+                        <?php
+                            // If there is a review on a product , then display that it's New
+                            if (productReview::count_by_product($p->id) >= 1) {
+                                echo "<div class='tag new'><span>New</span></div>";
+                            } elseif ($p->productPrice <= 10000) {
+                                echo "<div class='tag hot'><span>HOT</span></div>";
+                            } ?>
                     </div>
+
+                    <?php } ?>
+
                 </div>
-            </section>
+            </div>
             <!-- Recently-View-Products /- -->
+
+
         </div>
         <!-- Different-Product-Section /- -->
     </div>
@@ -695,7 +731,7 @@ $('#submitReview').submit(function() {
         success: function(response) {
             if (response == true) {
                 // Custom function to display toasts
-                swaltoast("success", "This is really working");
+                swaltoast("success", "Review Sumbitted Successfully");
             } else {
                 swaltoast("error", "Something Went Wrong, Try again later");
             }

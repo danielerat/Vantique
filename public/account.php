@@ -7,7 +7,7 @@ if (is_post_request() && isset($_POST["register"])) {
     $user = new User($args);
     $result = $user->save();
     if ($result) {
-        $session->message($user->username . ", Accout Was Successfully Created !");
+        $session_user->message($user->username . ", Accout Was Successfully Created !");
         redirect_to("account.php");
     } else {
         echo display_errors($user->errors);

@@ -48,24 +48,27 @@ if (is_post_request()) {
                         <h6 class="collapse-h6">If you have shopped with us before, please enter your details in the
                             boxes below. If you are a new customer, please proceed to the Billing & Shipping section.
                         </h6>
-                        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                        <form form method="POST" action="<?php echo S_PRIVATE . "/user_auth_login.php"; ?>"
+                            id="login_form">
                             <div class="group-inline u-s-m-b-13">
                                 <div class="group-1 u-s-p-r-16">
                                     <label for="user-name-email">Username or Email
                                         <span class="astk">*</span>
                                     </label>
-                                    <input type="text" id="user-name-email" class="text-field"
-                                        placeholder="Username / Email">
+                                    <input type="text" id="user-name-email" class="text-field" value="" name="username"
+                                        placeholder="Username / Email" required>
                                 </div>
                                 <div class="group-2">
                                     <label for="password">Password
                                         <span class="astk">*</span>
                                     </label>
-                                    <input type="text" id="password" class="text-field" placeholder="Password">
+                                    <input type="password" id="login-password" class="text-field" value=""
+                                        name="password" placeholder="Password" required>
                                 </div>
                             </div>
                             <div class="u-s-m-b-13">
-                                <button type="submit" class="button button-outline-secondary">Login</button>
+                                <button class="button button-outline-secondary w-100" id="signin">Login</button>
+
                                 <input type="checkbox" class="check-box" id="remember-me-token">
                                 <label class="label-text" for="remember-me-token">Remember me</label>
                             </div>
@@ -663,5 +666,96 @@ $('#changeDeliveryMethod').change(function() {
             }
         }
     });
+});
+</script>
+
+
+
+<script>
+var button = document.querySelector("#signin");
+
+
+function disableSubmitButton() {
+    button.disabled = true;
+    button.classList.add("bg-danger");
+    button.innerHTML = 'Authenticationg...';
+}
+
+function enableSubmitButton() {
+    button.disabled = false;
+    button.innerHTML = 'Login';
+    button.classList.remove("bg-danger");
+}
+
+function displayErrors(errors) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-right',
+        showCloseButton: true,
+        showConfirmButton: false,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    Toast.fire({
+        icon: 'error',
+        title: 'Unknown Username Or Password'
+    })
+}
+
+function successlogin() {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    Toast.fire({
+        icon: 'success',
+        title: 'Signed in successfully'
+    }).then(function() {
+        window.location = "cart.php";
+    });
+}
+
+
+
+
+function login_user() {
+    disableSubmitButton();
+    var form = document.querySelector("#login_form");
+    var action = form.getAttribute("action");
+    // gather form data
+    var form_data = new FormData(form);
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', action, true);
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var result = xhr.responseText;
+            console.log('Result: ' + result);
+            var json = JSON.parse(result);
+            if (json.hasOwnProperty('Errors') && json.Errors.length > 0) {
+                displayErrors(json['Errors']);
+                enableSubmitButton();
+            } else {
+                enableSubmitButton();
+                successlogin();
+            }
+        }
+    };
+    xhr.send(form_data);
+}
+
+button.addEventListener("click", function(event) {
+    event.preventDefault();
+    login_user();
 });
 </script>
