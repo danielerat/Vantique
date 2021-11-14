@@ -3,12 +3,14 @@ require_once("../private/initialize.php");
 
 require_once(PRIVATE_PATH . "/shared/public_header.php");
 
+
 ?>
 
 <?php
 if ($session_user->is_logged_in() || isset($cart->cart_items)) {
 
 ?>
+
 
 <div class="page-cart u-s-p-t-80">
     <div class="container">

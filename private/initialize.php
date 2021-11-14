@@ -61,6 +61,7 @@ require_once('classes/session.class.php');
 require_once('classes/sessionUser.class.php');
 require_once('classes/rwanda.class.php');
 require_once('classes/address.class.php');
+require_once('classes/contact.class.php');
 /*
 require_once('classes/bicycle.class.php');
 require_once('classes/admin.class.php');

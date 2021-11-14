@@ -298,31 +298,25 @@
                                 <h6 class="dropdown-header">
                                     Message Center
                                 </h6>
+                                <?php
+                                $contact = contact::find_all();
+                                foreach ($contact as $c) {
+                                ?>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="../img/man.png" style="max-width: 60px" alt="">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been
-                                            having.</div>
-                                        <div class="small text-gray-500">Udin Cilok · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="../img/girl.png" style="max-width: 60px"
+                                        <img class="rounded-circle" src="../img/logo/logo2.png" style="max-width: 60px"
                                             alt="">
-                                        <div class="status-indicator bg-default"></div>
+                                        <div class="status-indicator bg-warning"></div>
                                     </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people
-                                            say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Jaenab · 2w</div>
+                                    <div class="font-weight-bold"><?php echo ellipse_of($c->message, 50) ?>
+                                        <div class="text-truncate"></div>
+                                        <div class="small text-gray">
+                                            <?php echo ellipse_of($c->names, 50) . " ." . date($c->addedOn); ?>
+                                        </div>
                                     </div>
                                 </a>
+                                <?php } ?>
+
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
                         </li>

@@ -2,7 +2,6 @@
 require_once("../private/initialize.php");
 
 require_once(PRIVATE_PATH . "/shared/public_header.php");
-
 ?>
 <!-- Contact-Page -->
 <div class="page-contact u-s-p-t-80">
@@ -11,33 +10,37 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="touch-wrapper">
                     <h1 class="contact-h1">Get In Touch With Us</h1>
-                    <form>
+                    <form id="#sendMessage" method="post">
                         <div class="group-inline u-s-m-b-30">
                             <div class="group-1 u-s-p-r-16">
-                                <label for="contact-name">Your Name
+                                <label for="contact-name">Your Names
                                     <span class="astk">*</span>
                                 </label>
-                                <input type="text" id="contact-name" class="text-field" placeholder="Name">
+                                <input type="text" id="contact-name" name="contact[names]" class="text-field"
+                                    placeholder="Name" required>
                             </div>
                             <div class="group-2">
                                 <label for="contact-email">Your Email
                                     <span class="astk">*</span>
                                 </label>
-                                <input type="text" id="contact-email" class="text-field" placeholder="Email">
+                                <input type="text" id="contact-email" name="contact[email]" class="text-field"
+                                    placeholder="Email" required>
                             </div>
                         </div>
                         <div class="u-s-m-b-30">
                             <label for="contact-subject">Subject
                                 <span class="astk">*</span>
                             </label>
-                            <input type="text" id="contact-subject" class="text-field" placeholder="Subject">
+                            <input type="text" id="contact-subject" name="contact[subject]" class="text-field"
+                                placeholder="Subject" required>
                         </div>
                         <div class="u-s-m-b-30">
                             <label for="contact-message">Message:</label>
-                            <textarea class="text-area" id="contact-message"></textarea>
+                            <textarea class="text-area" id="contact-message" name="contact[message]"
+                                required></textarea>
                         </div>
-                        <div class="u-s-m-b-30">
-                            <button type="submit" class="button button-outline-secondary">Send Message</button>
+                        <div class="">
+                            <button type="submit" class="button button-outline-secondary"> Send Message</button>
                         </div>
                     </form>
                 </div>
@@ -79,8 +82,31 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
 </div>
 <!-- Contact-Page /- -->
 
+
+
+
 <?php
 
 require_once(PRIVATE_PATH . "/shared/public_footer.php");
+
+if (is_post_request()) {
+
+
+    $args = $_POST["contact"];
+    $contact = new Contact($args);
+    if ($contact->save()) {
+        echo ' <script>
+        swaltoast("success", "Thank you for reaching us , we will be back to you ASAP  :)");
+        </script>';
+    } else {
+        echo '<script> swaltoast("error", "An Error occured , try again latter :(")</>';
+    }
+}
+
+
+?>
+
+<?php
+
 
 ?>
