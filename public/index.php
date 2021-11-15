@@ -1190,618 +1190,7 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
         </div>
     </div>
 </section>
-<!-- Toys-Hobbies-&-Robots /- -->
-<!-- Mobiles-&-Tablets -->
-<section class="section-maker">
-    <div class="container">
-        <div class="sec-maker-header text-center">
-            <h3 class="sec-maker-h3">Mobiles & Tablets</h3>
-            <ul class="nav tab-nav-style-1-a justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#mobiles-latest-products">Latest
-                        Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#mobiles-best-selling-products">Best Selling</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#mobiles-top-rating-products">Top Rating</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#mobiles-featured-products">Featured
-                        Products</a>
-                </li>
-            </ul>
-            <span class="sec-maker-span-text u-s-m-b-8 d-block">Select products in specific category</span>
-        </div>
-        <div class="wrapper-content">
-            <div class="outer-area-tab">
-                <div class="tab-content">
-                    <div class="tab-pane active show fade" id="mobiles-latest-products">
-                        <div class="row align-items-center">
-                            <div class="col-lg-1 col-md-12">
-                                <ul class="nav tab-nav-style-2-a">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="tab" href="#smart-phones"
-                                            title="Smart Phones">
-                                            <i class="ion ion-ios-phone-portrait"></i>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#tablets" title="Tablets">
-                                            <i class="ion ion-md-phone-landscape"></i>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#smart-watches"
-                                            title="Smart Watches">
-                                            <i class="ion ion-md-watch"></i>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#device-accessories"
-                                            title="Device Accessories">
-                                            <i class="ion ion-md-settings"></i>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#power-banks" title="Power Banks">
-                                            <i class="ion ion-md-battery-charging"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-11 col-md-12">
-                                <div class="tab-content">
-                                    <div class="tab-pane fade show active" id="smart-phones">
-                                        <div class="slider-fouc">
-                                            <div class="specific-category-slider owl-carousel" data-item="3">
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Mobiles
-                                                                        & Tablets
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Smartphones</a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Xiaomi Note 2 Black
-                                                                    Color
-                                                                </a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tag new">
-                                                        <span>NEW</span>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Mobiles
-                                                                        & Tablets
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Smartphones</a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Iphone X Silver
-                                                                    Color</a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Mobiles
-                                                                        & Tablets
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Smartphones</a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Samsung S7 Green
-                                                                    Metallic Color
-                                                                </a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tag sale">
-                                                        <span>SALE</span>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Mobiles
-                                                                        & Tablets
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Smartphones</a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Sony Xperia 3 Black
-                                                                    Color
-                                                                </a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tag discount">
-                                                        <span>-15%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="tablets">
-                                        <!-- Product Not Found -->
-                                        <div class="product-not-found">
-                                            <div class="not-found">
-                                                <h2>SORRY!</h2>
-                                                <h6>There is not any product in specific catalogue.</h6>
-                                            </div>
-                                        </div>
-                                        <!-- Product Not Found /- -->
-                                    </div>
-                                    <div class="tab-pane fade" id="smart-watches">
-                                        <div class="slider-fouc">
-                                            <div class="specific-category-slider owl-carousel" data-item="3">
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Mobiles
-                                                                        & Tablets
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Smartwatches
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Outatime Mix
-                                                                    Smartwatch
-                                                                </a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tag new">
-                                                        <span>NEW</span>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Mobiles
-                                                                        & Tablets
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Smartwatches
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Mombo Full Wrist
-                                                                    Smartwatch
-                                                                </a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Mobiles
-                                                                        & Tablets
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Smartwatches
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Apollo Sport Think
-                                                                    Smartwatch
-                                                                </a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tag sale">
-                                                        <span>SALE</span>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Mobiles
-                                                                        & Tablets
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Smartwatches
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Rhythm Pulse
-                                                                    Smartwatch
-                                                                </a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tag discount">
-                                                        <span>-15%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="device-accessories">
-                                        <!-- Product Not Found -->
-                                        <div class="product-not-found">
-                                            <div class="not-found">
-                                                <h2>SORRY!</h2>
-                                                <h6>There is not any product in specific catalogue.</h6>
-                                            </div>
-                                        </div>
-                                        <!-- Product Not Found /- -->
-                                    </div>
-                                    <div class="tab-pane fade" id="power-banks">
-                                        <!-- Product Not Found -->
-                                        <div class="product-not-found">
-                                            <div class="not-found">
-                                                <h2>SORRY!</h2>
-                                                <h6>There is not any product in specific catalogue.</h6>
-                                            </div>
-                                        </div>
-                                        <!-- Product Not Found /- -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="mobiles-best-selling-products">
-                        <!-- Product Not Found -->
-                        <div class="product-not-found">
-                            <div class="not-found">
-                                <h2>SORRY!</h2>
-                                <h6>There is not any product in specific catalogue.</h6>
-                            </div>
-                        </div>
-                        <!-- Product Not Found /- -->
-                    </div>
-                    <div class="tab-pane fade" id="mobiles-top-rating-products">
-                        <!-- Product Not Found -->
-                        <div class="product-not-found">
-                            <div class="not-found">
-                                <h2>SORRY!</h2>
-                                <h6>There is not any product in specific catalogue.</h6>
-                            </div>
-                        </div>
-                        <!-- Product Not Found /- -->
-                    </div>
-                    <div class="tab-pane fade" id="mobiles-featured-products">
-                        <!-- Product Not Found -->
-                        <div class="product-not-found">
-                            <div class="not-found">
-                                <h2>SORRY!</h2>
-                                <h6>There is not any product in specific catalogue.</h6>
-                            </div>
-                        </div>
-                        <!-- Product Not Found /- -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="redirect-link-wrapper text-center u-s-p-t-25 u-s-p-b-80">
-            <a class="redirect-link" href="search.php">
-                <span>View more on this category</span>
-            </a>
-        </div>
-    </div>
-</section>
-<!-- Mobiles-&-Tablets /- -->
-<!-- Consumer-Electronics -->
+
 <section class="section-maker">
     <div class="container">
         <div class="sec-maker-header text-center">
@@ -1845,8 +1234,8 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#tv" title="TV's">
-                                            <i class="ion ion-md-tv"></i>
+                                        <a class="nav-link" data-toggle="tab" href="#phones" title="TV's">
+                                            <i class="ion ion-ios-phone-portrait"></i>
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -1867,233 +1256,99 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="laptops">
                                         <div class="slider-fouc">
-                                            <div class="specific-category-slider owl-carousel" data-item="3">
+                                            <div class="products-slider owl-carousel" data-item="4">
+                                                <!-- Get all the Clothing from the database  -->
+                                                <?php
+                                                $accessory = Product::find_all_by_subCategory([25]);
+
+                                                foreach ($accessory as $p) {
+                                                    $category = Category::find_product_category($p->id);
+                                                    $scategory = SubCategory::find_product_category($p->id);
+                                                    $sscategory = SubSubCategory::find_product_category($p->id);
+
+                                                    $stock = ProductStock::find_by_product_id($p->id);
+                                                    $colors = Color::find_product_category($p->id);
+                                                    $size = Size::find_product_category($p->id);
+                                                ?>
+
                                                 <div class="item">
                                                     <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                        <a class="item-img-wrapper-link"
+                                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                                            style="overflow:hidden; height:280px;">
+                                                            <img class="img-fluid"
+                                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
                                                                 alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
+                                                            <a class="item-quick-look quick-view-product"
+                                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                                Look</a>
+                                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                                            <a class="item-addwishlist item-addwishlistBTN"
+                                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                                Wishlist</a>
                                                             <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
+                                                                data-id='<?php echo $p->id; ?>'
+                                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                                Cart</a>
                                                         </div>
                                                     </div>
                                                     <div class="item-content">
                                                         <div class="what-product-is">
                                                             <ul class="bread-crumb">
+                                                                <?php foreach ($category as $c) { ?>
                                                                 <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Consumer
-                                                                        Electronics
-                                                                    </a>
+                                                                    <a
+                                                                        href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
                                                                 </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Laptops</a>
+                                                                <?php } ?>
+                                                                <?php foreach ($scategory as $s) { ?>
+                                                                <li class="has-separator">
+                                                                    <a
+                                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
                                                                 </li>
+                                                                <?php } ?>
+
+                                                                <?php foreach ($sscategory as $ss) { ?>
+                                                                <li class="">
+                                                                    <a
+                                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                                                </li>
+                                                                <?php } ?>
                                                             </ul>
                                                             <h6 class="item-title">
-                                                                <a href="single-product.php">HP Pavilion 15
-                                                                    Notebook
-                                                                </a>
+                                                                <a
+                                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
                                                             </h6>
+
                                                             <div class="item-stars">
                                                                 <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
+                                                                    title="4.5 out of 5 - based on 23 Reviews">
+                                                                    <span style='width: 65px;'></span>
                                                                 </div>
-                                                                <span>(0)</span>
+                                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                                             </div>
                                                         </div>
                                                         <div class="price-template">
                                                             <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
+                                                                Frw <?php echo number_format($p->productPrice, 2); ?>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="tag new">
-                                                        <span>NEW</span>
-                                                    </div>
+                                                    <?php
+                                                        // If there is a review on a product , then display that it's New
+                                                        if (productReview::count_by_product($p->id) >= 1) {
+                                                            echo "<div class='tag new'><span>New</span></div>";
+                                                        } elseif ($p->productPrice <= 10000) {
+                                                            echo "<div class='tag hot'><span>HOT</span></div>";
+                                                        } ?>
                                                 </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Consumer
-                                                                        Electronics
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Laptops</a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Apple Macbook Pro
-                                                                    2017</a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Consumer
-                                                                        Electronics
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Laptops</a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Dell Inspiron
-                                                                    15</a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tag sale">
-                                                        <span>SALE</span>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Consumer
-                                                                        Electronics
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">Laptops</a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Dell Inspiron
-                                                                    1525</a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tag discount">
-                                                        <span>-15%</span>
-                                                    </div>
-                                                </div>
+
+                                                <?php } ?>
+
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -2107,237 +1362,101 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                         </div>
                                         <!-- Product Not Found /- -->
                                     </div>
-                                    <div class="tab-pane fade" id="tv">
+                                    <div class="tab-pane fade" id="phones">
                                         <div class="slider-fouc">
-                                            <div class="specific-category-slider owl-carousel" data-item="3">
+                                            <div class="products-slider owl-carousel" data-item="4">
+                                                <!-- Get all the Clothing from the database  -->
+                                                <?php
+                                                $accessory = Product::find_all_by_subCategory([22, 24]);
+
+                                                foreach ($accessory as $p) {
+                                                    $category = Category::find_product_category($p->id);
+                                                    $scategory = SubCategory::find_product_category($p->id);
+                                                    $sscategory = SubSubCategory::find_product_category($p->id);
+
+                                                    $stock = ProductStock::find_by_product_id($p->id);
+                                                    $colors = Color::find_product_category($p->id);
+                                                    $size = Size::find_product_category($p->id);
+                                                ?>
+
                                                 <div class="item">
                                                     <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
+                                                        <a class="item-img-wrapper-link"
+                                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                                            style="overflow:hidden; height:280px;">
+                                                            <img class="img-fluid"
+                                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
                                                                 alt="Product">
                                                         </a>
                                                         <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
+                                                            <a class="item-quick-look quick-view-product"
+                                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                                Look</a>
+                                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                                            <a class="item-addwishlist item-addwishlistBTN"
+                                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                                Wishlist</a>
                                                             <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
+                                                                data-id='<?php echo $p->id; ?>'
+                                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                                Cart</a>
                                                         </div>
                                                     </div>
                                                     <div class="item-content">
                                                         <div class="what-product-is">
                                                             <ul class="bread-crumb">
+                                                                <?php foreach ($category as $c) { ?>
                                                                 <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Consumer
-                                                                        Electronics
-                                                                    </a>
+                                                                    <a
+                                                                        href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
                                                                 </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">TV/LCD/LED
-                                                                    </a>
+                                                                <?php } ?>
+                                                                <?php foreach ($scategory as $s) { ?>
+                                                                <li class="has-separator">
+                                                                    <a
+                                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
                                                                 </li>
+                                                                <?php } ?>
+
+                                                                <?php foreach ($sscategory as $ss) { ?>
+                                                                <li class="">
+                                                                    <a
+                                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                                                </li>
+                                                                <?php } ?>
                                                             </ul>
                                                             <h6 class="item-title">
-                                                                <a href="single-product.php">Hisense 4k LED
-                                                                    TV</a>
+                                                                <a
+                                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
                                                             </h6>
+
                                                             <div class="item-stars">
                                                                 <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
+                                                                    title="4.5 out of 5 - based on 23 Reviews">
+                                                                    <span style='width: 65px;'></span>
                                                                 </div>
-                                                                <span>(0)</span>
+                                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                                             </div>
                                                         </div>
                                                         <div class="price-template">
                                                             <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
+                                                                Frw <?php echo number_format($p->productPrice, 2); ?>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="tag new">
-                                                        <span>NEW</span>
-                                                    </div>
+                                                    <?php
+                                                        // If there is a review on a product , then display that it's New
+                                                        if (productReview::count_by_product($p->id) >= 1) {
+                                                            echo "<div class='tag new'><span>New</span></div>";
+                                                        } elseif ($p->productPrice <= 10000) {
+                                                            echo "<div class='tag hot'><span>HOT</span></div>";
+                                                        } ?>
                                                 </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Consumer
-                                                                        Electronics
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">TV/LCD/LED
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">TCL 4k LED TV</a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Consumer
-                                                                        Electronics
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">TV/LCD/LED
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">Sony 4k LED TV
-                                                                </a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tag sale">
-                                                        <span>SALE</span>
-                                                    </div>
-                                                </div>
-                                                <div class="item">
-                                                    <div class="image-container">
-                                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                                            <img class="img-fluid" src="images/product/product@3x.jpg"
-                                                                alt="Product">
-                                                        </a>
-                                                        <div class="item-action-behaviors">
-                                                            <a class="item-quick-look" data-toggle="modal"
-                                                                href="#quick-view">Quick Look</a>
-                                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                                Wishlist
-                                                            </a>
-                                                            <a class="item-addCart item-addCartBTN "
-                                                                data-id='<?php echo $p->id; ?>'>Add
-                                                                to
-                                                                Cart
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <div class="what-product-is">
-                                                            <ul class="bread-crumb">
-                                                                <li class="has-separator">
-                                                                    <a href="shop-v1-root-category.php">Consumer
-                                                                        Electronics
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="shop-v2-sub-category.php">TV/LCD/LED
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <h6 class="item-title">
-                                                                <a href="single-product.php">China Petrei 4k LED
-                                                                    TV</a>
-                                                            </h6>
-                                                            <div class="item-stars">
-                                                                <div class='star'
-                                                                    title="0 out of 5 - based on 0 Reviews">
-                                                                    <span style='width:0'></span>
-                                                                </div>
-                                                                <span>(0)</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="price-template">
-                                                            <div class="item-new-price">
-                                                                $55.00
-                                                            </div>
-                                                            <div class="item-old-price">
-                                                                $60.00
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tag discount">
-                                                        <span>-15%</span>
-                                                    </div>
-                                                </div>
+
+                                                <?php } ?>
+
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -2366,32 +1485,293 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                         </div>
                     </div>
                     <div class="tab-pane fade" id="consumer-best-selling-products">
-                        <!-- Product Not Found -->
-                        <div class="product-not-found">
-                            <div class="not-found">
-                                <h2>SORRY!</h2>
-                                <h6>There is not any product in specific catalogue.</h6>
+                        <!-- Best Consumer Electronics product -->
+
+                        <div class="slider-fouc">
+                            <div class="products-slider owl-carousel" data-item="4">
+                                <!-- Get all the Consumer electronics from the database  -->
+                                <?php
+                                $accessory = Product::find_all_by_Category([5]);
+
+                                foreach ($accessory as $p) {
+                                    $category = Category::find_product_category($p->id);
+                                    $scategory = SubCategory::find_product_category($p->id);
+                                    $sscategory = SubSubCategory::find_product_category($p->id);
+
+                                    $stock = ProductStock::find_by_product_id($p->id);
+                                    $colors = Color::find_product_category($p->id);
+                                    $size = Size::find_product_category($p->id);
+                                ?>
+
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link"
+                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                            style="overflow:hidden; height:280px;">
+                                            <img class="img-fluid"
+                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                                alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look quick-view-product"
+                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                Look</a>
+                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                            <a class="item-addwishlist item-addwishlistBTN"
+                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'
+                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <?php foreach ($category as $c) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                                <?php foreach ($scategory as $s) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
+                                                </li>
+                                                <?php } ?>
+
+                                                <?php foreach ($sscategory as $ss) { ?>
+                                                <li class="">
+                                                    <a
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a
+                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
+                                            </h6>
+
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width: 65px;'></span>
+                                                </div>
+                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                Frw <?php echo number_format($p->productPrice, 2); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        // If there is a review on a product , then display that it's New
+                                        if (productReview::count_by_product($p->id) >= 1) {
+                                            echo "<div class='tag new'><span>New</span></div>";
+                                        } elseif ($p->productPrice <= 10000) {
+                                            echo "<div class='tag hot'><span>HOT</span></div>";
+                                        } ?>
+                                </div>
+
+                                <?php } ?>
+
+
+
                             </div>
                         </div>
-                        <!-- Product Not Found /- -->
+
+
+
                     </div>
                     <div class="tab-pane fade" id="consumer-top-rating-products">
-                        <!-- Product Not Found -->
-                        <div class="product-not-found">
-                            <div class="not-found">
-                                <h2>SORRY!</h2>
-                                <h6>There is not any product in specific catalogue.</h6>
+                        <div class="slider-fouc">
+                            <div class="products-slider owl-carousel" data-item="4">
+                                <!-- Get all the Clothing from the database  -->
+                                <?php
+                                $accessory = Product::find_all_by_Category([4, 5]);
+
+                                foreach ($accessory as $p) {
+                                    $category = Category::find_product_category($p->id);
+                                    $scategory = SubCategory::find_product_category($p->id);
+                                    $sscategory = SubSubCategory::find_product_category($p->id);
+
+                                    $stock = ProductStock::find_by_product_id($p->id);
+                                    $colors = Color::find_product_category($p->id);
+                                    $size = Size::find_product_category($p->id);
+                                ?>
+
+                                <div class="item">
+                                    <div class="image-container">
+                                        <a class="item-img-wrapper-link"
+                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                            style="overflow:hidden; height:280px;">
+                                            <img class="img-fluid"
+                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                                alt="Product">
+                                        </a>
+                                        <div class="item-action-behaviors">
+                                            <a class="item-quick-look quick-view-product"
+                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                Look</a>
+                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                            <a class="item-addwishlist item-addwishlistBTN"
+                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                Wishlist</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'
+                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="what-product-is">
+                                            <ul class="bread-crumb">
+                                                <?php foreach ($category as $c) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                                <?php foreach ($scategory as $s) { ?>
+                                                <li class="has-separator">
+                                                    <a
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
+                                                </li>
+                                                <?php } ?>
+
+                                                <?php foreach ($sscategory as $ss) { ?>
+                                                <li class="">
+                                                    <a
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                                </li>
+                                                <?php } ?>
+                                            </ul>
+                                            <h6 class="item-title">
+                                                <a
+                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
+                                            </h6>
+
+                                            <div class="item-stars">
+                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width: 65px;'></span>
+                                                </div>
+                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
+                                            </div>
+                                        </div>
+                                        <div class="price-template">
+                                            <div class="item-new-price">
+                                                Frw <?php echo number_format($p->productPrice, 2); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                        // If there is a review on a product , then display that it's New
+                                        if (productReview::count_by_product($p->id) >= 1) {
+                                            echo "<div class='tag new'><span>New</span></div>";
+                                        } elseif ($p->productPrice <= 10000) {
+                                            echo "<div class='tag hot'><span>HOT</span></div>";
+                                        } ?>
+                                </div>
+
+                                <?php } ?>
+
+
+
                             </div>
                         </div>
-                        <!-- Product Not Found /- -->
                     </div>
                     <div class="tab-pane fade" id="consumer-featured-products">
                         <!-- Product Not Found -->
-                        <div class="product-not-found">
-                            <div class="not-found">
-                                <h2>SORRY!</h2>
-                                <h6>There is not any product in specific catalogue.</h6>
+                        <div class="products-slider owl-carousel" data-item="4">
+                            <!-- Get all the Clothing from the database  -->
+                            <?php
+                            $accessory = Product::find_all_by_Category([4, 5]);
+
+                            foreach ($accessory as $p) {
+                                $category = Category::find_product_category($p->id);
+                                $scategory = SubCategory::find_product_category($p->id);
+                                $sscategory = SubSubCategory::find_product_category($p->id);
+
+                                $stock = ProductStock::find_by_product_id($p->id);
+                                $colors = Color::find_product_category($p->id);
+                                $size = Size::find_product_category($p->id);
+                            ?>
+
+                            <div class="item">
+                                <div class="image-container">
+                                    <a class="item-img-wrapper-link" href="view-product.php?id=<?php echo $p->id; ?>"
+                                        style="overflow:hidden; height:280px;">
+                                        <img class="img-fluid"
+                                            src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                            alt="Product">
+                                    </a>
+                                    <div class="item-action-behaviors">
+                                        <a class="item-quick-look quick-view-product"
+                                            data-id='<?php echo $p->id; ?>'>Quick
+                                            Look</a>
+                                        <a class="item-addwishlist item-addwishlistBTN"
+                                            data-id='<?php echo $p->id; ?>'>Add to
+                                            Wishlist</a>
+                                        <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'
+                                            data-id='<?php echo $p->id; ?>'>Add to
+                                            Cart</a>
+                                    </div>
+                                </div>
+                                <div class="item-content">
+                                    <div class="what-product-is">
+                                        <ul class="bread-crumb">
+                                            <?php foreach ($category as $c) { ?>
+                                            <li class="has-separator">
+                                                <a
+                                                    href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
+                                            </li>
+                                            <?php } ?>
+                                            <?php foreach ($scategory as $s) { ?>
+                                            <li class="has-separator">
+                                                <a
+                                                    href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
+                                            </li>
+                                            <?php } ?>
+
+                                            <?php foreach ($sscategory as $ss) { ?>
+                                            <li class="">
+                                                <a
+                                                    href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                            </li>
+                                            <?php } ?>
+                                        </ul>
+                                        <h6 class="item-title">
+                                            <a
+                                                href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
+                                        </h6>
+
+                                        <div class="item-stars">
+                                            <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                                                <span style='width: 65px;'></span>
+                                            </div>
+                                            <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
+                                        </div>
+                                    </div>
+                                    <div class="price-template">
+                                        <div class="item-new-price">
+                                            Frw <?php echo number_format($p->productPrice, 2); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                                    // If there is a review on a product , then display that it's New
+                                    if (productReview::count_by_product($p->id) >= 1) {
+                                        echo "<div class='tag new'><span>New</span></div>";
+                                    } elseif ($p->productPrice <= 10000) {
+                                        echo "<div class='tag hot'><span>HOT</span></div>";
+                                    } ?>
                             </div>
+
+                            <?php } ?>
+
+
+
                         </div>
                         <!-- Product Not Found /- -->
                     </div>
@@ -2408,7 +1788,7 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
 <!-- Consumer-Electronics /- -->
 <!-- Continue-Link -->
 <div class="continue-link-wrapper u-s-p-b-80">
-    <a class="continue-link" href="store-directory.php" title="View all products on site">
+    <a class="continue-link" href="search.php" title="View all products on site">
         <i class="ion ion-ios-more"></i>
     </a>
 </div>
