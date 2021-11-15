@@ -33,7 +33,7 @@ require_once(PRIVATE_PATH . "/shared/public_header.php");
             <div class="col-lg-6 col-md-12">
                 <div class="about-me-image u-s-m-b-30">
                     <div class="banner-hover effect-border-scaling-gray">
-                        <img class="img-fluid" src="images/about/about-1.jpg" alt="About Picture">
+                        <img class="img-fluid" src="images/about/about-1.svg" alt="About Picture">
                     </div>
                 </div>
                 <div class="about-social text-center u-s-m-b-30">
