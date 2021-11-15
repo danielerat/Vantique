@@ -13,15 +13,16 @@ if (is_post_request()) {
     $_args['deliveryNote'] = $_POST['deliveryNote'];
     $_args['payment'] = $_POST['payment'];
     $order = new UserOrder($_args);
+    // Save the Order In the Order Table
     $result = $order->save();
     if ($result) {
         foreach ($cartDb as $p) {
-            $orderItem = new OrderItem(["orderId" => $orderId, "productId" => $p->id, "quantity" => $p->quantity]);
+            $orderItem = new OrderItem(["orderId" => $orderId, "productId" => $p->productId, "quantity" => $p->quantity]);
             $orderItem->save();
-            if ($p->delete_by_cart_id($p->id)) {
-                redirect_to("orderConfirmation.php");
-            }
+            // Delete Product From 
+            $p->delete_by_cart_id($p->id);
         }
+        redirect_to("orderConfirmation.php");
     }
 }
 ?>

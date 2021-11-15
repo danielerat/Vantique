@@ -18,4 +18,12 @@ class OrderItem extends DatabaseObject
         $this->quantity = $args['quantity'] ?? "";
         $this->addedOn = $args['addedOn'] ?? date('Y-m-d H:i:s');
     }
+
+
+    static public function find_all_item($id)
+    {
+        $sql = "SELECT * FROM " . static::$table_name;
+        $sql .= " Where orderId='" . self::$db->escape_string($id) . "';";
+        return static::find_by_sql($sql);
+    }
 }

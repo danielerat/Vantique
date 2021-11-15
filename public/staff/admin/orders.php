@@ -69,7 +69,8 @@ echo display_session_message();
                                 </td>
                                 <td class=" text-truncate">
                                     <a href="#" class="m-1 btn btn-success btn-sm"><i class="fas fa-check"></i></a>
-                                    <a href="#" class="m-1 btn btn-info btn-sm"><i class="fas fa-info-circle"></i></a>
+                                    <a href="invoice.php?id=<?php echo $o->orderId; ?>"
+                                        class="m-1 btn btn-info btn-sm"><i class="fas fa-info-circle"></i></a>
                                     <a href="#" class="m-1 btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
