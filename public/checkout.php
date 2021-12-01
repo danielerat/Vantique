@@ -22,7 +22,7 @@ if (is_post_request()) {
             // Delete Product From 
             $p->delete_by_cart_id($p->id);
         }
-        redirect_to("orderConfirmation.php");
+        redirect_to("orderConfirmation.php?id={$orderId}");
     }
 }
 ?>
@@ -284,6 +284,8 @@ if (is_post_request()) {
                                 $add = Address::find_last_address($session_user->username);
                             ?>
                         <div class="col-lg-6">
+                            <a href="register_address.php"><i class="fas fa-edit text-warning"></i>Change
+                                Address</a>
 
                             <div class="p-1 rounded bg-success ">
                                 <div class="card h-100">
@@ -327,6 +329,7 @@ if (is_post_request()) {
                                                     <span class="text-success mr-2"><i
                                                             class="fa fa-road"></i>Location:</span>
                                                     <?php echo ellipse_of($add->description, 30); ?>
+
                                                 </div>
                                             </div>
 

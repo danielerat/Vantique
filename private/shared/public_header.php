@@ -144,7 +144,7 @@ function find_right_icon($icon)
                                 <ul class="g-dropdown" style="width:200px">
                                     <li>
                                         <a href="cart.php">
-                                            <i class="fas fa-cog u-s-m-r-9"></i>
+                                            <i class="fas fa-fw fa-cart-arrow-down"></i>
                                             My Cart</a>
                                     </li>
                                     <li>

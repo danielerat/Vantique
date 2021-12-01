@@ -551,406 +551,98 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                     <div class="tab-pane active show fade" id="toys-latest-products">
                         <div class="slider-fouc">
                             <div class="products-slider owl-carousel" data-item="4">
+
+
+
+                                <!-- Get all the Clothing from the database  -->
+                                <?php
+                                $clothing = Product::find_all_by_Category([3]);
+
+
+                                foreach ($clothing as $p) {
+                                    $category = Category::find_product_category($p->id);
+                                    $scategory = SubCategory::find_product_category($p->id);
+                                    $sscategory = SubSubCategory::find_product_category($p->id);
+
+                                    $stock = ProductStock::find_by_product_id($p->id);
+                                    $colors = Color::find_product_category($p->id);
+                                    $size = Size::find_product_category($p->id);
+                                ?>
+
                                 <div class="item">
                                     <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        <a class="item-img-wrapper-link"
+                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                            style="overflow:hidden; height:280px;">
+                                            <img class="img-fluid"
+                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                                alt="Product">
                                         </a>
                                         <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
+                                            <a class="item-quick-look quick-view-product"
+                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                Look</a>
+                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                            <a class="item-addwishlist item-addwishlistBTN"
+                                                data-id='<?php echo $p->id; ?>'>Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'
+                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
                                         <div class="what-product-is">
                                             <ul class="bread-crumb">
+                                                <?php foreach ($category as $c) { ?>
                                                 <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                    <a
+                                                        href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
                                                 </li>
+                                                <?php } ?>
+                                                <?php foreach ($scategory as $s) { ?>
                                                 <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                    <a
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
                                                 </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Helicopte</a>
+                                                <?php } ?>
+
+                                                <?php foreach ($sscategory as $ss) { ?>
+                                                <li class="">
+                                                    <a
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
                                                 </li>
+                                                <?php } ?>
                                             </ul>
                                             <h6 class="item-title">
-                                                <a href="single-product.php">RC Helicopter 6-Cell</a>
+                                                <a
+                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
                                             </h6>
+
                                             <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
+                                                <div class=' star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width: 65px;'></span>
                                                 </div>
-                                                <span>(0)</span>
+                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                             </div>
                                         </div>
                                         <div class="price-template">
                                             <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
+                                                Frw <?php echo number_format($p->productPrice, 2); ?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tag new">
-                                        <span>NEW</span>
-                                    </div>
+                                    <?php
+                                        // If there is a review on a product , then display that it's New
+                                        if (productReview::count_by_product($p->id) >= 1) {
+                                            echo "<div class='tag new'><span>New</span></div>";
+                                        } elseif ($p->productPrice <= 10000) {
+                                            echo "<div class='tag hot'><span>HOT</span></div>";
+                                        } ?>
                                 </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">DJI Phantom with 1080p Camera</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">DJI Inspire with 1080p Camera</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">DJI Phantom with Battery Lights</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tag new">
-                                        <span>NEW</span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">DJI Mavic Air
-                                                </a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tag sale">
-                                        <span>SALE</span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">U45 Raven RC Quadcopter
-                                                </a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">DJI Inspire 1 with 1080p Camera
-                                                </a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">DJI Inspire 1 with 360° Camera
-                                                </a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
-                                                    <span style='width:0'></span>
-                                                </div>
-                                                <span>(0)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tag discount">
-                                        <span>-15%</span>
-                                    </div>
-                                </div>
+
+                                <?php } ?>
+
                             </div>
                         </div>
                     </div>
@@ -967,206 +659,98 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                     <div class="tab-pane fade" id="toys-top-rating-products">
                         <div class="slider-fouc">
                             <div class="products-slider owl-carousel" data-item="4">
+
+
+
+                                <!-- Get all the Clothing from the database  -->
+                                <?php
+                                $clothing = Product::find_all_by_Category([3]);
+
+
+                                foreach ($clothing as $p) {
+                                    $category = Category::find_product_category($p->id);
+                                    $scategory = SubCategory::find_product_category($p->id);
+                                    $sscategory = SubSubCategory::find_product_category($p->id);
+
+                                    $stock = ProductStock::find_by_product_id($p->id);
+                                    $colors = Color::find_product_category($p->id);
+                                    $size = Size::find_product_category($p->id);
+                                ?>
+
                                 <div class="item">
                                     <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
+                                        <a class="item-img-wrapper-link"
+                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                            style="overflow:hidden; height:280px;">
+                                            <img class="img-fluid"
+                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                                alt="Product">
                                         </a>
                                         <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
+                                            <a class="item-quick-look quick-view-product"
+                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                Look</a>
+                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                            <a class="item-addwishlist item-addwishlistBTN"
+                                                data-id='<?php echo $p->id; ?>'>Add to
                                                 Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
+                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'
+                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                Cart</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
                                         <div class="what-product-is">
                                             <ul class="bread-crumb">
+                                                <?php foreach ($category as $c) { ?>
                                                 <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
+                                                    <a
+                                                        href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
                                                 </li>
+                                                <?php } ?>
+                                                <?php foreach ($scategory as $s) { ?>
                                                 <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
+                                                    <a
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
                                                 </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
+                                                <?php } ?>
+
+                                                <?php foreach ($sscategory as $ss) { ?>
+                                                <li class="">
+                                                    <a
+                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
                                                 </li>
+                                                <?php } ?>
                                             </ul>
                                             <h6 class="item-title">
-                                                <a href="single-product.php">DJI Mavic Air
-                                                </a>
+                                                <a
+                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
                                             </h6>
+
                                             <div class="item-stars">
-                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                    <span style='width:67px'></span>
+                                                <div class=' star' title="4.5 out of 5 - based on 23 Reviews">
+                                                    <span style='width: 65px;'></span>
                                                 </div>
-                                                <span>(23)</span>
+                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
                                             </div>
                                         </div>
                                         <div class="price-template">
                                             <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
+                                                Frw <?php echo number_format($p->productPrice, 2); ?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tag sale">
-                                        <span>SALE</span>
-                                    </div>
+                                    <?php
+                                        // If there is a review on a product , then display that it's New
+                                        if (productReview::count_by_product($p->id) >= 1) {
+                                            echo "<div class='tag new'><span>New</span></div>";
+                                        } elseif ($p->productPrice <= 10000) {
+                                            echo "<div class='tag hot'><span>HOT</span></div>";
+                                        } ?>
                                 </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">U45 Raven RC Quadcopter
-                                                </a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                    <span style='width:67px'></span>
-                                                </div>
-                                                <span>(23)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">DJI Inspire 1 with 1080p Camera</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                    <span style='width:67px'></span>
-                                                </div>
-                                                <span>(23)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="image-container">
-                                        <a class="item-img-wrapper-link" href="single-product.php">
-                                            <img class="img-fluid" src="images/product/product@3x.jpg" alt="Product">
-                                        </a>
-                                        <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist item-addwishlistBTN">Add to
-                                                Wishlist</a>
-                                            <a class="item-addCart item-addCartBTN " data-id='<?php echo $p->id; ?>'>Add
-                                                to Cart</a>
-                                        </div>
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="what-product-is">
-                                            <ul class="bread-crumb">
-                                                <li class="has-separator">
-                                                    <a href="shop-v1-root-category.php">Toys Drones</a>
-                                                </li>
-                                                <li class="has-separator">
-                                                    <a href="shop-v2-sub-category.php">RC Toys & Hobbies</a>
-                                                </li>
-                                                <li>
-                                                    <a href="shop-v3-sub-sub-category.php">RC Drone</a>
-                                                </li>
-                                            </ul>
-                                            <h6 class="item-title">
-                                                <a href="single-product.php">DJI Inspire 1 with 360° Camera</a>
-                                            </h6>
-                                            <div class="item-stars">
-                                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                                    <span style='width:67px'></span>
-                                                </div>
-                                                <span>(23)</span>
-                                            </div>
-                                        </div>
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                $55.00
-                                            </div>
-                                            <div class="item-old-price">
-                                                $60.00
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tag discount">
-                                        <span>-15%</span>
-                                    </div>
-                                </div>
+
+                                <?php } ?>
+
                             </div>
                         </div>
                     </div>
@@ -1234,7 +818,7 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#phones" title="TV's">
+                                        <a class="nav-link" data-toggle="tab" href="#phones" title="Phones">
                                             <i class="ion ion-ios-phone-portrait"></i>
                                         </a>
                                     </li>
@@ -1461,14 +1045,102 @@ document.querySelector('.full-layer-bottom-header .v-menu').classList.remove('v-
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="cam-corder">
-                                        <!-- Product Not Found -->
-                                        <div class="product-not-found">
-                                            <div class="not-found">
-                                                <h2>SORRY!</h2>
-                                                <h6>There is not any product in specific catalogue.</h6>
+                                        <div class="slider-fouc">
+                                            <div class="products-slider owl-carousel" data-item="4">
+                                                <!-- Get all the Clothing from the database  -->
+                                                <?php
+                                                $accessory = Product::find_all_by_subCategory([28]);
+
+                                                foreach ($accessory as $p) {
+                                                    $category = Category::find_product_category($p->id);
+                                                    $scategory = SubCategory::find_product_category($p->id);
+                                                    $sscategory = SubSubCategory::find_product_category($p->id);
+
+                                                    $stock = ProductStock::find_by_product_id($p->id);
+                                                    $colors = Color::find_product_category($p->id);
+                                                    $size = Size::find_product_category($p->id);
+                                                ?>
+
+                                                <div class="item">
+                                                    <div class="image-container">
+                                                        <a class="item-img-wrapper-link"
+                                                            href="view-product.php?id=<?php echo $p->id; ?>"
+                                                            style="overflow:hidden; height:280px;">
+                                                            <img class="img-fluid"
+                                                                src="<?php echo  S_PRIVATE . '/uploads/' . $p->productThumb; ?>"
+                                                                alt="Product">
+                                                        </a>
+                                                        <div class="item-action-behaviors">
+                                                            <a class="item-quick-look quick-view-product"
+                                                                data-id='<?php echo $p->id; ?>'>Quick
+                                                                Look</a>
+                                                            <!-- <a class="item-mail" href="javascript:void(0)">Mail</a> -->
+                                                            <a class="item-addwishlist item-addwishlistBTN"
+                                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                                Wishlist</a>
+                                                            <a class="item-addCart item-addCartBTN "
+                                                                data-id='<?php echo $p->id; ?>'
+                                                                data-id='<?php echo $p->id; ?>'>Add to
+                                                                Cart</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-content">
+                                                        <div class="what-product-is">
+                                                            <ul class="bread-crumb">
+                                                                <?php foreach ($category as $c) { ?>
+                                                                <li class="has-separator">
+                                                                    <a
+                                                                        href="search.php?category=<?php echo $c->id; ?>"><?php echo  ellipse_of(strtoupper($c->categoryName), 5); ?></a>
+                                                                </li>
+                                                                <?php } ?>
+                                                                <?php foreach ($scategory as $s) { ?>
+                                                                <li class="has-separator">
+                                                                    <a
+                                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id ?>'><?php echo ellipse_of(strtoupper($s->name), 8); ?></a>
+                                                                </li>
+                                                                <?php } ?>
+
+                                                                <?php foreach ($sscategory as $ss) { ?>
+                                                                <li class="">
+                                                                    <a
+                                                                        href='search.php?<?php echo "category=" . $c->id . "&sub-category=" . $s->id . "&sub-sub-category=" . $ss->id ?>'><?php echo ellipse_of(strtoupper($ss->name), 10); ?></a>
+                                                                </li>
+                                                                <?php } ?>
+                                                            </ul>
+                                                            <h6 class="item-title">
+                                                                <a
+                                                                    href="view-product.php?id=<?php echo $p->id; ?>"><?php echo ellipse_of($p->productName, 30); ?></a>
+                                                            </h6>
+
+                                                            <div class="item-stars">
+                                                                <div class='star'
+                                                                    title="4.5 out of 5 - based on 23 Reviews">
+                                                                    <span style='width: 65px;'></span>
+                                                                </div>
+                                                                <span>(<?php echo (productReview::count_by_product($p->id)); ?>)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="price-template">
+                                                            <div class="item-new-price">
+                                                                Frw <?php echo number_format($p->productPrice, 2); ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                        // If there is a review on a product , then display that it's New
+                                                        if (productReview::count_by_product($p->id) >= 1) {
+                                                            echo "<div class='tag new'><span>New</span></div>";
+                                                        } elseif ($p->productPrice <= 10000) {
+                                                            echo "<div class='tag hot'><span>HOT</span></div>";
+                                                        } ?>
+                                                </div>
+
+                                                <?php } ?>
+
+
+
                                             </div>
                                         </div>
-                                        <!-- Product Not Found /- -->
                                     </div>
                                     <div class="tab-pane fade" id="audio-amplifiers">
                                         <!-- Product Not Found -->

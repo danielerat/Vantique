@@ -1,6 +1,7 @@
 <?php
 require_once('../../../private/initialize.php');
 
+$page_title = "Admin Dashboared";
 
 include(SHARED_PATH . '/staff_header.php');
 
@@ -21,7 +22,7 @@ echo display_session_message();
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">Earnings (Monthly)
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">frw 0,000</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">frw 193,000</div>
                         <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
                                 0.00%</span>
@@ -42,7 +43,8 @@ echo display_session_message();
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">Sales</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <?php echo (UserOrder::find_number_of_sales([1, 3, 2, 4])->status); ?></div>
                         <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fas fa-money-bill"></i>
                             </span>
@@ -85,7 +87,8 @@ echo display_session_message();
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">Pending Requests
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <?php echo (UserOrder::find_number_of_sales([1])->status); ?></div>
                         <div class="mt-2 mb-0 text-muted text-xs">
 
                             <span class="text-danger mr-2"><i class="fas fa-flag"></i></span>
@@ -112,7 +115,8 @@ echo display_session_message();
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">Shipping
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <?php echo (UserOrder::find_number_of_sales([3])->status); ?></div>
                         <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fas fa-flag"></i>
                             </span>
@@ -138,7 +142,8 @@ echo display_session_message();
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-uppercase mb-1">Delivered
                         </div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <?php echo (UserOrder::find_number_of_sales([4])->status); ?></div>
                         <div class="mt-2 mb-0 text-muted text-xs">
                             <span class="text-success mr-2"><i class="fas fa-flag"></i>
                             </span>

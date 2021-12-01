@@ -43,7 +43,7 @@ if (empty($product)) {
             <div class='section-1-title-breadcrumb-rating'>
                 <div class='product-title'>
                     <h1>
-                        <a href='single-product.php'>Casual Hoodie Full Cotton</a>
+                        <a href='view-product.php?id=<?php echo $id; ?>'>Casual Hoodie Full Cotton</a>
                     </h1>
                 </div>
                 <ul class='bread-crumb'>

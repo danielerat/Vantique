@@ -139,7 +139,7 @@
                     </li>
                 </ul>
             </div>
-            <p class="copyright-text">Copyright &copy; 2018
+            <p class="copyright-text">Copyright &copy; 2021
                 <a href="home.php">Vantiquer</a> All Right Reserved
             </p>
         </div>
@@ -220,7 +220,7 @@
         <div class="modal-content">
             <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
             <div class="modal-body productModalBody">
-
+                ohh i am text on scewohwefhu
             </div>
         </div>
     </div>
@@ -340,6 +340,10 @@ function swaltoast(type, message) {
     })
 }
 
+
+
+
+
 // Quick Show Modal of an item
 $('.quick-view-product').click(function() {
     var productId = $(this).data('id');
@@ -355,6 +359,11 @@ $('.quick-view-product').click(function() {
         }
     });
 });
+
+
+
+
+
 
 // Add Item to The wishlist
 $('.item-addwishlistBTN').click(function() {

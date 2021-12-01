@@ -84,4 +84,26 @@ class UserOrder extends DatabaseObject
             return false;
         }
     }
+
+    static public function updateOrderStatus($id, $val)
+    {
+        $sql = "UPDATE " . static::$table_name . " SET status='" . self::$db->escape_string($val) . "' Where id='" . self::$db->escape_string($id) . "' limit 1;";
+        $result = self::$db->query($sql);
+        if ($result) {
+            echo true;
+        } else {
+            echo false;
+        }
+    }
+    static public function find_number_of_sales($id = [])
+    {
+        $sql = "SELECT count(*) as status FROM " . static::$table_name . " where status in (" . join(',', $id) . ");";
+        $object_array = static::find_by_sql($sql);
+        if (!empty($object_array)) {
+            // Since it's only one object then thre is no need to retrun a whole array with data 
+            return array_shift($object_array);
+        } else {
+            return false;
+        }
+    }
 }

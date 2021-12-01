@@ -173,18 +173,17 @@ include(SHARED_PATH . '/staff_header.php');
     }
 }
 </style>
-<!------ Include the above in your HEAD tag ---------->
-
-<!--Author      : @arboshiki-->
 
 <?php
 $id = $_GET['id'] ?? null;
 if ($id == null || empty($id)) {
-    header('Content-Type: application/');
-}
-if (empty($order = UserOrder::find_by_order_id($id))) {
+    header('Location: index.php');
 }
 
+$order = UserOrder::find_by_order_id($id);
+if (empty($order)) {
+    header('Location: index.php');
+}
 $user = User::find_by_username($order->username);
 ?>
 <div id="invoice">

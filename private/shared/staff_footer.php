@@ -47,6 +47,46 @@ function swaltoast(type, message) {
         title: message
     })
 }
+
+
+
+$('.confirmOrderToNext').click(function() {
+    var id = $(this).data('id');
+    var val = $(this).data('val');
+    // getting the new value of the current cart so that we can increment it
+
+    $.ajax({
+        url: '../../../private/ajax/update_order.php',
+        type: 'post',
+        data: {
+            id: id,
+            value: val
+        },
+        success: function(response) {
+
+
+            if (response == true) {
+                document.querySelector(".t-" + id).classList.add("d-none");
+                swaltoast("success", "Confirmation Successfully Added");
+
+            } else {
+                swaltoast("error", "Error Confirming the product");
+
+            }
+            //     swaltoast("success", "Item Added To Your Cart List");
+            //     var currentCount = parseInt($('.cartItemCounterUpdate').text());
+            //     var newCount = parseInt(currentCount + 1);
+            //     $('.cartItemCounterUpdate').html(newCount);
+            // } else if (response === 'Auth') {
+            //     swaltoast("info", "Please Login First ");
+            // } else if (response === 'Exist') {
+            //     swaltoast("info", "Item is Alread In Your Cart List :)");
+            // } else {
+            //     swaltoast("error", "Error Adding Your Product, try again later ");
+            // }
+        }
+    });
+});
 </script>
 </body>
 

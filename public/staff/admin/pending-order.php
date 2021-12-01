@@ -59,7 +59,7 @@ echo display_session_message();
 
 
 
-                            <tr>
+                            <tr class="t-<?php echo $o->id; ?>">
                                 <td><a href="#"><?php echo $o->orderId; ?></a></td>
                                 <td><?php echo $o->username; ?></td>
                                 <td><?php echo $o->deliverySpeed($o->deliveryMethod); ?></td>
@@ -69,7 +69,10 @@ echo display_session_message();
                                     <?php echo $o->getOrderStatus($o->status); ?>
                                 </td>
                                 <td class=" text-truncate">
-                                    <a href="#" class="m-1 btn btn-success btn-sm"><i class="fas fa-check"></i></a>
+                                    <a href="#" class="m-1 btn btn-success btn-sm confirmOrderToNext"
+                                        data-id="<?php echo $o->id ?>" data-val="<?php echo $o->status ?>"><i
+                                            class="fas fa-check"></i></a>
+
                                     <a href="#" class="m-1 btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
