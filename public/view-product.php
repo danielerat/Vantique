@@ -204,8 +204,7 @@ $size = Size::find_product_category($id);
                                     <?php echo $product->productDesc; ?> </p>
                                 <img class="desc-img img-fluid u-s-m-b-26"
                                     src="<?php echo S_PRIVATE . '/uploads/' . $img->image; ?>" alt="Product">
-                                <iframe class="desc-iframe u-s-m-b-45" width="710" height="400"
-                                    src="images/product/iframe-youtube.jpg" allowfullscreen></iframe>
+
                             </div>
                         </div>
                         <!-- Description-Tab /- -->
@@ -622,6 +621,9 @@ $size = Size::find_product_category($id);
 
             <!-- Recently-View-Products  -->
             <div class="slider-fouc">
+                <div class="sec-maker-header text-center">
+                    <h3 class="sec-maker-h3">PRODUCTS YOU MAY LIKE</h3>
+                </div>
                 <div class="products-slider owl-carousel" data-item="4">
 
                     <!-- Get all the Electronic Devicess from the database  -->

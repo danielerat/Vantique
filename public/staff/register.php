@@ -5,7 +5,7 @@ if (is_post_request()) {
     $admin = new Admin($args);
     $result = $admin->save();
     if ($result) {
-        $session->message($admin->username . ", Accout Was Successfully Created !");
+        $session_admin->message($admin->username . ", Accout Was Successfully Created !");
         redirect_to("index.php");
     } else {
         echo display_errors($admin->errors);
@@ -50,41 +50,27 @@ echo display_session_message();
                                     <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                                         <div class="form-group">
                                             <label>First Name</label>
-                                            <input type="text" class="form-control"
-                                                value="<?php echo $admin->first_name; ?>" name="admin[first_name]" id=""
-                                                placeholder="*Enter First Name" required>
+                                            <input type="text" class="form-control" value="<?php echo $admin->first_name; ?>" name="admin[first_name]" id="" placeholder="*Enter First Name" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Last Name</label>
-                                            <input type="text" class="form-control"
-                                                value="<?php echo $admin->last_name; ?>" name="admin[last_name]" id=""
-                                                placeholder="*Enter Last Name" required>
+                                            <input type="text" class="form-control" value="<?php echo $admin->last_name; ?>" name="admin[last_name]" id="" placeholder="*Enter Last Name" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Username</label>
-                                            <input type="text" class="form-control"
-                                                value="<?php echo $admin->username; ?>" name="admin[username]" id=""
-                                                aria-describedby="emailHelp" placeholder="*Enter Username" required>
+                                            <input type="text" class="form-control" value="<?php echo $admin->username; ?>" name="admin[username]" id="" aria-describedby="emailHelp" placeholder="*Enter Username" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="email" class="form-control"
-                                                value="<?php echo $admin->email; ?>" name="admin[email]" id=""
-                                                aria-describedby="emailHelp" placeholder="*Enter Email Address"
-                                                required>
+                                            <input type="email" class="form-control" value="<?php echo $admin->email; ?>" name="admin[email]" id="" aria-describedby="emailHelp" placeholder="*Enter Email Address" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Password</label>
-                                            <input type="password" class="form-control"
-                                                value="<?php echo $admin->password; ?>" name="admin[password]" id=""
-                                                placeholder="*Password" required>
+                                            <input type="password" class="form-control" value="<?php echo $admin->password; ?>" name="admin[password]" id="" placeholder="*Password" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Repeat Password</label>
-                                            <input type="password" class="form-control"
-                                                value="<?php echo $admin->confirm_password; ?>"
-                                                name="admin[confirm_password]" id="" placeholder="*Repeat Password"
-                                                required>
+                                            <input type="password" class="form-control" value="<?php echo $admin->confirm_password; ?>" name="admin[confirm_password]" id="" placeholder="*Repeat Password" required>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary btn-block">Register</button>
