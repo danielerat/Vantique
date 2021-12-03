@@ -50,7 +50,7 @@ class Address extends DatabaseObject
         $sql = " UPDATE " . static::$table_name . " SET ";
         $sql .= " active='0' where username='" . self::$db->escape_string($username) . "';";
         $sql .= " UPDATE " . static::$table_name . " SET active=1 ";
-        echo $sql .= " Where id='" . self::$db->escape_string($id) . "' and active='1' limit 1;";
+        $sql .= " Where id='" . self::$db->escape_string($id) . "' and active='1' limit 1;";
         // $result = self::$db->query($sql);
         // return $result;
     }

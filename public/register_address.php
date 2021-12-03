@@ -15,6 +15,7 @@ if (is_post_request()) {
     };
 }
 
+echo display_user_session_message();
 
 ?>
 

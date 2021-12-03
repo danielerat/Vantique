@@ -48,7 +48,7 @@ $size = Size::find_product_category($id);
                     <div class="section-1-title-breadcrumb-rating">
                         <div class="product-title">
                             <h1>
-                                <a href="single-product.html"><?php echo $product->productName; ?></a>
+                                <a href="#"><?php echo $product->productName; ?></a>
                             </h1>
                         </div>
                         <ul class="bread-crumb">
