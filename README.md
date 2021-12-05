@@ -1,38 +1,41 @@
 # Introduction
 
 This is simply a chat Application using The Best Practices in PHP
+Users can create accounts , add products to cart , have a wishlist
+buy , get receipt and pretty much everything a normal user can do on an E-commerce website. And as for the Admin, he can add product check user orders and Ready reviews , add Discounts etc... 
+
 
 Project Preview 
 ----------------
 
 >Landing Page (Home page)
-<img src="ReadMeDoc/home1.png " width="750" title="Cart">
-<img src="ReadMeDoc/home2.png " width="750" title="Cart">
+<img src="public/ReadMeDoc/home1.png " width="750" title="Cart">
+<img src="public/ReadMeDoc/home2.png " width="750" title="Cart">
 	
 >Product Preview 
-<img src="ReadMeDoc/pv.png " width="750" title="Cart">
+<img src="public/ReadMeDoc/pv.png " width="750" title="Cart">
 
 >Category Preview 
-<img src="ReadMeDoc/ctg.png " width="750" title="Cart">
+<img src="public/ReadMeDoc/ctg.png " width="750" title="Cart">
 
 
 
 >Product Listing 
-<img src="ReadMeDoc/pl.png " width="750" title="Cart">
+<img src="public/ReadMeDoc/pl.png " width="750" title="Cart">
 	
 
 >User Cart 
-<img src="ReadMeDoc/cart.png " width="750" title="Cart">
-<img src="ReadMeDoc/8.png " width="750" title="Cart">
+<img src="public/ReadMeDoc/cart.png " width="750" title="Cart">
+<img src="public/ReadMeDoc/8.png " width="750" title="Cart">
 	s
 
 
 >Admin Dashboard 
-<img src="ReadMeDoc/10.png " width="750" title="Dashboard">
+<img src="public/ReadMeDoc/10.png " width="750" title="Dashboard">
 
 
 >Checkout Page 
-<img src="ReadMeDoc/checout.png " width="750" title="Checkout">
+<img src="public/ReadMeDoc/checout.png " width="750" title="Checkout">
 
 
 # API Documentation
