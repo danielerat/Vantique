@@ -126,5 +126,5 @@ MIT
 
 
 
-https://www.postman.com/danielerat/workspace/chatapplicationurapi/collection/17257182-7fadd075-5f3f-4f10-befe-f70569b48da5
+https://www.postman.com/danielerat/workspace/vantique/collection/17257182-7fadd075-5f3f-4f10-befe-f70569b48da5
 
