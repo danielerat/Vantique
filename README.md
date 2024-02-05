@@ -1,9 +1,7 @@
 # Introduction
 
-This is simply a chat Application using The Best Practices in PHP
-Users can create accounts , add products to cart , have a wishlist
-buy , get receipt and pretty much everything a normal user can do on an E-commerce website. And as for the Admin, he can add product check user orders and Ready reviews , add Discounts etc... 
 
+Explore this PHP application embodying industry best practices. Users can seamlessly create accounts, manage carts, maintain wishlists, make purchases, receive receipts, and engage in typical E-commerce interactions. For administrators, functionalities include adding products, overseeing user orders, handling reviews, implementing discounts, and more.
 
 Project Preview 
 ----------------
